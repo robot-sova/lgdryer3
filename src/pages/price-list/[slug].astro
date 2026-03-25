@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { prices } from '../../data/prices';
+
+export function getStaticPaths() {
+  return Object.keys(prices).map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const price = prices[slug!];
+---
+
+<Layout title={`${price.name} | LG Dryer Repair Los Angeles`}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-blue">Price Guide</span>
+      <h1>{price.name}</h1>
+      <p class="subtitle">Transparent pricing — no hidden fees</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:800px">
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:3rem">{price.intro}</p>
+
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      {price.faqs.map(faq => (
+        <div class="faq-item">
+          <h3>{faq.q}</h3>
+          <p>{faq.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Get an Exact Quote</h2>
+      <p>Call us for a free phone estimate or book an $89 diagnostic visit (waived with repair).</p>
+      <div class="cta-buttons">
+        <a href="tel:3239907550" class="btn btn-primary btn-lg">Call (323) 990-7550</a>
+        <a href="/book" class="btn btn-secondary btn-lg">Book Online</a>
+      </div>
+    </div>
+  </section>
+</Layout>

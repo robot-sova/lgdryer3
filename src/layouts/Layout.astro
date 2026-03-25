@@ -1,0 +1,225 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'LG Dryer Repair Los Angeles | Same Day Service', description = 'Professional LG dryer repair in Los Angeles. Same-day service, certified technicians. Call (323) 990-7550.' } = Astro.props;
+
+const repairLinks = [
+  { slug: 'lg-dryer-heating-element-replacement', label: 'Heating Element Replacement' },
+  { slug: 'lg-dryer-thermal-fuse-replacement', label: 'Thermal Fuse Replacement' },
+  { slug: 'lg-dryer-drum-roller-replacement', label: 'Drum Roller Replacement' },
+  { slug: 'lg-dryer-igniter-replacement', label: 'Igniter Replacement' },
+  { slug: 'lg-dryer-motor-replacement', label: 'Motor Replacement' },
+  { slug: 'lg-dryer-drum-bearing-replacement', label: 'Drum Bearing Replacement' },
+  { slug: 'lg-dryer-belt-replacement', label: 'Belt Replacement' },
+  { slug: 'lg-dryer-idler-pulley-replacement', label: 'Idler Pulley Replacement' },
+  { slug: 'lg-dryer-gas-valve-replacement', label: 'Gas Valve Replacement' },
+  { slug: 'lg-dryer-drum-replacement', label: 'Drum Replacement' },
+];
+
+const symptomLinks = [
+  { slug: 'lg-dryer-not-heating', label: 'Not Heating' },
+  { slug: 'lg-dryer-not-spinning', label: 'Not Spinning' },
+  { slug: 'lg-dryer-not-starting', label: 'Not Starting' },
+  { slug: 'lg-dryer-making-noise', label: 'Making Noise' },
+  { slug: 'lg-dryer-not-drying', label: 'Not Drying' },
+  { slug: 'lg-dryer-door-wont-close', label: "Door Won't Close" },
+  { slug: 'lg-dryer-flow-sense-error', label: 'Flow Sense Error' },
+  { slug: 'lg-dryer-overheating', label: 'Overheating' },
+];
+
+const priceLinks = [
+  { slug: 'lg-dryer-drum-bearing-replacement-cost', label: 'Drum Bearing Replacement Cost' },
+  { slug: 'lg-dryer-belt-replacement-cost', label: 'Belt Replacement Cost' },
+  { slug: 'lg-dryer-drum-replacement-cost', label: 'Drum Replacement Cost' },
+  { slug: 'install-dryer-vent-cost', label: 'Install Dryer Vent Cost' },
+  { slug: 'lg-dryer-heating-element-replacement-cost', label: 'Heating Element Cost' },
+  { slug: 'lg-dryer-thermal-fuse-replacement-cost', label: 'Thermal Fuse Cost' },
+  { slug: 'lg-dryer-gas-valve-replacement-cost', label: 'Gas Valve Cost' },
+  { slug: 'lg-dryer-igniter-replacement-cost', label: 'Igniter Cost' },
+  { slug: 'lg-dryer-motor-replacement-cost', label: 'Motor Cost' },
+  { slug: 'lg-dryer-idler-pulley-replacement-cost', label: 'Idler Pulley Cost' },
+  { slug: 'lg-dryer-maintenance-cost', label: 'Maintenance Cost' },
+  { slug: 'lg-dryer-vent-cleaning', label: 'Vent Cleaning' },
+  { slug: 'lg-dryer-reverse-door-cost', label: 'Reverse Door Cost' },
+  { slug: 'lg-dryer-door-lock-replacement-cost', label: 'Door Lock Replacement Cost' },
+  { slug: 'dryer-and-washer-installation', label: 'Dryer & Washer Installation' },
+  { slug: 'dryer-cleaning-service-cost', label: 'Cleaning Service Cost' },
+];
+
+const laCounty = [
+  { slug: 'lg-dryer-repair-beverly-hills', label: 'Beverly Hills' },
+  { slug: 'lg-dryer-repair-manhattan-beach', label: 'Manhattan Beach' },
+  { slug: 'lg-dryer-repair-santa-monica', label: 'Santa Monica' },
+  { slug: 'lg-dryer-repair-west-hollywood', label: 'West Hollywood' },
+  { slug: 'lg-dryer-repair-pasadena', label: 'Pasadena' },
+  { slug: 'lg-dryer-repair-burbank', label: 'Burbank' },
+  { slug: 'lg-dryer-repair-glendale', label: 'Glendale' },
+  { slug: 'lg-dryer-repair-long-beach', label: 'Long Beach' },
+  { slug: 'lg-dryer-repair-torrance', label: 'Torrance' },
+  { slug: 'lg-dryer-repair-calabasas', label: 'Calabasas' },
+  { slug: 'lg-dryer-repair-malibu', label: 'Malibu' },
+];
+
+const orangeCounty = [
+  { slug: 'lg-dryer-repair-newport-beach', label: 'Newport Beach' },
+  { slug: 'lg-dryer-repair-laguna-beach', label: 'Laguna Beach' },
+  { slug: 'lg-dryer-repair-yorba-linda', label: 'Yorba Linda' },
+  { slug: 'lg-dryer-repair-mission-viejo', label: 'Mission Viejo' },
+  { slug: 'lg-dryer-repair-laguna-niguel', label: 'Laguna Niguel' },
+  { slug: 'lg-dryer-repair-irvine', label: 'Irvine' },
+];
+
+const venturaCounty = [
+  { slug: 'lg-dryer-repair-moorpark', label: 'Moorpark' },
+  { slug: 'lg-dryer-repair-thousand-oaks', label: 'Thousand Oaks' },
+  { slug: 'lg-dryer-repair-westlake-village', label: 'Westlake Village' },
+  { slug: 'lg-dryer-repair-camarillo', label: 'Camarillo' },
+  { slug: 'lg-dryer-repair-simi-valley', label: 'Simi Valley' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
+      <a href="/" class="nav-logo"><span class="lg-badge">LG</span> lgdryer.repair</a>
+
+      <div class="nav-links">
+        <div class="nav-item">
+          <button>Repair ▾</button>
+          <div class="dropdown">
+            {repairLinks.map(r => <a href={`/repairs/${r.slug}`}>{r.label}</a>)}
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button>Symptoms ▾</button>
+          <div class="dropdown">
+            {symptomLinks.map(s => <a href={`/symptoms/${s.slug}`}>{s.label}</a>)}
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button>Price List ▾</button>
+          <div class="dropdown">
+            {priceLinks.slice(0, 4).map(p => <a href={`/price-list/${p.slug}`}>{p.label}</a>)}
+            <a href="/price-list/lg-dryer-heating-element-replacement-cost" style="border-top:1px solid rgba(255,255,255,0.06);margin-top:.25rem;padding-top:.65rem">View all prices →</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button>Areas ▾</button>
+          <div class="dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div>
+                <h4>LA County</h4>
+                {laCounty.map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+              </div>
+              <div>
+                <h4>Orange County</h4>
+                {orangeCounty.map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+              </div>
+              <div>
+                <h4>Ventura County</h4>
+                {venturaCounty.map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="tel:3239907550" class="nav-cta btn">(323) 990-7550</a>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-overlay" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+
+    <div class="mobile-section">
+      <h4>Repair Services</h4>
+      {repairLinks.map(r => <a href={`/repairs/${r.slug}`}>{r.label}</a>)}
+    </div>
+    <div class="mobile-section">
+      <h4>Symptoms</h4>
+      {symptomLinks.map(s => <a href={`/symptoms/${s.slug}`}>{s.label}</a>)}
+    </div>
+    <div class="mobile-section">
+      <h4>Service Areas</h4>
+      {laCounty.slice(0,4).map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+      {orangeCounty.slice(0,2).map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+    </div>
+
+    <a href="tel:3239907550" class="mobile-cta">(323) 990-7550</a>
+  </div>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Contact</h4>
+          <p>Los Angeles, CA</p>
+          <p><a href="tel:3239907550">(323) 990-7550</a></p>
+          <p><a href="mailto:info@lgdryer.repair">info@lgdryer.repair</a></p>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p>Monday – Saturday: 8am – 7pm</p>
+          <p>Sunday: 9am – 5pm</p>
+          <p>Emergency service available</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            {repairLinks.slice(0,5).map(r => <li><a href={`/repairs/${r.slug}`}>{r.label}</a></li>)}
+          </ul>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/book">Book a Visit</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} lgdryer.repair — LG Dryer Repair Los Angeles. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    hamburgerBtn?.addEventListener('click', () => mobileMenu?.classList.add('active'));
+    mobileClose?.addEventListener('click', () => mobileMenu?.classList.remove('active'));
+    mobileMenu?.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) mobileMenu.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

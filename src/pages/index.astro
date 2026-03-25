@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('/images/lg-dryer-hero.jpg')"></div>
+    <div class="hero-content glass">
+      <span class="badge badge-blue">Same-day service available</span>
+      <h1>LG Dryer Repair in Los Angeles</h1>
+      <p class="subtitle">Certified technicians for all LG dryer models. Fast diagnostics, genuine parts, guaranteed results.</p>
+      <div class="hero-buttons">
+        <a href="tel:3239907550" class="btn btn-primary btn-lg">Call (323) 990-7550</a>
+        <a href="/book" class="btn btn-secondary btn-lg">Book a Visit</a>
+      </div>
+      <div class="trust-bar">
+        <span>&#10003; CSLB Licensed</span>
+        <span>&#10003; BBB Accredited</span>
+        <span>&#10003; Same-Day Service</span>
+        <span>&#10003; All LG Models</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column: AI Diagnostics + Booking -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col" style="position:relative;z-index:10;">
+        <!-- AI Diagnostics -->
+        <div class="glass">
+          <h2 style="font-size:1.35rem;margin-bottom:.35rem">AI Diagnostics</h2>
+          <p class="text-secondary" style="font-size:.9rem;margin-bottom:1rem">Describe your dryer issue or select symptoms below</p>
+
+          <div class="symptom-chips" id="symptomChips">
+            <button class="symptom-chip" data-symptom="Not heating">Not heating</button>
+            <button class="symptom-chip" data-symptom="Not spinning">Not spinning</button>
+            <button class="symptom-chip" data-symptom="Making noise">Making noise</button>
+            <button class="symptom-chip" data-symptom="Not starting">Not starting</button>
+            <button class="symptom-chip" data-symptom="Not drying">Not drying</button>
+            <button class="symptom-chip" data-symptom="Overheating">Overheating</button>
+            <button class="symptom-chip" data-symptom="Error code">Error code</button>
+            <button class="symptom-chip" data-symptom="Door issue">Door issue</button>
+          </div>
+
+          <textarea class="diagnose-textarea" id="diagnoseInput" placeholder="e.g. My LG dryer runs but clothes are still damp after a full cycle..." rows="4"></textarea>
+
+          <button class="btn btn-primary" id="diagnoseBtn" style="width:100%">Diagnose</button>
+
+          <div class="diagnose-result" id="diagnoseResult">
+            <p id="diagnoseText"></p>
+          </div>
+        </div>
+
+        <!-- Book a Visit -->
+        <div class="glass">
+          <h2 style="font-size:1.35rem;margin-bottom:.35rem">Book a Visit</h2>
+          <p class="text-secondary" style="font-size:.9rem;margin-bottom:1rem">Schedule your LG dryer repair appointment</p>
+
+          <div class="form-group">
+            <label for="bookDate">Preferred Date</label>
+            <input type="date" id="bookDate" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label for="bookTime">Preferred Time</label>
+            <select id="bookTime" class="form-input">
+              <option value="">Select a time...</option>
+              <option>8:00 AM - 10:00 AM</option>
+              <option>10:00 AM - 12:00 PM</option>
+              <option>12:00 PM - 2:00 PM</option>
+              <option>2:00 PM - 4:00 PM</option>
+              <option>4:00 PM - 6:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookPhone">Phone Number</label>
+            <input type="tel" id="bookPhone" class="form-input" placeholder="(___) ___-____" />
+          </div>
+
+          <div class="form-buttons">
+            <button class="btn btn-primary" style="flex:1">Confirm Booking</button>
+            <a href="tel:3239907550" class="btn btn-secondary" style="flex:1;justify-content:center">Call Me Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Symptom chips toggle
+  document.querySelectorAll('.symptom-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      chip.classList.toggle('active');
+      const textarea = document.getElementById('diagnoseInput') as HTMLTextAreaElement;
+      const active = document.querySelectorAll('.symptom-chip.active');
+      const symptoms = Array.from(active).map(c => (c as HTMLElement).dataset.symptom);
+      if (symptoms.length > 0) {
+        const current = textarea.value.replace(/^Selected symptoms:.*\n?/, '');
+        textarea.value = `Selected symptoms: ${symptoms.join(', ')}\n${current}`.trim();
+      }
+    });
+  });
+
+  // AI Diagnose
+  document.getElementById('diagnoseBtn')?.addEventListener('click', async () => {
+    const input = (document.getElementById('diagnoseInput') as HTMLTextAreaElement)?.value;
+    if (!input.trim()) return;
+
+    const resultDiv = document.getElementById('diagnoseResult')!;
+    const resultText = document.getElementById('diagnoseText')!;
+    const btn = document.getElementById('diagnoseBtn') as HTMLButtonElement;
+
+    btn.textContent = 'Analyzing...';
+    btn.disabled = true;
+    resultDiv.classList.add('visible');
+    resultText.textContent = 'Running diagnostics...';
+
+    try {
+      const apiKey = (import.meta as any).env.PUBLIC_ANTHROPIC_KEY;
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1024,
+          messages: [{
+            role: 'user',
+            content: `You are an expert LG dryer repair technician. A customer describes their LG dryer issue below. Provide a brief diagnosis: likely cause, recommended fix, estimated cost range, and urgency level. Be helpful and professional. Keep it concise (3-5 short paragraphs).\n\nCustomer issue: ${input}`
+          }]
+        })
+      });
+
+      const data = await res.json();
+      if (data.content?.[0]?.text) {
+        resultText.textContent = data.content[0].text;
+      } else if (data.error) {
+        resultText.textContent = `Error: ${data.error.message}`;
+      }
+    } catch (err: any) {
+      resultText.textContent = `Could not connect to AI service. Please call (323) 990-7550 for a free phone diagnosis.`;
+    }
+
+    btn.textContent = 'Diagnose';
+    btn.disabled = false;
+  });
+</script>
