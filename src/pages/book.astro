@@ -7,13 +7,13 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <span class="badge badge-blue">Schedule Service</span>
       <h1>Book Your LG Dryer Repair</h1>
-      <p class="subtitle">Same-day appointments available — $89 diagnostic fee waived with repair</p>
+      <p class="subtitle">Same-day appointments available — $65 diagnostic fee waived with repair</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container" style="max-width:600px">
-      <div class="glass">
+      <div class="glass" id="bookingForm">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" class="form-input" placeholder="John Smith" />
@@ -54,9 +54,69 @@ import Layout from '../layouts/Layout.astro';
           <textarea id="issue" class="diagnose-textarea" rows="4" placeholder="e.g. My dryer runs but doesn't heat..."></textarea>
         </div>
 
-        <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-bottom:.75rem">Confirm Booking</button>
+        <button id="confirmBtn" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-bottom:.75rem">Confirm Booking</button>
         <a href="tel:3239907550" class="btn btn-secondary btn-lg" style="width:100%;justify-content:center">Or Call (323) 990-7550</a>
+      </div>
+
+      <div id="bookingSuccess" class="glass" style="display:none;text-align:center;padding:3rem 2rem">
+        <div style="font-size:3rem;margin-bottom:1rem">✓</div>
+        <h2 style="margin-bottom:.5rem">Booking Confirmed!</h2>
+        <p class="text-secondary" id="successDetail">We'll call you to confirm within 15 minutes during business hours (Mon–Sat 8am–7pm).</p>
+        <a href="tel:3239907550" class="btn btn-primary" style="margin-top:1.5rem">Call (323) 990-7550</a>
       </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  const confirmBtn = document.getElementById('confirmBtn') as HTMLButtonElement;
+
+  confirmBtn?.addEventListener('click', async () => {
+    const phone = (document.getElementById('phone') as HTMLInputElement).value.trim();
+    if (!phone) { alert('Please enter your phone number.'); return; }
+
+    const name = (document.getElementById('name') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+    const address = (document.getElementById('address') as HTMLInputElement).value.trim();
+    const model = (document.getElementById('model') as HTMLInputElement).value.trim();
+    const date = (document.getElementById('date') as HTMLInputElement).value;
+    const time = (document.getElementById('time') as HTMLSelectElement).value;
+    const issue = (document.getElementById('issue') as HTMLTextAreaElement).value.trim();
+
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = 'Sending...';
+
+    const text = `📅 NEW BOOKING REQUEST\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\nModel: ${model}\nDate: ${date}\nTime: ${time}\nIssue: ${issue}`;
+
+    try {
+      // Send to Telegram
+      try {
+        await fetch(`https://api.telegram.org/bot${import.meta.env.PUBLIC_TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: import.meta.env.PUBLIC_TELEGRAM_CHAT_ID,
+            text: text
+          })
+        });
+      } catch (e) { console.error('TG error:', e); }
+
+      // Send email via server-side proxy
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'booking', phone, name, address, time: `${date} ${time}`, comments: `Model: ${model}\n${issue}` })
+        });
+      } catch (e) { console.error('Resend error:', e); }
+
+      // Show success
+      document.getElementById('bookingForm')!.style.display = 'none';
+      document.getElementById('bookingSuccess')!.style.display = 'block';
+    } catch {
+      alert('Network error. Please call (323) 990-7550 directly.');
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = 'Confirm Booking';
+    }
+  });
+</script>
