@@ -63,7 +63,7 @@ h1,h2,h3,h4,h5,h6{line-height:1.2;font-weight:700}
 @media(max-width:900px){
   .nav-links{display:none}
   .hamburger{display:block}
-  .mobile-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);display:none;flex-direction:column;padding:5rem 2rem 2rem}
+  .mobile-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);display:none;flex-direction:column;padding:5rem 2rem 2rem;overflow-y:auto;-webkit-overflow-scrolling:touch;max-height:100vh}
   .mobile-overlay.active{display:flex}
   .mobile-overlay .mobile-close{position:absolute;top:1rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.75rem;cursor:pointer}
   .mobile-overlay a,.mobile-overlay button{background:none;border:none;color:rgba(255,255,255,0.8);font-size:1.1rem;padding:.75rem 0;text-align:left;cursor:pointer;display:block}

@@ -161,6 +161,10 @@ const venturaCounty = [
       {symptomLinks.map(s => <a href={`/symptoms/${s.slug}`}>{s.label}</a>)}
     </div>
     <div class="mobile-section">
+      <h4>Price List</h4>
+      {priceLinks.map(p => <a href={`/price-list/${p.slug}`}>{p.label}</a>)}
+    </div>
+    <div class="mobile-section">
       <h4>Service Areas</h4>
       {laCounty.slice(0,4).map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
       {orangeCounty.slice(0,2).map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
