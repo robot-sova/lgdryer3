@@ -32,7 +32,7 @@ const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, 
   <!-- HERO IMAGE -->
   {heroImg ? (
     <div>
-      <img class="article-hero-img" style="height:360px; object-fit:cover; object-position: center 30%; width:100%;" src={heroImg} alt={`LG Dryer Repair ${city}`} />
+      <img class="article-hero-img" style="height:360px; object-fit:cover; object-position: center top; width:100%;" src={heroImg} alt={`LG Dryer Repair ${city}`} />
       {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
     </div>
   ) : (
