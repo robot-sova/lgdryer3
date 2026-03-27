@@ -260,31 +260,47 @@ import Layout from '../layouts/Layout.astro';
   });
 
   // ── Generic submit helper ──────────────────────────────────
-  async function submitForm(payload: object, btn: HTMLButtonElement, successMsg: string) {
+  async function submitForm(payload: any, btn: HTMLButtonElement, successMsg: string) {
     btn.disabled = true;
     const origText = btn.textContent;
     btn.textContent = 'Sending...';
 
+    const text = payload.type === 'callback'
+      ? `📞 NEW CALLBACK REQUEST\nPhone: ${payload.phone}`
+      : `📅 NEW BOOKING REQUEST\nPhone: ${payload.phone}\nName: ${payload.name || ''}\nAddress: ${payload.address || ''}\nTime: ${payload.time || ''}\nComments: ${payload.comments || ''}`;
+
     try {
-      const res = await fetch('/api/contact', {
+      // Send to Telegram
+      await fetch(`https://api.telegram.org/bot${import.meta.env.PUBLIC_TELEGRAM_BOT_TOKEN}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          chat_id: import.meta.env.PUBLIC_TELEGRAM_CHAT_ID,
+          text: text
+        })
       });
-      const data = await res.json();
 
-      if (data.ok) {
-        // Hide both forms, show success
-        formCallback.style.display = 'none';
-        formBooking.style.display  = 'none';
-        document.querySelector('.mode-switcher')!.setAttribute('style', 'display:none');
-        document.getElementById('successMsg')!.textContent = successMsg;
-        document.getElementById('formSuccess')!.style.display = 'block';
-      } else {
-        alert('Something went wrong. Please call (323) 990-7550 directly.');
-        btn.disabled = false;
-        btn.textContent = origText;
-      }
+      // Send email via Resend
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.PUBLIC_RESEND_API_KEY}`
+        },
+        body: JSON.stringify({
+          from: 'noreply@lgdryer.repair',
+          to: 'info@lgdryer.repair',
+          subject: payload.type === 'callback' ? '📞 New Callback Request' : '📅 New Booking Request',
+          text: text
+        })
+      });
+
+      // Show success
+      formCallback.style.display = 'none';
+      formBooking.style.display = 'none';
+      document.querySelector('.mode-switcher')!.setAttribute('style', 'display:none');
+      document.getElementById('successMsg')!.textContent = successMsg;
+      document.getElementById('formSuccess')!.style.display = 'block';
     } catch {
       alert('Network error. Please call (323) 990-7550 directly.');
       btn.disabled = false;
