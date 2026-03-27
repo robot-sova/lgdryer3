@@ -21,7 +21,9 @@
       "Bash(sed -i 's|<Breadcrumbs items={\\\\[{ label: \"\"Repairs\"\" }\\\\]} />|<Breadcrumbs slot=\"\"breadcrumbs\"\" items={[{ label: \"\"Repairs\"\" }]} />|' src/pages/repairs/index.astro)",
       "Bash(sed -i 's|<Breadcrumbs items={\\\\[{ label: \"\"Symptoms\"\" }\\\\]} />|<Breadcrumbs slot=\"\"breadcrumbs\"\" items={[{ label: \"\"Symptoms\"\" }]} />|' src/pages/symptoms/index.astro)",
       "Bash(sed -i 's|<Breadcrumbs items={\\\\[{ label: \"\"Price List\"\" }\\\\]} />|<Breadcrumbs slot=\"\"breadcrumbs\"\" items={[{ label: \"\"Price List\"\" }]} />|' src/pages/price-list/index.astro)",
-      "Bash(sed -i 's|<Breadcrumbs items={\\\\[{ label: \"\"Service Areas\"\" }\\\\]} />|<Breadcrumbs slot=\"\"breadcrumbs\"\" items={[{ label: \"\"Service Areas\"\" }]} />|' src/pages/areas/index.astro)"
+      "Bash(sed -i 's|<Breadcrumbs items={\\\\[{ label: \"\"Service Areas\"\" }\\\\]} />|<Breadcrumbs slot=\"\"breadcrumbs\"\" items={[{ label: \"\"Service Areas\"\" }]} />|' src/pages/areas/index.astro)",
+      "Bash(grep -v '//')",
+      "Bash(curl:*)"
     ]
   }
 }
