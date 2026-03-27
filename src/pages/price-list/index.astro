@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const prices = [
+  { slug: 'lg-dryer-heating-element-replacement-cost', label: 'Heating Element', cost: '$200–280' },
+  { slug: 'lg-dryer-thermal-fuse-replacement-cost', label: 'Thermal Fuse', cost: '$100–180' },
+  { slug: 'lg-dryer-drum-bearing-replacement-cost', label: 'Drum Bearing', cost: '$200–350' },
+  { slug: 'lg-dryer-belt-replacement-cost', label: 'Belt', cost: '$120–200' },
+  { slug: 'lg-dryer-drum-replacement-cost', label: 'Drum', cost: '$300–500' },
+  { slug: 'lg-dryer-gas-valve-replacement-cost', label: 'Gas Valve', cost: '$180–320' },
+  { slug: 'lg-dryer-igniter-replacement-cost', label: 'Igniter', cost: '$150–250' },
+  { slug: 'lg-dryer-motor-replacement-cost', label: 'Motor', cost: '$280–400' },
+  { slug: 'lg-dryer-maintenance-cost', label: 'Maintenance', cost: '$80–150' },
+  { slug: 'lg-dryer-repair-cost', label: 'General Repair', cost: '$150–350' },
+  { slug: 'dryer-vent-installation-cost', label: 'Vent Installation', cost: '$100–250' },
+];
+---
+
+<Layout title="LG Dryer Repair Price List | Los Angeles" description="Transparent LG dryer repair pricing in Los Angeles. Parts + labor costs for heating elements, thermal fuses, motors and more.">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: "Price List" }]} />
+  <div class="maintext">
+    <h1>LG Dryer Repair Price List</h1>
+    <p>Transparent pricing for all LG dryer repairs. All prices include OEM parts, labor, and 1-year warranty. $65 diagnostic fee waived with repair.</p>
+
+    <div class="index-grid">
+      {prices.map(p => (
+        <a href={`/price-list/${p.slug}`} class="index-card">
+          <div class="ic-name">{p.label}</div>
+          <div class="ic-cost">{p.cost}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Get an Exact Quote</h2>
+    <p>Call (323) 990-7550 for a precise estimate for your LG dryer model.</p>
+    <div class="cta-buttons">
+      <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
+  </div>
+</Layout>

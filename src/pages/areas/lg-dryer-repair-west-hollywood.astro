@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="Authorized LG Dryer Repair West Hollywood | Same Day Service"
   description="Professional LG dryer repair in West Hollywood. Same-day service, genuine parts, 85% first-visit fix rate. Licensed technicians, $65 diagnostic fee waived with repair."
+  city="West Hollywood"
+  county="Los Angeles"
+  zipCodes={["90046","90048","90069"]}
+  neighborhoods={["Sunset Strip","Santa Monica Blvd","Melrose","West Hollywood West","Norma Triangle","Kings Road"]}
+  featuredNeighborhoods={["Sunset Strip","Santa Monica Blvd","Melrose"]}
+  nearbyCities={["Beverly Hills","Hollywood","Fairfax","Hancock Park","Los Feliz"]}
+  testimonial={{text:"Professional service from start to finish. Fixed heating element on the spot.",author:"Chris M., Sunset Strip · 2 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Authorized LG Dryer Repair Services in West Hollywood</h1>
     <p>Your LG dryer just stopped mid-cycle, and you've got a full load of wet towels sitting inside. Nine times out of ten when we get calls from West Hollywood residents, it's because their dryer is running but not heating, or it's making that grinding noise that signals a worn drum roller bearing.</p>
+</Fragment>
 <h2>Find Your Nearest LG Service Center Location</h2>
 <p>Our authorized repair service covers all of West Hollywood, including zip codes 90069, 90048, and 90046. The first thing our techs tell customers is that location matters when you need genuine LG parts fast. We stock OEM components for ThinQ, Signature, DLGX, and DLEX series dryers right in our service vehicles. Most homeowners don't realize that aftermarket parts void their LG warranty completely. When you call (323) 990-7550, we can typically reach you within a few hours, even in those narrow West Hollywood streets where parking is tight. Our technicians know exactly which apartment complexes require advance notice and which buildings have loading dock restrictions.</p>
 <h3>West Hollywood Service Coverage Areas</h3>
@@ -41,8 +50,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>We only install OEM LG parts, never aftermarket components. Generic parts void your warranty and typically fail within months. Our techs carry genuine parts for ThinQ, Signature, DLGX, and DLEX series dryers right in their service vehicles.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 to schedule your LG dryer repair in West Hollywood. We'll give you an exact time window and explain what our technician will check when they arrive. Same-day service available Monday through Saturday, and we'll waive that $65 diagnostic fee when you approve the repair.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find an authorized LG dryer repair service in West Hollywood?","acceptedAnswer":{"@type":"Answer","text":"We're one of the few truly authorized LG repair services in West Hollywood with license CSLB #1138898. You can verify our authorization through LG's service locator or just call us directly at (323) 990-7550. Many shops claim to be authorized but aren't bonded for warranty work."}},{"@type":"Question","name":"What does LG dryer warranty cover for repairs?","acceptedAnswer":{"@type":"Answer","text":"LG covers parts and labor for one year, but only if genuine components are installed by licensed technicians. We document every repair with part numbers and photos for warranty compliance. Smart features like ThinQ connectivity get extended coverage in some models."}},{"@type":"Question","name":"How much does LG dryer repair cost in West Hollywood?","acceptedAnswer":{"@type":"Answer","text":"Our diagnostic fee is $65, waived when you approve the repair. Most common fixes like thermal fuses or door latches run $150-200 total. Control board replacements cost more, typically $300-400 depending on your model. We give exact quotes before starting work."}},{"@type":"Question","name":"Can I schedule same-day LG dryer repair service?","acceptedAnswer":{"@type":"Answer","text":"Yes, we offer same-day service Monday through Saturday, 8am to 8pm. Call before noon for afternoon appointments. Our technicians stock common LG parts in their vehicles, which gives us an 85% first-visit fix rate."}},{"@type":"Question","name":"Do LG repair technicians use genuine replacement parts?","acceptedAnswer":{"@type":"Answer","text":"We only install OEM LG parts, never aftermarket components. Generic parts void your warranty and typically fail within months. Our techs carry genuine parts for ThinQ, Signature, DLGX, and DLEX series dryers right in their service vehicles."}}]}</script>
-</Layout>
+</AreaLayout>

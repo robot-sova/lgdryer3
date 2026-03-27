@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const symptoms = [
+  { slug: 'lg-dryer-not-heating', label: 'Not Heating' },
+  { slug: 'lg-dryer-not-spinning', label: 'Not Spinning' },
+  { slug: 'lg-dryer-not-starting', label: 'Not Starting' },
+  { slug: 'lg-dryer-making-noise', label: 'Making Noise' },
+  { slug: 'lg-dryer-not-drying', label: 'Not Drying' },
+  { slug: 'lg-dryer-door-wont-close', label: "Door Won't Close" },
+  { slug: 'lg-dryer-flow-sense-error', label: 'Flow Sense Error' },
+  { slug: 'lg-dryer-overheating', label: 'Overheating' },
+];
+---
+
+<Layout title="LG Dryer Symptoms & Troubleshooting | Los Angeles" description="Common LG dryer problems and symptoms. Not heating, not spinning, making noise and more. Same-day diagnosis in Los Angeles.">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: "Symptoms" }]} />
+  <div class="maintext">
+    <h1>LG Dryer Symptoms & Troubleshooting</h1>
+    <p>Is your LG dryer acting up? Select your symptom below to learn about common causes and professional repair options.</p>
+
+    <div class="index-grid">
+      {symptoms.map(s => (
+        <a href={`/symptoms/${s.slug}`} class="index-card">
+          <div class="ic-name">{s.label}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Schedule Same-Day Diagnosis</h2>
+    <p>Call (323) 990-7550 for same-day LG dryer diagnosis. $65 diagnostic fee waived with repair.</p>
+    <div class="cta-buttons">
+      <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
+  </div>
+</Layout>

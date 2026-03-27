@@ -1,12 +1,19 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import SymptomLayout from '../../layouts/SymptomLayout.astro';
 ---
 
-<Layout
+<SymptomLayout
   title="LG Dryer Gas Valve Replacement Los Angeles - Same Day Service"
   description="Professional LG dryer gas valve replacement in Los Angeles. Our technicians diagnose solenoid issues same-day with OEM parts and warranty."
+  symptoms={["Won't start", "No power", "Beeps but won't run", "Door switch", "Control board"]}
+  activeSymptoms={["Won't start", "No power"]}
+  repairCost="$100–300"
+  relatedParts={[
+    { name: "Thermal Fuse", photo: "/images/parts/thermal-fuse.jpg", cost: "$100–180", slug: "/price-list/lg-dryer-thermal-fuse-replacement-cost" },
+    { name: "Door Switch", photo: "/images/parts/door-switch.jpg", cost: "$80–150", slug: "/repairs/lg-dryer-igniter-replacement" },
+    { name: "Motor", photo: "/images/parts/motor.jpg", cost: "$280–400", slug: "/price-list/lg-dryer-motor-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
     <h1>LG Dryer Gas Valve Replacement Service in Los Angeles County</h1>
     <p>When your LG gas dryer starts but won't heat, nine times out of ten our technicians find a faulty gas valve solenoid assembly. The first thing we check isn't the igniter like most homeowners expect — it's whether that clicking sound means the solenoids are actually opening to let gas through.</p>
 <h2>Signs Your LG Dryer Gas Valve Needs Professional Replacement</h2>
@@ -41,8 +48,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>Only if done improperly or with non-OEM parts. We use genuine LG valve assemblies and follow manufacturer specifications, which preserves your warranty coverage. DIY repairs or aftermarket parts typically void warranties and can affect homeowner's insurance claims if problems occur.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 for same-day LG dryer gas valve replacement in Los Angeles. Our technicians carry OEM parts for all current models and can typically complete repairs the same day you call. Monday through Saturday, 8am to 8pm — no overtime charges for evening appointments.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I know if my LG dryer gas valve is faulty?","acceptedAnswer":{"@type":"Answer","text":"The dryer will tumble and the igniter will glow for about 15 seconds, then shut off without igniting gas. You won't hear the normal whoosh sound of gas lighting. If this happens repeatedly, the solenoid coils inside the valve assembly have likely burned out and need replacement."}},{"@type":"Question","name":"Can I replace an LG dryer gas valve myself safely?","acceptedAnswer":{"@type":"Answer","text":"We strongly advise against DIY gas valve replacement. Gas appliance work requires specific torque specifications, proper thread sealant application, and leak testing equipment. One mistake creates dangerous gas leaks or carbon monoxide hazards. Professional installation ensures safety and maintains your warranty."}},{"@type":"Question","name":"What tools are needed for LG gas valve replacement?","acceptedAnswer":{"@type":"Answer","text":"Professional installation requires gas leak detectors, torque wrenches, pipe thread sealant, resistance meters for testing solenoids, and pressure testing equipment. Most homeowners don't own these specialized tools, and improvising with standard wrenches often damages the gas fittings."}},{"@type":"Question","name":"How much does LG dryer gas valve replacement cost?","acceptedAnswer":{"@type":"Answer","text":"Our service includes a $65 diagnostic fee that gets waived with repair. The total cost depends on your specific model, but we provide upfront pricing before starting work. OEM parts cost more than aftermarket alternatives, but they're the only safe choice for gas appliances."}},{"@type":"Question","name":"Will replacing the gas valve void my LG dryer warranty?","acceptedAnswer":{"@type":"Answer","text":"Only if done improperly or with non-OEM parts. We use genuine LG valve assemblies and follow manufacturer specifications, which preserves your warranty coverage. DIY repairs or aftermarket parts typically void warranties and can affect homeowner's insurance claims if problems occur."}}]}</script>
-</Layout>
+</SymptomLayout>

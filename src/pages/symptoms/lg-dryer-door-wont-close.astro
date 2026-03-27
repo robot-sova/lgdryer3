@@ -1,12 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import SymptomLayout from '../../layouts/SymptomLayout.astro';
 ---
 
-<Layout
+<SymptomLayout
   title="LG Dryer Making Noise? Same Day Repair in Los Angeles"
   description="Squealing, grinding, or thumping sounds from your LG dryer? Our authorized technicians diagnose and fix noisy dryers same-day in LA with OEM parts only."
+  symptoms={["Door won't latch", "Door pops open", "Broken handle", "Misaligned", "Switch fault"]}
+  activeSymptoms={["Door won't latch", "Door pops open"]}
+  repairCost="$80–200"
 >
-  <div class="maintext">
     <h1>LG Dryer Making Noise? Professional Same-Day Repair in Los Angeles</h1>
     <p>That grinding sound coming from your laundry room isn't something you should ignore. Nine times out of ten when we get calls about noisy LG dryers, homeowners have been living with the problem for weeks, hoping it'll just go away.</p>
 <h2>Common LG Dryer Noise Types and What They Really Mean</h2>
@@ -45,8 +47,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>Belt replacement looks simple online but requires getting the tension exactly right and knowing how to safely access the belt assembly. One wrong move and you can damage the motor or create a safety hazard. Our technicians carry the right tools and genuine LG belts, plus we warranty the work. For the small difference in cost, professional installation makes more sense.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 to schedule same-day LG dryer noise diagnosis and repair. Our licensed technicians arrive with OEM parts and diagnostic tools, ready to fix your dryer properly the first time. We're available Monday through Saturday, 8am to 8pm, and our $65 diagnostic fee disappears when we complete your repair.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my LG dryer making a scraping noise when the drum turns?","acceptedAnswer":{"@type":"Answer","text":"Scraping sounds almost always mean the drum bearing is failing or something is caught between the drum and housing. Our technicians see this most often in DLEX and DLGX models after 6-8 years of use. Don't continue running the dryer - the scraping will damage the drum itself and turn a straightforward bearing replacement into a much more expensive repair."}},{"@type":"Question","name":"What causes squealing sounds in LG dryers and how serious is it?","acceptedAnswer":{"@type":"Answer","text":"Squealing typically comes from a worn drum belt, bad idler pulley, or motor pulley bearing. It's not immediately dangerous, but it will get worse quickly. We stock OEM belts and pulleys on every service truck, so this is usually a same-day fix. The key is using genuine LG parts - aftermarket belts stretch differently and fail within months."}},{"@type":"Question","name":"Is it safe to use my LG dryer if it's making grinding noises?","acceptedAnswer":{"@type":"Answer","text":"No, stop using it immediately. Grinding sounds indicate metal parts rubbing together, usually drum bearings or support rollers. Continuing to run the dryer will cause expensive damage to the drum assembly. Our technicians can diagnose the exact problem and often complete repairs the same day with OEM parts."}},{"@type":"Question","name":"How much does it typically cost to repair a noisy LG dryer?","acceptedAnswer":{"@type":"Answer","text":"Most noise repairs run between $150-$280 depending on the problem. Belt replacements are on the lower end, drum bearing jobs cost more. Our $65 diagnostic fee gets waived when we complete the repair, and we only use genuine LG parts that come with proper warranties. Waiting too long to address noise problems usually doubles the repair cost."}},{"@type":"Question","name":"Can I fix LG dryer belt problems myself or should I call a technician?","acceptedAnswer":{"@type":"Answer","text":"Belt replacement looks simple online but requires getting the tension exactly right and knowing how to safely access the belt assembly. One wrong move and you can damage the motor or create a safety hazard. Our technicians carry the right tools and genuine LG belts, plus we warranty the work. For the small difference in cost, professional installation makes more sense."}}]}</script>
-</Layout>
+</SymptomLayout>

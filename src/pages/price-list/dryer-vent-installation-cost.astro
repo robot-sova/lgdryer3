@@ -1,14 +1,28 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import PriceLayout from '../../layouts/PriceLayout.astro';
 ---
 
-<Layout
+<PriceLayout
   title="Dryer Vent Installation Cost & Service in Los Angeles | HVAC 777"
   description="Professional dryer vent installation in LA, Orange County & Ventura. Same Day Appliance Repair provides expert installation with proper permits and code compliance."
+  serviceName="Dryer Vent Installation"
+  priceMin="100"
+  priceMax="250"
+  partCost="$30–80"
+  laborCost="$70–150"
+  newDryerCost="$800–1,500"
+  savings="$500+"
+  otherRepairs={[
+    { name: "Maintenance", price: "$80–150", slug: "/price-list/lg-dryer-maintenance-cost" },
+    { name: "Thermal Fuse", price: "$100–180", slug: "/price-list/lg-dryer-thermal-fuse-replacement-cost" },
+    { name: "Heating Element", price: "$200–280", slug: "/price-list/lg-dryer-heating-element-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
-    <h1>Professional Dryer Vent Installation Cost & Service in Los Angeles</h1>
+  <Fragment slot="intro">
     <p>Nine times out of ten, when our technicians arrive for a dryer repair call, we discover the real problem isn't the dryer at all — it's a poorly installed or completely blocked vent system. That crushed flexible duct behind your dryer might save you $20 upfront, but it's costing you hours of drying time and creating a serious fire risk.</p>
+  </Fragment>
+
+    <h1>Professional Dryer Vent Installation Cost & Service in Los Angeles</h1>
 <h2>Dryer Vent Installation Cost Breakdown in LA, Orange County & Ventura</h2>
 <p>Professional dryer vent installation typically runs $200-$600 in our service area, depending on the complexity of the run and materials used. The biggest cost factor we see is distance — a simple 8-foot run through an exterior wall costs significantly less than routing 25 feet through attic space to reach the roof. Our technicians find that most homeowners don't realize rigid metal ducting costs about twice as much as flexible ducting upfront, but it pays for itself in energy savings within two years. Labor makes up roughly 60% of the total cost, with materials accounting for the remainder. Don't forget permit fees — LA County requires permits for most installations, adding $75-150 to your total cost.</p>
 <h3>Material Costs: Rigid vs Flexible Ducting</h3>
@@ -53,8 +67,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>Absolutely. We get called to fix botched DIY installations constantly, and the repair costs usually exceed what professional installation would have cost originally. Professional installation includes proper materials, code compliance, and permits. Our technicians see insurance companies denying fire claims when they discover unpermitted DIY dryer vent work. The risk of house fire from improper installation far outweighs any potential savings from doing it yourself.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Need professional dryer vent installation or suspect your current system needs attention? Our technicians at Same Day Appliance Repair carry all the materials and permits needed for code-compliant installation. Call (323) 990-7550 to schedule service — we'll assess your current setup, provide an accurate quote, and handle all permit requirements. Same-day service available Monday through Saturday, 8am to 8pm.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does dryer vent installation cost in Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"Professional dryer vent installation in LA typically runs $200-$600, depending on the length of the run and materials used. Simple installations through an exterior wall cost less, while complex routing through attic space or to roof vents increases the price. Our technicians find that rigid metal ducting costs about $3-5 per linear foot, plus labor at $75-125 per hour. Don't forget permit fees — most LA County installations require permits adding $75-150 to your total cost."}},{"@type":"Question","name":"Do I need a permit for dryer vent installation in California?","acceptedAnswer":{"@type":"Answer","text":"Yes, most dryer vent installations in California require permits, especially if you're routing through walls or creating new exterior penetrations. LA County is particularly strict about permits, and our technicians always recommend getting proper permits to avoid problems with insurance claims or home sales. The permit process typically costs $75-200 and includes inspections to verify code compliance. Skipping permits might save money upfront, but it creates liability issues if you ever have a fire."}},{"@type":"Question","name":"What's the difference between rigid and flexible dryer vent ducting costs?","acceptedAnswer":{"@type":"Answer","text":"Rigid galvanized steel ducting costs $3-5 per linear foot compared to $1-2 per foot for flexible ducting, but our technicians see flexible installations fail constantly. The flexible stuff might seem cheaper, but it reduces airflow by up to 40% and collects lint like crazy. Nine times out of ten, when we service dryers with poor performance, we find flexible ducting that's completely clogged. Rigid ducting pays for itself in energy savings within about two years."}},{"@type":"Question","name":"How long does professional dryer vent installation take?","acceptedAnswer":{"@type":"Answer","text":"Most professional installations take 3-5 hours for straightforward runs through exterior walls. Complex installations requiring attic work or roof penetrations can take a full day. Our technicians carry specialized tools like hole saws and vent caps that speed up the process. The actual installation time depends on accessibility — basement installations usually go faster than routing through multiple floors or tight crawl spaces."}},{"@type":"Question","name":"Is it worth hiring a contractor for dryer vent installation?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We get called to fix botched DIY installations constantly, and the repair costs usually exceed what professional installation would have cost originally. Professional installation includes proper materials, code compliance, and permits. Our technicians see insurance companies denying fire claims when they discover unpermitted DIY dryer vent work. The risk of house fire from improper installation far outweighs any potential savings from doing it yourself."}}]}</script>
-</Layout>
+</PriceLayout>

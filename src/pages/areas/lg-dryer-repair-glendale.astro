@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="Dryer Vent Installation Cost Los Angeles | HVAC 777 LLC"
   description="Professional dryer vent installation costs in Los Angeles range from $150-$800 depending on complexity. Get expert installation with proper permits."
+  city="Glendale"
+  county="Los Angeles"
+  zipCodes={["91201","91202","91203","91204","91205","91206","91207","91208"]}
+  neighborhoods={["Downtown Glendale","Montrose","La Crescenta","Sparr Heights","Adams Hill","Rossmoyne"]}
+  featuredNeighborhoods={["Downtown Glendale","Montrose","La Crescenta"]}
+  nearbyCities={["Burbank","Pasadena","Eagle Rock","La Canada","Los Feliz"]}
+  testimonial={{text:"Excellent technician — knew exactly what was wrong with our LG dryer.",author:"Anna S., Montrose · 2 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Dryer Vent Installation Cost in Los Angeles: Complete Pricing Guide</h1>
     <p>Nine times out of ten, when homeowners call us about their dryer taking forever to dry clothes, we find the vent system was installed incorrectly or never up to code. The real shock comes when they learn what proper dryer vent installation actually costs versus the quick hack job they paid for initially.</p>
+</Fragment>
 <h2>Dryer Vent Installation Cost Breakdown in Los Angeles</h2>
 <p>Most dryer vent installations in Los Angeles run between $200-$600 for standard jobs, but we've seen costs hit $1,200 when structural modifications are needed. The baseline cost covers basic materials — aluminum ducting, exterior vent cap, and clamps — which typically run $40-80. Labor makes up the bulk of your expense, usually $150-400 depending on accessibility and routing complexity.
 
@@ -61,8 +70,9 @@ Fire prevention represents the biggest long-term value. Insurance claims from dr
 <p>Most standard installations take 2-4 hours depending on routing complexity and access issues. Simple wall penetrations might finish in 2 hours, while complex routing through multiple floors or long distances can take 6-8 hours. We complete most residential jobs in a single visit, including cleanup and testing for proper airflow.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Getting accurate pricing for your dryer vent installation starts with a proper assessment of your specific situation. Call us at (323) 990-7550 and we'll schedule a technician to evaluate your routing requirements, explain local code requirements, and provide upfront pricing. Our $65 diagnostic fee gets applied to any installation work, and we handle permit applications when needed. We're available Monday through Saturday, 8am to 8pm, for same-day consultations in most areas.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does dryer vent installation cost in Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"Standard dryer vent installations in Los Angeles run $200-600 for most homes. Simple wall penetrations on the lower end, complex routing through multiple floors or long distances hit the higher range. We factor in materials, labor time, permit costs, and any structural modifications needed. Every job gets quoted after we assess the specific routing requirements and local code compliance needs."}},{"@type":"Question","name":"Do I need a permit for dryer vent installation in California?","acceptedAnswer":{"@type":"Answer","text":"Yes, most dryer vent installations in California require permits, especially when creating new wall penetrations or extending existing ductwork. Los Angeles County permit costs run $85-175 depending on your city. We handle permit applications and ensure code compliance as part of our installation service. Skipping permits creates liability issues and can void insurance coverage for fire claims."}},{"@type":"Question","name":"What factors increase dryer vent installation costs?","acceptedAnswer":{"@type":"Answer","text":"Distance from dryer to exterior wall drives most cost increases — long runs with multiple turns require more materials and labor time. Difficult access through crawl spaces, basements, or multiple floors adds complexity. Cutting through brick, concrete, or stucco costs more than standard frame walls. Roof venting runs higher than wall venting due to safety requirements and weatherproofing needs."}},{"@type":"Question","name":"Is professional dryer vent installation worth the cost?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We see the disasters from DIY installations regularly — fire code violations, improper materials, and routing mistakes that create safety hazards. Professional work ensures code compliance, proper materials, and optimal airflow efficiency. The energy savings from proper installation usually pay for the job within two years, plus you get warranty coverage and peace of mind."}},{"@type":"Question","name":"How long does dryer vent installation take?","acceptedAnswer":{"@type":"Answer","text":"Most standard installations take 2-4 hours depending on routing complexity and access issues. Simple wall penetrations might finish in 2 hours, while complex routing through multiple floors or long distances can take 6-8 hours. We complete most residential jobs in a single visit, including cleanup and testing for proper airflow."}}]}</script>
-</Layout>
+</AreaLayout>

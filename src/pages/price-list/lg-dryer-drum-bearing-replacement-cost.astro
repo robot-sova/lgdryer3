@@ -1,22 +1,37 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import PriceLayout from '../../layouts/PriceLayout.astro';
 ---
 
-<Layout
+<PriceLayout
   title=" | Same Day LG Dryer Repair LA"
   description="Professional LG dryer  service in Los Angeles. Same-day repair, $65 diagnostic waived with repair. Call (323) 990-7550."
+  serviceName="LG Dryer Drum Bearing Replacement"
+  priceMin="200"
+  priceMax="350"
+  partCost="$60–100"
+  laborCost="$120–180"
+  newDryerCost="$800–1,500"
+  savings="$500–1,100"
+  otherRepairs={[
+    { name: "Belt", price: "$120–200", slug: "/price-list/lg-dryer-belt-replacement-cost" },
+    { name: "Drum Roller", price: "$200–350", slug: "/price-list/lg-dryer-drum-bearing-replacement-cost" },
+    { name: "Motor", price: "$280–400", slug: "/price-list/lg-dryer-motor-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
-    <h1></h1>
+  <Fragment slot="intro">
     <p>{"title": "LG Dryer Heating Element Replacement Cost - Los Angeles", "description": "Professional LG dryer heating element replacement from $89. Same-day service in LA County. Authorized LG repair with OEM parts only.", "h1": "LG Dryer Heating Element Replacement Cost in Los Angeles", "intro": "Nine</p>
+  </Fragment>
+
+    <h1></h1>
 <h2>About This Repair</h2>
 <p>{"title": "LG Dryer Heating Element Replacement Cost - Los Angeles", "description": "Professional LG dryer heating element replacement from $89. Same-day service in LA County. Authorized LG repair with OEM parts only.", "h1": "LG Dryer Heating Element Replacement Cost in Los Angeles", "intro": "Nine times out of ten, when an LG dryer tumbles but won't heat, our technicians find a burned-out heating element. What catches most homeowners off guard isn't just the repair cost, but discovering their 'energy-efficient' dryer has been running cold cycles for weeks, driving up their electric bill as clothes take forever to dry.", "sections": [{"h2": "LG Dryer Heating Element Replacement Cost Breakdown", "content": "The heating element itself runs $45-$120 depending on your LG model. DLGX and DLEX series typically need the pricier elements, while standard models use more affordable parts. Our technicians charge $89 for installation when you provide the part, or $134-$209 total when we supply OE</p>
 
 
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 for same-day LG dryer repair. Mon-Sat 8am-8pm. $65 diagnostic waived with repair.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 
-</Layout>
+</PriceLayout>

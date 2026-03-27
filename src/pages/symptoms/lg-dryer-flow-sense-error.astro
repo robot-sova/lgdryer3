@@ -1,12 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import SymptomLayout from '../../layouts/SymptomLayout.astro';
 ---
 
-<Layout
+<SymptomLayout
   title="LG Dryer Making Noise? Expert Repair in Los Angeles | HVAC 777"
   description="Professional LG dryer noise diagnosis and repair. Our technicians fix rattling, grinding, and shaking issues same-day across LA County."
+  symptoms={["Flow Sense", "d80 error", "d90 error", "d95 error", "Vent blocked"]}
+  activeSymptoms={["Flow Sense", "d80 error"]}
+  repairCost="$100–250"
 >
-  <div class="maintext">
     <h1>Professional LG Dryer Noise Repair Services in Los Angeles</h1>
     <p>That rhythmic thumping from your laundry room isn't normal — and it's definitely not going away on its own. Our technicians diagnose noisy LG dryers every single day across Los Angeles, and nine times out of ten, we can pinpoint the exact cause within minutes of opening that cabinet.</p>
 <h2>Common Causes Behind Your LG Dryer's Noise Problems</h2>
@@ -53,8 +55,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>Call us immediately for any grinding sounds, or if rattling and thumping don't resolve after checking that the dryer is level and the drum is empty. Also call if you hear new sounds that get progressively worse over several loads. Our technicians can often diagnose the issue over the phone and let you know if it's safe to continue using until we arrive.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>When you call (323) 990-7550, you'll speak directly with our dispatch team who can often provide preliminary troubleshooting over the phone. We schedule same-day appointments Monday through Saturday, and our technicians arrive with OEM LG parts for the most common noise-related failures. The $65 diagnostic fee gets waived when you approve the repair, and we'll give you an exact quote before starting any work.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my LG dryer making a loud rattling noise when it runs?","acceptedAnswer":{"@type":"Answer","text":"Nine times out of ten, rattling during operation means loose drum baffles or worn drum support rollers. Our technicians check the baffles first — those plastic fins inside the drum can work loose and create a distinct rattling. If the baffles are tight, it's usually the rear support rollers that have flattened out from years of use. This is especially common in DLEX models after about 8-10 years."}},{"@type":"Question","name":"What should I check first when my LG dryer starts shaking violently?","acceptedAnswer":{"@type":"Answer","text":"Check if your dryer is level. Seriously — we get service calls weekly where the 'violent shaking' is just an off-level dryer creating harmonic vibrations. Use a bubble level on top of the dryer and adjust the front feet if needed. If it's level and still shaking, you likely have worn drum support rollers or a loose motor mount that needs professional attention."}},{"@type":"Question","name":"How can I tell if the noise is coming from the drum or motor?","acceptedAnswer":{"@type":"Answer","text":"Run an empty cycle and listen carefully. Drum-related noises happen in rhythm with the drum rotation — you'll hear the sound repeat every revolution. Motor noises are continuous and don't change pitch when the drum changes direction. Grinding from the back of the unit is usually motor bearings, while thumping or rattling that follows drum movement points to roller or belt issues."}},{"@type":"Question","name":"Is it safe to continue using my LG dryer if it's making grinding sounds?","acceptedAnswer":{"@type":"Answer","text":"Don't run it. Grinding sounds indicate metal-on-metal contact somewhere in the drive system. Continuing to use it will turn a potentially minor repair into a major component replacement. We've seen homeowners ignore grinding motor bearings only to need complete motor replacements that cost three times what early bearing service would have been."}},{"@type":"Question","name":"When should I call a professional for LG dryer noise issues?","acceptedAnswer":{"@type":"Answer","text":"Call us immediately for any grinding sounds, or if rattling and thumping don't resolve after checking that the dryer is level and the drum is empty. Also call if you hear new sounds that get progressively worse over several loads. Our technicians can often diagnose the issue over the phone and let you know if it's safe to continue using until we arrive."}}]}</script>
-</Layout>
+</SymptomLayout>

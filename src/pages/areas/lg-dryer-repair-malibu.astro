@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="LG Dryer Repair Los Angeles - Same Day Service | HVAC 777 LLC"
   description="Expert LG dryer repair in Los Angeles. Our licensed technicians fix heating issues, no-start problems, and more. Same-day service with OEM parts only."
+  city="Malibu"
+  county="Los Angeles"
+  zipCodes={["90265"]}
+  neighborhoods={["Carbon Beach","Point Dume","Malibu Colony","Broad Beach","Zuma Beach","Malibu Park"]}
+  featuredNeighborhoods={["Carbon Beach","Point Dume","Malibu Colony"]}
+  nearbyCities={["Pacific Palisades","Calabasas","Topanga","Santa Monica","Agoura Hills"]}
+  testimonial={{text:"Drove out to Malibu same day. Fixed drum bearing quickly. Very grateful.",author:"Emily R., Point Dume · 2 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Professional LG Dryer Repair Services in Los Angeles</h1>
     <p>When your LG dryer quits heating or won't start at all, nine times out of ten it's one of three components — and our technicians can tell which one within minutes. We've been fixing LG ThinQ, Signature, DLGX, and DLEX series dryers across Los Angeles for years, and most problems follow predictable patterns that homeowners never see coming.</p>
+</Fragment>
 <h2>Expert LG Dryer Repair Services Throughout LA County</h2>
 <p>Our licensed technicians handle everything from simple lint blockages to complex control board failures on all LG dryer models. The ThinQ series gives us the most calls — usually for connectivity issues that homeowners think require a new unit. Most of the time, it's a $30 sensor that takes fifteen minutes to replace. We stock OEM LG parts exclusively because aftermarket components fail within months, especially on high-efficiency models. Our techs carry the most common LG parts on every truck: thermal fuses, heating elements, door switches, and drum belts. When we can't fix it on the first visit (which happens less than 15% of the time), we return the same day with whatever specialized part your unit needs.</p>
 <h3>Same-Day Service Monday Through Saturday</h3>
@@ -43,8 +52,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>We warranty all parts and labor for the specific repair performed. OEM LG parts come with manufacturer warranties, and our installation work is guaranteed. If the same component fails again within the warranty period, we'll replace it at no charge. We keep detailed service records so we can honor warranties even if you call months later.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 to schedule your LG dryer repair in Los Angeles. Our dispatcher will give you a 2-hour arrival window, and our technician will diagnose the problem for $65 (waived with repair). We'll explain exactly what's wrong, provide an upfront price quote, and fix it the same day with genuine LG parts. No surprises, no runaround — just professional repair service that gets your dryer working properly again.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does LG dryer repair cost in Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"Most LG dryer repairs run between $150-350 depending on the problem. Simple fixes like replacing thermal fuses or door latches cost around $150-200. Heating element replacement typically runs $200-275, while motor or control board replacement can reach $300-350. We charge $65 for diagnostics, but waive this fee when you approve the repair. Our technicians give you an exact quote before starting any work."}},{"@type":"Question","name":"What are the most common LG dryer problems that need professional repair?","acceptedAnswer":{"@type":"Answer","text":"We see heating failures constantly, especially on 3-5 year old DLEX models where the element burns out from restricted airflow. No-start problems usually trace to faulty door latches or blown thermal fuses. Loud noises typically mean worn drum rollers or damaged belts. ThinQ connectivity issues frustrate homeowners, but these are usually simple sensor cleanings or wifi module resets that take minutes to fix."}},{"@type":"Question","name":"Do you offer same-day LG dryer repair service in Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide same-day service Monday through Saturday from 8am-8pm throughout Los Angeles County. Our technicians carry the most common LG parts on their trucks, so we fix 85% of problems on the first visit. When we need a specialized part, we typically return within 24-48 hours with the component and complete the repair."}},{"@type":"Question","name":"How long does a typical LG dryer repair take to complete?","acceptedAnswer":{"@type":"Answer","text":"Most repairs take 30-60 minutes once our technician identifies the problem. Simple component swaps like thermal fuses or belts take 15-30 minutes. Heating element replacement usually requires 45-60 minutes because we have to partially disassemble the unit. Complex jobs like motor replacement can take 90 minutes, but we always give you a time estimate upfront."}},{"@type":"Question","name":"What warranty do you provide on LG dryer repair services?","acceptedAnswer":{"@type":"Answer","text":"We warranty all parts and labor for the specific repair performed. OEM LG parts come with manufacturer warranties, and our installation work is guaranteed. If the same component fails again within the warranty period, we'll replace it at no charge. We keep detailed service records so we can honor warranties even if you call months later."}}]}</script>
-</Layout>
+</AreaLayout>

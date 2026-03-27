@@ -1,14 +1,28 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import PriceLayout from '../../layouts/PriceLayout.astro';
 ---
 
-<Layout
+<PriceLayout
   title="LG Dryer Heating Element Repair Los Angeles | Same Day"
   description="Professional LG dryer heating element replacement in Los Angeles. Same-day service, OEM parts only, 85% first-visit fix rate. Call (323) 990-7550 today."
+  serviceName="LG Dryer Igniter Replacement"
+  priceMin="150"
+  priceMax="250"
+  partCost="$40–80"
+  laborCost="$90–120"
+  newDryerCost="$800–1,500"
+  savings="$600–1,200"
+  otherRepairs={[
+    { name: "Gas Valve", price: "$180–320", slug: "/price-list/lg-dryer-gas-valve-replacement-cost" },
+    { name: "Thermal Fuse", price: "$100–180", slug: "/price-list/lg-dryer-thermal-fuse-replacement-cost" },
+    { name: "Heating Element", price: "$200–280", slug: "/price-list/lg-dryer-heating-element-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
-    <h1>LG Dryer Heating Element Replacement & Repair in Los Angeles</h1>
+  <Fragment slot="intro">
     <p>Nine times out of ten, when our technicians get called to a home in Pasadena or Burbank for an LG dryer that's not heating, we find a failed heating element coil. Most homeowners think their six-month-old DLEX model is toast, but the reality is much simpler.</p>
+  </Fragment>
+
+    <h1>LG Dryer Heating Element Replacement & Repair in Los Angeles</h1>
 <h2>LG Dryer Heating Element Cost Breakdown and What You Really Pay</h2>
 <p>The first thing homeowners ask is about cost, and we get it — nobody wants surprises. For most LG models in the DLEX and DLGX series, the heating element itself runs between $45-85 for genuine OEM parts. Labor typically adds another $120-160, depending on model accessibility. Our technicians see this constantly: homeowners who bought cheap aftermarket elements online that failed within weeks. We only use authentic LG parts because the voltage tolerances matter. That knockoff element might save you twenty bucks upfront, but when it burns out your control board three months later, you're looking at a $300 repair instead of the original $180. The diagnostic fee is $65, but we waive it when you go ahead with the repair.</p>
 <h2>How Our Techs Identify Your LG Model and Find the Right Heating Element</h2>
@@ -35,8 +49,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>With proper maintenance, expect 8-12 years from a genuine LG heating element. But lint buildup cuts that dramatically — we've seen elements fail in under two years because blocked exhaust vents cause overheating. Clean your lint filter every load and have the exhaust vent professionally cleaned annually. Voltage fluctuations from old home electrical systems also reduce element lifespan.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>When your LG dryer stops heating, call (323) 990-7550 and we'll have a technician at your door today. Our diagnostic is $65, waived with repair, and we carry genuine heating elements for most DLEX, DLGX, and ThinQ models. Same-day service Monday through Saturday, 8am to 8pm throughout LA, Orange County, and Ventura. No appointment games — we fix 85% of heating element issues on the first visit.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to replace an LG dryer heating element?","acceptedAnswer":{"@type":"Answer","text":"Total cost runs $165-245 depending on your specific LG model. The genuine heating element costs $45-85, labor is typically $120-160, and we charge a $65 diagnostic fee that gets waived when you proceed with the repair. We only use authentic LG parts because aftermarket elements often fail within months and can damage other components."}},{"@type":"Question","name":"How do I know if my LG dryer heating element is bad?","acceptedAnswer":{"@type":"Answer","text":"The obvious sign is no heat at all — clothes come out damp after a full cycle. But partial failures are trickier. If your dryer takes twice as long as usual or shuts off mid-cycle, the heating element might be overheating and triggering the thermal fuse. Our techs test continuity across the element terminals and check for proper voltage supply before diagnosing element failure."}},{"@type":"Question","name":"Can I install an LG dryer heating element myself?","acceptedAnswer":{"@type":"Answer","text":"Mechanically, it's not complicated — usually four screws and two wire connections. But you're working with 240V circuits, and one wrong connection creates a fire hazard. Plus, LG won't honor warranty claims on units with non-professional electrical work. If you're experienced with appliance electrical systems, go ahead. Otherwise, the labor cost is worth avoiding potential problems."}},{"@type":"Question","name":"Where can I find the model number on my LG dryer?","acceptedAnswer":{"@type":"Answer","text":"Look for a white sticker inside the door frame on the left or right side. But here's what's important — the serial number matters more than the model for heating element compatibility. LG used different suppliers across production runs, so a DLGX model from 2019 might need a different element than the identical model from 2021."}},{"@type":"Question","name":"How long should an LG dryer heating element last?","acceptedAnswer":{"@type":"Answer","text":"With proper maintenance, expect 8-12 years from a genuine LG heating element. But lint buildup cuts that dramatically — we've seen elements fail in under two years because blocked exhaust vents cause overheating. Clean your lint filter every load and have the exhaust vent professionally cleaned annually. Voltage fluctuations from old home electrical systems also reduce element lifespan."}}]}</script>
-</Layout>
+</PriceLayout>

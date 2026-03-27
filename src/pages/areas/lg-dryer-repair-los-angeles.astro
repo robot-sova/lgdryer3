@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="Dryer Vent Installation Cost Los Angeles | Same Day Service"
   description="Professional dryer vent installation in LA from $285-$850. Our licensed techs handle permits, materials, and code compliance. Same-day service available."
+  city="Los Angeles"
+  county="Los Angeles"
+  zipCodes={["90001","90012","90024","90036"]}
+  neighborhoods={["Hollywood","Downtown LA","Westwood","Mid-Wilshire","Silver Lake","Echo Park","Koreatown","Los Feliz","Arts District"]}
+  featuredNeighborhoods={["Hollywood","Downtown LA","Westwood"]}
+  nearbyCities={["Beverly Hills","West Hollywood","Burbank","Pasadena","Santa Monica"]}
+  testimonial={{text:"Fast, professional service. Fixed our LG dryer same day — highly recommend.",author:"Mike R., Hollywood · 2 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Dryer Vent Installation Cost in Los Angeles: Complete 2024 Guide</h1>
     <p>Nine times out of ten, homeowners call us after discovering their brand new LG dryer is taking three hours to dry a single load — turns out their contractor installed the cheapest flexible duct that's already kinked behind the unit. The cost difference between proper rigid ductwork and that flimsy stuff? Usually under fifty bucks, but the performance gap is massive.</p>
+</Fragment>
 <h2>Dryer Vent Installation Cost Breakdown for Los Angeles Homes</h2>
 <p>Most dryer vent installations in LA run between $285 and $850, depending on the complexity of your setup. Our techs price jobs based on several factors: ductwork material, run length, number of elbows needed, and whether we're cutting through stucco, wood siding, or brick. A basic installation with 10 feet of rigid metal duct through a wood-frame wall typically costs $285-$385. Add in multiple turns, a longer run to reach an exterior wall, or cutting through masonry, and you're looking at $450-$650. The high-end jobs — those tricky second-story installations in Pasadena where we're running 25 feet of duct with three 90-degree turns — can hit $750-$850.</p>
 <h3>Material Costs: Rigid Metal vs Flexible Ductwork</h3>
@@ -47,8 +56,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>Most installations take 2-4 hours for our technicians to complete properly. Simple wall penetrations with short ductwork runs might be done in 2 hours, while complex jobs involving attic work or multiple stories can take 4-6 hours. We schedule same-day service Monday through Saturday, and our techs carry all necessary materials and tools to complete jobs in one visit 85% of the time.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>When you call (323) 990-7550, our dispatcher will schedule a same-day appointment and give you an estimated arrival window. Our licensed technician will evaluate your specific installation needs, explain exactly what's required, and provide an upfront quote. The $65 diagnostic fee gets waived when you proceed with the installation. We handle permits, use only proper rigid metal ductwork, and guarantee our work meets all LA County building codes. Most jobs get completed the same day, and you'll have a properly functioning dryer vent that actually works.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does dryer vent installation cost in Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"Most installations run $285-$850 depending on complexity. A basic setup with 10 feet of rigid duct through a standard wall costs around $285-$385. More complex jobs with longer runs, multiple turns, or difficult access points can reach $650-$850. Our technicians provide exact quotes after evaluating your specific situation — the $65 diagnostic fee gets waived if you proceed with the work."}},{"@type":"Question","name":"Do I need a permit for dryer vent installation in LA County?","acceptedAnswer":{"@type":"Answer","text":"Yes, LA County requires permits for most dryer vent installations, especially new vents or major modifications. Permit costs typically run $85-$150 depending on your city. Our techs handle the entire permit process and know exactly what local inspectors require. We've found it's much easier to get permits approved when installed by licensed contractors rather than attempting DIY applications."}},{"@type":"Question","name":"Should I use rigid metal or flexible ductwork for my dryer vent?","acceptedAnswer":{"@type":"Answer","text":"Always go with rigid metal ductwork for the main run. Our techs see flexible duct failures constantly — it restricts airflow by up to 40%, collects lint faster, and typically fails within 3-5 years. Rigid metal costs about $5-$8 more per foot but lasts decades. You can use flexible duct only for the final 6 feet connecting to your dryer, and only if absolutely necessary for tight spaces."}},{"@type":"Question","name":"What factors increase dryer vent installation costs?","acceptedAnswer":{"@type":"Answer","text":"The biggest cost drivers are accessibility and material requirements. Second-story installations or crawl space work doubles labor time. Cutting through brick or stucco adds $75-$125 compared to wood siding. Long ductwork runs over 15 feet increase both material and labor costs significantly. Our techs also factor in electrical work if you need new outlets and any wall repairs needed after installation."}},{"@type":"Question","name":"How long does professional dryer vent installation take?","acceptedAnswer":{"@type":"Answer","text":"Most installations take 2-4 hours for our technicians to complete properly. Simple wall penetrations with short ductwork runs might be done in 2 hours, while complex jobs involving attic work or multiple stories can take 4-6 hours. We schedule same-day service Monday through Saturday, and our techs carry all necessary materials and tools to complete jobs in one visit 85% of the time."}}]}</script>
-</Layout>
+</AreaLayout>

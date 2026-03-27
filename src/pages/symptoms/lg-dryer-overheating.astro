@@ -1,12 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import SymptomLayout from '../../layouts/SymptomLayout.astro';
 ---
 
-<Layout
+<SymptomLayout
   title="LG Dryer Making Noise? Los Angeles Repair Service | HVAC 777"
   description="Expert LG dryer noise repair in LA. Our licensed technicians fix banging, squealing, and grinding sounds same-day. Call (323) 990-7550 for fast service."
+  symptoms={["Overheating", "Burning smell", "Hot exterior", "Clothes scorched", "Auto shutoff"]}
+  activeSymptoms={["Overheating", "Burning smell"]}
+  repairCost="$100–250"
+  relatedParts={[
+    { name: "Thermal Fuse", photo: "/images/parts/thermal-fuse.jpg", cost: "$100–180", slug: "/price-list/lg-dryer-thermal-fuse-replacement-cost" },
+    { name: "Heating Element", photo: "/images/parts/heating-element.jpg", cost: "$200–280", slug: "/price-list/lg-dryer-heating-element-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
     <h1>LG Dryer Making Noise? Professional Repair in Los Angeles</h1>
     <p>That rhythmic thumping coming from your laundry room isn't just annoying — it's your LG dryer telling you something's wrong. Our technicians see noisy dryers daily across Los Angeles, and nine times out of ten, the problem is fixable same-day with the right diagnosis and OEM parts.</p>
 <h2>Common Causes of LG Dryer Noise Issues</h2>
@@ -63,8 +69,9 @@ We stock OEM parts for all major LG dryer series including DLGX and DLEX models.
 <p>Most noise repairs run between $150-280 depending on which components need replacement. Drum rollers are on the lower end, motor issues on the higher end. We charge a $65 diagnostic fee that gets waived when you proceed with repair. Our techs give you exact pricing before starting any work, and we only use OEM LG parts that last.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 to schedule same-day LG dryer noise diagnosis. Our licensed technicians arrive with OEM parts and diagnostic tools to identify your exact problem. We'll give you a firm price quote before starting any repair work, and our $65 diagnostic fee gets waived when you authorize the repair. Monday through Saturday, 8am to 8pm service appointments available.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my LG dryer making a loud banging noise?","acceptedAnswer":{"@type":"Answer","text":"Loud banging usually means worn drum support rollers or loose objects inside the drum. Our technicians check both immediately — worn rollers create rhythmic banging that matches drum rotation, while loose coins or buttons make irregular banging sounds. Nine times out of ten, it's the rollers that need replacement with genuine LG parts."}},{"@type":"Question","name":"How do I know if my LG dryer's drum bearings need replacement?","acceptedAnswer":{"@type":"Answer","text":"Drum bearing failure starts as a low rumbling during operation and gradually gets louder over weeks. If you hear metal grinding or the drum wobbles when you spin it by hand, the bearings are definitely shot. Don't keep using it — our techs see expensive drum damage when customers ignore grinding sounds too long."}},{"@type":"Question","name":"Is it safe to use my LG dryer if it's making squealing sounds?","acceptedAnswer":{"@type":"Answer","text":"Squealing usually indicates drive belt problems, which won't cause immediate danger but will get worse quickly. You can probably use it for a few more loads, but schedule repair soon. If the squealing becomes grinding or the drum stops turning, shut it down immediately and call us. We carry replacement belts for all LG series and can fix this same-day."}},{"@type":"Question","name":"What causes a grinding noise in LG dryers?","acceptedAnswer":{"@type":"Answer","text":"Grinding means metal-on-metal contact, usually from completely worn drum rollers or seized roller bearings. Sometimes it's the blower wheel rubbing against lint buildup in the housing. Either way, stop using the dryer immediately — continued operation will cause expensive secondary damage. Our technicians can diagnose the exact source and replace the worn components."}},{"@type":"Question","name":"How much does it typically cost to fix a noisy LG dryer?","acceptedAnswer":{"@type":"Answer","text":"Most noise repairs run between $150-280 depending on which components need replacement. Drum rollers are on the lower end, motor issues on the higher end. We charge a $65 diagnostic fee that gets waived when you proceed with repair. Our techs give you exact pricing before starting any work, and we only use OEM LG parts that last."}}]}</script>
-</Layout>
+</SymptomLayout>

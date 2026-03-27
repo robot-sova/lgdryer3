@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const laCounty = [
+  { slug: 'lg-dryer-repair-los-angeles', label: 'Los Angeles' },
+  { slug: 'lg-dryer-repair-beverly-hills', label: 'Beverly Hills' },
+  { slug: 'lg-dryer-repair-santa-monica', label: 'Santa Monica' },
+  { slug: 'lg-dryer-repair-west-hollywood', label: 'West Hollywood' },
+  { slug: 'lg-dryer-repair-pasadena', label: 'Pasadena' },
+  { slug: 'lg-dryer-repair-burbank', label: 'Burbank' },
+  { slug: 'lg-dryer-repair-glendale', label: 'Glendale' },
+  { slug: 'lg-dryer-repair-long-beach', label: 'Long Beach' },
+  { slug: 'lg-dryer-repair-torrance', label: 'Torrance' },
+  { slug: 'lg-dryer-repair-manhattan-beach', label: 'Manhattan Beach' },
+  { slug: 'lg-dryer-repair-calabasas', label: 'Calabasas' },
+  { slug: 'lg-dryer-repair-malibu', label: 'Malibu' },
+];
+
+const orangeCounty = [
+  { slug: 'lg-dryer-repair-irvine', label: 'Irvine' },
+  { slug: 'lg-dryer-repair-newport-beach', label: 'Newport Beach' },
+  { slug: 'lg-dryer-repair-laguna-beach', label: 'Laguna Beach' },
+  { slug: 'lg-dryer-repair-yorba-linda', label: 'Yorba Linda' },
+  { slug: 'lg-dryer-repair-mission-viejo', label: 'Mission Viejo' },
+  { slug: 'lg-dryer-repair-laguna-niguel', label: 'Laguna Niguel' },
+];
+
+const venturaCounty = [
+  { slug: 'lg-dryer-repair-thousand-oaks', label: 'Thousand Oaks' },
+  { slug: 'lg-dryer-repair-westlake-village', label: 'Westlake Village' },
+  { slug: 'lg-dryer-repair-simi-valley', label: 'Simi Valley' },
+  { slug: 'lg-dryer-repair-camarillo', label: 'Camarillo' },
+  { slug: 'lg-dryer-repair-moorpark', label: 'Moorpark' },
+  { slug: 'lg-dryer-repair-newbury-park', label: 'Newbury Park' },
+];
+---
+
+<Layout title="LG Dryer Repair Service Areas | LA, OC, Ventura" description="LG dryer repair across Los Angeles, Orange County, and Ventura County. Same-day service in 24+ cities.">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: "Service Areas" }]} />
+  <div class="maintext">
+    <h1>LG Dryer Repair Service Areas</h1>
+    <p>We provide same-day LG dryer repair across three counties. Select your city for local service details.</p>
+
+    <h2>Los Angeles County</h2>
+    <div class="index-grid">
+      {laCounty.map(c => (
+        <a href={`/areas/${c.slug}`} class="index-card">
+          <div class="ic-name">{c.label}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Orange County</h2>
+    <div class="index-grid">
+      {orangeCounty.map(c => (
+        <a href={`/areas/${c.slug}`} class="index-card">
+          <div class="ic-name">{c.label}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Ventura County</h2>
+    <div class="index-grid">
+      {venturaCounty.map(c => (
+        <a href={`/areas/${c.slug}`} class="index-card">
+          <div class="ic-name">{c.label}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Schedule Same-Day LG Dryer Repair</h2>
+    <p>Call (323) 990-7550 for same-day service in your area.</p>
+    <div class="cta-buttons">
+      <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
+  </div>
+</Layout>

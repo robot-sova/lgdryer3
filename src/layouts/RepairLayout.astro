@@ -1,0 +1,99 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  heroImg?: string;
+  heroAlt?: string;
+  heroCaption?: string;
+  partPhoto?: string;
+  partPhotoAlt?: string;
+  partPhotoCaption?: string;
+  partPhotoLabel?: string;
+  beforeAfterPhotos?: Array<{src: string, alt: string, caption: string}>;
+  cost?: string;
+}
+
+const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoAlt, partPhotoCaption, partPhotoLabel, beforeAfterPhotos, cost } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Breadcrumbs slot="breadcrumbs" items={[
+    { label: "Repairs", href: "/repairs/" },
+    { label: title.split("|")[0].split("—")[0].trim() }
+  ]} />
+
+  <!-- HERO IMAGE -->
+  {heroImg ? (
+    <div>
+      <img class="article-hero-img" src={heroImg} alt={heroAlt || title} />
+      {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
+    </div>
+  ) : (
+    <div style="height:32px;"></div>
+  )}
+
+  <!-- 2-COLUMN LAYOUT -->
+  <div class="article-layout">
+    <div class="article-body">
+      <slot name="before-part-photo" />
+
+      <!-- PART PHOTO (inline) -->
+      {partPhoto && (
+        <div class="article-img-wrap">
+          {partPhotoLabel && <div class="article-img-label">{partPhotoLabel}</div>}
+          <img class="article-img" src={partPhoto} alt={partPhotoAlt || ''} />
+          {partPhotoCaption && <div class="article-img-caption">{partPhotoCaption}</div>}
+        </div>
+      )}
+
+      <slot />
+
+      <!-- BEFORE/AFTER GRID -->
+      {beforeAfterPhotos && beforeAfterPhotos.length > 0 && (
+        <div>
+          <h2>Before & after</h2>
+          <div class="article-img-grid-2">
+            {beforeAfterPhotos.map(photo => (
+              <div class="grid-item">
+                <img src={photo.src} alt={photo.alt} />
+                <div class="grid-cap">{photo.caption}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="article-sidebar">
+      <div class="sidebar-cta">
+        <div class="s-title">Same Day Service</div>
+        <div class="s-sub">Mon–Sat 8am–8pm · OEM parts</div>
+        <a href="tel:(323)990-7550" class="s-phone">(323) 990-7550</a>
+        <a href="/book/" class="s-btn">Book Online</a>
+      </div>
+
+      {cost && (
+        <div class="sidebar-box">
+          <div class="sb-title">Typical Cost</div>
+          <div class="sb-price">{cost}</div>
+          <div class="sb-note">Parts + labor · $65 diagnostic<br/>fee waived with repair</div>
+        </div>
+      )}
+
+      <div class="sidebar-box">
+        <div class="sb-title">Why Us</div>
+        <ul class="sidebar-checklist">
+          <li>85% first-visit fix rate</li>
+          <li>CSLB Lic. #1138898</li>
+          <li>BBB A+ rated</li>
+          <li>OEM parts only</li>
+          <li>1-year warranty</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

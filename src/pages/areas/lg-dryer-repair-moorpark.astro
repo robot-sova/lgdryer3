@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="LG Dryer Repair Los Angeles | Same Day Service | HVAC 777"
   description="Expert LG dryer repair in Los Angeles with same-day service. Our licensed technicians fix all LG models using OEM parts. Call (323) 990-7550 today."
+  city="Moorpark"
+  county="Ventura"
+  zipCodes={["93021"]}
+  neighborhoods={["Moorpark Country Club","Campus Park","Mountain Meadows","Peach Hill","Moorpark Highlands","Buttercreek"]}
+  featuredNeighborhoods={["Moorpark Country Club","Mountain Meadows","Campus Park"]}
+  nearbyCities={["Simi Valley","Thousand Oaks","Camarillo","Somis","Fillmore"]}
+  testimonial={{text:"Great service all the way out in Moorpark. Fixed drum rollers same day.",author:"Linda M., Mountain Meadows · 3 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Professional LG Dryer Repair Services in Los Angeles</h1>
     <p>Nine times out of ten, when we get a call about an LG dryer not heating, it's because someone tried to clean the lint filter with water and didn't let it dry completely. That wet lint creates a paste that blocks airflow, and your dryer's thermal sensors shut everything down. Our technicians see this constantly across LA — from Pasadena apartments to Thousand Oaks homes.</p>
+</Fragment>
 <h2>Common LG Dryer Problems We Fix Daily</h2>
 <p>The first thing our techs check on any LG dryer call is the door latch mechanism. LG's newer ThinQ and Signature models have sensitive door sensors that fail when lint gets trapped in the strike plate. Most homeowners don't realize this tiny plastic piece controls whether your dryer starts at all. We also handle the infamous LG thermal fuse failures — these safety devices trip when your exhaust vent gets clogged, and replacing them requires disconnecting the entire control panel. Don't try to bypass a blown thermal fuse yourself; one wrong connection and you've got a fire hazard. Our techs carry genuine LG thermal fuses for DLEX and DLGX series, along with the specialized tools to access LG's rear-mounted fuse locations.</p>
 <h3>LG ThinQ Connectivity Issues</h3>
@@ -43,8 +52,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>Yes, we're fully licensed under CSLB #1138898 and maintain an A+ rating with the Better Business Bureau. Our technicians receive ongoing training on LG's latest models and diagnostic procedures to ensure expert-level service.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>When your LG dryer stops working, call (323) 990-7550 or visit lgdryer.repair to schedule service. We'll send a licensed technician with genuine LG parts and the expertise to fix your dryer right the first time. Same-day service available Monday through Saturday — no waiting around for days while your laundry piles up.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you repair my LG dryer in Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"We offer same-day service Monday through Saturday if you call before noon. Our technicians stock the most common LG dryer parts, so we fix about 85% of problems on the first visit. For complex repairs needing special parts, we typically complete the work within 24-48 hours."}},{"@type":"Question","name":"Do you service all LG dryer models in the LA area?","acceptedAnswer":{"@type":"Answer","text":"Yes, our technicians are trained on LG's complete dryer lineup including ThinQ smart models, Signature series, DLEX and DLGX units, and commercial models. We also service the newer WashTower combinations and heat pump dryers that require specialized expertise."}},{"@type":"Question","name":"What's the typical cost of LG dryer repair in Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"Most LG dryer repairs cost between $150-350 depending on the problem. Common issues like thermal fuse replacement run around $185, while heating element replacement typically costs $220-280. We charge a $65 diagnostic fee that gets waived when you approve the repair."}},{"@type":"Question","name":"Do you use genuine LG parts for repairs?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We only install OEM LG parts, never aftermarket substitutes. Generic parts can't handle LG's precise temperature cycling and often fail within months. All our LG parts come with manufacturer warranty coverage that we register directly with LG."}},{"@type":"Question","name":"Are your technicians licensed for appliance repair in California?","acceptedAnswer":{"@type":"Answer","text":"Yes, we're fully licensed under CSLB #1138898 and maintain an A+ rating with the Better Business Bureau. Our technicians receive ongoing training on LG's latest models and diagnostic procedures to ensure expert-level service."}}]}</script>
-</Layout>
+</AreaLayout>

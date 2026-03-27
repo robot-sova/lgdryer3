@@ -1,14 +1,28 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import PriceLayout from '../../layouts/PriceLayout.astro';
 ---
 
-<Layout
+<PriceLayout
   title="LG DLEX3370W Dryer Heating Element Repair Los Angeles"
   description="Professional LG DLEX3370W heating element replacement by authorized technicians. Same-day service in LA, OC, and Ventura County with OEM parts."
+  serviceName="LG Dryer Thermal Fuse Replacement"
+  priceMin="100"
+  priceMax="180"
+  partCost="$15–30"
+  laborCost="$85–120"
+  newDryerCost="$800–1,500"
+  savings="$700–1,300"
+  otherRepairs={[
+    { name: "Heating Element", price: "$200–280", slug: "/price-list/lg-dryer-heating-element-replacement-cost" },
+    { name: "Gas Valve", price: "$180–320", slug: "/price-list/lg-dryer-gas-valve-replacement-cost" },
+    { name: "Drum Bearing", price: "$200–350", slug: "/price-list/lg-dryer-drum-bearing-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
-    <h1>LG DLEX3370W Heating Element Replacement & Repair Service</h1>
+  <Fragment slot="intro">
     <p>The DLEX3370W heating element fails more often than most homeowners expect — usually around the 5-7 year mark when lint buildup restricts airflow and overworks the element. Our technicians see this model weekly across LA and know exactly what signs to look for before the element burns out completely.</p>
+  </Fragment>
+
+    <h1>LG DLEX3370W Heating Element Replacement & Repair Service</h1>
 <h2>LG DLEX3370W Heating Element Cost Breakdown</h2>
 <p>The OEM heating element for your DLEX3370W runs $180-220 depending on current LG pricing. Labor typically takes our techs 45-60 minutes at $95/hour, bringing total repair cost to $320-370. We only use genuine LG parts — never aftermarket knockoffs that fail within months. Nine times out of ten, we find the thermal fuse has also blown when the heating element goes bad, adding another $25 for the part. Most repair shops in Pasadena quote higher because they mark up parts 40-50%, but we keep markup minimal since volume purchasing gives us better LG wholesale pricing.</p>
 <h3>What's Included in Our Heating Element Service</h3>
@@ -43,8 +57,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>You'll need a multimeter, socket set, plastic pry tools, and penetrating oil for seized bolts. Plan on 2-3 hours minimum even with experience. The heating element sits behind the lint filter housing and requires removing the entire front panel plus multiple wire harnesses. Many bolts are heat-seized and require patience to remove without stripping.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 to schedule same-day DLEX3370W heating element replacement. Our technicians carry OEM LG elements and can typically complete the repair within an hour of arrival. We waive the $65 diagnostic fee when you proceed with repair, and you'll get our standard warranty on parts and labor. Monday through Saturday, 8am to 8pm throughout Los Angeles, Orange County, and Ventura County.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to replace an LG DLEX3370W heating element?","acceptedAnswer":{"@type":"Answer","text":"Total cost runs $320-370 including the OEM LG element and labor. We charge $95/hour for labor and the job typically takes 45-60 minutes. The genuine LG heating element costs $180-220 depending on current pricing. Most shops charge more because they mark up parts heavily, but our volume purchasing keeps costs reasonable."}},{"@type":"Question","name":"Can I replace the heating element in my DLEX3370W myself?","acceptedAnswer":{"@type":"Answer","text":"It's technically possible but requires complete front panel removal and careful wire harness disconnection. Our techs see plenty of DIY attempts that end up costing more when homeowners break plastic clips or damage the door seal. If you're not completely comfortable with appliance wiring and have 3+ hours available, we'd recommend professional installation."}},{"@type":"Question","name":"How do I know if my LG dryer heating element is broken?","acceptedAnswer":{"@type":"Answer","text":"Clothes taking 2-3 cycles to dry completely is the classic sign. The dryer runs its full cycle but everything comes out damp or barely warm. Sometimes the element partially fails, producing some heat but not enough to properly dry loads. Our techs test continuity with a multimeter — infinite resistance means the element has an open circuit and needs replacement."}},{"@type":"Question","name":"How long does an LG DLEX3370W heating element typically last?","acceptedAnswer":{"@type":"Answer","text":"With proper maintenance, expect 7-10 years from the original element. However, lint buildup and vent blockages can cut that to 4-5 years by making the element work harder. We see elements fail as early as 3 years in homes with poor vent maintenance or frequent overloading of the dryer."}},{"@type":"Question","name":"What tools do I need to replace an LG dryer heating element?","acceptedAnswer":{"@type":"Answer","text":"You'll need a multimeter, socket set, plastic pry tools, and penetrating oil for seized bolts. Plan on 2-3 hours minimum even with experience. The heating element sits behind the lint filter housing and requires removing the entire front panel plus multiple wire harnesses. Many bolts are heat-seized and require patience to remove without stripping."}}]}</script>
-</Layout>
+</PriceLayout>

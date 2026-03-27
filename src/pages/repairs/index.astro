@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const repairs = [
+  { slug: 'lg-dryer-heating-element-replacement', label: 'Heating Element Replacement', cost: '$200–280' },
+  { slug: 'lg-dryer-thermal-fuse-replacement', label: 'Thermal Fuse Replacement', cost: '$100–180' },
+  { slug: 'lg-dryer-drum-roller-replacement', label: 'Drum Roller Replacement', cost: '$150–250' },
+  { slug: 'lg-dryer-igniter-replacement', label: 'Igniter Replacement', cost: '$150–250' },
+  { slug: 'lg-dryer-motor-replacement', label: 'Motor Replacement', cost: '$280–400' },
+  { slug: 'lg-dryer-drum-bearing-replacement', label: 'Drum Bearing Replacement', cost: '$200–350' },
+  { slug: 'lg-dryer-belt-replacement', label: 'Belt Replacement', cost: '$120–200' },
+  { slug: 'lg-dryer-idler-pulley-replacement', label: 'Idler Pulley Replacement', cost: '$120–200' },
+  { slug: 'lg-dryer-gas-valve-replacement', label: 'Gas Valve Replacement', cost: '$180–320' },
+  { slug: 'lg-dryer-drum-replacement', label: 'Drum Replacement', cost: '$300–500' },
+];
+---
+
+<Layout title="LG Dryer Repair Services Los Angeles | Same Day" description="Professional LG dryer repair services in Los Angeles. Heating element, thermal fuse, drum rollers and more. Same-day service with OEM parts.">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: "Repairs" }]} />
+  <div class="maintext">
+    <h1>LG Dryer Repair Services</h1>
+    <p>We specialize in all types of LG dryer repairs across Los Angeles, Orange County, and Ventura County. Same-day service with OEM parts and 1-year warranty on every repair.</p>
+
+    <div class="index-grid">
+      {repairs.map(r => (
+        <a href={`/repairs/${r.slug}`} class="index-card">
+          <div class="ic-name">{r.label}</div>
+          <div class="ic-cost">{r.cost}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Schedule Same-Day LG Dryer Repair</h2>
+    <p>Call (323) 990-7550 for same-day service. $65 diagnostic fee waived with repair.</p>
+    <div class="cta-buttons">
+      <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
+  </div>
+</Layout>

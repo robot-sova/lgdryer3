@@ -1,0 +1,144 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  city: string;
+  state?: string;
+  county?: string;
+  zipCodes?: string[];
+  heroImg?: string;
+  heroCaption?: string;
+  areaImg?: string;
+  areaImgCaption?: string;
+  neighborhoods?: string[];
+  featuredNeighborhoods?: string[];
+  nearbyCities?: string[];
+  testimonial?: { text: string; author: string; stars?: number };
+  responseTime?: string;
+}
+
+const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, heroCaption, areaImg, areaImgCaption, neighborhoods = [], featuredNeighborhoods = [], nearbyCities = [], testimonial, responseTime = '2–4 hours' } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Breadcrumbs slot="breadcrumbs" items={[
+    { label: "Areas", href: "/areas/" },
+    { label: `${city}, CA` }
+  ]} />
+
+  <!-- HERO IMAGE -->
+  {heroImg ? (
+    <div>
+      <img class="article-hero-img" style="height:360px;" src={heroImg} alt={`LG Dryer Repair ${city}`} />
+      {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
+    </div>
+  ) : (
+    <div style="height:24px;"></div>
+  )}
+
+  <div class="article-layout">
+    <div class="article-body">
+      <!-- ZIP CODES + TRUST BADGES -->
+      {zipCodes.length > 0 && (
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+          {zipCodes.map(zip => (
+            <div style="background:#0d1a2e;border:1px solid #1a6cf6;border-radius:4px;padding:3px 9px;font-size:10px;color:#6ab0ff;">ZIP: {zip}</div>
+          ))}
+        </div>
+      )}
+
+      <div class="trust-badges">
+        <div class="trust-badge">Same day service</div>
+        <div class="trust-badge">{responseTime} response</div>
+        <div class="trust-badge">Local technician</div>
+        {county && <div class="trust-badge">{county} County</div>}
+      </div>
+
+      <slot name="intro" />
+
+      <!-- AREA PHOTO -->
+      {areaImg && (
+        <div class="article-img-wrap" style="margin-bottom:0;">
+          <img class="article-img" style="height:200px;" src={areaImg} alt={`${city} neighborhood`} />
+          {areaImgCaption && <div class="article-img-caption">{areaImgCaption}</div>}
+        </div>
+      )}
+
+      <!-- NEIGHBORHOODS -->
+      {neighborhoods.length > 0 && (
+        <div>
+          <h2>Neighborhoods we serve in {city}</h2>
+          <div class="neighborhood-grid">
+            {neighborhoods.map(n => (
+              <div class={`nh-chip ${featuredNeighborhoods.includes(n) ? 'featured' : ''}`}>{n}</div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <slot />
+
+      <!-- TESTIMONIAL -->
+      {testimonial && (
+        <div>
+          <h2>What {city} clients say</h2>
+          <div class="testimonial-block">
+            <div class="t-stars">{'★'.repeat(testimonial.stars || 5)}</div>
+            <div class="t-text">"{testimonial.text}"</div>
+            <div class="t-author">— {testimonial.author}</div>
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="article-sidebar">
+      <div class="sidebar-cta">
+        <div class="s-title">{city} Service</div>
+        <div class="s-sub">{responseTime} · Same day</div>
+        <a href="tel:(323)990-7550" class="s-phone">(323) 990-7550</a>
+        <a href="/book/" class="s-btn">Book in {city}</a>
+      </div>
+
+      {nearbyCities.length > 0 && (
+        <div class="sidebar-box">
+          <div class="sb-title">Nearby Cities We Serve</div>
+          <ul class="sidebar-checklist">
+            {nearbyCities.map(c => <li>{c}</li>)}
+          </ul>
+        </div>
+      )}
+
+      <div class="sidebar-box">
+        <div class="sb-title">Our Credentials</div>
+        <ul class="sidebar-checklist">
+          <li>CSLB Lic. #1138898</li>
+          <li>BBB A+ rated</li>
+          <li>85% first-visit fix</li>
+          <li>OEM parts only</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP SECTION -->
+  <div class="city-map-section">
+    <div class="city-map-inner">
+      <h2 class="map-title">Our Service Area in {city}</h2>
+      <div class="map-wrapper">
+        <iframe
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=-118.6%2C33.7%2C-117.9%2C34.2&layer=mapnik`}
+          width="100%"
+          height="400"
+          style="border:0;"
+          loading="lazy"
+          title={`Service area map - ${city}, CA`}
+        ></iframe>
+      </div>
+      <p class="map-note">We serve all neighborhoods in {city} and surrounding areas. Same-day service available.</p>
+    </div>
+  </div>
+</Layout>

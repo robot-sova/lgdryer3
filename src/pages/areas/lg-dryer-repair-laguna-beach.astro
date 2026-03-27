@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="LG Dryer Repair Los Angeles | Same Day Service | HVAC 777 LLC"
   description="Expert LG dryer repair in Los Angeles by authorized techs. Same-day service, 85% first-visit fix rate, OEM parts only. Call (323) 990-7550 today."
+  city="Laguna Beach"
+  county="Orange"
+  zipCodes={["92651","92652"]}
+  neighborhoods={["Downtown Laguna","North Laguna","South Laguna","Temple Hills","Top of the World","Laguna Canyon"]}
+  featuredNeighborhoods={["Downtown Laguna","North Laguna","South Laguna"]}
+  nearbyCities={["Dana Point","Laguna Niguel","Aliso Viejo","Irvine","Newport Beach"]}
+  testimonial={{text:"Hard to find good service here — these guys are the real deal.",author:"Patricia H., North Laguna · 2 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Professional LG Dryer Repair Services in Los Angeles</h1>
     <p>Your LG dryer just stopped mid-cycle, and there's a mountain of wet clothes sitting in your washer. Our techs see this exact scenario three times a day across Los Angeles — usually it's a clogged lint sensor or failed moisture sensor, both fixable within an hour.</p>
+</Fragment>
 <h2>Common LG Dryer Problems Our Technicians Fix Daily</h2>
 <p>The number one call we get is "my LG dryer runs but won't heat." Nine times out of ten, it's a blown thermal fuse caused by restricted airflow. Most homeowners don't realize that even a partially blocked vent can cause this $12 part to fail. Our techs carry thermal fuses for every LG series — DLEX, DLGX, and the newer ThinQ models.
 
@@ -47,8 +56,9 @@ Check your exterior vent periodically, especially if you live in areas like Burb
 <p>Only genuine OEM LG parts, never aftermarket substitutes. We've seen too many problems caused by generic heating elements that run too hot, or cheap door latches that fail within months. OEM parts cost a bit more upfront but they're designed to work with your specific LG model and last much longer. All our parts come with LG's standard warranty too.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Ready to get your LG dryer working again? Call (323) 990-7550 to schedule same-day service. Our dispatcher will find the first available technician in your area and give you a 2-hour arrival window. We'll diagnose the problem for $65, then give you an exact repair quote before starting any work. The diagnostic fee disappears if you approve the repair, and we guarantee our work with a full parts and labor warranty.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does LG dryer repair typically cost?","acceptedAnswer":{"@type":"Answer","text":"Most LG dryer repairs run between $120-$280 depending on the part needed. A thermal fuse replacement costs about $120, while a heating element runs $180-$220. Control board replacements for newer ThinQ models can reach $280. We give you the exact price before starting work, and our diagnostic fee of $65 gets waived when you approve the repair."}},{"@type":"Question","name":"Do you really offer same-day LG dryer repair?","acceptedAnswer":{"@type":"Answer","text":"Yes, Monday through Saturday from 8am to 8pm. Call before 2 PM and we can usually get someone out the same day. Our techs carry the most common LG parts in their trucks, so about 85% of repairs get completed on the first visit. The rest usually need special-order parts that take 2-3 days to arrive."}},{"@type":"Question","name":"What's the most common problem with LG dryers?","acceptedAnswer":{"@type":"Answer","text":"Blown thermal fuses, hands down. This $12 part fails when your dryer overheats, usually from a clogged lint filter or blocked vent. The dryer will run and tumble but won't produce any heat. It's a safety feature, but most people think their heating element died. Our techs replace 4-5 thermal fuses every day across the greater Los Angeles area."}},{"@type":"Question","name":"Are your technicians actually trained on LG appliances?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We're an authorized LG service provider, which means our techs complete LG's training programs and use their diagnostic equipment. This matters because newer LG models like the ThinQ series have unique features that require specific knowledge. Generic appliance repair companies often miss problems that LG-trained techs spot immediately."}},{"@type":"Question","name":"Do you use genuine LG parts or aftermarket ones?","acceptedAnswer":{"@type":"Answer","text":"Only genuine OEM LG parts, never aftermarket substitutes. We've seen too many problems caused by generic heating elements that run too hot, or cheap door latches that fail within months. OEM parts cost a bit more upfront but they're designed to work with your specific LG model and last much longer. All our parts come with LG's standard warranty too."}}]}</script>
-</Layout>
+</AreaLayout>

@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="LG Dryer Repair West Hollywood - Same Day Service Available"
   description="Professional LG dryer repair in West Hollywood with same-day service. Our certified technicians fix all LG models using OEM parts only. Call (323) 990-7550 today."
+  city="Calabasas"
+  county="Los Angeles"
+  zipCodes={["91302"]}
+  neighborhoods={["Calabasas Hills","Park Estates","Mulwood","The Oaks","Bay Laurel","Calabasas Highlands"]}
+  featuredNeighborhoods={["Calabasas Hills","The Oaks","Park Estates"]}
+  nearbyCities={["Woodland Hills","Hidden Hills","Agoura Hills","Malibu","Westlake Village"]}
+  testimonial={{text:"Same-day repair when other companies said they'd need a week. Impressive.",author:"Steve N., The Oaks · 3 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Expert LG Dryer Repair Services in West Hollywood</h1>
     <p>Your LG dryer just stopped mid-cycle, and you've got a pile of damp clothes staring at you. Nine times out of ten, it's either a clogged lint trap backing up the airflow or a faulty door latch that's not registering properly. Our technicians see this constantly across West Hollywood, and the good news is most dryer problems can be fixed the same day.</p>
+</Fragment>
 <h2>Professional LG Dryer Repair Services in West Hollywood</h2>
 <p>We specialize exclusively in LG dryer repair, which means our technicians know these machines inside and out. Whether you've got a ThinQ smart dryer that won't connect to WiFi or a DLEX series that's overheating, we carry the right OEM parts on every truck. The first thing our techs check is the exhaust vent — most homeowners don't realize that a partially blocked vent can cause everything from extended dry times to complete shutdowns. We service all of West Hollywood's unique housing situations, from the vintage apartments along Melrose to the newer high-rises near the Sunset Strip. Our $65 diagnostic fee gets waived when you proceed with the repair, and we maintain an 85% first-visit fix rate because we stock genuine LG components, not generic aftermarket parts that fail within months.</p>
 <h3>LG ThinQ and Smart Dryer Repairs</h3>
@@ -49,8 +58,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>We handle emergency calls Monday through Saturday until 8pm. Emergency doesn't cost extra — same rates and same $65 diagnostic fee. The key is calling as early as possible. Morning emergency calls usually get afternoon slots, but late calls might push to next day depending on our existing schedule.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Call (323) 990-7550 to schedule your LG dryer repair in West Hollywood. When you call, we'll ask about the specific problem and schedule a convenient time slot. Our technician will arrive with common LG parts, diagnose the issue for $65 (waived if you proceed with repair), and give you an exact quote before starting work. Most repairs get completed the same day, and you can pay by card, check, or cash when we're finished.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you repair my LG dryer in West Hollywood?","acceptedAnswer":{"@type":"Answer","text":"Most of our West Hollywood customers get same-day service when they call before 2pm. We stock common LG parts on every truck, so our 85% first-visit fix rate means you'll likely have your dryer running again within a few hours of our arrival. If we need to order a specific part, we'll get it within 24-48 hours max."}},{"@type":"Question","name":"What are the most common LG dryer problems you encounter?","acceptedAnswer":{"@type":"Answer","text":"Thermal fuses blow constantly — usually from lint buildup restricting airflow. Door latches fail on DLEX models after about four years. Heating elements burn out gradually, so you'll notice longer dry times before complete failure. Control board issues pop up after power surges, and moisture sensors get gummed up with fabric softener residue."}},{"@type":"Question","name":"Do you provide warranty on LG dryer repairs in West Hollywood?","acceptedAnswer":{"@type":"Answer","text":"Yes, we warranty both parts and labor on every repair. OEM LG parts come with manufacturer warranty, and we guarantee our work. If the same component fails again within the warranty period, we'll fix it at no charge. We also stand behind our diagnostic work — if we misdiagnose the problem, you don't pay the $65 fee."}},{"@type":"Question","name":"How much does LG dryer repair typically cost in West Hollywood?","acceptedAnswer":{"@type":"Answer","text":"Most repairs run $150-300 total including parts and labor. Simple fixes like thermal fuses or door latches are on the lower end, while control boards or heating elements cost more. We always quote the exact price before starting work, and our $65 diagnostic fee gets waived when you proceed with the repair."}},{"@type":"Question","name":"Do you offer emergency LG dryer repair services?","acceptedAnswer":{"@type":"Answer","text":"We handle emergency calls Monday through Saturday until 8pm. Emergency doesn't cost extra — same rates and same $65 diagnostic fee. The key is calling as early as possible. Morning emergency calls usually get afternoon slots, but late calls might push to next day depending on our existing schedule."}}]}</script>
-</Layout>
+</AreaLayout>

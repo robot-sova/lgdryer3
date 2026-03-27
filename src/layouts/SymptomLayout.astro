@@ -1,0 +1,106 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  symptoms?: string[];
+  activeSymptoms?: string[];
+  symptomPhotos?: Array<{src: string, alt: string, caption: string}>;
+  symptomPhotosCaption?: string;
+  relatedParts?: Array<{name: string, photo: string, cost: string, slug: string}>;
+  repairCost?: string;
+}
+
+const { title, description, symptoms = [], activeSymptoms = [], symptomPhotos, symptomPhotosCaption, relatedParts = [], repairCost } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Breadcrumbs slot="breadcrumbs" items={[
+    { label: "Symptoms", href: "/symptoms/" },
+    { label: title.split("|")[0].split("—")[0].trim() }
+  ]} />
+
+  <div class="article-layout">
+    <div class="article-body">
+      <!-- SYMPTOM CHIPS -->
+      {symptoms.length > 0 && (
+        <div class="symptom-chips">
+          {symptoms.map(s => (
+            <div class={`symptom-chip ${activeSymptoms.includes(s) ? 'active' : ''}`}>{s}</div>
+          ))}
+        </div>
+      )}
+
+      <slot name="before-photos" />
+
+      <!-- SYMPTOM PHOTOS GRID 3col -->
+      {symptomPhotos && symptomPhotos.length > 0 && (
+        <div>
+          <div class="article-img-grid-3">
+            {symptomPhotos.map(photo => (
+              <div class="grid-item">
+                <img src={photo.src} alt={photo.alt} />
+                <div class="grid-cap">{photo.caption}</div>
+              </div>
+            ))}
+          </div>
+          {symptomPhotosCaption && (
+            <div class="article-img-caption">{symptomPhotosCaption}</div>
+          )}
+        </div>
+      )}
+
+      <slot />
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="article-sidebar">
+      <div class="sidebar-cta">
+        <div class="s-title">Same Day Service</div>
+        <div class="s-sub">Mon–Sat 8am–8pm · OEM parts</div>
+        <a href="tel:(323)990-7550" class="s-phone">(323) 990-7550</a>
+        <a href="/book/" class="s-btn">Book Online</a>
+      </div>
+
+      {repairCost && (
+        <div class="sidebar-box">
+          <div class="sb-title">Typical Repair Cost</div>
+          <div class="sb-price">{repairCost}</div>
+          <div class="sb-note">Parts + labor · $65 diagnostic<br/>fee waived with repair</div>
+        </div>
+      )}
+
+      {relatedParts.length > 0 && (
+        <div class="sidebar-box">
+          <div class="sb-title">Common Parts We Replace</div>
+          <div class="parts-list">
+            {relatedParts.map(part => (
+              <a href={part.slug} class="part-item">
+                {part.photo && (
+                  <img src={part.photo} alt={part.name} class="part-photo" />
+                )}
+                <div class="part-info">
+                  <div class="part-name">{part.name}</div>
+                  <div class="part-cost">{part.cost}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="sidebar-box">
+        <div class="sb-title">Why Us</div>
+        <ul class="sidebar-checklist">
+          <li>85% first-visit fix rate</li>
+          <li>CSLB Lic. #1138898</li>
+          <li>BBB A+ rated</li>
+          <li>OEM parts only</li>
+          <li>1-year warranty</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

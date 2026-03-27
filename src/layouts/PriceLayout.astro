@@ -1,0 +1,147 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  serviceName?: string;
+  priceMin: string;
+  priceMax: string;
+  partCost?: string;
+  laborCost?: string;
+  includes?: string;
+  newDryerCost?: string;
+  savings?: string;
+  otherRepairs?: Array<{name: string, price: string, slug: string}>;
+}
+
+const { title, description, serviceName, priceMin, priceMax, partCost, laborCost, includes, newDryerCost, savings, otherRepairs = [] } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Breadcrumbs slot="breadcrumbs" items={[
+    { label: "Price List", href: "/price-list/" },
+    { label: serviceName || title.split("|")[0].trim() }
+  ]} />
+
+  <!-- PRICE HERO BANNER -->
+  <div class="price-hero-banner">
+    <div class="price-hero-inner">
+      <div class="phb-label">Transparent Pricing · Los Angeles · Same Day Service</div>
+      <h1 class="phb-title">{serviceName || title}</h1>
+      <div class="phb-price-row">
+        <span class="phb-amount">${priceMin}</span>
+        <span class="phb-dash">–</span>
+        <span class="phb-amount">${priceMax}</span>
+        <span class="phb-unit">total · parts + labor</span>
+      </div>
+      <div class="phb-note">$65 diagnostic fee · waived when you approve repair</div>
+    </div>
+  </div>
+
+  <!-- 2-COLUMN LAYOUT -->
+  <div class="article-layout">
+    <div class="article-body">
+
+      <slot name="intro" />
+
+      <!-- COST BREAKDOWN CARDS -->
+      <h2>Cost breakdown</h2>
+
+      {partCost && (
+        <div class="price-card">
+          <div class="pc-top">
+            <div>
+              <div class="pc-name">OEM LG part</div>
+              <div class="pc-note">Genuine manufacturer part · includes warranty</div>
+            </div>
+            <div class="pc-amount">{partCost}</div>
+          </div>
+          <div class="price-bar"><div class="price-bar-fill" style="width:40%;"></div></div>
+        </div>
+      )}
+
+      {laborCost && (
+        <div class="price-card">
+          <div class="pc-top">
+            <div>
+              <div class="pc-name">Labor</div>
+              <div class="pc-note">Installation + full system test + vent check</div>
+            </div>
+            <div class="pc-amount">{laborCost}</div>
+          </div>
+          <div class="price-bar"><div class="price-bar-fill" style="width:55%;"></div></div>
+        </div>
+      )}
+
+      <div class="price-card featured">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Total (diagnostic fee waived)</div>
+            <div class="pc-note">{includes || 'OEM part + labor + 1-year warranty'}</div>
+          </div>
+          <div class="pc-amount">${priceMin}–{priceMax}</div>
+        </div>
+      </div>
+
+      <slot />
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="article-sidebar">
+      <div class="sidebar-cta">
+        <div class="s-title">Get Exact Quote</div>
+        <div class="s-sub">$65 diagnostic · waived with repair</div>
+        <a href="tel:(323)990-7550" class="s-phone">(323) 990-7550</a>
+        <a href="/book/" class="s-btn">Book Online</a>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sb-title">Repair vs New Dryer</div>
+        <div class="vs-compare">
+          <div class="vs-row">
+            <span class="vr-label">New LG dryer</span>
+            <span class="vr-price-new">{newDryerCost || '$800–1,500'}</span>
+          </div>
+          <div class="vs-row">
+            <span class="vr-label">Our repair</span>
+            <span class="vr-price-repair">${priceMin}–{priceMax}</span>
+          </div>
+          {savings && (
+            <div class="vs-row vs-save-row">
+              <span class="vr-label">You save</span>
+              <span class="vr-save">{savings}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {otherRepairs.length > 0 && (
+        <div class="sidebar-box">
+          <div class="sb-title">Other Repairs</div>
+          <div class="other-repairs-list">
+            {otherRepairs.map(r => (
+              <a href={r.slug} class="other-repair-item">
+                <span class="or-name">{r.name}</span>
+                <span class="or-price">{r.price}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="sidebar-box">
+        <div class="sb-title">Included</div>
+        <ul class="sidebar-checklist">
+          <li>OEM LG parts only</li>
+          <li>Same-day service</li>
+          <li>1-year warranty</li>
+          <li>Vent check included</li>
+          <li>No hidden fees</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

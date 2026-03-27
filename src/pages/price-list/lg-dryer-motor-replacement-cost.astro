@@ -1,14 +1,28 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import PriceLayout from '../../layouts/PriceLayout.astro';
 ---
 
-<Layout
+<PriceLayout
   title="LG Dryer Heating Element Replacement Cost in Los Angeles | HVAC 777"
   description="Professional LG dryer heating element replacement in LA. Our licensed techs handle all models with OEM parts. Same-day service, $65 diagnostic fee waived with repair."
+  serviceName="LG Dryer Motor Replacement"
+  priceMin="280"
+  priceMax="400"
+  partCost="$150–220"
+  laborCost="$100–140"
+  newDryerCost="$800–1,500"
+  savings="$400–1,100"
+  otherRepairs={[
+    { name: "Belt", price: "$120–200", slug: "/price-list/lg-dryer-belt-replacement-cost" },
+    { name: "Drum Bearing", price: "$200–350", slug: "/price-list/lg-dryer-drum-bearing-replacement-cost" },
+    { name: "Idler Pulley", price: "$120–200", slug: "/price-list/lg-dryer-belt-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
-    <h1>LG Dryer Heating Element Replacement Cost & Service in Los Angeles</h1>
+  <Fragment slot="intro">
     <p>That load of towels has been tumbling for two hours and they're still damp — classic sign of a dead heating element. Our technicians replace more LG dryer heating elements than any other single part, and nine times out of ten, homeowners are shocked to learn their dryer wasn't actually broken beyond repair.</p>
+  </Fragment>
+
+    <h1>LG Dryer Heating Element Replacement Cost & Service in Los Angeles</h1>
 <h2>LG Dryer Heating Element Replacement Cost Breakdown</h2>
 <p>The total cost to replace your LG dryer heating element runs $180-$320, depending on your specific model. OEM LG heating elements cost $85-$145 for the part itself — we stock elements for every major LG series including ThinQ, Signature, DLGX, and DLEX models. Labor runs $95-$175, which includes our diagnostic fee that gets waived when you proceed with the repair. Don't fall for cheap aftermarket elements that cost $40 online. Our technicians see these fail within six months constantly. The slight price difference for genuine LG parts means your repair lasts years, not months. We've replaced heating elements in thousand-dollar dryers where homeowners tried saving fifty bucks on a knockoff part first.</p>
 <h3>Parts Cost by LG Model Series</h3>
@@ -43,8 +57,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>For LG dryers under five years old, replacing the heating element definitely makes sense — you'll get several more years of reliable service. If your dryer is over eight years old with multiple previous repairs, our technicians will honestly tell you when replacement makes more financial sense.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Ready to get your LG dryer heating properly again? Call (323) 990-7550 to schedule same-day service. Our licensed technicians carry genuine LG heating elements for most models and can diagnose your exact problem over the phone. We'll give you an upfront price quote and waive the $65 diagnostic fee when you proceed with the repair.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to replace an LG dryer heating element?","acceptedAnswer":{"@type":"Answer","text":"Total cost runs $180-$320 depending on your LG model. The genuine LG heating element costs $85-$145, labor is $95-$175, and our $65 diagnostic fee gets waived when you proceed with the repair. We only use OEM LG parts — no aftermarket elements that fail in six months."}},{"@type":"Question","name":"Can I replace my LG dryer heating element myself?","acceptedAnswer":{"@type":"Answer","text":"We don't recommend it unless you're experienced with 240V electrical work. Our technicians see DIY heating element jobs gone wrong every week — one backwards wire connection can fry your control board, turning a $200 repair into $400+. Gas models add complexity with burner assembly connections."}},{"@type":"Question","name":"How do I know if my LG dryer heating element is broken?","acceptedAnswer":{"@type":"Answer","text":"The main sign is clothes taking forever to dry but the dryer runs normally. Our techs test elements with a multimeter for continuity — if we get an infinity reading, the coil has broken internally. Sometimes you'll see the dryer get hot for ten minutes then go cold, which is classic element failure."}},{"@type":"Question","name":"Where can I buy a replacement heating element for my LG dryer?","acceptedAnswer":{"@type":"Answer","text":"We stock genuine LG heating elements for most models and can source specialty parts same-day from our supplier network. Avoid Amazon and eBay — the counterfeit market is huge for heating elements, and you can't tell the difference until the part fails prematurely."}},{"@type":"Question","name":"Is it worth replacing the heating element or should I buy a new dryer?","acceptedAnswer":{"@type":"Answer","text":"For LG dryers under five years old, replacing the heating element definitely makes sense — you'll get several more years of reliable service. If your dryer is over eight years old with multiple previous repairs, our technicians will honestly tell you when replacement makes more financial sense."}}]}</script>
-</Layout>
+</PriceLayout>

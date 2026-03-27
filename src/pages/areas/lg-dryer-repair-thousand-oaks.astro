@@ -1,14 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import AreaLayout from '../../layouts/AreaLayout.astro';
 ---
 
-<Layout
+<AreaLayout
   title="LG Dryer Repair Manhattan Beach - Same Day Service Available"
   description="Expert LG dryer repair in Manhattan Beach. Same-day service from authorized technicians who specialize in ThinQ, Signature, and all LG models."
+  city="Thousand Oaks"
+  county="Ventura"
+  zipCodes={["91320","91360","91362"]}
+  neighborhoods={["Newbury Park","Westlake","Dos Vientos","North Ranch","Lynn Ranch","Conejo Valley"]}
+  featuredNeighborhoods={["Newbury Park","Dos Vientos","North Ranch"]}
+  nearbyCities={["Westlake Village","Agoura Hills","Camarillo","Moorpark","Simi Valley"]}
+  testimonial={{text:"Prompt, professional, and reasonably priced. Highly recommend for LG dryer repairs.",author:"Greg P., Dos Vientos · 2 weeks ago",stars:5}}
+  responseTime="2-4 hours"
 >
-  <div class="maintext">
+<Fragment slot="intro">
     <h1>Professional LG Dryer Repair Services in Manhattan Beach</h1>
     <p>When your LG dryer stops heating or takes three cycles to dry a single load, our Manhattan Beach residents know exactly who to call. We've been fixing LG dryers in coastal communities for years, and we understand how salt air affects these machines differently than inland units.</p>
+</Fragment>
 <h2>Common LG Dryer Problems We Fix Daily in Manhattan Beach</h2>
 <p>The number one call we get? LG dryers that run but don't heat. Nine times out of ten, it's a blown thermal fuse — these little safety devices trip when lint blocks the exhaust or when moisture sensors go bad. Our technicians carry OEM thermal fuses for every LG model, from the basic DLGX series to the high-end ThinQ smart dryers.
 
@@ -47,8 +56,9 @@ Don't overload your LG dryer, even though the drum seems huge. Those large-capac
 <p>We specialize in all LG dryer models, including ThinQ smart dryers, Signature series, DLGX and DLEX models, and older LG units. Our technicians stay current on LG's latest technology and carry parts for both new and discontinued models.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>Ready to get your LG dryer working properly again? Call (323) 990-7550 to schedule same-day service in Manhattan Beach. Our technician will diagnose the problem, explain what needs fixing, and give you an upfront price before starting any work. We're licensed (CSLB #1138898), BBB A+ rated, and we only use genuine LG parts.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you repair my LG dryer in Manhattan Beach?","acceptedAnswer":{"@type":"Answer","text":"We offer same-day service Monday through Saturday if you call before 2 PM. Our technicians carry common LG parts on their trucks, so 85% of repairs get completed during the first visit. The diagnostic takes about 20 minutes, and most repairs finish within an hour."}},{"@type":"Question","name":"What are the most common LG dryer problems in coastal areas like Manhattan Beach?","acceptedAnswer":{"@type":"Answer","text":"Salt air and humidity cause specific issues we don't see inland. Moisture sensors fail more frequently, thermal fuses blow from working harder in humid conditions, and metal components show corrosion faster. We also see more lint buildup because the moisture makes lint stick to exhaust vents."}},{"@type":"Question","name":"Do you provide warranty on LG dryer repairs in Manhattan Beach?","acceptedAnswer":{"@type":"Answer","text":"All our repairs come with warranty coverage on both parts and labor. OEM LG parts carry the manufacturer's warranty, plus our additional service warranty. We stand behind our work — if the same problem comes back within the warranty period, we fix it at no charge."}},{"@type":"Question","name":"How much does LG dryer repair cost in Manhattan Beach?","acceptedAnswer":{"@type":"Answer","text":"Our diagnostic fee is $65, which gets waived when you approve the repair. Repair costs depend on the specific problem and parts needed. Common fixes like thermal fuses or door latches typically run $150-200 total, while heating elements or control boards cost more."}},{"@type":"Question","name":"Do you service all LG dryer models in Manhattan Beach?","acceptedAnswer":{"@type":"Answer","text":"We specialize in all LG dryer models, including ThinQ smart dryers, Signature series, DLGX and DLEX models, and older LG units. Our technicians stay current on LG's latest technology and carry parts for both new and discontinued models."}}]}</script>
-</Layout>
+</AreaLayout>

@@ -1,12 +1,19 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import SymptomLayout from '../../layouts/SymptomLayout.astro';
 ---
 
-<Layout
+<SymptomLayout
   title="LG Dryer Gas Valve Replacement Service in Los Angeles"
   description="Expert LG dryer gas valve replacement in LA. Same-day service, OEM parts only, 85% first-visit fix rate. Licensed techs specializing in gas valve repairs."
+  symptoms={["Not spinning", "Drum stuck", "Motor hums", "Belt broken", "Squealing"]}
+  activeSymptoms={["Not spinning", "Drum stuck"]}
+  repairCost="$150–350"
+  relatedParts={[
+    { name: "Drum Roller", photo: "/images/parts/drum-roller.jpg", cost: "$150–250", slug: "/price-list/lg-dryer-drum-bearing-replacement-cost" },
+    { name: "Belt", photo: "/images/parts/belt.jpg", cost: "$120–200", slug: "/price-list/lg-dryer-belt-replacement-cost" },
+    { name: "Motor", photo: "/images/parts/motor.jpg", cost: "$280–400", slug: "/price-list/lg-dryer-motor-replacement-cost" }
+  ]}
 >
-  <div class="maintext">
     <h1>Professional LG Dryer Gas Valve Replacement in Los Angeles</h1>
     <p>When your LG dryer starts but won't heat, nine times out of ten it's the gas valve assembly that's failed. Our technicians see this constantly with older DLGX and DLEX models — the solenoid coils burn out after years of cycling on and off, leaving you with a dryer that tumbles but produces zero heat.</p>
 <h2>How to Identify a Failed LG Dryer Gas Valve</h2>
@@ -45,8 +52,9 @@ import Layout from '../../layouts/Layout.astro';
 <p>Most gas valve replacements take 45-60 minutes once our technician has the correct part. We stock common LG valve assemblies on our trucks for same-day service. The time includes safely disconnecting gas lines, replacing the valve assembly, reconnecting everything, and performing mandatory leak tests to ensure safe operation.</p>
     <h2>Schedule Same-Day LG Dryer Repair</h2>
     <p>When your LG dryer stops heating, don't wait for the problem to get worse. Call Same Day Appliance Repair at (323) 990-7550 for professional gas valve replacement service. Our licensed technicians carry OEM LG parts and can typically complete repairs the same day you call. We handle all permit requirements and safety testing, so you get reliable heating without the safety risks of DIY gas work.</p>
-    <p class="bt"><a href="tel:(323)990-7550" class="button-85">&nbsp;&nbsp;CALL US&nbsp;&nbsp;</a></p>
-    <p class="bt"><a href="/book/" class="button-85">&nbsp;&nbsp;BOOK US&nbsp;</a></p>
-  </div>
+    <div class="cta-buttons">
+  <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+  <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+</div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the signs that my LG dryer gas valve needs replacement?","acceptedAnswer":{"@type":"Answer","text":"The most obvious sign is when your dryer runs but produces no heat at all. You might also notice longer drying times, clothes coming out damp, or the dryer shutting off mid-cycle. Some LG models display error codes like D80 or PS when the gas valve fails. Our technicians can test the valve's solenoid coils with a multimeter to confirm the diagnosis."}},{"@type":"Question","name":"Can I replace an LG dryer gas valve myself?","acceptedAnswer":{"@type":"Answer","text":"We strongly advise against DIY gas valve replacement. This repair involves disconnecting gas lines, which requires proper tools, knowledge of gas safety codes, and leak testing procedures. Los Angeles County also requires permits for major gas appliance work. Our licensed technicians handle the entire process safely and ensure all local code requirements are met."}},{"@type":"Question","name":"How do I find the correct gas valve part number for my LG dryer?","acceptedAnswer":{"@type":"Answer","text":"Check the metal tag inside your dryer door or on the back panel for the complete model number. Most DLGX series use part 383EEL3001A, while newer ThinQ models need 383EEL3002B. Don't rely on generic part numbers from online retailers — our techs verify exact compatibility using LG's technical database before ordering any replacement valve."}},{"@type":"Question","name":"How much does LG dryer gas valve replacement cost?","acceptedAnswer":{"@type":"Answer","text":"Gas valve replacement typically costs $180-$220 for the OEM part plus labor. We charge a $65 diagnostic fee that's waived when you proceed with the repair. The total job usually runs $245-$285 depending on your specific model. This includes proper leak testing, permit handling, and our standard warranty on parts and labor."}},{"@type":"Question","name":"How long does gas valve replacement take?","acceptedAnswer":{"@type":"Answer","text":"Most gas valve replacements take 45-60 minutes once our technician has the correct part. We stock common LG valve assemblies on our trucks for same-day service. The time includes safely disconnecting gas lines, replacing the valve assembly, reconnecting everything, and performing mandatory leak tests to ensure safe operation."}}]}</script>
-</Layout>
+</SymptomLayout>
