@@ -14,9 +14,11 @@ interface Props {
   partPhotoLabel?: string;
   beforeAfterPhotos?: Array<{src: string, alt: string, caption: string}>;
   cost?: string;
+  price_min?: number;
+  price_max?: number;
 }
 
-const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoAlt, partPhotoCaption, partPhotoLabel, beforeAfterPhotos, cost } = Astro.props;
+const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoAlt, partPhotoCaption, partPhotoLabel, beforeAfterPhotos, cost, price_min = 149, price_max = 399 } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
@@ -96,4 +98,45 @@ const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoA
       </div>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": title,
+        "description": description,
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "LG Dryer Repair",
+          "telephone": "(323) 990-7550",
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Bureau of Household Goods and Services #49573"
+          }
+        },
+        "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"],
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": price_min,
+            "maxPrice": price_max,
+            "priceCurrency": "USD"
+          }
+        }
+      },
+      {
+        "@type": "HowTo",
+        "name": "How We Perform " + title.split("|")[0].split("—")[0].trim(),
+        "step": [
+          { "@type": "HowToStep", "name": "Diagnose", "text": "Run full diagnostic on LG dryer to identify the faulty component" },
+          { "@type": "HowToStep", "name": "Estimate", "text": "Provide upfront cost estimate before any work begins" },
+          { "@type": "HowToStep", "name": "Repair", "text": "Replace faulty part with OEM or equivalent quality component" },
+          { "@type": "HowToStep", "name": "Test", "text": "Run full test cycle to confirm repair success" }
+        ]
+      }
+    ]
+  })} />
 </Layout>

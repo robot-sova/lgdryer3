@@ -144,4 +144,32 @@ const { title, description, serviceName, priceMin, priceMax, partCost, laborCost
       </div>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": serviceName || title,
+        "description": description,
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "LG Dryer Repair",
+          "telephone": "(323) 990-7550"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": Number(priceMin),
+            "maxPrice": Number(priceMax),
+            "priceCurrency": "USD"
+          },
+          "availability": "https://schema.org/InStock",
+          "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"]
+        }
+      }
+    ]
+  })} />
 </Layout>

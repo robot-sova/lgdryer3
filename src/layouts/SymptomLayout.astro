@@ -103,4 +103,21 @@ const { title, description, symptoms = [], activeSymptoms = [], symptomPhotos, s
       </div>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": title,
+    "description": description,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "LG Dryer Repair",
+      "telephone": "(323) 990-7550",
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Bureau of Household Goods and Services #49573"
+      }
+    },
+    "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"]
+  })} />
 </Layout>

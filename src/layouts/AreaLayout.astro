@@ -141,4 +141,36 @@ const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, 
       <p class="map-note">We serve all neighborhoods in {city} and surrounding areas. Same-day service available.</p>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "LG Dryer Repair",
+    "telephone": "(323) 990-7550",
+    "email": "info@lgdryer.repair",
+    "url": "https://lgdryer.repair",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": city,
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "areaServed": city + ", CA",
+    "knowsAbout": ["LG dryer repair", "LG washer repair", "appliance repair"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": "Bureau of Household Goods and Services #49573",
+      "recognizedBy": {
+        "@type": "GovernmentOrganization",
+        "name": "California Department of Consumer Affairs"
+      }
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  })} />
 </Layout>

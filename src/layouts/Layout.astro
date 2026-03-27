@@ -89,6 +89,49 @@ const venturaCounty = [
   <meta name="description" content={description} />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "LG Dryer Repair",
+        "telephone": "(323) 990-7550",
+        "email": "info@lgdryer.repair",
+        "url": "https://lgdryer.repair",
+        "logo": "https://lgdryer.repair/favicon.svg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Los Angeles",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"],
+        "knowsAbout": ["LG dryer repair", "LG washer repair", "appliance repair"],
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "name": "Bureau of Household Goods and Services #49573",
+          "recognizedBy": {
+            "@type": "GovernmentOrganization",
+            "name": "California Department of Consumer Affairs"
+          }
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "LG Dryer Repair",
+        "url": "https://lgdryer.repair"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
