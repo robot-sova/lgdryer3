@@ -1,5 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
-export default defineConfig({});
+import cloudflare from '@astrojs/cloudflare';
+
+export default defineConfig({
+  site: 'https://lgdryer.repair',
+  integrations: [sitemap()],
+  adapter: cloudflare(),
+});
