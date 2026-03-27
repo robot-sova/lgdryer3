@@ -23,7 +23,9 @@
       "Bash(sed -i 's|<Breadcrumbs items={\\\\[{ label: \"\"Price List\"\" }\\\\]} />|<Breadcrumbs slot=\"\"breadcrumbs\"\" items={[{ label: \"\"Price List\"\" }]} />|' src/pages/price-list/index.astro)",
       "Bash(sed -i 's|<Breadcrumbs items={\\\\[{ label: \"\"Service Areas\"\" }\\\\]} />|<Breadcrumbs slot=\"\"breadcrumbs\"\" items={[{ label: \"\"Service Areas\"\" }]} />|' src/pages/areas/index.astro)",
       "Bash(grep -v '//')",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx wrangler:*)"
     ]
   }
 }
