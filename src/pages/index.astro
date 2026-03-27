@@ -291,25 +291,17 @@ import Layout from '../layouts/Layout.astro';
         console.error('TG error:', tgErr);
       }
 
-      // Send email via Resend (may fail from browser due to CORS — that's expected)
+      // Send email via Resend (server-side proxy to avoid CORS)
       try {
-        const resendRes = await fetch('https://api.resend.com/emails', {
+        const resendRes = await fetch('/api/contact', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${import.meta.env.PUBLIC_RESEND_API_KEY}`
-          },
-          body: JSON.stringify({
-            from: 'noreply@lgdryer.repair',
-            to: 'info@lgdryer.repair',
-            subject: payload.type === 'callback' ? '📞 New Callback Request' : '📅 New Booking Request',
-            text: text
-          })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
         });
         const resendData = await resendRes.json();
         console.log('Resend response:', resendData);
       } catch (resendErr) {
-        console.error('Resend error (CORS expected):', resendErr);
+        console.error('Resend error:', resendErr);
       }
 
       // Show success (Telegram is the primary channel, Resend may fail from browser)
