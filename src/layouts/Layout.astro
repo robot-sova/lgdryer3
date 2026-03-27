@@ -218,13 +218,21 @@ const venturaCounty = [
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileClose = document.getElementById('mobileClose');
 
-    hamburgerBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('active'));
-    mobileClose?.addEventListener('click', () => mobileMenu?.classList.remove('active'));
+    function closeMenu() {
+      mobileMenu?.classList.remove('active');
+      if (hamburgerBtn) hamburgerBtn.innerHTML = '☰';
+    }
+
+    hamburgerBtn?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('active');
+      if (hamburgerBtn) hamburgerBtn.innerHTML = mobileMenu?.classList.contains('active') ? '✕' : '☰';
+    });
+    mobileClose?.addEventListener('click', closeMenu);
     mobileMenu?.addEventListener('click', (e) => {
-      if (e.target === mobileMenu) mobileMenu.classList.remove('active');
+      if (e.target === mobileMenu) closeMenu();
     });
     mobileMenu?.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu?.classList.remove('active'));
+      link.addEventListener('click', closeMenu);
     });
   </script>
 </body>
