@@ -218,10 +218,13 @@ const venturaCounty = [
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileClose = document.getElementById('mobileClose');
 
-    hamburgerBtn?.addEventListener('click', () => mobileMenu?.classList.add('active'));
+    hamburgerBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('active'));
     mobileClose?.addEventListener('click', () => mobileMenu?.classList.remove('active'));
     mobileMenu?.addEventListener('click', (e) => {
       if (e.target === mobileMenu) mobileMenu.classList.remove('active');
+    });
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu?.classList.remove('active'));
     });
   </script>
 </body>
