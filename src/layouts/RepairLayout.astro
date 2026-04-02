@@ -29,10 +29,12 @@ const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoA
 
   <!-- HERO IMAGE -->
   {heroImg ? (
-    <div style="overflow:hidden; height:360px;">
-      <img class="article-hero-img" src={heroImg} alt={heroAlt || `LG Dryer Repair`} style="width:100%; min-width:100%; height:360px; object-fit:cover; object-position:center top; display:block;" />
+    <div>
+      <div style="overflow:hidden; height:360px;">
+        <img class="article-hero-img" src={heroImg} alt={heroAlt || `LG Dryer Repair`} style="width:100%; min-width:100%; height:360px; object-fit:cover; object-position:center top; display:block;" />
+      </div>
+      {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
     </div>
-    {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
   ) : (
     <div style="height:32px;"></div>
   )}
