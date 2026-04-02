@@ -30,7 +30,7 @@ const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoA
   <!-- HERO IMAGE -->
   {heroImg ? (
     <div>
-      <img class="article-hero-img" src={heroImg} alt={heroAlt || title} />
+      <img class="article-hero-img" style="width:100%; height:360px; object-fit:cover; object-position:center center; display:block;" src={heroImg} alt={heroAlt || title} />
       {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
     </div>
   ) : (
