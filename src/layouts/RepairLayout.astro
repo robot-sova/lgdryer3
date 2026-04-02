@@ -30,8 +30,8 @@ const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoA
   <!-- HERO IMAGE -->
   {heroImg ? (
     <div>
-      <div style="overflow:hidden; height:360px;">
-        <img class="article-hero-img" src={heroImg} alt={heroAlt || `LG Dryer Repair`} style="width:100%; min-width:100%; height:360px; object-fit:cover; object-position:center top; display:block;" />
+      <div style="width:100%; height:360px; overflow:hidden; position:relative;">
+        <img class="article-hero-img" src={heroImg} alt={heroAlt || `LG Dryer Repair`} style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); height:360px; width:auto; max-width:none;" />
       </div>
       {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
     </div>
