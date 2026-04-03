@@ -149,22 +149,22 @@ const venturaCounty = [
         <div class="nav-item">
           <button>Repair ▾</button>
           <div class="dropdown">
-            {repairLinks.map(r => <a href={`/repairs/${r.slug}`}>{r.label}</a>)}
+            {repairLinks.map(r => <a href={`/repairs/${r.slug}/`}>{r.label}</a>)}
           </div>
         </div>
 
         <div class="nav-item">
           <button>Symptoms ▾</button>
           <div class="dropdown">
-            {symptomLinks.map(s => <a href={`/symptoms/${s.slug}`}>{s.label}</a>)}
+            {symptomLinks.map(s => <a href={`/symptoms/${s.slug}/`}>{s.label}</a>)}
           </div>
         </div>
 
         <div class="nav-item">
           <button>Price List ▾</button>
           <div class="dropdown">
-            {priceLinks.slice(0, 4).map(p => <a href={`/price-list/${p.slug}`}>{p.label}</a>)}
-            <a href="/price-list/lg-dryer-heating-element-replacement-cost" style="border-top:1px solid rgba(255,255,255,0.06);margin-top:.25rem;padding-top:.65rem">View all prices →</a>
+            {priceLinks.slice(0, 4).map(p => <a href={`/price-list/${p.slug}/`}>{p.label}</a>)}
+            <a href="/price-list/lg-dryer-heating-element-replacement-cost/" style="border-top:1px solid rgba(255,255,255,0.06);margin-top:.25rem;padding-top:.65rem">View all prices →</a>
           </div>
         </div>
 
@@ -174,15 +174,15 @@ const venturaCounty = [
             <div class="mega-menu-grid">
               <div>
                 <h4>LA County</h4>
-                {laCounty.map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+                {laCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
               </div>
               <div>
                 <h4>Orange County</h4>
-                {orangeCounty.map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+                {orangeCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
               </div>
               <div>
                 <h4>Ventura County</h4>
-                {venturaCounty.map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+                {venturaCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
               </div>
             </div>
           </div>
@@ -203,20 +203,20 @@ const venturaCounty = [
 
     <div class="mobile-section">
       <h4>Repair Services</h4>
-      {repairLinks.map(r => <a href={`/repairs/${r.slug}`}>{r.label}</a>)}
+      {repairLinks.map(r => <a href={`/repairs/${r.slug}/`}>{r.label}</a>)}
     </div>
     <div class="mobile-section">
       <h4>Symptoms</h4>
-      {symptomLinks.map(s => <a href={`/symptoms/${s.slug}`}>{s.label}</a>)}
+      {symptomLinks.map(s => <a href={`/symptoms/${s.slug}/`}>{s.label}</a>)}
     </div>
     <div class="mobile-section">
       <h4>Price List</h4>
-      {priceLinks.map(p => <a href={`/price-list/${p.slug}`}>{p.label}</a>)}
+      {priceLinks.map(p => <a href={`/price-list/${p.slug}/`}>{p.label}</a>)}
     </div>
     <div class="mobile-section">
       <h4>Service Areas</h4>
-      {laCounty.slice(0,4).map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
-      {orangeCounty.slice(0,2).map(c => <a href={`/areas/${c.slug}`}>{c.label}</a>)}
+      {laCounty.slice(0,4).map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+      {orangeCounty.slice(0,2).map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
     </div>
 
     <a href="tel:3239907550" class="mobile-cta">(323) 990-7550</a>
@@ -244,14 +244,14 @@ const venturaCounty = [
         <div>
           <h4>Services</h4>
           <ul>
-            {repairLinks.slice(0,5).map(r => <li><a href={`/repairs/${r.slug}`}>{r.label}</a></li>)}
+            {repairLinks.slice(0,5).map(r => <li><a href={`/repairs/${r.slug}/`}>{r.label}</a></li>)}
           </ul>
         </div>
         <div>
           <h4>Quick Links</h4>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/book">Book a Visit</a></li>
+            <li><a href="/book/">Book a Visit</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
         </div>

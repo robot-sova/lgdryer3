@@ -5,5 +5,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://lgdryer.repair',
   output: 'static',
+  trailingSlash: 'always',
   integrations: [sitemap()],
 });
