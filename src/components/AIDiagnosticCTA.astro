@@ -1,0 +1,92 @@
+<div class="ai-diag-block">
+  <div class="ai-diag-icon">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-2h2zm0-4h-2V7h2z" fill="#1a6cf6"/>
+    </svg>
+  </div>
+  <div class="ai-diag-content">
+    <div class="ai-diag-label">FREE AI DIAGNOSIS</div>
+    <h3 class="ai-diag-title">Not sure what's wrong with your LG dryer?</h3>
+    <p class="ai-diag-text">Enter your model number and the symptoms you're seeing — our AI tool gives you a breakdown of likely causes and estimated repair costs before you call. Takes 30 seconds, saves you guesswork.</p>
+    <a href="/" class="ai-diag-btn">
+      Run Free AI Diagnosis
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<style>
+.ai-diag-block {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #0d1a2e 0%, #0a1520 100%);
+  border: 1px solid #1a6cf6;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 36px 0;
+}
+
+.ai-diag-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: rgba(26, 108, 246, 0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-diag-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #1a6cf6;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.ai-diag-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.ai-diag-text {
+  font-size: 0.9rem;
+  color: #8a9ab0;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.ai-diag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a6cf6;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+}
+
+.ai-diag-btn:hover {
+  background: #1558d0;
+}
+
+@media (max-width: 600px) {
+  .ai-diag-block {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+</style>

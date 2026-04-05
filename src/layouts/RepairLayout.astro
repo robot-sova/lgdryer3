@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AIDiagnosticCTA from '../components/AIDiagnosticCTA.astro';
 
 interface Props {
   title: string;
@@ -69,6 +70,8 @@ const { title, description, heroImg, heroAlt, heroCaption, partPhoto, partPhotoA
           </div>
         </div>
       )}
+
+      <AIDiagnosticCTA />
     </div>
 
     <!-- SIDEBAR -->

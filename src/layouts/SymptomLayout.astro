@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AIDiagnosticCTA from '../components/AIDiagnosticCTA.astro';
 
 interface Props {
   title: string;
@@ -53,6 +54,8 @@ const { title, description, symptoms = [], activeSymptoms = [], symptomPhotos, s
       )}
 
       <slot />
+
+      <AIDiagnosticCTA />
     </div>
 
     <!-- SIDEBAR -->
