@@ -31,22 +31,22 @@ const symptomLinks = [
 ];
 
 const priceLinks = [
-  { slug: 'lg-dryer-drum-bearing-replacement-cost', label: 'Drum Bearing Replacement Cost' },
-  { slug: 'lg-dryer-belt-replacement-cost', label: 'Belt Replacement Cost' },
-  { slug: 'lg-dryer-drum-replacement-cost', label: 'Drum Replacement Cost' },
-  { slug: 'install-dryer-vent-cost', label: 'Install Dryer Vent Cost' },
-  { slug: 'lg-dryer-heating-element-replacement-cost', label: 'Heating Element Cost' },
-  { slug: 'lg-dryer-thermal-fuse-replacement-cost', label: 'Thermal Fuse Cost' },
-  { slug: 'lg-dryer-gas-valve-replacement-cost', label: 'Gas Valve Cost' },
-  { slug: 'lg-dryer-igniter-replacement-cost', label: 'Igniter Cost' },
-  { slug: 'lg-dryer-motor-replacement-cost', label: 'Motor Cost' },
-  { slug: 'lg-dryer-idler-pulley-replacement-cost', label: 'Idler Pulley Cost' },
-  { slug: 'lg-dryer-maintenance-cost', label: 'Maintenance Cost' },
-  { slug: 'lg-dryer-vent-cleaning', label: 'Vent Cleaning' },
-  { slug: 'lg-dryer-reverse-door-cost', label: 'Reverse Door Cost' },
-  { slug: 'lg-dryer-door-lock-replacement-cost', label: 'Door Lock Replacement Cost' },
-  { slug: 'dryer-and-washer-installation', label: 'Dryer & Washer Installation' },
-  { slug: 'dryer-cleaning-service-cost', label: 'Cleaning Service Cost' },
+  { slug: 'lg-dryer-repair-cost', label: 'LG Dryer Repair Cost', price: '$150–480' },
+  { slug: 'lg-dryer-heating-element-replacement-cost', label: 'Heating Element', price: '$300–380' },
+  { slug: 'lg-dryer-thermal-fuse-replacement-cost', label: 'Thermal Fuse', price: '$280–350' },
+  { slug: 'lg-dryer-drum-roller-replacement-cost', label: 'Drum Rollers', price: '$280–350' },
+  { slug: 'lg-dryer-belt-replacement-cost', label: 'Belt Replacement', price: '$260–320' },
+  { slug: 'lg-dryer-drum-bearing-replacement-cost', label: 'Drum Bearing', price: '$320–400' },
+  { slug: 'lg-dryer-idler-pulley-replacement-cost', label: 'Idler Pulley', price: '$200–260' },
+  { slug: 'lg-dryer-motor-replacement-cost', label: 'Motor Replacement', price: '$380–480' },
+  { slug: 'lg-dryer-drum-replacement-cost', label: 'Drum Replacement', price: '$380–480' },
+  { slug: 'lg-dryer-gas-valve-replacement-cost', label: 'Gas Valve', price: '$280–450' },
+  { slug: 'lg-dryer-igniter-replacement-cost', label: 'Igniter (Gas)', price: '$280–350' },
+  { slug: 'lg-dryer-door-lock-replacement-cost', label: 'Door Lock', price: '$150–220' },
+  { slug: 'lg-dryer-maintenance-cost', label: 'Annual Maintenance', price: '$150–250' },
+  { slug: 'dryer-cleaning-service-cost', label: 'Vent Cleaning', price: '$150–200' },
+  { slug: 'install-dryer-vent-cost', label: 'Vent Installation', price: '$149–450' },
+  { slug: 'dryer-and-washer-installation', label: 'Washer & Dryer Install', price: '$150–300' },
 ];
 
 const laCounty = [
@@ -162,9 +162,15 @@ const venturaCounty = [
 
         <div class="nav-item">
           <button>Price List ▾</button>
-          <div class="dropdown">
-            {priceLinks.slice(0, 4).map(p => <a href={`/price-list/${p.slug}/`}>{p.label}</a>)}
-            <a href="/price-list/lg-dryer-heating-element-replacement-cost/" style="border-top:1px solid rgba(255,255,255,0.06);margin-top:.25rem;padding-top:.65rem">View all prices →</a>
+          <div class="dropdown dropdown-price">
+            <div class="price-grid">
+              {priceLinks.map(p => (
+                <a href={`/price-list/${p.slug}/`} class="price-link">
+                  <span class="price-label">{p.label}</span>
+                  <span class="price-range">{p.price}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -307,4 +313,50 @@ const venturaCounty = [
 
 <style is:global>
   @import '../styles/global.css';
+
+  .dropdown-price {
+    width: 520px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    padding: 8px;
+  }
+
+  .price-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s;
+    gap: 8px;
+  }
+
+  .price-link:hover {
+    background: rgba(26, 108, 246, 0.12);
+  }
+
+  .price-label {
+    color: #c8d0dc;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .price-link:hover .price-label {
+    color: #ffffff;
+  }
+
+  .price-range {
+    color: #1a6cf6;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 </style>
