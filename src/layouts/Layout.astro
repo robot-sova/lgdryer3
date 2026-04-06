@@ -61,20 +61,30 @@ const laCounty = [
   { slug: 'lg-dryer-repair-torrance', label: 'Torrance' },
   { slug: 'lg-dryer-repair-calabasas', label: 'Calabasas' },
   { slug: 'lg-dryer-repair-malibu', label: 'Malibu' },
+  { slug: 'lg-dryer-repair-los-angeles', label: 'Los Angeles' },
+  { slug: 'lg-dryer-repair-studio-city', label: 'Studio City' },
+  { slug: 'lg-dryer-repair-sherman-oaks', label: 'Sherman Oaks' },
+  { slug: 'lg-dryer-repair-brentwood', label: 'Brentwood' },
+  { slug: 'lg-dryer-repair-bel-air', label: 'Bel Air' },
+  { slug: 'lg-dryer-repair-woodland-hills', label: 'Woodland Hills' },
+  { slug: 'lg-dryer-repair-marina-del-rey', label: 'Marina del Rey' },
+  { slug: 'lg-dryer-repair-playa-del-rey', label: 'Playa del Rey' },
+  { slug: 'lg-dryer-repair-pacific-palisades', label: 'Pacific Palisades' },
+  { slug: 'lg-dryer-repair-culver-city', label: 'Culver City' },
 ];
 
 const orangeCounty = [
+  { slug: 'lg-dryer-repair-irvine', label: 'Irvine' },
   { slug: 'lg-dryer-repair-newport-beach', label: 'Newport Beach' },
   { slug: 'lg-dryer-repair-laguna-beach', label: 'Laguna Beach' },
   { slug: 'lg-dryer-repair-yorba-linda', label: 'Yorba Linda' },
   { slug: 'lg-dryer-repair-mission-viejo', label: 'Mission Viejo' },
   { slug: 'lg-dryer-repair-laguna-niguel', label: 'Laguna Niguel' },
-  { slug: 'lg-dryer-repair-irvine', label: 'Irvine' },
 ];
 
 const venturaCounty = [
-  { slug: 'lg-dryer-repair-moorpark', label: 'Moorpark' },
   { slug: 'lg-dryer-repair-thousand-oaks', label: 'Thousand Oaks' },
+  { slug: 'lg-dryer-repair-moorpark', label: 'Moorpark' },
   { slug: 'lg-dryer-repair-westlake-village', label: 'Westlake Village' },
   { slug: 'lg-dryer-repair-camarillo', label: 'Camarillo' },
   { slug: 'lg-dryer-repair-simi-valley', label: 'Simi Valley' },
@@ -176,19 +186,25 @@ const venturaCounty = [
 
         <div class="nav-item">
           <button>Areas ▾</button>
-          <div class="dropdown mega-menu">
-            <div class="mega-menu-grid">
-              <div>
-                <h4>LA County</h4>
-                {laCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+          <div class="dropdown dropdown-areas">
+            <div class="areas-mega-menu">
+              <div class="county-section">
+                <div class="county-title">LA COUNTY</div>
+                <div class="county-cities">
+                  {laCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+                </div>
               </div>
-              <div>
-                <h4>Orange County</h4>
-                {orangeCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+              <div class="county-section">
+                <div class="county-title">ORANGE COUNTY</div>
+                <div class="county-cities">
+                  {orangeCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+                </div>
               </div>
-              <div>
-                <h4>Ventura County</h4>
-                {venturaCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+              <div class="county-section">
+                <div class="county-title">VENTURA COUNTY</div>
+                <div class="county-cities">
+                  {venturaCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+                </div>
               </div>
             </div>
           </div>
@@ -360,5 +376,56 @@ const venturaCounty = [
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  .dropdown-areas {
+    width: 600px;
+    position: fixed;
+    top: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .areas-mega-menu {
+    padding: 20px 24px;
+    min-width: 600px;
+  }
+
+  .county-section {
+    margin-bottom: 20px;
+  }
+
+  .county-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .county-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #1a6cf6;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #1e2a3a;
+  }
+
+  .county-cities {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 12px;
+  }
+
+  .county-cities a {
+    font-size: 13px;
+    color: #c8d0dc;
+    text-decoration: none;
+    padding: 3px 0;
+    white-space: nowrap;
+    transition: color 0.15s;
+  }
+
+  .county-cities a:hover {
+    color: #1a6cf6;
   }
 </style>
