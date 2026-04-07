@@ -44,6 +44,8 @@ const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, 
 
   <div class="article-layout">
     <div class="article-body">
+      <h1 class="area-page-h1">LG Dryer Repair in {city}{state ? `, ${state}` : ''}</h1>
+
       <!-- ZIP CODES + TRUST BADGES -->
       {zipCodes.length > 0 && (
         <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
@@ -179,3 +181,13 @@ const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, 
     }
   })} />
 </Layout>
+
+<style>
+.area-page-h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 28px 0 20px;
+  line-height: 1.2;
+}
+</style>
