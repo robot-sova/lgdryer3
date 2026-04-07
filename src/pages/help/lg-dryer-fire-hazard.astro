@@ -165,6 +165,37 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </div>
 
+  <!-- DANGER / SAFETY WARNING -->
+  <div class="help-danger">
+    <div class="help-danger-inner">
+      <div class="help-danger-badge">⚠ Safety warning</div>
+      <h2>Bypassed Thermal Fuses — A Hidden Fire Hazard We Find Regularly</h2>
+      <p>One of the most dangerous situations our technicians encounter is a thermal fuse that has been bypassed rather than replaced. This happens when an unqualified technician — or a homeowner attempting a DIY repair — shorts out the thermal fuse with a piece of wire or foil instead of installing a new one.</p>
+      <p>The thermal fuse is a one-time safety device. It blows deliberately when the dryer overheats — to prevent a fire. When it is bypassed, that protection is gone entirely. The dryer will run, clothes will dry, and everything will seem normal — right up until the moment the dryer overheats with nothing to stop it.</p>
+      <div class="help-danger-callout">
+        <div class="help-danger-callout-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="help-danger-callout-text">
+          A bypassed thermal fuse is more dangerous than a dirty vent. It removes the last line of defense between an overheating dryer and a house fire. We see this on service calls multiple times per month across LA, Orange County, and Ventura County.
+        </div>
+      </div>
+      <h3>How we identify a bypassed fuse</h3>
+      <p>During diagnosis, our technicians check the thermal fuse with a multimeter as standard procedure. A bypassed fuse reads as a continuous circuit regardless of temperature — the telltale sign that someone has jumped it. We also inspect the wiring harness around the fuse housing for signs of tampering.</p>
+      <h3>Why unqualified technicians do this</h3>
+      <p>Replacing a thermal fuse on an LG dryer requires knowing the correct OEM part number, understanding why it blew in the first place — usually a blocked vent or a failing heating element — and addressing the root cause before installing the new fuse. A technician who does not know the root cause, or who wants to avoid the cost of the correct part, will sometimes bypass the fuse to "fix" the no-heat symptom quickly. The dryer works again. The actual problem remains. And the safety device is gone.</p>
+      <h3>Our recommendation</h3>
+      <p>If your dryer was previously repaired by a technician you did not vet thoroughly, or if you purchased a used LG dryer, we recommend a safety inspection before continued use. We will check the thermal fuse, heating circuit, and vent system and give you a written report. If a bypass is found, we replace it with the correct OEM fuse and address the underlying cause — the same day.</p>
+      <div class="help-danger-cta">
+        <a href="tel:3239907550" class="help-btn-primary">📞 Request a safety inspection</a>
+      </div>
+    </div>
+  </div>
+
   <!-- RELATED -->
   <div class="help-related">
     <h2>Related services</h2>
@@ -328,6 +359,18 @@ import Layout from '../../layouts/Layout.astro';
   .help-service-arrow { font-size: 1.2rem; color: #1a6cf6; flex-shrink: 0; margin-top: 44px; opacity: 0.4; }
   .help-service-price { background: rgba(26,108,246,0.08); border: 1px solid rgba(26,108,246,0.2); border-radius: 8px; padding: 14px 20px; font-size: 0.9rem; color: #c8d0dc; text-align: center; }
   .help-service-price strong { color: #ffffff; }
+
+  /* Danger / safety warning section */
+  .help-danger { max-width: 1100px; margin: 0 auto 80px; padding: 0 24px; }
+  .help-danger-inner { background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.25); border-radius: 16px; padding: 40px 48px; }
+  .help-danger-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; color: #ef4444; background: rgba(220,38,38,0.12); border-radius: 6px; padding: 4px 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+  .help-danger-inner h2 { font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 16px; line-height: 1.3; }
+  .help-danger-inner h3 { font-size: 1rem; font-weight: 600; color: #ffffff; margin: 24px 0 8px; }
+  .help-danger-inner p { font-size: 0.95rem; color: #c8d0dc; line-height: 1.8; margin-bottom: 12px; }
+  .help-danger-callout { display: flex; gap: 16px; align-items: flex-start; background: rgba(220,38,38,0.08); border-left: 3px solid #dc2626; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+  .help-danger-callout-icon { flex-shrink: 0; margin-top: 2px; }
+  .help-danger-callout-text { font-size: 0.92rem; color: #fca5a5; line-height: 1.7; font-weight: 500; }
+  .help-danger-cta { margin-top: 28px; }
 
   /* Related cards */
   .help-related { max-width: 1100px; margin: 0 auto 80px; padding: 0 24px; }
