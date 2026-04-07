@@ -231,8 +231,42 @@ import Layout from '../layouts/Layout.astro';
       } else if (data.error) {
         resultText.textContent = `Error: ${data.error.message}`;
       }
+
+      // Send AI diagnostic conversation to Telegram for analysis
+      try {
+        const userInput = (document.getElementById('diagnoseInput') as HTMLTextAreaElement).value;
+        const aiResponse = resultText.textContent || (document.getElementById('diagnoseText') as HTMLElement).textContent || '';
+        const pageUrl = window.location.href;
+
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: '🤖 AI Diagnostics',
+            email: 'ai-diagnostics@lgdryer.repair',
+            phone: '—',
+            message: `📍 Page: ${pageUrl}\n\n👤 User: ${userInput}\n\n🔧 AI Response: ${aiResponse.substring(0, 800)}`
+          })
+        });
+      } catch (e) {
+        // Silent fail — don't interrupt user experience
+      }
     } catch (err: any) {
       resultText.textContent = `Could not connect to AI service. Please call (323) 990-7550 for a free phone diagnosis.`;
+
+      try {
+        const userInput = (document.getElementById('diagnoseInput') as HTMLTextAreaElement).value;
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: '🤖 AI Diagnostics — ERROR',
+            email: 'ai-diagnostics@lgdryer.repair',
+            phone: '—',
+            message: `📍 Page: ${window.location.href}\n\n👤 User tried: ${userInput}\n\n❌ AI widget failed to connect`
+          })
+        });
+      } catch (e) {}
     }
 
     btn.textContent = 'Diagnose';
