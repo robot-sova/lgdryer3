@@ -20,6 +20,26 @@ export async function onRequestPost(context) {
     })
   });
 
+  // Send to Telegram for AI diagnostics and callback requests
+  if (payload.type === 'callback' || payload.name?.includes('AI Diagnostics')) {
+    const telegramToken = env.PUBLIC_TELEGRAM_BOT_TOKEN;
+    const telegramChatId = env.PUBLIC_TELEGRAM_CHAT_ID;
+
+    const tgText = payload.name?.includes('AI Diagnostics')
+      ? `🤖 *AI Diagnostics*\n\n📍 ${payload.message}`
+      : `📞 *Callback Request*\n\nPhone: ${payload.phone}`;
+
+    await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: telegramChatId,
+        text: tgText,
+        parse_mode: 'Markdown'
+      })
+    });
+  }
+
   return new Response(JSON.stringify({ ok: true }), {
     headers: { 'Content-Type': 'application/json' }
   });
