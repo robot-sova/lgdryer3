@@ -281,33 +281,8 @@ import Layout from '../layouts/Layout.astro';
     const origText = btn.textContent;
     btn.textContent = 'Sending...';
 
-    const text = payload.type === 'callback'
-      ? `📞 NEW CALLBACK REQUEST\nPhone: ${payload.phone}`
-      : `📅 NEW BOOKING REQUEST\nPhone: ${payload.phone}\nName: ${payload.name || ''}\nAddress: ${payload.address || ''}\nTime: ${payload.time || ''}\nComments: ${payload.comments || ''}`;
-
-    // Debug env vars
-    console.log('TG token:', import.meta.env.PUBLIC_TELEGRAM_BOT_TOKEN);
-    console.log('TG chat:', import.meta.env.PUBLIC_TELEGRAM_CHAT_ID);
-    console.log('Resend key:', import.meta.env.PUBLIC_RESEND_API_KEY);
-
     try {
-      // Send to Telegram
-      try {
-        const tgRes = await fetch(`https://api.telegram.org/bot${import.meta.env.PUBLIC_TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: import.meta.env.PUBLIC_TELEGRAM_CHAT_ID,
-            text: text
-          })
-        });
-        const tgData = await tgRes.json();
-        console.log('TG response:', tgData);
-      } catch (tgErr) {
-        console.error('TG error:', tgErr);
-      }
-
-      // Send email via Resend (server-side proxy to avoid CORS)
+      // Send via server-side proxy (handles both Resend email and Telegram)
       try {
         const resendRes = await fetch('/api/contact', {
           method: 'POST',

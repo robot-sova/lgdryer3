@@ -86,22 +86,8 @@ import Layout from '../layouts/Layout.astro';
     confirmBtn.disabled = true;
     confirmBtn.textContent = 'Sending...';
 
-    const text = `📅 NEW BOOKING REQUEST\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\nModel: ${model}\nDate: ${date}\nTime: ${time}\nIssue: ${issue}`;
-
     try {
-      // Send to Telegram
-      try {
-        await fetch(`https://api.telegram.org/bot${import.meta.env.PUBLIC_TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: import.meta.env.PUBLIC_TELEGRAM_CHAT_ID,
-            text: text
-          })
-        });
-      } catch (e) { console.error('TG error:', e); }
-
-      // Send email via server-side proxy
+      // Send via server-side proxy (handles both Resend email and Telegram)
       try {
         await fetch('/api/contact', {
           method: 'POST',
