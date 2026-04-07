@@ -3,29 +3,29 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="How It Works | LG Dryer Repair | Same Day Service | (323) 990-7550"
-  description="See exactly how our LG dryer repair process works — from booking to payment. Transparent pricing, OEM parts, same-day service in Los Angeles, Orange County and Ventura County."
+  title="How LG Dryer Repair Works | Same Day Appliance Repair | (323) 990-7550"
+  description="See exactly how our LG dryer repair process works — transparent pricing, OEM parts, 3-month warranty, same-day service in Los Angeles, Orange County and Ventura County."
 >
 
   <!-- HERO -->
   <div class="hiw-hero">
-    <div class="hiw-hero-label">Our process</div>
+    <div class="hiw-label">Our process</div>
     <h1>How LG dryer repair works</h1>
-    <p>We built our process around one idea: no surprises. You know the price before we start, you approve every step, and you pay only after the dryer is running.</p>
-    <div class="hiw-hero-cta">
-      <a href="tel:3239907550" class="btn-primary">📞 (323) 990-7550</a>
-      <a href="/book/" class="btn-secondary">Book Online</a>
+    <p>We built our process around one idea: no surprises. You know the price before we start, you approve every step, and you pay only after your dryer is running again.</p>
+    <div class="hiw-cta-row">
+      <a href="tel:3239907550" class="hiw-btn-primary">📞 (323) 990-7550</a>
+      <a href="/book/" class="hiw-btn-secondary">Book Online</a>
     </div>
   </div>
 
-  <!-- 6 STEPS DETAILED -->
+  <!-- 6 STEPS -->
   <div class="hiw-steps">
 
     <!-- STEP 1 -->
-    <div class="hiw-step-row">
-      <div class="hiw-step-bg">01</div>
+    <div class="hiw-step">
+      <div class="hiw-step-number-bg">01</div>
       <div class="hiw-step-icon">
-        <div class="hiw-icon-circle">
+        <div class="hiw-step-icon-circle">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="5" width="18" height="16" rx="2"/>
             <path d="M16 3v4M8 3v4M3 11h18"/>
@@ -35,15 +35,25 @@ import Layout from '../layouts/Layout.astro';
       <div class="hiw-step-text">
         <div class="hiw-step-label">Step 01</div>
         <h2>Book a visit</h2>
-        <p>Booking takes less than 2 minutes. Call us at (323) 990-7550, fill out the booking form on our site, or hit the Call Me Back button and we'll reach out to you — whichever is easiest. We're available to take bookings 24 hours a day, 7 days a week. During booking we'll ask for your address, the LG dryer model if you know it, and a brief description of the problem. We'll then offer you a 2-hour arrival window that works for your schedule. If you're a landlord and won't be on-site, let us know — we'll arrange payment details with you directly so your tenant doesn't have to deal with billing.</p>
+        <p>Booking takes less than 2 minutes. You have three ways to reach us:</p>
+        <ul>
+          <li><strong>Call us</strong> at <a href="tel:3239907550">(323) 990-7550</a> — a real person picks up, not a voicemail.</li>
+          <li><strong>Online booking form</strong> — fill in your address, LG dryer model if you know it, and a brief description of the problem.</li>
+          <li><strong>Call Me Back</strong> — hit the button on our site and we'll call you within minutes.</li>
+        </ul>
+        <p>We take bookings 24 hours a day, 7 days a week. Once booked, we'll confirm a 2-hour arrival window that works for your schedule.</p>
+        <p><strong>Landlords:</strong> if you won't be on-site during the visit, let us know at booking. We'll take your payment details upfront and coordinate directly with your tenant — you won't need to be there.</p>
+        <div class="hiw-step-link">
+          <a href="/book/">Schedule a visit →</a>
+        </div>
       </div>
     </div>
 
     <!-- STEP 2 -->
-    <div class="hiw-step-row hiw-step-reverse">
-      <div class="hiw-step-bg">02</div>
+    <div class="hiw-step">
+      <div class="hiw-step-number-bg">02</div>
       <div class="hiw-step-icon">
-        <div class="hiw-icon-circle">
+        <div class="hiw-step-icon-circle">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 16V6a1 1 0 0 1 1-1h11v11"/>
             <path d="M13 8h5l3 4v4h-2"/>
@@ -55,15 +65,17 @@ import Layout from '../layouts/Layout.astro';
       <div class="hiw-step-text">
         <div class="hiw-step-label">Step 02</div>
         <h2>Technician arrives</h2>
-        <p>Thirty minutes before our tech leaves for your address, you'll get an automatic text message so you're not left waiting and guessing. We assign a 2-hour arrival window, and our technicians typically arrive in the first 30 minutes of that window. Our tech will arrive in a marked white Ford Transit van in a navy blue uniform. He'll introduce himself, put on shoe covers, and ask you to show him the dryer before he starts.</p>
+        <p>Thirty minutes before our technician leaves for your address, you'll receive an automatic text message with his name and estimated arrival time. No more sitting by the window for two hours.</p>
+        <p>Our technicians typically arrive in the first 30 minutes of your 2-hour window. He'll pull up in a marked white Ford Transit van, introduce himself, put on shoe covers, and ask you to show him the dryer before starting any work.</p>
+        <p>Every technician on our team is background-checked, licensed under Bureau of Household Goods and Services #49573, and carries OEM parts for the most common LG dryer failures on every truck.</p>
       </div>
     </div>
 
     <!-- STEP 3 -->
-    <div class="hiw-step-row">
-      <div class="hiw-step-bg">03</div>
+    <div class="hiw-step">
+      <div class="hiw-step-number-bg">03</div>
       <div class="hiw-step-icon">
-        <div class="hiw-icon-circle">
+        <div class="hiw-step-icon-circle">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <circle cx="11" cy="11" r="7"/>
             <path d="M21 21l-4.35-4.35"/>
@@ -72,16 +84,35 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="hiw-step-text">
         <div class="hiw-step-label">Step 03</div>
-        <h2>Diagnosis ($65)</h2>
-        <p>The diagnostic fee is $65 and covers a full inspection of your LG dryer — electrical, mechanical, venting, and error codes. This is not a guessing-game visit. By the end of the diagnosis, our tech will tell you exactly what's wrong, which part needs replacing if any, and give you a complete written estimate covering parts and labor. The $65 fee is waived entirely if you approve the repair and we proceed. If you decide not to go ahead with the repair for any reason, you pay the $65 and that's it — no hard feelings, no pressure.</p>
+        <h2>Diagnosis — $65</h2>
+        <p>The $65 diagnostic fee covers a full inspection of your LG dryer — electrical system, heating circuit, drum mechanics, venting, error codes, and sensors. We don't guess. By the end of the diagnosis our technician will tell you exactly what is wrong and give you a complete written estimate covering parts and labor.</p>
+        <p><strong>The $65 is waived entirely</strong> if you approve the repair and we proceed. If the diagnosis turns out to be incorrect for any reason, the fee is refunded in full — no questions asked.</p>
+
+        <div class="hiw-fork">
+          <div class="hiw-fork-yes">
+            <div class="hiw-fork-icon">✓</div>
+            <div class="hiw-fork-title">You approve</div>
+            <div class="hiw-fork-desc">$65 waived. We proceed to repair.</div>
+          </div>
+          <div class="hiw-fork-divider">or</div>
+          <div class="hiw-fork-no">
+            <div class="hiw-fork-icon">✕</div>
+            <div class="hiw-fork-title">You decline</div>
+            <div class="hiw-fork-desc">You pay $65. No further charges. No pressure.</div>
+          </div>
+        </div>
+
+        <div class="hiw-step-link">
+          <a href="/price-list/lg-dryer-repair-cost/">See typical repair costs →</a>
+        </div>
       </div>
     </div>
 
     <!-- STEP 4 -->
-    <div class="hiw-step-row hiw-step-reverse">
-      <div class="hiw-step-bg">04</div>
+    <div class="hiw-step">
+      <div class="hiw-step-number-bg">04</div>
       <div class="hiw-step-icon">
-        <div class="hiw-icon-circle">
+        <div class="hiw-step-icon-circle">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" r="9"/>
             <path d="M8 12l3 3 5-6"/>
@@ -91,15 +122,28 @@ import Layout from '../layouts/Layout.astro';
       <div class="hiw-step-text">
         <div class="hiw-step-label">Step 04</div>
         <h2>You approve the quote</h2>
-        <p>Nothing happens until you say yes. Once you approve the estimate, our tech will either begin the repair immediately (if the part is on the truck) or arrange a return visit to complete the work. We never start a repair, order a part, or charge anything beyond the diagnostic fee without your explicit approval. This step is the most important one — it's where we earn your trust.</p>
+        <p>Nothing happens until you say yes. Once you approve the estimate, one of two things happens depending on whether the required part is already on the truck:</p>
+
+        <div class="hiw-scenarios">
+          <div class="hiw-scenario">
+            <div class="hiw-scenario-badge">85% of visits</div>
+            <div class="hiw-scenario-title">Part is on the truck</div>
+            <div class="hiw-scenario-desc">Repair begins immediately. Most LG dryer repairs are completed within the same visit as the diagnosis — often within 1–2 hours of arrival.</div>
+          </div>
+          <div class="hiw-scenario hiw-scenario-alt">
+            <div class="hiw-scenario-badge">Part to order</div>
+            <div class="hiw-scenario-title">Part needs to be ordered</div>
+            <div class="hiw-scenario-desc">We collect a prepayment equal to the cost of the part, order it immediately through our suppliers, and schedule a return visit — usually the next morning. You'll receive a booking confirmation by text.</div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- STEP 5 -->
-    <div class="hiw-step-row">
-      <div class="hiw-step-bg">05</div>
+    <div class="hiw-step">
+      <div class="hiw-step-number-bg">05</div>
       <div class="hiw-step-icon">
-        <div class="hiw-icon-circle">
+        <div class="hiw-step-icon-circle">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-2.5 2.5-2.5z"/>
           </svg>
@@ -108,15 +152,31 @@ import Layout from '../layouts/Layout.astro';
       <div class="hiw-step-text">
         <div class="hiw-step-label">Step 05</div>
         <h2>Repair completed</h2>
-        <p>We stock the most common LG dryer parts on every truck — thermal fuses, heating elements, drum rollers, belts, igniters, and more. In 85% of visits the repair is completed the same day, often within the same visit as the diagnosis. We use only genuine OEM LG parts. Our supplier relationships mean we often source parts at prices lower than retail, and we pass that savings on to you. If a part needs to be ordered, we collect a prepayment equal to the cost of the part, order it immediately, and schedule a return visit as soon as it arrives — usually the next morning.</p>
+        <p>We stock the most common LG dryer parts on every truck. Our supplier relationships mean we source genuine OEM LG parts at prices that are often lower than retail — and we pass those savings on to you.</p>
+        <p>Common repairs we complete on the spot:</p>
+
+        <div class="hiw-repairs-grid">
+          <a href="/repairs/lg-dryer-heating-element-replacement/" class="hiw-repair-chip">Heating element</a>
+          <a href="/repairs/lg-dryer-thermal-fuse-replacement/" class="hiw-repair-chip">Thermal fuse</a>
+          <a href="/repairs/lg-dryer-drum-roller-replacement/" class="hiw-repair-chip">Drum rollers</a>
+          <a href="/repairs/lg-dryer-belt-replacement/" class="hiw-repair-chip">Belt</a>
+          <a href="/repairs/lg-dryer-igniter-replacement/" class="hiw-repair-chip">Igniter</a>
+          <a href="/repairs/lg-dryer-idler-pulley-replacement/" class="hiw-repair-chip">Idler pulley</a>
+          <a href="/repairs/lg-dryer-gas-valve-replacement/" class="hiw-repair-chip">Gas valve</a>
+          <a href="/repairs/lg-dryer-motor-replacement/" class="hiw-repair-chip">Motor</a>
+          <a href="/repairs/lg-dryer-drum-bearing-replacement/" class="hiw-repair-chip">Drum bearing</a>
+          <a href="/repairs/lg-dryer-drum-replacement/" class="hiw-repair-chip">Drum</a>
+        </div>
+
+        <p style="margin-top: 20px;">If a part needs to be ordered, we collect prepayment for the part cost only. Labor is billed at the second visit after the repair is completed.</p>
       </div>
     </div>
 
     <!-- STEP 6 -->
-    <div class="hiw-step-row hiw-step-reverse">
-      <div class="hiw-step-bg">06</div>
+    <div class="hiw-step">
+      <div class="hiw-step-number-bg">06</div>
       <div class="hiw-step-icon">
-        <div class="hiw-icon-circle">
+        <div class="hiw-step-icon-circle">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <rect x="2" y="5" width="20" height="14" rx="2"/>
             <path d="M2 10h20M6 15h4"/>
@@ -125,45 +185,128 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="hiw-step-text">
         <div class="hiw-step-label">Step 06</div>
-        <h2>Payment after demonstration</h2>
-        <p>Before we ask for payment, the tech will run your dryer through a full cycle and show you that the problem is resolved. Only once you confirm that everything is working as it should do we process payment. We accept all major payment methods: credit and debit cards, cash, Zelle, Venmo, PayPal, and checks. For landlords who arranged remote payment at booking — we'll charge the agreed method on file. Every repair comes with a 1-year parts and labor warranty.</p>
+        <h2>Payment — after demonstration</h2>
+        <p>Before we ask for a single dollar, the technician will run your LG dryer through a full cycle and demonstrate that the problem you reported is fully resolved. Only once you confirm that everything is working as expected do we process payment.</p>
+        <p>We accept all major payment methods:</p>
+        <div class="hiw-payment-methods">
+          <span class="hiw-payment-chip">Credit card</span>
+          <span class="hiw-payment-chip">Debit card</span>
+          <span class="hiw-payment-chip">Cash</span>
+          <span class="hiw-payment-chip">Check</span>
+          <span class="hiw-payment-chip">Zelle</span>
+          <span class="hiw-payment-chip">Venmo</span>
+          <span class="hiw-payment-chip">PayPal</span>
+        </div>
+        <p style="margin-top: 16px;"><strong>Landlords:</strong> if you arranged remote payment at booking, we charge your payment method on file and email you a full service report.</p>
       </div>
     </div>
 
   </div>
 
+  <!-- GUARANTEES -->
+  <div class="hiw-guarantees">
+    <h2>What we stand behind</h2>
+    <p class="hiw-guarantees-sub">Every visit. Every repair. No exceptions.</p>
+
+    <div class="hiw-guarantees-grid">
+
+      <div class="hiw-guarantee-card">
+        <div class="hiw-guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a6cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Diagnostic guarantee</h3>
+        <p>If our diagnosis turns out to be incorrect, we refund the $65 diagnostic fee in full. We stand behind our assessment.</p>
+      </div>
+
+      <div class="hiw-guarantee-card">
+        <div class="hiw-guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a6cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>3-month warranty — standard</h3>
+        <p>All repairs come with a 3-month warranty covering both parts and labor. If the same issue returns within 3 months, we come back and fix it at no charge — parts and labor included.</p>
+      </div>
+
+      <div class="hiw-guarantee-card hiw-guarantee-card-featured">
+        <div class="hiw-guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a6cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>1-year warranty — extended</h3>
+        <p>For repairs of $1,000 and above, we provide a full 1-year warranty on parts and labor. Same promise — if it fails within a year, we return and fix it completely free of charge.</p>
+        <div class="hiw-guarantee-tag">Repairs $1,000+</div>
+      </div>
+
+      <div class="hiw-guarantee-card">
+        <div class="hiw-guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a6cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+        </div>
+        <h3>Honest "don't repair" advice</h3>
+        <p>If repair is not in your best interest, we'll tell you straight. This happens when parts are unavailable, when multiple components are heavily worn at once, or when repair cost exceeds 50% of a new unit's price. We will never recommend a repair that doesn't make financial sense for you.</p>
+      </div>
+
+      <div class="hiw-guarantee-card hiw-guarantee-card-wide">
+        <div class="hiw-guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a6cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+        </div>
+        <h3>Older LG dryers are worth repairing</h3>
+        <p>LG dryers manufactured 8–10 years ago are significantly more reliable than current models. If your older unit needs several parts replaced, a full renovation often makes far more sense than buying new. A properly refurbished older LG dryer can give you another 8–10 years of reliable service — while a brand-new unit may start showing problems within 2–3 years. We'll give you an honest assessment and let you decide.</p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- FAQ -->
   <div class="hiw-faq">
-    <h2>Frequently asked questions</h2>
+    <h2>Common questions</h2>
 
     <div class="hiw-faq-item">
       <div class="hiw-faq-q">What if I decline the repair after diagnosis?</div>
-      <div class="hiw-faq-a">You pay the $65 diagnostic fee and nothing else. No obligation, no pressure. We'll email you the diagnosis report so you have it on file.</div>
+      <div class="hiw-faq-a">You pay the $65 diagnostic fee and nothing else. No obligation, no pressure. We'll provide you with a written summary of the diagnosis so you have it on file if you decide to proceed later.</div>
     </div>
 
     <div class="hiw-faq-item">
       <div class="hiw-faq-q">Do you charge extra if a part needs to be ordered?</div>
-      <div class="hiw-faq-a">No extra fees for ordering. You prepay the cost of the part, we order it through our suppliers — often at a price lower than you'd find at retail — and schedule a return visit. Labor is billed at the second visit.</div>
+      <div class="hiw-faq-a">No extra fees for ordering. You prepay the cost of the part — often lower than retail through our supplier network — and we schedule a return visit as soon as it arrives, usually the next morning. Labor is billed at the second visit after the repair is complete.</div>
     </div>
 
     <div class="hiw-faq-item">
-      <div class="hiw-faq-q">What does the 2-hour window mean exactly?</div>
-      <div class="hiw-faq-a">When you book, we give you a 2-hour arrival window — for example 10am–12pm. Our technician will text you 30 minutes before he leaves, and in most cases arrives in the first half of that window. We do our best to respect your time.</div>
+      <div class="hiw-faq-q">What does the 2-hour arrival window mean?</div>
+      <div class="hiw-faq-a">When you book, we assign a 2-hour window — for example 10am–12pm. Our technician will text you 30 minutes before he leaves, and in most cases arrives in the first half of that window. We do our best to respect your time.</div>
     </div>
 
     <div class="hiw-faq-item">
       <div class="hiw-faq-q">I'm a landlord and won't be at the property. How does that work?</div>
-      <div class="hiw-faq-a">No problem — we handle landlord situations regularly. During booking, provide a card or other payment method on file. Our tech will coordinate access with your tenant, complete the repair, and charge your payment method directly. You'll receive a full report by email.</div>
+      <div class="hiw-faq-a">We handle landlord situations regularly. At booking, provide a card or other payment method on file. Our technician will coordinate access with your tenant, complete the repair, and charge your payment method directly. You'll receive a full service report by email.</div>
     </div>
+
+    <div class="hiw-faq-item">
+      <div class="hiw-faq-q">What is covered under the warranty?</div>
+      <div class="hiw-faq-a">All repairs carry a standard 3-month warranty covering both the parts we installed and the labor. If the same fault returns within 3 months, we return and fix it completely free — including any replacement parts needed. For repairs of $1,000 and above, the warranty extends to 1 full year under the same terms.</div>
+    </div>
+
+    <div class="hiw-faq-item">
+      <div class="hiw-faq-q">Should I repair my older LG dryer or buy a new one?</div>
+      <div class="hiw-faq-a">In many cases, repairing an older LG dryer is the smarter choice. Units manufactured 8–10 years ago are built to a higher standard than current models and can last another decade with proper maintenance. We'll give you an honest assessment — if repair doesn't make financial sense, we'll tell you. See our <a href="/price-list/lg-dryer-repair-cost/">repair cost guide</a> for typical pricing.</div>
+    </div>
+
+    <div class="hiw-faq-item">
+      <div class="hiw-faq-q">Do you use original LG parts?</div>
+      <div class="hiw-faq-a">Yes — OEM LG parts only, sourced through our established supplier network. We never use aftermarket or generic parts. Because we buy in volume, we often source parts at prices lower than retail and pass those savings on to you.</div>
+    </div>
+
+    <div class="hiw-faq-item">
+      <div class="hiw-faq-q">How quickly can you come out?</div>
+      <div class="hiw-faq-a">In most cases we can schedule a same-day visit. Call us at <a href="tel:3239907550">(323) 990-7550</a> or <a href="/book/">book online</a> — we serve Los Angeles County, Orange County, and Ventura County.</div>
+    </div>
+
   </div>
 
   <!-- BOTTOM CTA -->
   <div class="hiw-bottom-cta">
     <h2>Ready to schedule?</h2>
-    <p>Same-day service available in Los Angeles, Orange County, and Ventura County.</p>
-    <div class="hiw-cta-buttons">
-      <a href="tel:3239907550" class="btn-primary">📞 (323) 990-7550</a>
-      <a href="/book/" class="btn-secondary">Book Online</a>
+    <p>Same-day service available across Los Angeles, Orange County, and Ventura County. Licensed, BBB A+ rated, OEM parts only.</p>
+    <div class="hiw-cta-row">
+      <a href="tel:3239907550" class="hiw-btn-primary">📞 (323) 990-7550</a>
+      <a href="/book/" class="hiw-btn-secondary">Book Online</a>
     </div>
   </div>
 
@@ -174,236 +317,158 @@ import Layout from '../layouts/Layout.astro';
       {
         "@type": "Question",
         "name": "What if I decline the repair after diagnosis?",
-        "acceptedAnswer": {"@type": "Answer", "text": "You pay the $65 diagnostic fee and nothing else. No obligation, no pressure. We'll email you the diagnosis report so you have it on file."}
+        "acceptedAnswer": {"@type": "Answer", "text": "You pay the $65 diagnostic fee and nothing else. No obligation, no pressure. We'll provide you with a written summary of the diagnosis so you have it on file if you decide to proceed later."}
       },
       {
         "@type": "Question",
         "name": "Do you charge extra if a part needs to be ordered?",
-        "acceptedAnswer": {"@type": "Answer", "text": "No extra fees for ordering. You prepay the cost of the part, we order it through our suppliers — often at a price lower than retail — and schedule a return visit. Labor is billed at the second visit."}
+        "acceptedAnswer": {"@type": "Answer", "text": "No extra fees for ordering. You prepay the cost of the part — often lower than retail through our supplier network — and we schedule a return visit as soon as it arrives, usually the next morning. Labor is billed at the second visit after the repair is complete."}
       },
       {
         "@type": "Question",
-        "name": "What does the 2-hour window mean exactly?",
-        "acceptedAnswer": {"@type": "Answer", "text": "When you book, we give you a 2-hour arrival window — for example 10am–12pm. Our technician will text you 30 minutes before he leaves, and in most cases arrives in the first half of that window."}
+        "name": "What does the 2-hour arrival window mean?",
+        "acceptedAnswer": {"@type": "Answer", "text": "When you book, we assign a 2-hour window — for example 10am–12pm. Our technician will text you 30 minutes before he leaves, and in most cases arrives in the first half of that window. We do our best to respect your time."}
       },
       {
         "@type": "Question",
         "name": "I'm a landlord and won't be at the property. How does that work?",
-        "acceptedAnswer": {"@type": "Answer", "text": "No problem — we handle landlord situations regularly. During booking, provide a card or other payment method on file. Our tech will coordinate access with your tenant, complete the repair, and charge your payment method directly. You'll receive a full report by email."}
+        "acceptedAnswer": {"@type": "Answer", "text": "We handle landlord situations regularly. At booking, provide a card or other payment method on file. Our technician will coordinate access with your tenant, complete the repair, and charge your payment method directly. You'll receive a full service report by email."}
+      },
+      {
+        "@type": "Question",
+        "name": "What is covered under the warranty?",
+        "acceptedAnswer": {"@type": "Answer", "text": "All repairs carry a standard 3-month warranty covering both the parts we installed and the labor. If the same fault returns within 3 months, we return and fix it completely free — including any replacement parts needed. For repairs of $1,000 and above, the warranty extends to 1 full year under the same terms."}
+      },
+      {
+        "@type": "Question",
+        "name": "Should I repair my older LG dryer or buy a new one?",
+        "acceptedAnswer": {"@type": "Answer", "text": "In many cases, repairing an older LG dryer is the smarter choice. Units manufactured 8–10 years ago are built to a higher standard than current models and can last another decade with proper maintenance. We'll give you an honest assessment — if repair doesn't make financial sense, we'll tell you."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do you use original LG parts?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes — OEM LG parts only, sourced through our established supplier network. We never use aftermarket or generic parts. Because we buy in volume, we often source parts at prices lower than retail and pass those savings on to you."}
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can you come out?",
+        "acceptedAnswer": {"@type": "Answer", "text": "In most cases we can schedule a same-day visit. Call us at (323) 990-7550 or book online — we serve Los Angeles County, Orange County, and Ventura County."}
       }
     ]
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Same Day Appliance Repair",
+    "telephone": "(323) 990-7550",
+    "url": "https://lgdryer.repair",
+    "hasCredential": "Bureau of Household Goods and Services #49573",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "200"
+    }
   })} />
 
 </Layout>
 
 <style>
-  .hiw-hero {
-    max-width: 720px;
-    margin: 60px auto 80px;
-    text-align: center;
-    padding: 0 24px;
-  }
+  /* Hero */
+  .hiw-hero { max-width: 720px; margin: 60px auto 80px; text-align: center; padding: 0 24px; }
+  .hiw-label { font-size: 0.75rem; color: #1a6cf6; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
+  .hiw-hero h1 { font-size: 2.2rem; font-weight: 700; color: #ffffff; margin-bottom: 20px; line-height: 1.2; }
+  .hiw-hero p { font-size: 1.05rem; color: #c8d0dc; line-height: 1.8; margin-bottom: 32px; }
+  .hiw-cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hiw-btn-primary { background: #1a6cf6; color: #ffffff; padding: 14px 32px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 1rem; }
+  .hiw-btn-secondary { background: transparent; color: #1a6cf6; padding: 14px 32px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid #1a6cf6; }
 
-  .hiw-hero-label {
-    font-size: 0.8rem;
-    color: #1a6cf6;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-  }
+  /* Steps */
+  .hiw-steps { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+  .hiw-step { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 80px; position: relative; }
+  .hiw-step:nth-child(even) .hiw-step-icon { order: 2; }
+  .hiw-step:nth-child(even) .hiw-step-text { order: 1; }
+  .hiw-step-number-bg { position: absolute; font-size: 9rem; font-weight: 700; color: rgba(26,108,246,0.05); top: -30px; left: -20px; line-height: 1; pointer-events: none; user-select: none; }
+  .hiw-step-icon { display: flex; align-items: center; justify-content: center; }
+  .hiw-step-icon-circle { width: 140px; height: 140px; background: rgba(26,108,246,0.08); border-radius: 50%; border: 1px solid rgba(26,108,246,0.2); display: flex; align-items: center; justify-content: center; }
+  .hiw-step-icon-circle svg { width: 52px; height: 52px; stroke: #1a6cf6; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+  .hiw-step-label { font-size: 0.75rem; color: #1a6cf6; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .hiw-step-text h2 { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+  .hiw-step-text p { font-size: 0.95rem; color: #c8d0dc; line-height: 1.8; margin-bottom: 12px; }
+  .hiw-step-text ul { padding-left: 20px; margin-bottom: 12px; }
+  .hiw-step-text ul li { font-size: 0.95rem; color: #c8d0dc; line-height: 1.8; margin-bottom: 6px; }
+  .hiw-step-text a { color: #1a6cf6; }
+  .hiw-step-text strong { color: #ffffff; font-weight: 600; }
+  .hiw-step-link { margin-top: 20px; }
+  .hiw-step-link a { font-size: 0.9rem; color: #1a6cf6; text-decoration: none; border-bottom: 1px solid rgba(26,108,246,0.3); padding-bottom: 2px; }
+  .hiw-step-link a:hover { border-color: #1a6cf6; }
 
-  .hiw-hero h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 20px 0;
-  }
+  /* Fork (Step 3) */
+  .hiw-fork { display: flex; gap: 16px; align-items: center; margin: 24px 0; }
+  .hiw-fork-yes { flex: 1; background: rgba(26,108,246,0.08); border: 1px solid rgba(26,108,246,0.25); border-radius: 10px; padding: 16px; text-align: center; }
+  .hiw-fork-no { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid #1e2a3a; border-radius: 10px; padding: 16px; text-align: center; }
+  .hiw-fork-icon { font-size: 1.2rem; margin-bottom: 6px; }
+  .hiw-fork-yes .hiw-fork-icon { color: #1a6cf6; }
+  .hiw-fork-no .hiw-fork-icon { color: #8a9ab0; }
+  .hiw-fork-title { font-size: 0.95rem; font-weight: 600; color: #ffffff; margin-bottom: 4px; }
+  .hiw-fork-desc { font-size: 0.82rem; color: #8a9ab0; line-height: 1.5; }
+  .hiw-fork-divider { font-size: 0.8rem; color: #555; text-transform: uppercase; letter-spacing: 0.1em; flex-shrink: 0; }
 
-  .hiw-hero p {
-    font-size: 1.05rem;
-    color: #c8d0dc;
-    line-height: 1.8;
-    margin: 0 0 32px 0;
-  }
+  /* Scenarios (Step 4) */
+  .hiw-scenarios { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .hiw-scenario { background: rgba(26,108,246,0.08); border: 1px solid rgba(26,108,246,0.2); border-radius: 10px; padding: 20px; }
+  .hiw-scenario-alt { background: rgba(255,255,255,0.03); border-color: #1e2a3a; }
+  .hiw-scenario-badge { font-size: 0.72rem; font-weight: 600; color: #1a6cf6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .hiw-scenario-title { font-size: 0.95rem; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+  .hiw-scenario-desc { font-size: 0.85rem; color: #c8d0dc; line-height: 1.7; }
 
-  .hiw-hero-cta {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  /* Repairs grid (Step 5) */
+  .hiw-repairs-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .hiw-repair-chip { background: rgba(26,108,246,0.1); border: 1px solid rgba(26,108,246,0.25); border-radius: 6px; padding: 6px 14px; font-size: 0.85rem; color: #1a6cf6; text-decoration: none; transition: background 0.2s; }
+  .hiw-repair-chip:hover { background: rgba(26,108,246,0.2); }
 
-  .btn-primary {
-    background: #1a6cf6;
-    color: #ffffff;
-    padding: 14px 32px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1rem;
-  }
+  /* Payment methods (Step 6) */
+  .hiw-payment-methods { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .hiw-payment-chip { background: #111111; border: 1px solid #1e2a3a; border-radius: 6px; padding: 6px 14px; font-size: 0.85rem; color: #c8d0dc; }
 
-  .btn-secondary {
-    background: transparent;
-    color: #1a6cf6;
-    padding: 14px 32px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1rem;
-    border: 1px solid #1a6cf6;
-  }
+  /* Guarantees */
+  .hiw-guarantees { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+  .hiw-guarantees h2 { font-size: 1.6rem; font-weight: 700; color: #ffffff; text-align: center; margin-bottom: 8px; }
+  .hiw-guarantees-sub { font-size: 0.95rem; color: #8a9ab0; text-align: center; margin-bottom: 40px; }
+  .hiw-guarantees-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .hiw-guarantee-card { background: #111111; border: 1px solid #1e2a3a; border-radius: 12px; padding: 28px 24px; }
+  .hiw-guarantee-card-featured { border-color: rgba(26,108,246,0.4); background: rgba(26,108,246,0.05); }
+  .hiw-guarantee-card-wide { grid-column: 1 / -1; }
+  .hiw-guarantee-icon { width: 44px; height: 44px; background: rgba(26,108,246,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .hiw-guarantee-icon svg { width: 22px; height: 22px; }
+  .hiw-guarantee-card h3 { font-size: 1rem; font-weight: 600; color: #ffffff; margin-bottom: 10px; }
+  .hiw-guarantee-card p { font-size: 0.88rem; color: #c8d0dc; line-height: 1.75; }
+  .hiw-guarantee-tag { display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 600; color: #1a6cf6; background: rgba(26,108,246,0.12); border-radius: 6px; padding: 4px 10px; }
 
-  .hiw-steps {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-  }
+  /* FAQ */
+  .hiw-faq { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+  .hiw-faq h2 { font-size: 1.6rem; font-weight: 700; color: #ffffff; text-align: center; margin-bottom: 40px; }
+  .hiw-faq-item { border-top: 1px solid #1e2a3a; padding: 24px 0; }
+  .hiw-faq-item:last-child { border-bottom: 1px solid #1e2a3a; }
+  .hiw-faq-q { font-size: 1rem; font-weight: 600; color: #ffffff; margin-bottom: 10px; }
+  .hiw-faq-a { font-size: 0.9rem; color: #c8d0dc; line-height: 1.75; }
+  .hiw-faq-a a { color: #1a6cf6; }
 
-  .hiw-step-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    margin-bottom: 64px;
-    position: relative;
-  }
+  /* Bottom CTA */
+  .hiw-bottom-cta { text-align: center; padding: 60px 24px 80px; border-top: 1px solid #1e2a3a; max-width: 720px; margin: 0 auto; }
+  .hiw-bottom-cta h2 { font-size: 1.8rem; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
+  .hiw-bottom-cta p { color: #8a9ab0; font-size: 0.95rem; margin-bottom: 32px; line-height: 1.7; }
 
-  .hiw-step-reverse .hiw-step-icon {
-    order: 2;
-  }
-
-  .hiw-step-bg {
-    position: absolute;
-    font-size: 8rem;
-    font-weight: 700;
-    color: rgba(26, 108, 246, 0.06);
-    top: -20px;
-    left: -20px;
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .hiw-step-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hiw-icon-circle {
-    width: 120px;
-    height: 120px;
-    background: rgba(26, 108, 246, 0.08);
-    border-radius: 50%;
-    border: 1px solid rgba(26, 108, 246, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hiw-icon-circle svg {
-    width: 48px;
-    height: 48px;
-    stroke: #1a6cf6;
-    fill: none;
-    stroke-width: 1.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .hiw-step-label {
-    font-size: 0.75rem;
-    color: #1a6cf6;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-  }
-
-  .hiw-step-text h2 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 12px 0;
-  }
-
-  .hiw-step-text p {
-    font-size: 0.95rem;
-    color: #c8d0dc;
-    line-height: 1.8;
-    margin: 0;
-  }
-
-  .hiw-faq {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-  }
-
-  .hiw-faq h2 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 32px 0;
-    text-align: center;
-  }
-
-  .hiw-faq-item {
-    border-top: 1px solid #1e2a3a;
-    padding: 20px 0;
-  }
-
-  .hiw-faq-q {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 8px;
-  }
-
-  .hiw-faq-a {
-    font-size: 0.9rem;
-    color: #c8d0dc;
-    line-height: 1.7;
-  }
-
-  .hiw-bottom-cta {
-    text-align: center;
-    padding: 60px 24px;
-    border-top: 1px solid #1e2a3a;
-    margin-top: 40px;
-  }
-
-  .hiw-bottom-cta h2 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 12px 0;
-  }
-
-  .hiw-bottom-cta p {
-    color: #8a9ab0;
-    margin: 0 0 32px 0;
-  }
-
-  .hiw-cta-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
+  /* Mobile */
   @media (max-width: 768px) {
-    .hiw-step-row {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .hiw-step-reverse .hiw-step-icon {
-      order: 0;
-    }
-
-    .hiw-hero h1 {
-      font-size: 1.7rem;
-    }
+    .hiw-hero h1 { font-size: 1.6rem; }
+    .hiw-step { grid-template-columns: 1fr; gap: 32px; margin-bottom: 56px; }
+    .hiw-step:nth-child(even) .hiw-step-icon { order: 0; }
+    .hiw-step:nth-child(even) .hiw-step-text { order: 0; }
+    .hiw-step-number-bg { font-size: 5rem; }
+    .hiw-fork { flex-direction: column; }
+    .hiw-scenarios { grid-template-columns: 1fr; }
+    .hiw-guarantees-grid { grid-template-columns: 1fr; }
+    .hiw-guarantee-card-wide { grid-column: 1; }
   }
 </style>
