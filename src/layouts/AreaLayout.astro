@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 
 interface Props {
   title: string;
@@ -125,6 +126,8 @@ const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, 
       </div>
     </div>
   </div>
+
+  <HowItWorks />
 
   <!-- MAP SECTION -->
   <div class="city-map-section">

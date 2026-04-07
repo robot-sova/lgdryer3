@@ -27,7 +27,24 @@
       "Bash(npm uninstall:*)",
       "Bash(npx wrangler:*)",
       "Bash(find src:*)",
-      "Bash(find public/images -type f \\\\\\( -name '*.jpg' -o -name '*.jpeg' \\\\\\) -delete)"
+      "Bash(find public/images -type f \\\\\\( -name '*.jpg' -o -name '*.jpeg' \\\\\\) -delete)",
+      "Bash(mkdir -p public/images/_archive/repairs public/images/_archive/areas)",
+      "Bash(cp -r public/images/repairs/* public/images/_archive/repairs/)",
+      "Bash(cp -r public/images/areas/* public/images/_archive/areas/)",
+      "Bash(rm public/images/repairs/*)",
+      "Bash(rm public/images/areas/*)",
+      "Bash(find src/pages/repairs/ -name '*.astro' ! -name 'index.astro' -delete)",
+      "Bash(find src/pages/symptoms/ -name '*.astro' ! -name 'index.astro' -delete)",
+      "Bash(find src/pages/price-list/ -name '*.astro' ! -name 'index.astro' -delete)",
+      "Bash(find src/pages/areas/ -name '*.astro' ! -name 'index.astro' -delete)",
+      "Bash(mkdir:*)",
+      "Bash(cp public/images/_archive/repairs/lg-dryer-thermal-fuse-replacement-hero.webp public/images/repairs/lg-dryer-thermal-fuse-hero.webp)",
+      "Bash(cp public/images/_archive/repairs/lg-dryer-thermal-fuse-replacement-part.webp public/images/repairs/lg-dryer-thermal-fuse-part.webp)",
+      "Bash(rm:*)",
+      "Bash(cp public/images/_archive/repairs/lg-dryer-drum-roller-replacement-hero.webp public/images/repairs/lg-dryer-drum-roller-hero.webp)",
+      "Bash(cp public/images/_archive/repairs/lg-dryer-drum-roller-replacement-part.webp public/images/repairs/lg-dryer-drum-roller-part.webp)",
+      "Bash(cp public/images/_archive/repairs/lg-dryer-igniter-replacement-hero.webp public/images/repairs/lg-dryer-igniter-hero.webp)",
+      "Bash(cp public/images/_archive/repairs/lg-dryer-igniter-replacement-part.webp public/images/repairs/lg-dryer-igniter-part.webp)"
     ]
   }
 }

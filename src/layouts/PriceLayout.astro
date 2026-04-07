@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 
 interface Props {
   title: string;
@@ -172,4 +173,6 @@ const { title, description, serviceName, priceMin, priceMax, partCost, laborCost
       }
     ]
   })} />
+
+  <HowItWorks />
 </Layout>

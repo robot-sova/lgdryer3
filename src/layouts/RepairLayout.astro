@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AIDiagnosticCTA from '../components/AIDiagnosticCTA.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 
 interface Props {
   title: string;
@@ -149,6 +150,8 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
       }
     ]
   })} />
+
+  <HowItWorks />
 </Layout>
 
 <style>

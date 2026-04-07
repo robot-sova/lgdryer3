@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AIDiagnosticCTA from '../components/AIDiagnosticCTA.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 
 interface Props {
   title: string;
@@ -123,4 +124,6 @@ const { title, description, symptoms = [], activeSymptoms = [], symptomPhotos, s
     },
     "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"]
   })} />
+
+  <HowItWorks />
 </Layout>

@@ -160,6 +160,8 @@ const venturaCounty = [
           <button>Repair ▾</button>
           <div class="dropdown">
             {repairLinks.map(r => <a href={`/repairs/${r.slug}/`}>{r.label}</a>)}
+            <div class="nav-divider"></div>
+            <a href="/how-it-works/" class="nav-link-secondary">How it works →</a>
           </div>
         </div>
 
@@ -292,6 +294,7 @@ const venturaCounty = [
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/book/">Book a Visit</a></li>
+            <li><a href="/how-it-works/">How it works</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
         </div>
@@ -426,6 +429,21 @@ const venturaCounty = [
   }
 
   .county-cities a:hover {
+    color: #1a6cf6;
+  }
+
+  .nav-divider {
+    height: 1px;
+    background: #1e2a3a;
+    margin: 6px 8px;
+  }
+
+  .nav-link-secondary {
+    font-size: 0.85rem;
+    color: #8a9ab0;
+  }
+
+  .nav-link-secondary:hover {
     color: #1a6cf6;
   }
 </style>
