@@ -206,31 +206,13 @@ import Layout from '../layouts/Layout.astro';
     resultText.textContent = 'Running diagnostics...';
 
     try {
-      const apiKey = (import.meta as any).env.PUBLIC_ANTHROPIC_KEY;
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('/api/diagnose', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true',
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1024,
-          messages: [{
-            role: 'user',
-            content: `You are an expert LG dryer repair technician. A customer describes their LG dryer issue below. Provide a brief diagnosis: likely cause, recommended fix, estimated cost range, and urgency level. Be helpful and professional. Keep it concise (3-5 short paragraphs).\n\nCustomer issue: ${input}`
-          }]
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userInput: input })
       });
-
       const data = await res.json();
-      if (data.content?.[0]?.text) {
-        resultText.textContent = data.content[0].text;
-      } else if (data.error) {
-        resultText.textContent = `Error: ${data.error.message}`;
-      }
+      resultText.textContent = data.result;
 
       // Send AI diagnostic conversation to Telegram for analysis
       try {
