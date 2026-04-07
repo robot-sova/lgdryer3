@@ -10,7 +10,7 @@ export async function onRequestPost(context) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${env.PUBLIC_RESEND_API_KEY}`
+      'Authorization': `Bearer ${env.RESEND_API_KEY}`
     },
     body: JSON.stringify({
       from: 'noreply@lgdryer.repair',
@@ -21,8 +21,8 @@ export async function onRequestPost(context) {
   });
 
   // Send to Telegram for ALL request types
-  const telegramToken = env.PUBLIC_TELEGRAM_BOT_TOKEN;
-  const telegramChatId = env.PUBLIC_TELEGRAM_CHAT_ID;
+  const telegramToken = env.TELEGRAM_BOT_TOKEN;
+  const telegramChatId = env.TELEGRAM_CHAT_ID;
 
   let tgText;
   if (payload.name?.includes('AI Diagnostics')) {
