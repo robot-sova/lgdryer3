@@ -77,7 +77,6 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
         </div>
       )}
 
-      <AIDiagnosticCTA />
     </div>
 
     <!-- SIDEBAR -->
@@ -106,6 +105,10 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
           <li>OEM parts only</li>
           <li>1-year warranty</li>
         </ul>
+      </div>
+
+      <div class="sidebar-ai-diag">
+        <AIDiagnosticCTA />
       </div>
     </div>
   </div>
@@ -163,5 +166,34 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
   margin: 28px auto 20px auto;
   max-width: 1100px;
   padding: 0 24px;
+}
+
+/* AI Diagnostics in sidebar — compact override */
+.sidebar-ai-diag {
+  margin-top: 16px;
+}
+.sidebar-ai-diag :global(.ai-diag-block) {
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  margin: 0;
+  border-radius: 10px;
+}
+.sidebar-ai-diag :global(.ai-diag-icon) {
+  width: 36px;
+  height: 36px;
+}
+.sidebar-ai-diag :global(.ai-diag-title) {
+  font-size: 0.95rem;
+}
+.sidebar-ai-diag :global(.ai-diag-text) {
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+}
+.sidebar-ai-diag :global(.ai-diag-btn) {
+  font-size: 0.8rem;
+  padding: 8px 14px;
+  width: 100%;
+  justify-content: center;
 }
 </style>
