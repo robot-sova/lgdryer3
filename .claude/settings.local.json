@@ -45,7 +45,10 @@
       "Bash(cp public/images/_archive/repairs/lg-dryer-drum-roller-replacement-part.webp public/images/repairs/lg-dryer-drum-roller-part.webp)",
       "Bash(cp public/images/_archive/repairs/lg-dryer-igniter-replacement-hero.webp public/images/repairs/lg-dryer-igniter-hero.webp)",
       "Bash(cp public/images/_archive/repairs/lg-dryer-igniter-replacement-part.webp public/images/repairs/lg-dryer-igniter-part.webp)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(grep -roh '/images/[^\"'\"'\"' \\)\\\\`}>]*' src/pages/repairs/*.astro)",
+      "Bash(read -r img)",
+      "Bash([ ! -f \"public$img\" ])"
     ]
   }
 }
