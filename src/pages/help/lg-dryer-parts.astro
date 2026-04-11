@@ -1,0 +1,277 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="LG Dryer Parts Diagram | Interactive Guide | lgdryer.repair"
+  description="Interactive LG dryer parts diagram — click any component to see what it does, common failure symptoms, repair cost, and time. All 9 major parts explained."
+>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>LG Dryer Parts — Interactive Diagram</h1>
+    <p>Click any numbered part to see what it does, what breaks, and what it costs to fix.
+    Same Day service across LA, Orange County and Ventura County —
+    <a href="tel:3239907550">(323) 990-7550</a></p>
+  </div>
+</section>
+
+<section class="parts-section">
+  <div class="container">
+
+<style is:inline>
+.parts-section { padding: 2rem 0 3rem; }
+.parts-section .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.parts-controls { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.parts-btn { padding: 7px 16px; font-size: 13px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; cursor: pointer; background: transparent; color: rgba(255,255,255,0.6); transition: all 0.15s; }
+.parts-btn.on { background: #1a6cf6; color: #fff; border-color: #1a6cf6; }
+.parts-outer { display: grid; grid-template-columns: 1fr 260px; gap: 20px; align-items: start; }
+@media (max-width: 768px) { .parts-outer { grid-template-columns: 1fr; } }
+.parts-svg-wrap { background: #111; border: 1px solid #1e2a3a; border-radius: 12px; padding: 10px; overflow: hidden; }
+.parts-svg-wrap svg { width: 100%; height: auto; display: block; }
+.parts-sidebar { display: flex; flex-direction: column; gap: 6px; }
+.part-card { background: #111; border: 1px solid #1e2a3a; border-radius: 9px; padding: 10px 13px; cursor: pointer; transition: border-color 0.12s, background 0.12s; }
+.part-card:hover { border-color: #1a6cf6; background: #0d1a2e; }
+.part-card.on { border-color: #1a6cf6; background: #0d1a2e; }
+.part-card.dim { opacity: 0.25; }
+.pc-top { display: flex; align-items: center; gap: 7px; }
+.pc-num { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #fff; flex-shrink: 0; }
+.pc-nm { font-size: 13px; font-weight: 600; color: #fff; }
+.pc-pr { font-size: 12px; font-weight: 600; margin-top: 3px; margin-left: 27px; }
+.pc-sym { font-size: 11px; color: #8a9ab0; margin-top: 2px; margin-left: 27px; line-height: 1.35; }
+.parts-info-bar { margin-top: 10px; background: #111; border: 1px solid #1e2a3a; border-radius: 10px; padding: 12px 16px; display: none; align-items: center; gap: 14px; flex-wrap: wrap; }
+.parts-info-bar.on { display: flex; }
+.pib-nm { font-size: 15px; font-weight: 600; color: #fff; }
+.pib-pr { font-size: 13px; font-weight: 600; margin-top: 2px; }
+.pib-sym { font-size: 12px; color: #8a9ab0; margin-top: 2px; }
+.pib-link { margin-left: auto; padding: 8px 16px; background: #1a6cf6; color: #fff; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.pib-link:hover { background: #1558d0; }
+.parts-cta { background: #111; border-top: 1px solid #1e2a3a; padding: 3rem 0; text-align: center; }
+.parts-cta .container { max-width: 600px; margin: 0 auto; padding: 0 24px; }
+.parts-cta h2 { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+.parts-cta p { color: #8a9ab0; margin-bottom: 1.5rem; }
+.cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.button-primary { background: #1a6cf6; color: #fff; padding: 12px 28px; border-radius: 6px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+.button-secondary { border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 12px 28px; border-radius: 6px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+.hs { cursor: pointer; }
+.hs .pip { transition: transform 0.15s; transform-origin: 50% 50%; }
+.hs:hover .pip, .hs.on .pip { transform: scale(1.25); }
+.part-detail, .callout-line { transition: opacity 0.2s; }
+.page-hero { background: #0d1117; border-bottom: 1px solid #1e2a3a; padding: 2.5rem 0 2rem; }
+.page-hero .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.page-hero h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+.page-hero p { color: #8a9ab0; font-size: 1.05rem; }
+.page-hero a { color: #1a6cf6; text-decoration: none; }
+</style>
+
+<div class="parts-controls">
+  <button class="parts-btn on" onclick="partsFilter('all',this)">All parts</button>
+  <button class="parts-btn" onclick="partsFilter('mechanical',this)">Mechanical</button>
+  <button class="parts-btn" onclick="partsFilter('heating',this)">Heating</button>
+  <button class="parts-btn" onclick="partsFilter('drive',this)">Drive</button>
+  <button class="parts-btn" onclick="partsFilter('housing',this)">Housing</button>
+</div>
+
+<div class="parts-outer">
+<div class="parts-svg-wrap">
+<svg id="parts-svg" viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="par" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#1a6cf6"/></marker>
+  <marker id="par-g" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#888780"/></marker>
+  <marker id="par-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#e24b4a"/></marker>
+  <marker id="par-p" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#7f77dd"/></marker>
+</defs>
+<rect x="60" y="40" width="280" height="430" rx="10" fill="none" stroke="#2a3a4a" stroke-width="2"/>
+<rect x="60" y="40" width="280" height="55" rx="10" fill="#0d1117" opacity="0.8" stroke="#2a3a4a" stroke-width="1.5"/>
+<line x1="60" y1="95" x2="340" y2="95" stroke="#2a3a4a" stroke-width="1.5"/>
+<rect x="100" y="55" width="90" height="25" rx="4" fill="#050a0f" stroke="#1e2a3a" stroke-width="1"/>
+<text x="145" y="72" font-size="9" text-anchor="middle" fill="#1a6cf6">NORMAL  60</text>
+<circle cx="80" cy="68" r="12" fill="none" stroke="#2a3a4a" stroke-width="1.5"/>
+<circle cx="80" cy="68" r="6" fill="#1e2a3a"/>
+<line x1="80" y1="56" x2="80" y2="63" stroke="#2a3a4a" stroke-width="1.5"/>
+<rect x="205" y="58" width="12" height="12" rx="6" fill="none" stroke="#2a3a4a" stroke-width="1.2"/>
+<rect x="222" y="58" width="12" height="12" rx="6" fill="none" stroke="#2a3a4a" stroke-width="1.2"/>
+<rect x="258" y="55" width="44" height="18" rx="9" fill="#1a6cf6" opacity="0.8"/>
+<text x="280" y="68" font-size="8" text-anchor="middle" fill="#fff" font-weight="500">START</text>
+<rect x="68" y="103" width="180" height="214" rx="7" fill="none" stroke="#2a3a4a" stroke-width="1.8"/>
+<rect x="63" y="118" width="7" height="22" rx="2" fill="#2a3a4a"/>
+<rect x="63" y="278" width="7" height="22" rx="2" fill="#2a3a4a"/>
+<circle cx="158" cy="210" r="82" fill="none" stroke="#2a3a4a" stroke-width="1.8"/>
+<circle cx="158" cy="210" r="67" fill="#0d1a2e" opacity="0.5" stroke="#2a3a4a" stroke-width="1.2"/>
+<circle cx="158" cy="210" r="50" fill="none" stroke="#2a3a4a" stroke-width="0.5" stroke-dasharray="4,3" opacity="0.5"/>
+<circle cx="158" cy="210" r="32" fill="none" stroke="#2a3a4a" stroke-width="0.5" stroke-dasharray="3,4" opacity="0.4"/>
+<circle cx="158" cy="210" r="7" fill="#2a3a4a"/>
+<circle cx="158" cy="210" r="3" fill="#1e2a3a"/>
+<path d="M126 168 Q140 157 156 163" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round"/>
+<line x1="158" y1="128" x2="163" y2="144" stroke="#2a3a4a" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="185" y1="140" x2="178" y2="156" stroke="#2a3a4a" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="131" y1="140" x2="138" y2="156" stroke="#2a3a4a" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="158" cy="210" r="84" fill="none" stroke="#2a3a4a" stroke-width="4" opacity="0.5"/>
+<rect x="245" y="198" width="9" height="28" rx="4.5" fill="#2a3a4a"/>
+<rect x="243" y="212" width="16" height="10" rx="3" fill="#1e2a3a" stroke="#2a3a4a" stroke-width="1.2"/>
+<circle cx="249" cy="217" r="2.5" fill="#2a3a4a"/>
+<rect x="258" y="103" width="80" height="365" rx="0" fill="#0d1117" opacity="0.5" stroke="#1e2a3a" stroke-width="0.5"/>
+<path d="M265 118 Q273 110 281 118 Q289 126 297 118 Q305 110 313 118 Q321 126 329 118 Q335 113 338 118" fill="none" stroke="#e24b4a" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+<path d="M265 130 Q273 122 281 130 Q289 138 297 130 Q305 122 313 130 Q321 138 329 130 Q335 125 338 130" fill="none" stroke="#e24b4a" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+<path d="M265 142 Q273 134 281 142 Q289 150 297 142 Q305 134 313 142 Q321 150 332 142" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="260" y="114" width="5" height="16" rx="2" fill="#f0997b" stroke="#e24b4a" stroke-width="1"/>
+<rect x="335" y="114" width="5" height="16" rx="2" fill="#f0997b" stroke="#e24b4a" stroke-width="1"/>
+<rect x="272" y="165" width="38" height="12" rx="5" fill="#1a0a08" stroke="#e24b4a" stroke-width="1.5"/>
+<line x1="272" y1="171" x2="262" y2="171" stroke="#e24b4a" stroke-width="1.5"/>
+<line x1="310" y1="171" x2="320" y2="171" stroke="#e24b4a" stroke-width="1.5"/>
+<text x="291" y="175" font-size="6" text-anchor="middle" fill="#e24b4a">FUSE</text>
+<circle cx="282" cy="245" r="13" fill="none" stroke="#1a6cf6" stroke-width="2"/>
+<circle cx="282" cy="245" r="5" fill="#0d1a2e" opacity="0.8"/>
+<circle cx="282" cy="245" r="2" fill="#1a6cf6"/>
+<line x1="282" y1="232" x2="282" y2="218" stroke="#2a3a4a" stroke-width="1.5"/>
+<circle cx="316" cy="265" r="13" fill="none" stroke="#1a6cf6" stroke-width="2"/>
+<circle cx="316" cy="265" r="5" fill="#0d1a2e" opacity="0.8"/>
+<circle cx="316" cy="265" r="2" fill="#1a6cf6"/>
+<line x1="316" y1="252" x2="316" y2="238" stroke="#2a3a4a" stroke-width="1.5"/>
+<circle cx="298" cy="308" r="15" fill="none" stroke="#1a6cf6" stroke-width="2.2"/>
+<circle cx="298" cy="308" r="7" fill="#0d1a2e" stroke="#1a6cf6" stroke-width="1.5"/>
+<circle cx="298" cy="308" r="2.5" fill="#1a6cf6"/>
+<rect x="284" y="316" width="28" height="6" rx="3" fill="#1e2a3a" stroke="#2a3a4a" stroke-width="1"/>
+<path d="M298 322 Q295 327 298 332 Q301 337 298 342 Q295 347 298 352" fill="none" stroke="#2a3a4a" stroke-width="1.5"/>
+<ellipse cx="305" cy="390" rx="30" ry="21" fill="#1e2a3a" stroke="#2a3a4a" stroke-width="1.8"/>
+<ellipse cx="305" cy="390" rx="20" ry="13" fill="#2a3a4a" stroke="#2a3a4a" stroke-width="1.2"/>
+<circle cx="305" cy="390" r="4" fill="#444"/>
+<line x1="275" y1="390" x2="260" y2="390" stroke="#2a3a4a" stroke-width="2.5"/>
+<circle cx="257" cy="390" r="4" fill="#2a3a4a"/>
+<line x1="335" y1="385" x2="344" y2="385" stroke="#2a3a4a" stroke-width="1"/>
+<line x1="335" y1="390" x2="344" y2="390" stroke="#2a3a4a" stroke-width="1"/>
+<line x1="335" y1="395" x2="344" y2="395" stroke="#2a3a4a" stroke-width="1"/>
+<rect x="268" y="430" width="44" height="28" rx="4" fill="#1a0a08" stroke="#e24b4a" stroke-width="1.5"/>
+<rect x="274" y="423" width="12" height="9" rx="3" fill="#2a0808" stroke="#e24b4a" stroke-width="1.2"/>
+<rect x="292" y="423" width="12" height="9" rx="3" fill="#2a0808" stroke="#e24b4a" stroke-width="1.2"/>
+<line x1="268" y1="444" x2="258" y2="444" stroke="#e24b4a" stroke-width="2"/>
+<circle cx="255" cy="444" r="3.5" fill="#e24b4a"/>
+<text x="290" y="448" font-size="7" text-anchor="middle" fill="#e24b4a">GAS</text>
+<ellipse cx="158" cy="210" rx="86" ry="86" fill="none" stroke="#3a4a5a" stroke-width="2.5" stroke-dasharray="7,3" opacity="0.7"/>
+<rect x="350" y="100" width="34" height="56" rx="4" fill="none" stroke="#2a3a4a" stroke-width="1.5"/>
+<line x1="354" y1="110" x2="380" y2="110" stroke="#2a3a4a" stroke-width="1"/>
+<line x1="354" y1="118" x2="380" y2="118" stroke="#2a3a4a" stroke-width="1"/>
+<line x1="354" y1="126" x2="380" y2="126" stroke="#2a3a4a" stroke-width="1"/>
+<line x1="354" y1="134" x2="380" y2="134" stroke="#2a3a4a" stroke-width="1"/>
+<line x1="354" y1="142" x2="380" y2="142" stroke="#2a3a4a" stroke-width="1"/>
+<path d="M367 90 L367 100" stroke="#2a3a4a" stroke-width="2"/>
+<path d="M361 95 L367 90 L373 95" fill="none" stroke="#2a3a4a" stroke-width="1.5"/>
+<rect x="68" y="335" width="60" height="15" rx="4" fill="#0d1117" stroke="#2a3a4a" stroke-width="1.2"/>
+<line x1="77" y1="335" x2="77" y2="350" stroke="#1e2a3a" stroke-width="1"/>
+<line x1="86" y1="335" x2="86" y2="350" stroke="#1e2a3a" stroke-width="1"/>
+<line x1="95" y1="335" x2="95" y2="350" stroke="#1e2a3a" stroke-width="1"/>
+<line x1="104" y1="335" x2="104" y2="350" stroke="#1e2a3a" stroke-width="1"/>
+<line x1="113" y1="335" x2="113" y2="350" stroke="#1e2a3a" stroke-width="1"/>
+<rect x="80" y="470" width="20" height="12" rx="4" fill="#2a3a4a"/>
+<rect x="300" y="470" width="20" height="12" rx="4" fill="#2a3a4a"/>
+<g class="callout-line" id="pcl-belt"><line x1="158" y1="124" x2="158" y2="18" stroke="#1a6cf6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/><line x1="158" y1="18" x2="500" y2="18" stroke="#1a6cf6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par)"/></g>
+<g class="callout-line" id="pcl-heating"><line x1="300" y1="128" x2="420" y2="100" stroke="#e24b4a" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/><line x1="420" y1="100" x2="500" y2="100" stroke="#e24b4a" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par-r)"/></g>
+<g class="callout-line" id="pcl-fuse"><line x1="310" y1="171" x2="500" y2="171" stroke="#e24b4a" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par-r)"/></g>
+<g class="callout-line" id="pcl-rollers"><line x1="316" y1="255" x2="500" y2="252" stroke="#1a6cf6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par)"/></g>
+<g class="callout-line" id="pcl-pulley"><line x1="313" y1="308" x2="500" y2="330" stroke="#1a6cf6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par)"/></g>
+<g class="callout-line" id="pcl-motor"><line x1="335" y1="390" x2="500" y2="390" stroke="#7f77dd" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par-p)"/></g>
+<g class="callout-line" id="pcl-gas"><line x1="312" y1="444" x2="500" y2="460" stroke="#e24b4a" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par-r)"/></g>
+<g class="callout-line" id="pcl-seal"><line x1="74" y1="210" x2="40" y2="210" stroke="#888780" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/><line x1="40" y1="210" x2="40" y2="560" stroke="#888780" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/><line x1="40" y1="560" x2="500" y2="560" stroke="#888780" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par-g)"/></g>
+<g class="callout-line" id="pcl-latch"><line x1="251" y1="217" x2="430" y2="217" stroke="#888780" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/><line x1="430" y1="217" x2="430" y2="505" stroke="#888780" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/><line x1="430" y1="505" x2="500" y2="505" stroke="#888780" stroke-width="1" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#par-g)"/></g>
+<g class="part-detail" id="ppd-belt"><rect x="500" y="6" width="120" height="56" rx="6" fill="#111" stroke="#1a6cf6" stroke-width="1.5"/><ellipse cx="560" cy="32" rx="40" ry="22" fill="none" stroke="#1a6cf6" stroke-width="2.5" stroke-dasharray="5,2"/><ellipse cx="560" cy="32" rx="30" ry="14" fill="none" stroke="#1a6cf6" stroke-width="1" opacity="0.35"/><text x="560" y="52" font-size="8" text-anchor="middle" fill="#1a6cf6" font-weight="500">Drive belt</text></g>
+<g class="part-detail" id="ppd-heating"><rect x="500" y="80" width="120" height="52" rx="6" fill="#111" stroke="#e24b4a" stroke-width="1.5"/><path d="M514 98 Q520 91 526 98 Q532 105 538 98 Q544 91 550 98 Q556 105 562 98 Q568 91 574 98 Q580 105 585 100" fill="none" stroke="#e24b4a" stroke-width="2.5" stroke-linecap="round"/><path d="M514 110 Q520 103 526 110 Q532 117 538 110 Q544 103 550 110 Q556 117 562 110 Q568 103 574 110 Q580 117 585 112" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" opacity="0.55"/><text x="560" y="126" font-size="8" text-anchor="middle" fill="#e24b4a" font-weight="500">Heating element</text></g>
+<g class="part-detail" id="ppd-fuse"><rect x="500" y="153" width="120" height="42" rx="6" fill="#111" stroke="#e24b4a" stroke-width="1.5"/><rect x="525" y="163" width="50" height="14" rx="6" fill="#1a0a08" stroke="#e24b4a" stroke-width="1.5"/><line x1="525" y1="170" x2="515" y2="170" stroke="#e24b4a" stroke-width="1.5"/><line x1="575" y1="170" x2="585" y2="170" stroke="#e24b4a" stroke-width="1.5"/><text x="560" y="186" font-size="8" text-anchor="middle" fill="#e24b4a" font-weight="500">Thermal fuse</text></g>
+<g class="part-detail" id="ppd-rollers"><rect x="500" y="218" width="120" height="64" rx="6" fill="#111" stroke="#1a6cf6" stroke-width="1.5"/><circle cx="535" cy="246" r="16" fill="none" stroke="#1a6cf6" stroke-width="2"/><circle cx="535" cy="246" r="6" fill="#0d1a2e" opacity="0.9"/><circle cx="535" cy="246" r="2.5" fill="#1a6cf6"/><line x1="535" y1="230" x2="535" y2="220" stroke="#2a3a4a" stroke-width="1.5"/><circle cx="572" cy="250" r="14" fill="none" stroke="#1a6cf6" stroke-width="2"/><circle cx="572" cy="250" r="5" fill="#0d1a2e" opacity="0.9"/><circle cx="572" cy="250" r="2" fill="#1a6cf6"/><line x1="572" y1="236" x2="572" y2="226" stroke="#2a3a4a" stroke-width="1.5"/><text x="553" y="274" font-size="8" text-anchor="middle" fill="#1a6cf6" font-weight="500">Drum rollers</text></g>
+<g class="part-detail" id="ppd-pulley"><rect x="500" y="294" width="120" height="66" rx="6" fill="#111" stroke="#1a6cf6" stroke-width="1.5"/><circle cx="553" cy="320" r="17" fill="none" stroke="#1a6cf6" stroke-width="2.2"/><circle cx="553" cy="320" r="8" fill="#0d1a2e" stroke="#1a6cf6" stroke-width="1.5"/><circle cx="553" cy="320" r="2.5" fill="#1a6cf6"/><rect x="540" y="329" width="26" height="6" rx="3" fill="#1e2a3a" stroke="#2a3a4a" stroke-width="1"/><path d="M553 335 Q550 340 553 345 Q556 350 553 355" fill="none" stroke="#2a3a4a" stroke-width="1.5"/><text x="553" y="368" font-size="8" text-anchor="middle" fill="#1a6cf6" font-weight="500">Idler pulley</text></g>
+<g class="part-detail" id="ppd-motor"><rect x="500" y="364" width="120" height="56" rx="6" fill="#111" stroke="#7f77dd" stroke-width="1.5"/><ellipse cx="553" cy="388" rx="30" ry="19" fill="#1e2a3a" stroke="#2a3a4a" stroke-width="1.5"/><ellipse cx="553" cy="388" rx="20" ry="12" fill="#2a3a4a" stroke="#2a3a4a" stroke-width="1"/><circle cx="553" cy="388" r="4" fill="#444"/><line x1="523" y1="388" x2="510" y2="388" stroke="#2a3a4a" stroke-width="2"/><line x1="583" y1="383" x2="592" y2="383" stroke="#2a3a4a" stroke-width="1"/><line x1="583" y1="388" x2="592" y2="388" stroke="#2a3a4a" stroke-width="1"/><line x1="583" y1="393" x2="592" y2="393" stroke="#2a3a4a" stroke-width="1"/><text x="553" y="410" font-size="8" text-anchor="middle" fill="#7f77dd" font-weight="500">Drive motor</text></g>
+<g class="part-detail" id="ppd-gas"><rect x="500" y="432" width="120" height="60" rx="6" fill="#111" stroke="#e24b4a" stroke-width="1.5"/><rect x="520" y="448" width="52" height="26" rx="4" fill="#1a0a08" stroke="#e24b4a" stroke-width="1.5"/><rect x="526" y="440" width="13" height="10" rx="3" fill="#2a0808" stroke="#e24b4a" stroke-width="1.2"/><rect x="545" y="440" width="13" height="10" rx="3" fill="#2a0808" stroke="#e24b4a" stroke-width="1.2"/><line x1="520" y1="461" x2="508" y2="461" stroke="#e24b4a" stroke-width="2"/><circle cx="505" cy="461" r="3.5" fill="#e24b4a"/><text x="546" y="484" font-size="8" text-anchor="middle" fill="#e24b4a" font-weight="500">Gas valve</text></g>
+<g class="part-detail" id="ppd-seal"><rect x="500" y="534" width="120" height="52" rx="6" fill="#111" stroke="#888780" stroke-width="1.5"/><circle cx="560" cy="557" r="22" fill="none" stroke="#2a3a4a" stroke-width="4" opacity="0.7"/><circle cx="560" cy="557" r="22" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="3,2"/><text x="560" y="576" font-size="8" text-anchor="middle" fill="#888780" font-weight="500">Drum felt seal</text></g>
+<g class="part-detail" id="ppd-latch"><rect x="500" y="480" width="120" height="46" rx="6" fill="#111" stroke="#888780" stroke-width="1.5"/><rect x="520" y="492" width="42" height="18" rx="5" fill="#1e2a3a" stroke="#2a3a4a" stroke-width="1.5"/><circle cx="534" cy="501" r="4" fill="#2a3a4a"/><circle cx="550" cy="501" r="3" fill="none" stroke="#2a3a4a" stroke-width="1.5"/><text x="553" y="517" font-size="8" text-anchor="middle" fill="#888780" font-weight="500">Door latch</text></g>
+<g class="hs" id="phs-belt" onclick="partsSel('belt')"><circle class="pip" cx="158" cy="115" r="11" fill="#1a6cf6"/><text x="158" y="119" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">1</text></g>
+<g class="hs" id="phs-heating" onclick="partsSel('heating')"><circle class="pip" cx="300" cy="128" r="11" fill="#e24b4a"/><text x="300" y="132" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">2</text></g>
+<g class="hs" id="phs-fuse" onclick="partsSel('fuse')"><circle class="pip" cx="300" cy="171" r="11" fill="#e24b4a"/><text x="300" y="175" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">3</text></g>
+<g class="hs" id="phs-rollers" onclick="partsSel('rollers')"><circle class="pip" cx="316" cy="255" r="11" fill="#1a6cf6"/><text x="316" y="259" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">4</text></g>
+<g class="hs" id="phs-pulley" onclick="partsSel('pulley')"><circle class="pip" cx="313" cy="308" r="11" fill="#1a6cf6"/><text x="313" y="312" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">5</text></g>
+<g class="hs" id="phs-motor" onclick="partsSel('motor')"><circle class="pip" cx="335" cy="390" r="11" fill="#7f77dd"/><text x="335" y="394" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">6</text></g>
+<g class="hs" id="phs-gas" onclick="partsSel('gas')"><circle class="pip" cx="312" cy="444" r="11" fill="#e24b4a"/><text x="312" y="448" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">7</text></g>
+<g class="hs" id="phs-seal" onclick="partsSel('seal')"><circle class="pip" cx="74" cy="210" r="11" fill="#888780"/><text x="74" y="214" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">8</text></g>
+<g class="hs" id="phs-latch" onclick="partsSel('latch')"><circle class="pip" cx="251" cy="217" r="11" fill="#888780"/><text x="251" y="221" font-size="10" text-anchor="middle" fill="#fff" font-weight="500">9</text></g>
+</svg>
+</div>
+
+<div class="parts-sidebar" id="parts-sidebar"></div>
+</div>
+
+<div class="parts-info-bar" id="parts-infobar">
+  <div style="flex:1">
+    <div class="pib-nm" id="pib-nm"></div>
+    <div class="pib-pr" id="pib-pr"></div>
+    <div class="pib-sym" id="pib-sym"></div>
+  </div>
+  <a class="pib-link" id="pib-link" href="#">View repair page &rarr;</a>
+</div>
+
+<script is:inline>
+const PD={
+  belt:{n:1,c:'#1a6cf6',cat:'mechanical',nm:'Drive belt',pr:'$260–320',sym:'Drum not spinning — motor still hums',t:'60–75 min',u:'/repairs/lg-dryer-belt-replacement/'},
+  heating:{n:2,c:'#e24b4a',cat:'heating',nm:'Heating element',pr:'$320–380',sym:'No heat — clothes damp after cycle',t:'45–60 min',u:'/repairs/lg-dryer-heating-element-replacement/'},
+  fuse:{n:3,c:'#e24b4a',cat:'heating',nm:'Thermal fuse',pr:'$280–350',sym:'No heat or won\'t start',t:'30–45 min',u:'/repairs/lg-dryer-thermal-fuse-replacement/'},
+  rollers:{n:4,c:'#1a6cf6',cat:'mechanical',nm:'Drum rollers',pr:'$280–350',sym:'Grinding or thumping while running',t:'60–75 min',u:'/repairs/lg-dryer-drum-roller-replacement/'},
+  pulley:{n:5,c:'#1a6cf6',cat:'mechanical',nm:'Idler pulley',pr:'$200–260',sym:'Squealing or squeaking at startup',t:'60–75 min',u:'/repairs/lg-dryer-idler-pulley-replacement/'},
+  motor:{n:6,c:'#7f77dd',cat:'drive',nm:'Drive motor',pr:'$380–480',sym:'Drum won\'t spin at all',t:'90–120 min',u:'/repairs/lg-dryer-motor-replacement/'},
+  gas:{n:7,c:'#e24b4a',cat:'heating',nm:'Gas valve',pr:'$280–450',sym:'No heat — gas models only',t:'60–90 min',u:'/repairs/lg-dryer-gas-valve-replacement/'},
+  seal:{n:8,c:'#888780',cat:'housing',nm:'Drum felt seal',pr:'$280–350',sym:'Thumping, clothes catching at front',t:'60–75 min',u:'/repairs/lg-dryer-drum-bearing-replacement/'},
+  latch:{n:9,c:'#888780',cat:'housing',nm:'Door latch',pr:'$150–220',sym:'Dryer won\'t start — door not sensing',t:'20–30 min',u:'/symptoms/lg-dryer-not-starting/'},
+};
+let pCur=null,pCat='all';
+function partsRenderSidebar(){
+  const sb=document.getElementById('parts-sidebar');
+  sb.innerHTML=Object.entries(PD).map(([id,p])=>{
+    const show=pCat==='all'||p.cat===pCat;
+    return '<div class="part-card'+(pCur===id?' on':'')+(show?'':' dim')+'" id="ppc-'+id+'" onclick="partsSel(\''+id+'\')"><div class="pc-top"><span class="pc-num" style="background:'+p.c+'">'+p.n+'</span><span class="pc-nm">'+p.nm+'</span></div><div class="pc-pr" style="color:'+p.c+'">'+p.pr+'</div><div class="pc-sym">'+p.sym+'</div></div>';
+  }).join('');
+}
+function partsSel(id){
+  pCur=id;
+  const p=PD[id];
+  document.querySelectorAll('.hs').forEach(h=>h.classList.remove('on'));
+  document.getElementById('phs-'+id).classList.add('on');
+  const bar=document.getElementById('parts-infobar');
+  bar.classList.add('on');
+  document.getElementById('pib-nm').textContent=p.nm;
+  document.getElementById('pib-nm').style.color=p.c;
+  document.getElementById('pib-pr').textContent=p.pr+' · '+p.t+' on-site';
+  document.getElementById('pib-pr').style.color=p.c;
+  document.getElementById('pib-sym').textContent=p.sym;
+  document.getElementById('pib-link').href=p.u;
+  partsRenderSidebar();
+  const card=document.getElementById('ppc-'+id);
+  if(card) card.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function partsFilter(cat,btn){
+  pCat=cat;
+  document.querySelectorAll('.parts-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  Object.keys(PD).forEach(id=>{
+    const show=cat==='all'||PD[id].cat===cat;
+    const op=show?'1':'0.08';
+    ['ppd-','pcl-','phs-'].forEach(pre=>{
+      const el=document.getElementById(pre+id);
+      if(el) el.style.opacity=op;
+    });
+  });
+  partsRenderSidebar();
+}
+partsRenderSidebar();
+</script>
+
+  </div>
+</section>
+
+<section class="parts-cta">
+  <div class="container">
+    <h2>Not sure what's wrong with your LG dryer?</h2>
+    <p>Our technicians diagnose on the spot — $65 diagnostic fee, waived when you approve the repair.</p>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-primary">Call (323) 990-7550</a>
+      <a href="/book/" class="button-secondary">Book Online</a>
+    </div>
+  </div>
+</section>
+
+</Layout>
