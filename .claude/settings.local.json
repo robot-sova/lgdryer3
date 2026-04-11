@@ -48,7 +48,12 @@
       "Bash(git rm:*)",
       "Bash(grep -roh '/images/[^\"'\"'\"' \\)\\\\`}>]*' src/pages/repairs/*.astro)",
       "Bash(read -r img)",
-      "Bash([ ! -f \"public$img\" ])"
+      "Bash([ ! -f \"public$img\" ])",
+      "Bash(cp lg-dryer-drum-replacement-cracked.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-drum-replacement-cracked-new.webp\")",
+      "Bash(cp lg-dryer-drum-replacement-hero.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-drum-replacement-hero-new.webp\")",
+      "Bash(cp lg-dryer-drum-replacement-part.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-drum-replacement-part-new.webp\")",
+      "Bash(cp lg-dryer-drum-replacement-scored.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-drum-replacement-scored-new.webp\")",
+      "Bash(cp lg-dryer-gas-valve-replacement-before.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-gas-valve-replacement-before-new3.webp\")"
     ]
   }
 }
