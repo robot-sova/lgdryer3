@@ -20,6 +20,51 @@ import Layout from '../layouts/Layout.astro';
         <span>&#10003; Same-Day Service</span>
         <span>&#10003; All LG Models</span>
       </div>
+
+      <div class="hero-form">
+        <div class="hero-form-tabs">
+          <button class="hero-tab active" id="htCallback">
+            📞 Call me back in 15 min
+          </button>
+          <button class="hero-tab" id="htBooking">
+            📅 Schedule a visit
+          </button>
+        </div>
+
+        <!-- Callback -->
+        <div class="hero-form-body" id="hfCallback">
+          <p class="hero-form-hint">Leave your number — we call back within 15 minutes during business hours (Mon–Sat 8am–7pm)</p>
+          <div class="hero-form-row">
+            <input type="tel" id="hfPhone" class="hero-input" placeholder="(323) ___-____" />
+            <button class="btn btn-primary" id="hfSubmitCallback">Call Me Back</button>
+          </div>
+        </div>
+
+        <!-- Booking -->
+        <div class="hero-form-body" id="hfBooking" style="display:none">
+          <p class="hero-form-hint">Fill in your details — we confirm the appointment by phone same day</p>
+          <div class="hero-form-grid">
+            <input type="tel" id="hfBkPhone" class="hero-input" placeholder="Phone *" />
+            <input type="text" id="hfBkName" class="hero-input" placeholder="Your name" />
+            <input type="text" id="hfBkAddress" class="hero-input" placeholder="Address" />
+            <select id="hfBkTime" class="hero-input">
+              <option value="">Preferred time...</option>
+              <option>8:00 AM – 10:00 AM</option>
+              <option>10:00 AM – 12:00 PM</option>
+              <option>12:00 PM – 2:00 PM</option>
+              <option>2:00 PM – 4:00 PM</option>
+              <option>4:00 PM – 6:00 PM</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px" id="hfSubmitBooking">Confirm Booking</button>
+        </div>
+
+        <!-- Success -->
+        <div class="hero-form-body" id="hfSuccess" style="display:none;text-align:center;padding:20px 0">
+          <div style="font-size:2rem;margin-bottom:8px">✅</div>
+          <p id="hfSuccessMsg" style="color:#fff;font-size:1rem;margin:0"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -53,78 +98,6 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- Contact Form with two modes -->
-        <div class="glass" id="contactPanel">
-
-          <!-- Mode Switcher -->
-          <div class="mode-switcher">
-            <button class="mode-btn active" id="modeCallback" data-mode="callback">
-              📞 Call Me Back
-            </button>
-            <button class="mode-btn" id="modeBooking" data-mode="booking">
-              📅 Book a Visit
-            </button>
-          </div>
-
-          <!-- CALLBACK MODE -->
-          <div id="formCallback">
-            <p class="form-mode-desc">I have questions or want to schedule by phone</p>
-            <div class="form-group">
-              <label for="cbPhone">Your Phone Number <span class="required">*</span></label>
-              <input type="tel" id="cbPhone" class="form-input" placeholder="(323) ___-____" />
-            </div>
-            <button class="btn btn-primary" style="width:100%;margin-top:.5rem" id="cbSubmit">
-              Call Me Back
-            </button>
-            <p class="form-note">We'll call you back within 15 minutes during business hours</p>
-          </div>
-
-          <!-- BOOKING MODE -->
-          <div id="formBooking" style="display:none">
-            <p class="form-mode-desc">Schedule your LG dryer repair appointment</p>
-            <div class="form-group">
-              <label for="bkPhone">Phone Number <span class="required">*</span></label>
-              <input type="tel" id="bkPhone" class="form-input" placeholder="(323) ___-____" />
-            </div>
-            <div class="form-group">
-              <label for="bkName">Full Name</label>
-              <input type="text" id="bkName" class="form-input" placeholder="John Smith" />
-            </div>
-            <div class="form-group">
-              <label for="bkAddress">Address</label>
-              <input type="text" id="bkAddress" class="form-input" placeholder="123 Main St, Los Angeles, CA" />
-            </div>
-            <div class="form-group">
-              <label for="bkTime">Preferred Time</label>
-              <select id="bkTime" class="form-input">
-                <option value="">Select a time...</option>
-                <option>8:00 AM – 10:00 AM</option>
-                <option>10:00 AM – 12:00 PM</option>
-                <option>12:00 PM – 2:00 PM</option>
-                <option>2:00 PM – 4:00 PM</option>
-                <option>4:00 PM – 6:00 PM</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="bkComments">Comments</label>
-              <textarea id="bkComments" class="form-input" rows="2" placeholder="Describe the issue, model number, etc."></textarea>
-            </div>
-            <button class="btn btn-primary" style="width:100%;margin-top:.25rem" id="bkSubmit">
-              Confirm Booking
-            </button>
-          </div>
-
-          <!-- Success message (hidden) -->
-          <div id="formSuccess" style="display:none;text-align:center;padding:1.5rem 0">
-            <div style="font-size:2.5rem;margin-bottom:.75rem">✅</div>
-            <h3 style="margin:0 0 .5rem;color:var(--accent)">Got it!</h3>
-            <p class="text-secondary" style="font-size:.9rem" id="successMsg">We'll be in touch shortly.</p>
-            <a href="tel:3239907550" class="btn btn-primary" style="margin-top:1rem;display:inline-flex">
-              Or call now: (323) 990-7550
-            </a>
-          </div>
-
-        </div>
       </div>
     </div>
   </section>
@@ -203,6 +176,79 @@ import Layout from '../layouts/Layout.astro';
   label { font-size: 1rem; }
   .form-input { font-size: 1rem; }
   .form-note { font-size: 0.9rem; }
+
+  .hero-form {
+    margin-top: 28px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 20px 24px;
+    max-width: 860px;
+    width: 100%;
+  }
+  .hero-form-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .hero-tab {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .hero-tab.active {
+    background: #1a6cf6;
+    border-color: #1a6cf6;
+    color: #fff;
+  }
+  .hero-tab:hover:not(.active) {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+  }
+  .hero-form-hint {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 14px;
+    line-height: 1.5;
+  }
+  .hero-form-row {
+    display: flex;
+    gap: 10px;
+  }
+  .hero-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .hero-input {
+    flex: 1;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .hero-input::placeholder { color: rgba(255,255,255,0.4); }
+  .hero-input:focus { border-color: #1a6cf6; }
+  .hero-input option { background: #111; color: #fff; }
+
+  @media (max-width: 600px) {
+    .hero-form-row { flex-direction: column; }
+    .hero-form-grid { grid-template-columns: 1fr; }
+    .hero-tab { font-size: 0.82rem; padding: 9px 10px; }
+  }
 </style>
 
 <script>
@@ -284,92 +330,50 @@ import Layout from '../layouts/Layout.astro';
     btn.disabled = false;
   });
 
-  // ── Mode switcher ──────────────────────────────────────────
-  const modeCallback = document.getElementById('modeCallback')!;
-  const modeBooking  = document.getElementById('modeBooking')!;
-  const formCallback = document.getElementById('formCallback')!;
-  const formBooking  = document.getElementById('formBooking')!;
-
-  modeCallback.addEventListener('click', () => {
-    modeCallback.classList.add('active');
-    modeBooking.classList.remove('active');
-    formCallback.style.display = 'block';
-    formBooking.style.display  = 'none';
+  // ── Hero form tabs ─────────────────────────────────────────
+  document.getElementById('htCallback')?.addEventListener('click', () => {
+    document.getElementById('htCallback')!.classList.add('active');
+    document.getElementById('htBooking')!.classList.remove('active');
+    document.getElementById('hfCallback')!.style.display = 'block';
+    document.getElementById('hfBooking')!.style.display = 'none';
+  });
+  document.getElementById('htBooking')?.addEventListener('click', () => {
+    document.getElementById('htBooking')!.classList.add('active');
+    document.getElementById('htCallback')!.classList.remove('active');
+    document.getElementById('hfBooking')!.style.display = 'block';
+    document.getElementById('hfCallback')!.style.display = 'none';
   });
 
-  modeBooking.addEventListener('click', () => {
-    modeBooking.classList.add('active');
-    modeCallback.classList.remove('active');
-    formBooking.style.display  = 'block';
-    formCallback.style.display = 'none';
-  });
-
-  // ── Generic submit helper ──────────────────────────────────
-  async function submitForm(payload: any, btn: HTMLButtonElement, successMsg: string) {
-    btn.disabled = true;
-    const origText = btn.textContent;
-    btn.textContent = 'Sending...';
-
+  async function heroSubmit(payload: any, successMsg: string) {
     try {
-      // Send via server-side proxy (handles both Resend email and Telegram)
-      try {
-        const resendRes = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const resendData = await resendRes.json();
-        console.log('Resend response:', resendData);
-      } catch (resendErr) {
-        console.error('Resend error:', resendErr);
-      }
-
-      // Show success (Telegram is the primary channel, Resend may fail from browser)
-      formCallback.style.display = 'none';
-      formBooking.style.display = 'none';
-      document.querySelector('.mode-switcher')!.setAttribute('style', 'display:none');
-      document.getElementById('successMsg')!.textContent = successMsg;
-      document.getElementById('formSuccess')!.style.display = 'block';
-    } catch (err) {
-      console.error('Submit error:', err);
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      document.getElementById('hfCallback')!.style.display = 'none';
+      document.getElementById('hfBooking')!.style.display = 'none';
+      document.querySelector('.hero-form-tabs')!.setAttribute('style','display:none');
+      document.getElementById('hfSuccessMsg')!.textContent = successMsg;
+      document.getElementById('hfSuccess')!.style.display = 'block';
+    } catch(e) {
       alert('Network error. Please call (323) 990-7550 directly.');
-      btn.disabled = false;
-      btn.textContent = origText;
     }
   }
 
-  // ── Callback submit ────────────────────────────────────────
-  document.getElementById('cbSubmit')?.addEventListener('click', async () => {
-    const phone = (document.getElementById('cbPhone') as HTMLInputElement).value.trim();
-    if (!phone) {
-      alert('Please enter your phone number.');
-      return;
-    }
-    await submitForm(
-        { type: 'callback', phone },
-        document.getElementById('cbSubmit') as HTMLButtonElement,
-        "We'll call you back within 15 minutes during business hours (Mon–Sat 8am–7pm)."
-    );
+  document.getElementById('hfSubmitCallback')?.addEventListener('click', async () => {
+    const phone = (document.getElementById('hfPhone') as HTMLInputElement).value.trim();
+    if (!phone) { alert('Please enter your phone number.'); return; }
+    await heroSubmit({ type: 'callback', phone }, "We'll call you back within 15 minutes during business hours.");
   });
 
-  // ── Booking submit ─────────────────────────────────────────
-  document.getElementById('bkSubmit')?.addEventListener('click', async () => {
-    const phone    = (document.getElementById('bkPhone')    as HTMLInputElement).value.trim();
-    const name     = (document.getElementById('bkName')     as HTMLInputElement).value.trim();
-    const address  = (document.getElementById('bkAddress')  as HTMLInputElement).value.trim();
-    const time     = (document.getElementById('bkTime')     as HTMLSelectElement).value;
-    const comments = (document.getElementById('bkComments') as HTMLTextAreaElement).value.trim();
-
-    if (!phone) {
-      alert('Please enter your phone number.');
-      return;
-    }
-
-    await submitForm(
-        { type: 'booking', phone, name, address, time, comments },
-        document.getElementById('bkSubmit') as HTMLButtonElement,
-        "Your booking request is received! We'll confirm your appointment shortly."
-    );
+  document.getElementById('hfSubmitBooking')?.addEventListener('click', async () => {
+    const phone = (document.getElementById('hfBkPhone') as HTMLInputElement).value.trim();
+    if (!phone) { alert('Please enter your phone number.'); return; }
+    const name = (document.getElementById('hfBkName') as HTMLInputElement).value.trim();
+    const address = (document.getElementById('hfBkAddress') as HTMLInputElement).value.trim();
+    const time = (document.getElementById('hfBkTime') as HTMLSelectElement).value;
+    await heroSubmit({ type: 'booking', phone, name, address, time }, "Booking confirmed! We'll call to confirm your appointment shortly.");
   });
 </script>
 
