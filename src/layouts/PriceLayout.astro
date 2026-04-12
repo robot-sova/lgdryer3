@@ -14,10 +14,13 @@ interface Props {
   includes?: string;
   newDryerCost?: string;
   savings?: string;
+  heroImg?: string;
+  heroAlt?: string;
+  heroCaption?: string;
   otherRepairs?: Array<{name: string, price: string, slug: string}>;
 }
 
-const { title, description, serviceName, priceMin, priceMax, partCost, laborCost, includes, newDryerCost, savings, otherRepairs = [] } = Astro.props;
+const { title, description, serviceName, priceMin, priceMax, partCost, laborCost, includes, newDryerCost, savings, heroImg, heroAlt, heroCaption, otherRepairs = [] } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
@@ -40,6 +43,13 @@ const { title, description, serviceName, priceMin, priceMax, partCost, laborCost
       <div class="phb-note">$65 diagnostic fee · waived when you approve repair</div>
     </div>
   </div>
+
+  {heroImg && (
+    <div class="price-hero-img">
+      <img src={heroImg} alt={heroAlt || ''} width="860" height="400" loading="eager" style="width:100%;max-width:860px;height:auto;border-radius:12px;margin:0 auto;display:block" />
+      {heroCaption && <p style="text-align:center;color:#8a9ab0;font-size:0.85rem;margin:8px auto 0;max-width:860px">{heroCaption}</p>}
+    </div>
+  )}
 
   <!-- 2-COLUMN LAYOUT -->
   <div class="article-layout">
