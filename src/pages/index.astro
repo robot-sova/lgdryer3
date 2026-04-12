@@ -12,7 +12,6 @@ import Layout from '../layouts/Layout.astro';
       <p class="subtitle">LG Dryer Repair is a team of certified technicians specializing in LG appliance repair, maintenance, and installation. We serve Los Angeles County, Orange County, and Ventura County — same-day service, OEM parts, and guaranteed results.</p>
       <div class="hero-buttons">
         <a href="tel:3239907550" class="btn btn-primary btn-lg">Call (323) 990-7550</a>
-        <a href="/book" class="btn btn-secondary btn-lg">Book a Visit</a>
       </div>
       <div class="trust-bar">
         <span>&#10003; CSLB Licensed</span>
@@ -176,6 +175,10 @@ import Layout from '../layouts/Layout.astro';
   label { font-size: 1rem; }
   .form-input { font-size: 1rem; }
   .form-note { font-size: 0.9rem; }
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+  }
 
   .hero-form {
     margin-top: 28px;
