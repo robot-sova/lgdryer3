@@ -45,8 +45,8 @@ const { title, description, serviceName, priceMin, priceMax, partCost, laborCost
   </div>
 
   {heroImg && (
-    <div class="price-hero-img">
-      <img src={heroImg} alt={heroAlt || ''} width="860" height="400" loading="eager" style="width:100%;max-width:860px;height:auto;border-radius:12px;margin:0 auto;display:block" />
+    <div class="price-hero-img" style="width:100%;margin:0;padding:0;">
+      <img src={heroImg} alt={heroAlt || ''} width="860" height="400" loading="eager" style="width:100%;max-width:100%;height:auto;display:block;border-radius:0;" />
       {heroCaption && <p style="text-align:center;color:#8a9ab0;font-size:0.85rem;margin:8px auto 0;max-width:860px">{heroCaption}</p>}
     </div>
   )}
