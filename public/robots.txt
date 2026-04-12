@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lgdryer.repair/sitemap-index.xml
