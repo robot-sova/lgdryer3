@@ -54,7 +54,9 @@
       "Bash(cp lg-dryer-drum-replacement-part.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-drum-replacement-part-new.webp\")",
       "Bash(cp lg-dryer-drum-replacement-scored.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-drum-replacement-scored-new.webp\")",
       "Bash(cp lg-dryer-gas-valve-replacement-before.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-gas-valve-replacement-before-new3.webp\")",
-      "Bash(ls \"C:/Users/Roman/lgdryer-proxy/ready/price-list/\"*.jpg)"
+      "Bash(ls \"C:/Users/Roman/lgdryer-proxy/ready/price-list/\"*.jpg)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(npm ls:*)"
     ]
   }
 }
