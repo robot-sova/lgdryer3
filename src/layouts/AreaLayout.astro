@@ -43,7 +43,7 @@ const cityToSlug: Record<string, string> = {
 };
 ---
 
-<Layout title={title} description={description} heroImg={heroImg}>
+<Layout title={title} description={description} heroImg={heroImg} ogImage={heroImg}>
   <Breadcrumbs slot="breadcrumbs" items={[
     { label: "Areas", href: "/areas/" },
     { label: `${city}, CA` }

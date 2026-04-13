@@ -3,9 +3,11 @@ interface Props {
   title?: string;
   description?: string;
   heroImg?: string;
+  ogImage?: string;
 }
 
-const { title = 'LG Dryer Repair Los Angeles | Same Day Service', description = 'Professional LG dryer repair in Los Angeles. Same-day service, certified technicians. Call (323) 990-7550.', heroImg } = Astro.props;
+const { title = 'LG Dryer Repair Los Angeles | Same Day Service', description = 'Professional LG dryer repair in Los Angeles. Same-day service, certified technicians. Call (323) 990-7550.', heroImg, ogImage } = Astro.props;
+const resolvedOgImage = ogImage ? `https://lgdryer.repair${ogImage}` : 'https://lgdryer.repair/images/lg-dryer-hero.webp';
 
 const repairLinks = [
   { slug: 'lg-dryer-heating-element-replacement', label: 'Heating Element Replacement' },
@@ -121,6 +123,9 @@ const venturaCounty = [
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={`https://lgdryer.repair${Astro.url.pathname}`} />
+  <meta property="og:image" content={resolvedOgImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={resolvedOgImage} />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
