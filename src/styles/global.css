@@ -9,7 +9,7 @@ ul,ol{list-style:none}
 h1,h2,h3,h4,h5,h6{line-height:1.2;font-weight:700}
 
 /* === Container === */
-.container{width:90%;margin:0 auto}
+.container{width:90%;max-width:1100px;margin:0 auto}
 
 /* === Glassmorphism === */
 .glass{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:14px;padding:2rem}
