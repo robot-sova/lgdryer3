@@ -22,6 +22,25 @@ interface Props {
 }
 
 const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, heroCaption, areaImg, areaImgCaption, neighborhoods = [], featuredNeighborhoods = [], nearbyCities = [], testimonial, responseTime = '2–4 hours' } = Astro.props;
+
+const cityToSlug: Record<string, string> = {
+  'Agoura Hills': 'agoura-hills', 'Anaheim': 'anaheim', 'Bel Air': 'bel-air',
+  'Beverly Hills': 'beverly-hills', 'Brentwood': 'brentwood', 'Burbank': 'burbank',
+  'Calabasas': 'calabasas', 'Camarillo': 'camarillo', 'Costa Mesa': 'costa-mesa',
+  'Culver City': 'culver-city', 'Dana Point': 'dana-point', 'Fullerton': 'fullerton',
+  'Glendale': 'glendale', 'Huntington Beach': 'huntington-beach', 'Irvine': 'irvine',
+  'Ladera Ranch': 'ladera-ranch', 'Laguna Beach': 'laguna-beach', 'Laguna Niguel': 'laguna-niguel',
+  'Lake Forest': 'lake-forest', 'Long Beach': 'long-beach', 'Los Angeles': 'los-angeles',
+  'Malibu': 'malibu', 'Manhattan Beach': 'manhattan-beach', 'Marina del Rey': 'marina-del-rey',
+  'Mission Viejo': 'mission-viejo', 'Moorpark': 'moorpark', 'Newbury Park': 'newbury-park',
+  'Newport Beach': 'newport-beach', 'Orange': 'orange-ca', 'Oxnard': 'oxnard',
+  'Pacific Palisades': 'pacific-palisades', 'Pasadena': 'pasadena', 'Playa del Rey': 'playa-del-rey',
+  'Rancho Santa Margarita': 'rancho-santa-margarita', 'Santa Monica': 'santa-monica',
+  'Sherman Oaks': 'sherman-oaks', 'Simi Valley': 'simi-valley', 'Studio City': 'studio-city',
+  'Thousand Oaks': 'thousand-oaks', 'Torrance': 'torrance', 'Tustin': 'tustin',
+  'Ventura': 'ventura', 'West Hollywood': 'west-hollywood', 'Westlake Village': 'westlake-village',
+  'Woodland Hills': 'woodland-hills', 'Yorba Linda': 'yorba-linda',
+};
 ---
 
 <Layout title={title} description={description} heroImg={heroImg}>
@@ -143,7 +162,12 @@ const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, 
         <div class="sidebar-box">
           <div class="sb-title">Nearby Cities We Serve</div>
           <ul class="sidebar-checklist">
-            {nearbyCities.map(c => <li>{c}</li>)}
+            {nearbyCities.map(c => {
+              const slug = cityToSlug[c];
+              return slug
+                ? <li><a href={`/areas/lg-dryer-repair-${slug}/`}>{c}</a></li>
+                : <li>{c}</li>;
+            })}
           </ul>
         </div>
       )}
