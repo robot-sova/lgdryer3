@@ -4,6 +4,8 @@
 (function () {
   'use strict';
 
+  const isMobile = () => window.innerWidth < 768;
+
   const IDLE_MS   = 3000;
   const PHASE2_MS = 3000;
 
@@ -593,10 +595,83 @@
 
     ctx.restore();
   }
+  function drawMobileTip() {
+    if (!tipVisible || tipOpacity <= 0) return;
+    const tip = TIPS[tipIndex];
+    const cW = canvas.width;
+    const cH = canvas.height;
+
+    const boxW = cW * 0.82;
+    const boxH = cH * 0.22;
+    const boxX = (cW - boxW) / 2;
+    const boxY = cH * 0.28;
+    const pad  = cW * 0.05;
+    const r    = 14;
+
+    ctx.save();
+    ctx.globalAlpha = tipOpacity;
+
+    // Glassmorphism фон
+    ctx.fillStyle = 'rgba(10, 20, 40, 0.82)';
+    ctx.strokeStyle = 'rgba(100, 160, 255, 0.3)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(boxX, boxY, boxW, boxH, r);
+    ctx.fill();
+    ctx.stroke();
+
+    // Синяя полоска сверху
+    ctx.fillStyle = 'rgba(26, 108, 246, 0.8)';
+    ctx.beginPath();
+    ctx.roundRect(boxX, boxY, boxW, 3, [r, r, 0, 0]);
+    ctx.fill();
+
+    // Номер совета
+    ctx.fillStyle = '#4ae8ff';
+    ctx.font = `600 ${Math.round(cW * 0.032)}px system-ui, sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText(`💡 Tip #${tipIndex + 1}`, boxX + pad, boxY + pad * 0.7);
+
+    // Текст совета с переносом
+    ctx.fillStyle = 'rgba(220, 235, 255, 0.95)';
+    ctx.font = `${Math.round(cW * 0.038)}px system-ui, sans-serif`;
+    ctx.textBaseline = 'top';
+
+    const words = tip.text.split(' ');
+    const maxW  = boxW - pad * 2;
+    const lineH = cW * 0.048;
+    let line    = '';
+    let lineY   = boxY + pad * 2.0;
+
+    for (const word of words) {
+      const test = line ? line + ' ' + word : word;
+      if (ctx.measureText(test).width > maxW && line) {
+        ctx.fillText(line, boxX + pad, lineY);
+        line  = word;
+        lineY += lineH;
+        if (lineY + lineH > boxY + boxH - pad * 0.5) break;
+      } else {
+        line = test;
+      }
+    }
+    if (line) ctx.fillText(line, boxX + pad, lineY);
+
+    ctx.restore();
+  }
+
   function loop(ts) {
     if (!phase) return;
     const dt = lastTs ? Math.min(ts - lastTs, 50) : 16;
     lastTs = ts;
+
+    if (isMobile()) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (phase >= 3) drawMobileTip();
+      animFrame = requestAnimationFrame(loop);
+      return;
+    }
+
     if (phase >= 3) drumAngle += 0.013 * (dt / 16);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const m = map();
@@ -609,6 +684,15 @@
 
   // ── Фазы ─────────────────────────────────────────────────────────────────
   function startPhase1() {
+    if (isMobile()) {
+      phase = 3;
+      drumAngle = 0;
+      lastTs = 0;
+      totalSecs = 1800;
+      startTips();
+      animFrame = requestAnimationFrame(loop);
+      return;
+    }
     phase = 1; drumAngle = 0; lastTs = 0;
     animFrame = requestAnimationFrame(loop);
 
