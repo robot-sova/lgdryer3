@@ -230,16 +230,6 @@ const venturaCounty = [
           </div>
         </div>
 
-        <div class="nav-item">
-          <button>Washer ▾</button>
-          <div class="dropdown">
-            <a href="/washer/">LG Washer Repair</a>
-            <a href="/washer/symptoms/lg-washer-not-draining/">Washer Not Draining</a>
-            <a href="/washer/error-codes/">Washer Error Codes</a>
-            <a href="/washer/repairs/">Washer Repair Cost</a>
-          </div>
-        </div>
-
         <a href="tel:3239907550" class="nav-cta btn">(323) 990-7550</a>
       </div>
 
@@ -269,14 +259,6 @@ const venturaCounty = [
       <h4>Service Areas</h4>
       {laCounty.slice(0,4).map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
       {orangeCounty.slice(0,2).map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
-    </div>
-
-    <div class="mobile-section">
-      <h4>Washer</h4>
-      <a href="/washer/">LG Washer Repair</a>
-      <a href="/washer/symptoms/lg-washer-not-draining/">Washer Not Draining</a>
-      <a href="/washer/error-codes/">Washer Error Codes</a>
-      <a href="/washer/repairs/">Washer Repair Cost</a>
     </div>
 
     <div class="mobile-section">

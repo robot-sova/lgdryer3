@@ -6,5 +6,5 @@ export default defineConfig({
   site: 'https://lgdryer.repair',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/washer/') })],
 });
