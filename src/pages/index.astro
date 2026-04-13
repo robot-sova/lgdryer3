@@ -95,6 +95,18 @@ import Layout from '../layouts/Layout.astro';
         <a href="/symptoms/" class="home-links-more">All symptoms →</a>
       </div>
       <div class="home-links-col">
+        <h2>Transparent Pricing</h2>
+        <ul>
+          <li><a href="/price-list/lg-dryer-repair-cost/">LG Dryer Repair Cost</a></li>
+          <li><a href="/price-list/lg-dryer-heating-element-replacement-cost/">Heating Element Cost</a></li>
+          <li><a href="/price-list/lg-dryer-thermal-fuse-replacement-cost/">Thermal Fuse Cost</a></li>
+          <li><a href="/price-list/lg-dryer-drum-roller-replacement-cost/">Drum Roller Cost</a></li>
+          <li><a href="/price-list/lg-dryer-belt-replacement-cost/">Belt Replacement Cost</a></li>
+          <li><a href="/price-list/lg-dryer-motor-replacement-cost/">Motor Replacement Cost</a></li>
+        </ul>
+        <a href="/price-list/" class="home-links-more">Full price list →</a>
+      </div>
+      <div class="home-links-col">
         <h2>Service Areas</h2>
         <ul>
           <li><a href="/areas/lg-dryer-repair-los-angeles/">Los Angeles</a></li>
@@ -152,8 +164,8 @@ import Layout from '../layouts/Layout.astro';
   }
   .home-links-inner {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
   }
   .home-links-col h2 {
     font-size: 1.1rem;
@@ -184,10 +196,15 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.85rem;
     color: #1a6cf6 !important;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
+    .home-links-inner {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+  @media (max-width: 480px) {
     .home-links-inner {
       grid-template-columns: 1fr;
-      gap: 28px;
     }
   }
 

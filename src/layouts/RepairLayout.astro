@@ -107,9 +107,33 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
         </ul>
       </div>
 
+      <div class="sidebar-box">
+        <div class="sb-title">Pricing</div>
+        <ul class="sidebar-checklist">
+          <li><a href="/price-list/lg-dryer-repair-cost/">LG Dryer Repair Cost</a></li>
+          <li><a href="/price-list/lg-dryer-heating-element-replacement-cost/">Heating Element Cost</a></li>
+          <li><a href="/price-list/lg-dryer-thermal-fuse-replacement-cost/">Thermal Fuse Cost</a></li>
+          <li><a href="/price-list/lg-dryer-drum-roller-replacement-cost/">Drum Roller Cost</a></li>
+        </ul>
+      </div>
+
       <div class="sidebar-ai-diag">
         <AIDiagnosticCTA />
       </div>
+    </div>
+  </div>
+
+  <!-- SERVICE AREAS -->
+  <div class="repair-areas">
+    <h3>Service Areas</h3>
+    <div class="repair-areas-links">
+      <a href="/areas/lg-dryer-repair-los-angeles/">Los Angeles</a>
+      <a href="/areas/lg-dryer-repair-pasadena/">Pasadena</a>
+      <a href="/areas/lg-dryer-repair-glendale/">Glendale</a>
+      <a href="/areas/lg-dryer-repair-burbank/">Burbank</a>
+      <a href="/areas/lg-dryer-repair-long-beach/">Long Beach</a>
+      <a href="/areas/lg-dryer-repair-irvine/">Irvine</a>
+      <a href="/areas/" class="repair-areas-all">All 45+ cities →</a>
     </div>
   </div>
 
@@ -195,5 +219,34 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
   padding: 8px 14px;
   width: 100%;
   justify-content: center;
+}
+
+.repair-areas {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.repair-areas h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8a9ab0;
+  margin: 0 0 12px;
+}
+.repair-areas-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.repair-areas-links a {
+  color: #c8d0dc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.repair-areas-links a:hover {
+  color: #1a6cf6;
+}
+.repair-areas-all {
+  color: #1a6cf6 !important;
 }
 </style>

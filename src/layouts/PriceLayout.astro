@@ -23,7 +23,7 @@ interface Props {
 const { title, description, serviceName, priceMin, priceMax, partCost, laborCost, includes, newDryerCost, savings, heroImg, heroAlt, heroCaption, otherRepairs = [] } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} heroImg={heroImg}>
   <Breadcrumbs slot="breadcrumbs" items={[
     { label: "Price List", href: "/price-list/" },
     { label: serviceName || title.split("|")[0].trim() }
