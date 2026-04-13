@@ -67,6 +67,48 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Internal links -->
+  <section class="home-links">
+    <div class="home-links-inner">
+      <div class="home-links-col">
+        <h2>Popular Repairs</h2>
+        <ul>
+          <li><a href="/repairs/lg-dryer-heating-element-replacement/">Heating Element Replacement</a></li>
+          <li><a href="/repairs/lg-dryer-thermal-fuse-replacement/">Thermal Fuse Replacement</a></li>
+          <li><a href="/repairs/lg-dryer-drum-roller-replacement/">Drum Roller Replacement</a></li>
+          <li><a href="/repairs/lg-dryer-belt-replacement/">Belt Replacement</a></li>
+          <li><a href="/repairs/lg-dryer-igniter-replacement/">Igniter Replacement</a></li>
+          <li><a href="/repairs/lg-dryer-motor-replacement/">Motor Replacement</a></li>
+        </ul>
+        <a href="/repairs/" class="home-links-more">All repairs →</a>
+      </div>
+      <div class="home-links-col">
+        <h2>Browse by Symptom</h2>
+        <ul>
+          <li><a href="/symptoms/lg-dryer-not-heating/">Not Heating</a></li>
+          <li><a href="/symptoms/lg-dryer-not-spinning/">Not Spinning</a></li>
+          <li><a href="/symptoms/lg-dryer-not-starting/">Not Starting</a></li>
+          <li><a href="/symptoms/lg-dryer-making-noise/">Making Noise</a></li>
+          <li><a href="/symptoms/lg-dryer-not-drying/">Not Drying</a></li>
+          <li><a href="/symptoms/lg-dryer-overheating/">Overheating</a></li>
+        </ul>
+        <a href="/symptoms/" class="home-links-more">All symptoms →</a>
+      </div>
+      <div class="home-links-col">
+        <h2>Service Areas</h2>
+        <ul>
+          <li><a href="/areas/lg-dryer-repair-los-angeles/">Los Angeles</a></li>
+          <li><a href="/areas/lg-dryer-repair-beverly-hills/">Beverly Hills</a></li>
+          <li><a href="/areas/lg-dryer-repair-santa-monica/">Santa Monica</a></li>
+          <li><a href="/areas/lg-dryer-repair-irvine/">Irvine</a></li>
+          <li><a href="/areas/lg-dryer-repair-thousand-oaks/">Thousand Oaks</a></li>
+          <li><a href="/areas/lg-dryer-repair-pasadena/">Pasadena</a></li>
+        </ul>
+        <a href="/areas/" class="home-links-more">All 45+ cities →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Two-column: AI Diagnostics + Contact Form -->
   <section class="section">
     <div class="container">
@@ -103,6 +145,52 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  .home-links {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 0;
+  }
+  .home-links-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .home-links-col h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 14px;
+  }
+  .home-links-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .home-links-col li {
+    margin-bottom: 8px;
+  }
+  .home-links-col a {
+    color: #c8d0dc;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.2s;
+  }
+  .home-links-col a:hover {
+    color: #1a6cf6;
+  }
+  .home-links-more {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #1a6cf6 !important;
+  }
+  @media (max-width: 600px) {
+    .home-links-inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
   .mode-switcher {
     display: flex;
     gap: .5rem;
