@@ -24,7 +24,7 @@ interface Props {
 const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, heroCaption, areaImg, areaImgCaption, neighborhoods = [], featuredNeighborhoods = [], nearbyCities = [], testimonial, responseTime = '2–4 hours' } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} heroImg={heroImg}>
   <Breadcrumbs slot="breadcrumbs" items={[
     { label: "Areas", href: "/areas/" },
     { label: `${city}, CA` }
