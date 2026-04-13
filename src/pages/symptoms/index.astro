@@ -1,9 +1,52 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const symptoms = [
+  { slug: 'lg-dryer-not-heating', label: 'Not Heating', desc: 'Dryer runs but clothes stay cold or damp' },
+  { slug: 'lg-dryer-not-spinning', label: 'Not Spinning', desc: 'Motor hums but drum won\'t turn' },
+  { slug: 'lg-dryer-not-starting', label: 'Not Starting', desc: 'No response when you press start' },
+  { slug: 'lg-dryer-making-noise', label: 'Making Noise', desc: 'Squealing, thumping, or grinding sounds' },
+  { slug: 'lg-dryer-not-drying', label: 'Not Drying', desc: 'Heats up but clothes still wet after full cycle' },
+  { slug: 'lg-dryer-door-wont-close', label: "Door Won't Close", desc: 'Latch broken, door pops open, or won\'t engage' },
+  { slug: 'lg-dryer-flow-sense-error', label: 'Flow Sense Error (d80/d90/d95)', desc: 'Airflow restriction warning on display' },
+  { slug: 'lg-dryer-overheating', label: 'Overheating', desc: 'Dryer gets too hot, burns clothes, or shuts off' },
+];
 ---
+
 <Layout title="LG Dryer Symptoms & Diagnosis | Same Day | Los Angeles" description="Common LG dryer symptoms and professional diagnosis in Los Angeles, Orange County and Ventura County. Same-day service. Call (323) 990-7550.">
-  <div class="container" style="padding: 4rem 2rem; text-align: center;">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: "Symptoms" }]} />
+  <div class="maintext">
     <h1>LG Dryer Symptoms & Diagnosis</h1>
-    <p style="color: var(--text-secondary);">Full symptom diagnosis pages coming soon.</p>
+    <p>Select the symptom that matches your LG dryer issue. Each page covers likely causes, what we check during diagnosis, and repair costs.</p>
+
+    <h2>Common Symptoms</h2>
+    <div class="index-grid">
+      {symptoms.map(s => (
+        <a href={`/symptoms/${s.slug}/`} class="index-card">
+          <div class="ic-name">{s.label}</div>
+          <div class="ic-desc">{s.desc}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Not Sure Which Symptom?</h2>
+    <p>Try our <a href="/">AI diagnostic tool</a> — describe what your dryer is doing and get an instant breakdown of likely causes. Or call us directly for a phone diagnosis.</p>
+
+    <h2>Schedule Same-Day Diagnosis</h2>
+    <p>$65 diagnostic fee — waived when you approve the repair. Call (323) 990-7550.</p>
+    <div class="cta-buttons">
+      <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
   </div>
 </Layout>
+
+<style>
+  .ic-desc {
+    font-size: 0.85rem;
+    color: #8a9ab0;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+</style>

@@ -1,9 +1,54 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const repairs = [
+  { slug: 'lg-dryer-heating-element-replacement', label: 'Heating Element Replacement', price: '$300–380' },
+  { slug: 'lg-dryer-thermal-fuse-replacement', label: 'Thermal Fuse Replacement', price: '$280–350' },
+  { slug: 'lg-dryer-drum-roller-replacement', label: 'Drum Roller Replacement', price: '$280–350' },
+  { slug: 'lg-dryer-igniter-replacement', label: 'Igniter Replacement', price: '$280–350' },
+  { slug: 'lg-dryer-motor-replacement', label: 'Motor Replacement', price: '$380–480' },
+  { slug: 'lg-dryer-drum-bearing-replacement', label: 'Drum Bearing Replacement', price: '$320–400' },
+  { slug: 'lg-dryer-belt-replacement', label: 'Belt Replacement', price: '$260–320' },
+  { slug: 'lg-dryer-idler-pulley-replacement', label: 'Idler Pulley Replacement', price: '$200–260' },
+  { slug: 'lg-dryer-gas-valve-replacement', label: 'Gas Valve Replacement', price: '$280–450' },
+  { slug: 'lg-dryer-drum-replacement', label: 'Drum Replacement', price: '$380–480' },
+  { slug: 'lg-gas-dryer-repair', label: 'Gas Dryer Repair', price: '$280–450' },
+];
 ---
-<Layout title="LG Dryer Repair Services | Same Day | Los Angeles" description="Professional LG dryer repair in Los Angeles, Orange County and Ventura County. Same-day service. Call (323) 990-7550.">
-  <div class="container" style="padding: 4rem 2rem; text-align: center;">
+
+<Layout title="LG Dryer Repair Services | Same Day | Los Angeles" description="Professional LG dryer repair in Los Angeles, Orange County and Ventura County. Same-day service, OEM parts, 1-year warranty. Call (323) 990-7550.">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: "Repairs" }]} />
+  <div class="maintext">
     <h1>LG Dryer Repair Services</h1>
-    <p style="color: var(--text-secondary);">Full repair service pages coming soon.</p>
+    <p>We repair every LG dryer component — same-day service across Los Angeles, Orange County, and Ventura County. OEM parts only, 1-year warranty on every repair.</p>
+
+    <h2>All Repair Services</h2>
+    <div class="index-grid">
+      {repairs.map(r => (
+        <a href={`/repairs/${r.slug}/`} class="index-card">
+          <div class="ic-name">{r.label}</div>
+          <div class="ic-price">{r.price}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Not Sure What's Wrong?</h2>
+    <p>Check our <a href="/symptoms/">symptom guide</a> or use the <a href="/">AI diagnostic tool</a> on our homepage. Or just call — our technicians diagnose the issue on-site for $65, waived when you approve the repair.</p>
+
+    <h2>Schedule Same-Day Repair</h2>
+    <p>Call (323) 990-7550 or book online. Most repairs completed in a single visit.</p>
+    <div class="cta-buttons">
+      <a href="tel:(323)990-7550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
   </div>
 </Layout>
+
+<style>
+  .ic-price {
+    font-size: 0.85rem;
+    color: #1a6cf6;
+    margin-top: 4px;
+  }
+</style>
