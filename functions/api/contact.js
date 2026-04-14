@@ -30,7 +30,7 @@ export async function onRequestPost(context) {
   } else if (payload.type === 'callback') {
     tgText = `📞 CALLBACK REQUEST\nPhone: ${payload.phone}`;
   } else {
-    tgText = `📅 NEW BOOKING REQUEST\nPhone: ${payload.phone}\nName: ${payload.name || ''}\nAddress: ${payload.address || ''}\nTime: ${payload.time || ''}\nComments: ${payload.comments || ''}`;
+    tgText = `🔧 NEW BOOKING REQUEST\n🌐 Source: appliancerepairdaily.com\nPhone: ${payload.phone}\nName: ${payload.name || ''}\nAppliance: ${payload.appliance || ''}\nTime: ${payload.time || ''}`;
   }
 
   await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
