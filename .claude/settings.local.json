@@ -56,7 +56,10 @@
       "Bash(cp lg-dryer-gas-valve-replacement-before.webp \"C:/Users/Roman/WebstormProjects/lgdryer3/public/images/repairs/lg-dryer-gas-valve-replacement-before-new3.webp\")",
       "Bash(ls \"C:/Users/Roman/lgdryer-proxy/ready/price-list/\"*.jpg)",
       "Bash(taskkill //F //IM node.exe)",
-      "Bash(npm ls:*)"
+      "Bash(npm ls:*)",
+      "Bash(python _update_desc.py)",
+      "Bash(py _update_desc.py)",
+      "Bash(python3 _update_desc.py)"
     ]
   }
 }
