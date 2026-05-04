@@ -59,7 +59,11 @@
       "Bash(npm ls:*)",
       "Bash(python _update_desc.py)",
       "Bash(py _update_desc.py)",
-      "Bash(python3 _update_desc.py)"
+      "Bash(python3 _update_desc.py)",
+      "Bash(ls -la .env*)",
+      "Bash(cmd.exe /c \"type TELEGRAM_FORMS_GUIDE.md\")",
+      "Bash(powershell.exe -Command \"Get-Content TELEGRAM_FORMS_GUIDE.md -Raw\")",
+      "Bash(powershell.exe *)"
     ]
   }
 }
