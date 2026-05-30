@@ -218,6 +218,22 @@ const venturaCounty = [
         </div>
 
         <div class="nav-item">
+          <button>Washer ▾</button>
+          <div class="dropdown">
+            <a href="/washer/">LG Washer Repair</a>
+            <a href="/washer/error-codes/lg-washer-oe-error/">OE – Won't drain</a>
+            <a href="/washer/error-codes/lg-washer-ie-error/">IE – Won't fill</a>
+            <a href="/washer/error-codes/lg-washer-ue-error/">UE – Unbalanced</a>
+            <a href="/washer/error-codes/lg-washer-le-error/">LE – Motor locked</a>
+            <a href="/washer/error-codes/lg-washer-de-error/">dE – Door error</a>
+            <a href="/washer/error-codes/lg-washer-fe-error/">FE – Overfilling</a>
+            <a href="/washer/error-codes/lg-washer-pe-error/">PE – Level sensor</a>
+            <a href="/washer/error-codes/lg-washer-te-error/">tE – Temp sensor</a>
+            <a href="/washer/error-codes/lg-washer-ce-error/">CE – Overcurrent</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
           <button>Areas ▾</button>
           <div class="dropdown dropdown-areas">
             <div class="areas-mega-menu">
@@ -269,6 +285,20 @@ const venturaCounty = [
       <h4>Price List</h4>
       {priceLinks.map(p => <a href={`/price-list/${p.slug}/`}>{p.label}</a>)}
     </div>
+    <div class="mobile-section">
+      <h4>Washer</h4>
+      <a href="/washer/">LG Washer Repair</a>
+      <a href="/washer/error-codes/lg-washer-oe-error/">OE – Won't drain</a>
+      <a href="/washer/error-codes/lg-washer-ie-error/">IE – Won't fill</a>
+      <a href="/washer/error-codes/lg-washer-ue-error/">UE – Unbalanced</a>
+      <a href="/washer/error-codes/lg-washer-le-error/">LE – Motor locked</a>
+      <a href="/washer/error-codes/lg-washer-de-error/">dE – Door error</a>
+      <a href="/washer/error-codes/lg-washer-fe-error/">FE – Overfilling</a>
+      <a href="/washer/error-codes/lg-washer-pe-error/">PE – Level sensor</a>
+      <a href="/washer/error-codes/lg-washer-te-error/">tE – Temp sensor</a>
+      <a href="/washer/error-codes/lg-washer-ce-error/">CE – Overcurrent</a>
+    </div>
+
     <div class="mobile-section">
       <h4>Service Areas</h4>
       {laCounty.slice(0,4).map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
