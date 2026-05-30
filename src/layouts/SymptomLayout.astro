@@ -13,16 +13,23 @@ interface Props {
   symptomPhotosCaption?: string;
   relatedParts?: Array<{name: string, photo: string, cost: string, slug: string}>;
   repairCost?: string;
+  crumbSectionLabel?: string;
+  crumbSectionHref?: string;
+  crumbSubLabel?: string;
+  crumbSubHref?: string;
 }
 
-const { title, description, symptoms = [], activeSymptoms = [], symptomPhotos, symptomPhotosCaption, relatedParts = [], repairCost } = Astro.props;
+const { title, description, symptoms = [], activeSymptoms = [], symptomPhotos, symptomPhotosCaption, relatedParts = [], repairCost, crumbSectionLabel = "Symptoms", crumbSectionHref = "/symptoms/", crumbSubLabel, crumbSubHref } = Astro.props;
+
+const breadcrumbItems = [
+  { label: crumbSectionLabel, href: crumbSectionHref },
+  ...(crumbSubLabel ? [{ label: crumbSubLabel, href: crumbSubHref }] : []),
+  { label: title.split("|")[0].split("—")[0].trim() }
+];
 ---
 
 <Layout title={title} description={description}>
-  <Breadcrumbs slot="breadcrumbs" items={[
-    { label: "Symptoms", href: "/symptoms/" },
-    { label: title.split("|")[0].split("—")[0].trim() }
-  ]} />
+  <Breadcrumbs slot="breadcrumbs" items={breadcrumbItems} />
 
   <div class="article-layout">
     <div class="article-body">
