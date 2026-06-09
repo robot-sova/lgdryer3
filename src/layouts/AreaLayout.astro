@@ -117,7 +117,7 @@ const cityToSlug: Record<string, string> = {
                 type="tel"
                 id="callbackPhone"
                 name="phone"
-                placeholder="(XXX) XXX-XXXX"
+                placeholder="(323) 990-7550"
                 class="callback-input"
                 required
               />
@@ -175,7 +175,7 @@ const cityToSlug: Record<string, string> = {
       <div class="sidebar-box">
         <div class="sb-title">Our Credentials</div>
         <ul class="sidebar-checklist">
-          <li>CSLB Lic. #1138898</li>
+          <li>Bureau of Household Goods and Services #49573</li>
           <li>BBB A+ rated</li>
           <li>85% first-visit fix</li>
           <li>OEM parts only</li>
@@ -206,36 +206,11 @@ const cityToSlug: Record<string, string> = {
 
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "LG Dryer Repair",
-    "telephone": "(323) 990-7550",
-    "email": "info@lgdryer.repair",
-    "url": "https://lgdryer.repair",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "155 N Lake Ave #800",
-      "addressLocality": "Pasadena",
-      "addressRegion": "CA",
-      "postalCode": "91101",
-      "addressCountry": "US"
-    },
-    "areaServed": city + ", CA",
-    "knowsAbout": ["LG dryer repair", "LG washer repair", "appliance repair"],
-    "hasCredential": {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "license",
-      "name": "Bureau of Household Goods and Services #49573",
-      "recognizedBy": {
-        "@type": "GovernmentOrganization",
-        "name": "California Department of Consumer Affairs"
-      }
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-      "opens": "08:00",
-      "closes": "20:00"
-    }
+    "@type": "Service",
+    "name": "LG Dryer Repair in " + city,
+    "serviceType": "LG dryer repair",
+    "provider": { "@id": "https://lgdryer.repair/#business" },
+    "areaServed": { "@type": "City", "name": city + ", " + state }
   })} />
 
   <meta name="city" content={city} />
