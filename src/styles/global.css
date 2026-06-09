@@ -613,35 +613,6 @@ figure.article-img.article-img--square img {
   flex-shrink: 0;
 }
 
-/* Testimonial */
-.testimonial-block {
-  background: #111;
-  border-left: 3px solid #1a6cf6;
-  border-radius: 0 8px 8px 0;
-  padding: 14px 16px;
-  margin: 0 0 24px;
-}
-
-.testimonial-block .t-stars {
-  color: #1a6cf6;
-  font-size: 13px;
-  margin-bottom: 6px;
-  letter-spacing: 2px;
-}
-
-.testimonial-block .t-text {
-  font-size: 13px;
-  color: #8a9ab0;
-  font-style: italic;
-  line-height: 1.6;
-  margin-bottom: 6px;
-}
-
-.testimonial-block .t-author {
-  font-size: 11px;
-  color: #555;
-}
-
 /* ============================================================
    SYMPTOMS PAGE SPECIFIC
    ============================================================ */

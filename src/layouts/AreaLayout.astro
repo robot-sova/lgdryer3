@@ -17,11 +17,10 @@ interface Props {
   neighborhoods?: string[];
   featuredNeighborhoods?: string[];
   nearbyCities?: string[];
-  testimonial?: { text: string; author: string; stars?: number };
   responseTime?: string;
 }
 
-const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, heroCaption, areaImg, areaImgCaption, neighborhoods = [], featuredNeighborhoods = [], nearbyCities = [], testimonial, responseTime = '2–4 hours' } = Astro.props;
+const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, heroCaption, areaImg, areaImgCaption, neighborhoods = [], featuredNeighborhoods = [], nearbyCities = [], responseTime = '2–4 hours' } = Astro.props;
 
 const cityToSlug: Record<string, string> = {
   'Agoura Hills': 'agoura-hills', 'Anaheim': 'anaheim', 'Bel Air': 'bel-air',
@@ -132,18 +131,6 @@ const cityToSlug: Record<string, string> = {
           </form>
         </div>
       </div>
-
-      <!-- TESTIMONIAL -->
-      {testimonial && (
-        <div>
-          <h2>What {city} clients say</h2>
-          <div class="testimonial-block">
-            <div class="t-stars">{'★'.repeat(testimonial.stars || 5)}</div>
-            <div class="t-text">"{testimonial.text}"</div>
-            <div class="t-author">— {testimonial.author}</div>
-          </div>
-        </div>
-      )}
     </div>
 
     <!-- SIDEBAR -->
