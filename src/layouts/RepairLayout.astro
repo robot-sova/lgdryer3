@@ -100,7 +100,7 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
         <div class="sb-title">Why Us</div>
         <ul class="sidebar-checklist">
           <li>85% first-visit fix rate</li>
-          <li>CSLB Lic. #1138898</li>
+          <li>Bureau of Household Goods and Services #49573</li>
           <li>BBB A+ rated</li>
           <li>OEM parts only</li>
           <li>1-year warranty</li>
@@ -144,15 +144,7 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
         "@type": "Service",
         "name": title,
         "description": description,
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "LG Dryer Repair",
-          "telephone": "(323) 990-7550",
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "name": "Bureau of Household Goods and Services #49573"
-          }
-        },
+        "provider": { "@id": "https://lgdryer.repair/#business" },
         "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"],
         "offers": {
           "@type": "Offer",
@@ -164,16 +156,6 @@ const { title, description, h1, heroImg, heroAlt, heroCaption, partPhoto, partPh
             "priceCurrency": "USD"
           }
         }
-      },
-      {
-        "@type": "HowTo",
-        "name": "How We Perform " + title.split("|")[0].split("—")[0].trim(),
-        "step": [
-          { "@type": "HowToStep", "name": "Diagnose", "text": "Run full diagnostic on LG dryer to identify the faulty component" },
-          { "@type": "HowToStep", "name": "Estimate", "text": "Provide upfront cost estimate before any work begins" },
-          { "@type": "HowToStep", "name": "Repair", "text": "Replace faulty part with OEM or equivalent quality component" },
-          { "@type": "HowToStep", "name": "Test", "text": "Run full test cycle to confirm repair success" }
-        ]
       }
     ]
   })} />

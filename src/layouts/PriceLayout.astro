@@ -163,11 +163,7 @@ const { title, description, serviceName, priceMin, priceMax, partCost, laborCost
         "@type": "Service",
         "name": serviceName || title,
         "description": description,
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "LG Dryer Repair",
-          "telephone": "(323) 990-7550"
-        },
+        "provider": { "@id": "https://lgdryer.repair/#business" },
         "offers": {
           "@type": "Offer",
           "priceCurrency": "USD",
