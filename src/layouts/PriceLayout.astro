@@ -18,9 +18,10 @@ interface Props {
   heroAlt?: string;
   heroCaption?: string;
   otherRepairs?: Array<{name: string, price: string, slug: string}>;
+  repairGuide?: {label: string, slug: string};
 }
 
-const { title, description, serviceName, priceMin, priceMax, partCost, laborCost, includes, newDryerCost, savings, heroImg, heroAlt, heroCaption, otherRepairs = [] } = Astro.props;
+const { title, description, serviceName, priceMin, priceMax, partCost, laborCost, includes, newDryerCost, savings, heroImg, heroAlt, heroCaption, otherRepairs = [], repairGuide } = Astro.props;
 ---
 
 <Layout title={title} description={description} heroImg={heroImg}>
@@ -105,9 +106,19 @@ const { title, description, serviceName, priceMin, priceMax, partCost, laborCost
       <div class="sidebar-cta">
         <div class="s-title">Get Exact Quote</div>
         <div class="s-sub">$65 diagnostic · waived with repair</div>
-        <a href="tel:(323)990-7550" class="s-phone">(323) 990-7550</a>
+        <a href="tel:3239907550" class="s-phone">(323) 990-7550</a>
         <a href="/book/" class="s-btn">Book Online</a>
       </div>
+
+      {repairGuide && (
+        <div class="sidebar-box">
+          <div class="sb-title">How the Repair Works</div>
+          <a href={repairGuide.slug} class="other-repair-item">
+            <span class="or-name">{repairGuide.label}</span>
+            <span class="or-price">→</span>
+          </a>
+        </div>
+      )}
 
       <div class="sidebar-box">
         <div class="sb-title">Repair vs New Dryer</div>
