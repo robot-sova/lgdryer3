@@ -22,7 +22,7 @@ interface Props {
   crumbSubHref?: string;
 }
 
-const { title, description, heroImg, heroAlt, heroCaption, symptoms = [], activeSymptoms = [], symptomPhotos, symptomPhotosCaption, relatedParts = [], repairCost, crumbSectionLabel = "Symptoms", crumbSectionHref = "/symptoms/", crumbSubLabel, crumbSubHref } = Astro.props;
+const { title, description, heroImg, heroAlt, heroCaption = 'Our techs servicing LG washers — same day across LA, Orange County & Ventura', symptoms = [], activeSymptoms = [], symptomPhotos, symptomPhotosCaption, relatedParts = [], repairCost, crumbSectionLabel = "Symptoms", crumbSectionHref = "/symptoms/", crumbSubLabel, crumbSubHref } = Astro.props;
 
 const breadcrumbItems = [
   { label: crumbSectionLabel, href: crumbSectionHref },
