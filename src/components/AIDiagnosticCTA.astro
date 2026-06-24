@@ -12,7 +12,7 @@ const { appliance = 'dryer' } = Astro.props;
     <div class="ai-diag-label">FREE AI DIAGNOSIS</div>
     <h3 class="ai-diag-title">Not sure what's wrong with your LG {appliance}?</h3>
     <p class="ai-diag-text">Enter your model number and the symptoms you're seeing — our AI tool gives you a breakdown of likely causes and estimated repair costs before you call. Takes 30 seconds, saves you guesswork.</p>
-    <a href="/" class="ai-diag-btn">
+    <a href={appliance === 'washer' ? '/?appliance=washer' : '/'} class="ai-diag-btn">
       Run Free AI Diagnosis
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

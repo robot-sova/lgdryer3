@@ -2,7 +2,8 @@ export async function onRequestPost(context) {
   const { request, env } = context;
 
   try {
-    const { userInput } = await request.json();
+    const body = await request.json();
+    const { userInput } = body;
 
     if (!userInput || typeof userInput !== 'string') {
       return new Response(JSON.stringify({ error: 'Invalid input' }), {
@@ -11,10 +12,23 @@ export async function onRequestPost(context) {
       });
     }
 
+    // Whitelist appliance — any other value falls back to dryer (prompt-injection guard)
+    const appliance = (body.appliance === 'washer') ? 'washer' : 'dryer';
+
     // Truncate input to prevent abuse
     const sanitizedInput = userInput.slice(0, 1000);
 
-    const systemPrompt = `You are an expert LG dryer repair technician with 15 years of experience.
+    const systemPrompt = appliance === 'washer'
+      ? `You are an expert LG washer repair technician with 15 years of experience.
+You are helping a customer diagnose a problem with their LG washer.
+Provide a helpful diagnosis in 3-4 sentences.
+Mention the most likely cause, estimated repair cost range ($150-$480),
+and recommend calling (323) 990-7550 for same-day professional service.
+Reference typical LG washer parts when relevant: drain pump, door boot seal,
+drum bearing, motor, water inlet valve, control board.
+Be specific about LG models when relevant.
+End with: actual prices are often lower due to bulk parts discounts.`
+      : `You are an expert LG dryer repair technician with 15 years of experience.
 A customer is describing a problem with their LG dryer.
 Provide a helpful diagnosis in 3-4 sentences.
 Mention the most likely cause, estimated repair cost range ($150-$480),
