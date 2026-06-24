@@ -1,10 +1,11 @@
 ---
 // Reusable "How it works" section — appears at the bottom of every layout.
+const { appliance = 'dryer' } = Astro.props;
 ---
 
 <section id="how-it-works" class="hw-section">
   <h2 class="hw-title">How it works</h2>
-  <p class="hw-subtitle">From your first call to a working dryer — here's what to expect</p>
+  <p class="hw-subtitle">From your first call to a working {appliance} — here's what to expect</p>
 
   <div class="hw-grid">
     <!-- CARD 1 — Book a visit -->
@@ -47,7 +48,7 @@
         </svg>
       </div>
       <h3 class="hw-card-title">Diagnosis — $65</h3>
-      <p class="hw-card-desc">Full inspection of your LG dryer. We identify the issue and give you a complete estimate — parts and labor — before touching anything.</p>
+      <p class="hw-card-desc">Full inspection of your LG {appliance}. We identify the issue and give you a complete estimate — parts and labor — before touching anything.</p>
       <span class="hw-tag">Waived with repair</span>
     </div>
 
@@ -88,7 +89,7 @@
         </svg>
       </div>
       <h3 class="hw-card-title">Payment — after demo</h3>
-      <p class="hw-card-desc">Tech runs your dryer and shows the problem is fixed. Once you're satisfied, pay by card, cash, Zelle, Venmo, or PayPal.</p>
+      <p class="hw-card-desc">Tech runs your {appliance} and shows the problem is fixed. Once you're satisfied, pay by card, cash, Zelle, Venmo, or PayPal.</p>
       <span class="hw-tag">Pay only when happy</span>
     </div>
   </div>
