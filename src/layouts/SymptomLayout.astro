@@ -7,6 +7,9 @@ import HowItWorks from '../components/HowItWorks.astro';
 interface Props {
   title: string;
   description: string;
+  heroImg?: string;
+  heroAlt?: string;
+  heroCaption?: string;
   symptoms?: string[];
   activeSymptoms?: string[];
   symptomPhotos?: Array<{src: string, alt: string, caption: string}>;
@@ -19,7 +22,7 @@ interface Props {
   crumbSubHref?: string;
 }
 
-const { title, description, symptoms = [], activeSymptoms = [], symptomPhotos, symptomPhotosCaption, relatedParts = [], repairCost, crumbSectionLabel = "Symptoms", crumbSectionHref = "/symptoms/", crumbSubLabel, crumbSubHref } = Astro.props;
+const { title, description, heroImg, heroAlt, heroCaption, symptoms = [], activeSymptoms = [], symptomPhotos, symptomPhotosCaption, relatedParts = [], repairCost, crumbSectionLabel = "Symptoms", crumbSectionHref = "/symptoms/", crumbSubLabel, crumbSubHref } = Astro.props;
 
 const breadcrumbItems = [
   { label: crumbSectionLabel, href: crumbSectionHref },
@@ -28,8 +31,20 @@ const breadcrumbItems = [
 ];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} heroImg={heroImg} ogImage={heroImg}>
   <Breadcrumbs slot="breadcrumbs" items={breadcrumbItems} />
+
+  <!-- HERO IMAGE -->
+  <div style="max-width:1100px; margin:0 auto; padding:0 24px 16px;">
+    {heroImg && (
+      <div>
+        <div style="width:100%; height:360px; overflow:hidden; border-radius:12px;">
+          <img src={heroImg} alt={heroAlt || 'LG Washer Repair Los Angeles'} style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+        </div>
+        {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
+      </div>
+    )}
+  </div>
 
   <div class="article-layout">
     <div class="article-body">
