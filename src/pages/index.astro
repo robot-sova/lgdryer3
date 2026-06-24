@@ -147,6 +147,10 @@ import Layout from '../layouts/Layout.astro';
 
           <textarea class="diagnose-textarea" id="diagnoseInput" placeholder="e.g. My LG dryer runs but clothes are still damp after a full cycle..." rows="4"></textarea>
 
+          <p class="diagnose-phone-hint">Enter your phone — our tech will follow up with an exact quote.</p>
+          <input type="tel" id="diagnosePhone" class="diagnose-phone" placeholder="(323) 555-0123" autocomplete="tel" />
+          <p class="diagnose-phone-error" id="diagnosePhoneError">Please enter a valid 10-digit phone number</p>
+
           <button class="btn btn-primary" id="diagnoseBtn" style="width:100%">Diagnose</button>
 
           <div class="diagnose-result" id="diagnoseResult">
@@ -369,6 +373,34 @@ import Layout from '../layouts/Layout.astro';
     border-color: rgba(26,108,246,0.3);
     color: #1a6cf6;
   }
+
+  /* Required phone field for AI diagnostics */
+  .diagnose-phone-hint {
+    font-size: 0.82rem;
+    color: #8a9ab0;
+    margin: 0 0 8px 0;
+  }
+  .diagnose-phone {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #1e2a3a;
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.15s;
+  }
+  .diagnose-phone::placeholder { color: rgba(255,255,255,0.3); }
+  .diagnose-phone:focus { outline: none; border-color: rgba(26,108,246,0.5); }
+  .diagnose-phone.error { border-color: #e5484d; }
+  .diagnose-phone-error {
+    display: none;
+    font-size: 0.82rem;
+    color: #e5484d;
+    margin: 0 0 0.75rem 0;
+  }
+  .diagnose-phone-error.visible { display: block; }
   .hero-form-hint {
     font-size: 0.875rem;
     color: rgba(255,255,255,0.55);
@@ -485,6 +517,20 @@ import Layout from '../layouts/Layout.astro';
     const input = (document.getElementById('diagnoseInput') as HTMLTextAreaElement)?.value;
     if (!input.trim()) return;
 
+    // ── Required phone (both modes): normalize + validate before sending ──
+    const phoneField = document.getElementById('diagnosePhone') as HTMLInputElement;
+    const phoneError = document.getElementById('diagnosePhoneError')!;
+    const phoneDigits = (phoneField?.value || '').replace(/\D/g, '');
+    const phoneValid = phoneDigits.length === 10 || (phoneDigits.length === 11 && phoneDigits.startsWith('1'));
+    if (!phoneValid) {
+      phoneField?.classList.add('error');
+      phoneError.classList.add('visible');
+      phoneField?.focus();
+      return; // no valid phone → no diagnosis request
+    }
+    phoneField?.classList.remove('error');
+    phoneError.classList.remove('visible');
+
     const resultDiv = document.getElementById('diagnoseResult')!;
     const resultText = document.getElementById('diagnoseText')!;
     const btn = document.getElementById('diagnoseBtn') as HTMLButtonElement;
@@ -515,7 +561,9 @@ import Layout from '../layouts/Layout.astro';
           body: JSON.stringify({
             name: '🤖 AI Diagnostics',
             email: 'ai-diagnostics@lgdryer.repair',
-            phone: '—',
+            phone: phoneDigits,
+            appliance: currentAppliance,
+            source: 'AI Diagnosis',
             message: `📍 Page: ${pageUrl}\n\n👤 User: ${userInput}\n\n🔧 AI Response: ${aiResponse.substring(0, 800)}`
           })
         });
@@ -533,7 +581,9 @@ import Layout from '../layouts/Layout.astro';
           body: JSON.stringify({
             name: '🤖 AI Diagnostics — ERROR',
             email: 'ai-diagnostics@lgdryer.repair',
-            phone: '—',
+            phone: phoneDigits,
+            appliance: currentAppliance,
+            source: 'AI Diagnosis',
             message: `📍 Page: ${window.location.href}\n\n👤 User tried: ${userInput}\n\n❌ AI widget failed to connect`
           })
         });

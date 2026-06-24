@@ -26,7 +26,8 @@ export async function onRequestPost(context) {
 
   let tgText;
   if (payload.name?.includes('AI Diagnostics')) {
-    tgText = `🤖 AI Diagnostics\n\n${payload.message || ''}`;
+    const appliance = (payload.appliance === 'washer') ? 'washer' : 'dryer';
+    tgText = `🔧 AI Diagnosis lead\nAppliance: ${appliance}\nPhone: ${payload.phone || '—'}\n\n${payload.message || ''}`;
   } else if (payload.type === 'callback') {
     tgText = `📞 CALLBACK REQUEST\nPhone: ${payload.phone}`;
   } else {
