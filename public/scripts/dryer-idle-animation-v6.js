@@ -388,15 +388,6 @@
   }
 
   // ── Барабан ──────────────────────────────────────────────────────────────
-  const ITEMS = [
-    { d:0.37, a:0,            rw:0.145, rh:0.056, c:[70,110,200]  },
-    { d:0.29, a:Math.PI*0.7,  rw:0.125, rh:0.048, c:[200,65,65]   },
-    { d:0.41, a:Math.PI*1.3,  rw:0.135, rh:0.052, c:[65,170,85]   },
-    { d:0.23, a:Math.PI*2.0,  rw:0.105, rh:0.040, c:[200,165,55]  },
-    { d:0.43, a:Math.PI*0.4,  rw:0.095, rh:0.036, c:[150,65,200]  },
-    { d:0.19, a:Math.PI*1.7,  rw:0.115, rh:0.043, c:[200,120,55]  },
-  ];
-
   function drawDrum(m) {
     const { doorX:cx, doorY:cy, doorR:R, scale } = m;
 
@@ -412,30 +403,6 @@
     g.addColorStop(1,   'rgba(0,0,0,0)');
     ctx.fillStyle = g;
     ctx.fillRect(cx-R, cy-R, R*2, R*2);
-
-    // Белье
-    ITEMS.forEach(item => {
-      const a  = item.a + drumAngle;
-      const ix = cx + Math.cos(a) * (R * item.d);
-      const iy = cy + Math.sin(a) * (R * item.d * 0.52);
-      ctx.save();
-      ctx.translate(ix, iy);
-      ctx.rotate(a + Math.PI * 0.3);
-      const rw = R * item.rw;
-      const rh = R * item.rh;
-      const [r,gv,b] = item.c;
-      ctx.globalAlpha = 0.9;
-      ctx.fillStyle = `rgba(${r},${gv},${b},0.88)`;
-      ctx.beginPath();
-      ctx.ellipse(0, 0, rw, rh, 0, 0, Math.PI*2);
-      ctx.fill();
-      ctx.globalAlpha = 0.25;
-      ctx.fillStyle = 'rgba(255,255,255,0.55)';
-      ctx.beginPath();
-      ctx.ellipse(-rw*0.2, -rh*0.25, rw*0.40, rh*0.30, -0.3, 0, Math.PI*2);
-      ctx.fill();
-      ctx.restore();
-    });
 
     ctx.restore();
 
