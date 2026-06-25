@@ -1,6 +1,6 @@
 /* === CSS Reset === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:112.5%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:118.75%}
 body{background:#0a0a0a;color:#fff;font-family:system-ui,sans-serif;line-height:1.6;min-height:100vh;overflow-x:hidden;position:relative}
 img,picture,video,canvas,svg{display:block;max-width:100%}
 input,button,textarea,select{font:inherit;color:inherit}
@@ -56,8 +56,8 @@ h1,h2,h3,h4,h5,h6{line-height:1.2;font-weight:700}
 /* === Mega menu === */
 .mega-menu{min-width:680px;padding:1.25rem;right:0;left:auto}
 .mega-menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.mega-menu h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,0.35);margin-bottom:.5rem;padding:0 .5rem}
-.mega-menu a{padding:.4rem .5rem;font-size:.85rem}
+.mega-menu h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,0.35);margin-bottom:.5rem;padding:0 .5rem}
+.mega-menu a{padding:.4rem .5rem;font-size:.95rem}
 
 /* === Hamburger === */
 .hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem}
@@ -477,7 +477,7 @@ figure.article-img.article-img--square img {
 }
 
 .sidebar-cta .s-sub {
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(255,255,255,0.7);
   margin-bottom: 12px;
 }
@@ -511,7 +511,7 @@ figure.article-img.article-img--square img {
 }
 
 .sidebar-box .sb-title {
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #555;
@@ -539,7 +539,7 @@ figure.article-img.article-img--square img {
 }
 
 .sidebar-checklist li {
-  font-size: 14px;
+  font-size: 15px;
   color: #aaaaaa;
   padding: 5px 0;
   border-bottom: 1px solid #151515;
@@ -1017,14 +1017,14 @@ figure.article-img.article-img--square img {
 .other-repair-item:last-child { border-bottom: none; }
 
 .or-name {
-  font-size: 13px;
+  font-size: 14px;
   color: #aaa;
 }
 
 .other-repair-item:hover .or-name { color: #1a6cf6; }
 
 .or-price {
-  font-size: 13px;
+  font-size: 14px;
   color: #1a6cf6;
   font-weight: 600;
   flex-shrink: 0;
