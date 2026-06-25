@@ -83,7 +83,7 @@ h1,h2,h3,h4,h5,h6{line-height:1.2;font-weight:700}
 .footer h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,0.4);margin-bottom:.75rem}
 .footer p,.footer a,.footer li{font-size:.9rem;color:rgba(255,255,255,0.55);line-height:1.8}
 .footer a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;text-align:center;font-size:.8rem;color:rgba(255,255,255,0.3)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;text-align:center;font-size:.9rem;color:rgba(255,255,255,0.3)}
 
 /* === Hero === */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -630,7 +630,7 @@ figure.article-img.article-img--square img {
 }
 
 .diag-card .diag-title {
-  font-size: 13px;
+  font-size: 14px;
   color: #ffffff;
   font-weight: 600;
   margin-bottom: 8px;
@@ -713,7 +713,7 @@ figure.article-img.article-img--square img {
 }
 
 .price-hero .ph-unit {
-  font-size: 13px;
+  font-size: 14px;
   color: #555;
 }
 
