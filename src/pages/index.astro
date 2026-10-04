@@ -555,7 +555,7 @@ import Layout from '../layouts/Layout.astro';
         const aiResponse = resultText.textContent || (document.getElementById('diagnoseText') as HTMLElement).textContent || '';
         const pageUrl = window.location.href;
 
-        await fetch('/api/contact', {
+        const leadRes = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -567,6 +567,7 @@ import Layout from '../layouts/Layout.astro';
             message: `📍 Page: ${pageUrl}\n\n👤 User: ${userInput}\n\n🔧 AI Response: ${aiResponse.substring(0, 800)}`
           })
         });
+        if (leadRes.ok) (window as any).trackLead?.('ai_diagnosis');
       } catch (e) {
         // Silent fail — don't interrupt user experience
       }
@@ -610,11 +611,17 @@ import Layout from '../layouts/Layout.astro';
 
   async function heroSubmit(payload: any, successMsg: string) {
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        alert(data.error || 'We could not send your request. Please call (323) 990-7550 directly.');
+        return;
+      }
+      (window as any).trackLead?.(payload.type === 'callback' ? 'callback' : 'booking');
       document.getElementById('hfCallback')!.style.display = 'none';
       document.getElementById('hfBooking')!.style.display = 'none';
       document.querySelector('.hero-form-tabs')!.setAttribute('style','display:none');

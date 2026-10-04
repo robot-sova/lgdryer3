@@ -87,16 +87,21 @@ import Layout from '../layouts/Layout.astro';
     confirmBtn.textContent = 'Sending...';
 
     try {
-      // Send via server-side proxy (handles both Resend email and Telegram)
-      try {
-        await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ type: 'booking', phone, name, address, time: `${date} ${time}`, comments: `Model: ${model}\n${issue}` })
-        });
-      } catch (e) { console.error('Resend error:', e); }
+      // /api/contact forwards the lead to dispatch. Success is shown only when it was accepted.
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'booking', phone, name, email, address, time: `${date} ${time}`, comments: `Model: ${model}\n${issue}` })
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        alert(data.error || 'We could not send your request. Please call (323) 990-7550 directly.');
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Confirm Booking';
+        return;
+      }
+      (window as any).trackLead?.('booking');
 
-      // Show success
       document.getElementById('bookingForm')!.style.display = 'none';
       document.getElementById('bookingSuccess')!.style.display = 'block';
     } catch {

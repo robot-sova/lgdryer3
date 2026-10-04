@@ -988,6 +988,60 @@ figure.article-img.article-img--square img {
   margin-top: 4px;
 }
 
+/* Local call-to-action under the price (price pages) */
+.phb-local {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid #1e3a66;
+  border-radius: 10px;
+  background: rgba(26, 108, 246, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.phb-local-text {
+  color: #e6ecf5;
+  font-size: 15px;
+  line-height: 1.45;
+  flex: 1 1 260px;
+}
+
+.phb-local-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.phb-call,
+.phb-book {
+  display: inline-block;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.phb-call {
+  background: #1a6cf6;
+  color: #ffffff;
+}
+
+.phb-book {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #3a4a62;
+}
+
+@media (max-width: 600px) {
+  .phb-local-actions { width: 100%; }
+  .phb-call, .phb-book { flex: 1 1 auto; text-align: center; }
+}
+
 /* VS compare */
 .vs-compare {
   display: flex;

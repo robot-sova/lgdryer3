@@ -119,6 +119,34 @@ const venturaCounty = [
   <meta name="description" content={description} />
   <title>{title}</title>
   {heroImg && <link rel="preload" as="image" href={heroImg} fetchpriority="high" />}
+  <!--
+    GA4 G-7LZ8CJSZNM — the same property the previous build (lgdryer2) used; the rebuild of
+    2026-04-04 dropped the tag, and the site had no analytics at all until 2026-10-04.
+    Loaded only on the real domain: preview (*.pages.dev) and local test runs must not send
+    hits — on the SDAR site they produced 426 fake form submissions.
+    Events: click_phone_number (any tel: link), generate_lead (form accepted by the server,
+    see window.trackLead calls in the forms).
+  -->
+  <script is:inline>
+    (function () {
+      var ID = 'G-7LZ8CJSZNM';
+      var live = location.hostname === 'lgdryer.repair' || location.hostname === 'www.lgdryer.repair';
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { if (live) window.dataLayer.push(arguments); };
+      window.trackLead = function (form) { window.gtag('event', 'generate_lead', { form_type: form }); };
+      if (!live) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+      document.head.appendChild(s);
+      window.gtag('js', new Date());
+      window.gtag('config', ID);
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+        if (a) window.gtag('event', 'click_phone_number', { link_url: a.getAttribute('href'), page_path: location.pathname });
+      }, true);
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href={`https://lgdryer.repair${Astro.url.pathname}`} />
   <meta name="robots" content="index, follow" />

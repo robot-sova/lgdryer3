@@ -214,7 +214,7 @@ const cityToSlug: Record<string, string> = {
         btn.textContent = 'Sending...';
         btn.disabled = true;
         try {
-          await fetch('/api/contact', {
+          const res = await fetch('/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -224,6 +224,14 @@ const cityToSlug: Record<string, string> = {
               email: 'callback@lgdryer.repair'
             })
           });
+          if (!res.ok) {
+            const data = await res.json().catch(() => ({}));
+            alert(data.error || 'We could not send your request. Please call (323) 990-7550 directly.');
+            btn.textContent = 'Call Me Back';
+            btn.disabled = false;
+            return;
+          }
+          (window as any).trackLead?.('area_callback');
           (document.getElementById('callbackSuccess') as HTMLElement).style.display = 'block';
           (callbackForm.querySelector('.callback-form-row') as HTMLElement).style.display = 'none';
           (callbackForm.querySelector('.callback-form-note') as HTMLElement).style.display = 'none';

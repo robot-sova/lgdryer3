@@ -330,6 +330,7 @@ Problem: ${problem}`;
         body: JSON.stringify({ name, phone, email, message })
       });
       if (response.ok) {
+        window.trackLead?.('property_manager');
         document.getElementById('pmSuccess').style.display = 'block';
         this.reset();
       } else {
