@@ -1,0 +1,24 @@
+---
+// "Recent calls near <city>" — real calls from src/data/recentCalls.ts (see the rules there).
+// Renders nothing when the page has no entries.
+import { recentCallsFor, VISIT_TEXT } from '../data/recentCalls';
+
+interface Props { slug: string; city: string }
+const { slug, city } = Astro.props;
+const calls = recentCallsFor(slug);
+---
+{calls.length > 0 && (
+  <section class="recent-calls" aria-labelledby="recent-calls-title">
+    <h2 id="recent-calls-title">Recent calls near {city}</h2>
+    <p class="recent-calls-note">Real requests we received through this site, with the problem as the customer described it. No names or addresses.</p>
+    <ul class="recent-calls-list">
+      {calls.map((c) => (
+        <li class="recent-call">
+          <div class="rc-head"><span class="rc-month">{c.month}</span><span class="rc-place">{c.place}</span></div>
+          <div class="rc-body"><strong>{c.appliance}</strong> — {c.reported}.</div>
+          <div class="rc-visit">{VISIT_TEXT[c.visit]}</div>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

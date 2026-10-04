@@ -1202,3 +1202,25 @@ figure.article-img.article-img--square img {
   .breadcrumbs { padding: 8px 16px; }
   .bc-link, .bc-current { font-size: 14px; }
 }
+
+/* Recent calls block on area pages (src/components/RecentCalls.astro) */
+.recent-calls {
+  margin: 28px 0;
+  padding: 20px 22px;
+  border: 1px solid #1e2a3a;
+  border-radius: 12px;
+  background: #0b1220;
+}
+.recent-calls h2 { margin: 0 0 6px; }
+.recent-calls-note { font-size: 13px; color: #8a96a8; margin: 0 0 14px; }
+.recent-calls-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.recent-call { padding: 12px 14px; border-radius: 8px; background: #0d1a2e; border: 1px solid #1a2b45; }
+.rc-head { display: flex; gap: 10px; align-items: baseline; margin-bottom: 4px; }
+.rc-month { font-size: 12px; color: #6ab0ff; text-transform: uppercase; letter-spacing: 0.06em; }
+.rc-place { font-weight: 700; color: #ffffff; }
+.rc-body { color: #c8d0dc; line-height: 1.5; }
+.rc-visit { margin-top: 4px; font-size: 13px; color: #7fd6a0; }
+/* Beat .article-body p / ul / li (font-size 1.1rem, list indent) inside the block */
+.article-body .recent-calls .recent-calls-note { font-size: 13px; line-height: 1.5; margin: 0 0 14px; }
+.article-body .recent-calls ul.recent-calls-list { padding-left: 0; margin: 0; }
+.article-body .recent-calls li.recent-call { margin: 0; font-size: 15px; line-height: 1.5; }

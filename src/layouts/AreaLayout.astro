@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import HowItWorks from '../components/HowItWorks.astro';
+import RecentCalls from '../components/RecentCalls.astro';
 
 interface Props {
   title: string;
@@ -101,6 +102,9 @@ const cityToSlug: Record<string, string> = {
           </div>
         </div>
       )}
+
+      <!-- RECENT CALLS (real requests only, see src/data/recentCalls.ts) -->
+      <RecentCalls slug={cityToSlug[city] ?? ''} city={city} />
 
       <slot />
 
