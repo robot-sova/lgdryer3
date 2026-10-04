@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 ---
 
-<Layout title="About Same Day LG Dryer Repair Los Angeles | Roman Abysov" description="Meet the team behind Same Day LG Dryer Repair in Los Angeles. Bureau of Household Goods and Services #49573, BBB accredited, 1500+ repairs completed since 2022. Roman Abysov, founder."
+<Layout title="About Same Day LG Dryer Repair Los Angeles | Roman Abysov" description="The team behind Same Day LG Dryer Repair in Los Angeles: licensed (BHGS #49573), 1500+ LG repairs since 2022. Founded by Roman Abysov."
   hubHeroImg="/images/hubs/about-hero.webp"
   hubHeroAlt="LG Dryer Repair technician with a service van in a California driveway">
   <Breadcrumbs slot="breadcrumbs" items={[{ label: "About" }]} />
@@ -117,19 +117,16 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   </div>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Roman Abysov",
-    "jobTitle": "Founder & Lead Technician",
-    "worksFor": {
-      "@type": "LocalBusiness",
-      "name": "Same Day LG Dryer Repair",
-      "telephone": "(323) 990-7550",
-      "url": "https://lgdryer.repair"
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Roman Abysov",
+  "jobTitle": "Founder & Lead Technician",
+  "worksFor": {
+    "@id": "https://lgdryer.repair/#business"
   }
-  </script>
+}
+</script>
 </Layout>
 
 <style>

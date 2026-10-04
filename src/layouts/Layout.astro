@@ -157,7 +157,12 @@ const venturaCounty = [
   <meta property="og:image" content={resolvedOgImage} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content={resolvedOgImage} />
-  <!-- TODO(Roman): заполнить LocalBusiness "sameAs" реальными URL профилей (GMB, Yelp, BBB). JSON-LD не допускает комментарии внутри JSON, поэтому массив оставлен пустым как плейсхолдер. -->
+  <!-- The ONE description of the business. Every other JSON-LD block on the site refers to it
+       by "@id": "https://lgdryer.repair/#business" (scripts/fix-schema.mjs, 2026-10-04) — do not
+       add a second LocalBusiness on a page. geo = the street address below (155 N Lake Ave).
+       TODO(Roman): add "sameAs" with real profile URLs (Yelp, BBB) once they exist; an empty
+       array was removed. -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -170,7 +175,6 @@ const venturaCounty = [
         "email": "info@lgdryer.repair",
         "url": "https://lgdryer.repair",
         "image": "https://lgdryer.repair/images/lg-dryer-hero.webp",
-        "sameAs": [],
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
@@ -182,8 +186,8 @@ const venturaCounty = [
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 34.0522,
-          "longitude": -118.2437
+          "latitude": 34.1485,
+          "longitude": -118.1335
         },
         "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"],
         "knowsAbout": ["LG dryer repair", "LG washer repair", "appliance repair"],

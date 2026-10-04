@@ -84,21 +84,21 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="hiw-step-text">
         <div class="hiw-step-label">Step 03</div>
-        <h2>Diagnosis — $65</h2>
-        <p>The $65 diagnostic fee covers a full inspection of your LG dryer — electrical system, heating circuit, drum mechanics, venting, error codes, and sensors. We don't guess. By the end of the diagnosis our technician will tell you exactly what is wrong and give you a complete written estimate covering parts and labor.</p>
-        <p><strong>The $65 is waived entirely</strong> if you approve the repair and we proceed. If the diagnosis turns out to be incorrect for any reason, the fee is refunded in full — no questions asked.</p>
+        <h2>Diagnosis — $89</h2>
+        <p>The $89 diagnostic fee covers a full inspection of your LG dryer — electrical system, heating circuit, drum mechanics, venting, error codes, and sensors. We don't guess. By the end of the diagnosis our technician will tell you exactly what is wrong and give you a complete written estimate covering parts and labor.</p>
+        <p><strong>The $89 is waived entirely</strong> if you approve the repair and we proceed. If the diagnosis turns out to be incorrect for any reason, the fee is refunded in full — no questions asked.</p>
 
         <div class="hiw-fork">
           <div class="hiw-fork-yes">
             <div class="hiw-fork-icon">✓</div>
             <div class="hiw-fork-title">You approve</div>
-            <div class="hiw-fork-desc">$65 waived. We proceed to repair.</div>
+            <div class="hiw-fork-desc">$89 waived. We proceed to repair.</div>
           </div>
           <div class="hiw-fork-divider">or</div>
           <div class="hiw-fork-no">
             <div class="hiw-fork-icon">✕</div>
             <div class="hiw-fork-title">You decline</div>
-            <div class="hiw-fork-desc">You pay $65. No further charges. No pressure.</div>
+            <div class="hiw-fork-desc">You pay $89. No further charges. No pressure.</div>
           </div>
         </div>
 
@@ -215,7 +215,7 @@ import Layout from '../layouts/Layout.astro';
           <svg viewBox="0 0 24 24" fill="none" stroke="#1a6cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Diagnostic guarantee</h3>
-        <p>If our diagnosis turns out to be incorrect, we refund the $65 diagnostic fee in full. We stand behind our assessment.</p>
+        <p>If our diagnosis turns out to be incorrect, we refund the $89 diagnostic fee in full. We stand behind our assessment.</p>
       </div>
 
       <div class="hiw-guarantee-card">
@@ -260,7 +260,7 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="hiw-faq-item">
       <div class="hiw-faq-q">What if I decline the repair after diagnosis?</div>
-      <div class="hiw-faq-a">You pay the $65 diagnostic fee and nothing else. No obligation, no pressure. We'll provide you with a written summary of the diagnosis so you have it on file if you decide to proceed later.</div>
+      <div class="hiw-faq-a">You pay the $89 diagnostic fee and nothing else. No obligation, no pressure. We'll provide you with a written summary of the diagnosis so you have it on file if you decide to proceed later.</div>
     </div>
 
     <div class="hiw-faq-item">
@@ -317,7 +317,7 @@ import Layout from '../layouts/Layout.astro';
       {
         "@type": "Question",
         "name": "What if I decline the repair after diagnosis?",
-        "acceptedAnswer": {"@type": "Answer", "text": "You pay the $65 diagnostic fee and nothing else. No obligation, no pressure. We'll provide you with a written summary of the diagnosis so you have it on file if you decide to proceed later."}
+        "acceptedAnswer": {"@type": "Answer", "text": "You pay the $89 diagnostic fee and nothing else. No obligation, no pressure. We'll provide you with a written summary of the diagnosis so you have it on file if you decide to proceed later."}
       },
       {
         "@type": "Question",
@@ -359,17 +359,13 @@ import Layout from '../layouts/Layout.astro';
 
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Service",
     "name": "LG Dryer Repair",
-    "telephone": "(323) 990-7550",
-    "url": "https://lgdryer.repair",
-    "hasCredential": "Bureau of Household Goods and Services #49573",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "200"
+    "serviceType": "LG dryer repair",
+    "provider": {
+        "@id": "https://lgdryer.repair/#business"
     }
-  })} />
+})} />
 
 </Layout>
 

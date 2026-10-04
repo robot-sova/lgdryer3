@@ -298,13 +298,18 @@ import Layout from '../../layouts/Layout.astro';
 
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Service",
     "name": "LG Dryer Repair",
-    "telephone": "(323) 990-7550",
-    "url": "https://lgdryer.repair",
-    "areaServed": ["Ventura County", "Los Angeles County", "Orange County"],
-    "hasCredential": "Bureau of Household Goods and Services #49573"
-  })} />
+    "serviceType": "LG dryer repair",
+    "provider": {
+        "@id": "https://lgdryer.repair/#business"
+    },
+    "areaServed": [
+        "Ventura County",
+        "Los Angeles County",
+        "Orange County"
+    ]
+})} />
 
 </Layout>
 
