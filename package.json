@@ -10,7 +10,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-types": "wrangler types"
+    "generate-types": "wrangler types",
+    "lastmod": "node scripts/gen-lastmod.mjs",
+    "lastmod:check": "node scripts/gen-lastmod.mjs --check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
