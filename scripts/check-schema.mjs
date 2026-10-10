@@ -2,7 +2,7 @@
 //   - every JSON-LD block parses;
 //   - exactly one LocalBusiness per page (the one in Layout.astro);
 //   - no aggregateRating (the site has no reviews to rate);
-//   - no "$65" diagnostic left (price is $89 since 2026-10-04; $65–100 and $65-120 are part prices);
+//   - no old diagnostic price left: $69 since 2026-10-10 (was $89, before that $65);
 //   - meta description not longer than 160 characters.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -11,7 +11,7 @@ const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>
   e.isDirectory() ? walk(path.join(d, e.name)) : e.name === 'index.html' ? [path.join(d, e.name)] : []);
 
 let pages = 0;
-const fail = { jsonErrors: [], notOneBusiness: [], rating: [], still65: [], longDesc: [] };
+const fail = { jsonErrors: [], notOneBusiness: [], rating: [], oldDiagPrice: [], longDesc: [] };
 for (const f of walk('dist')) {
   pages++;
   const rel = path.relative('dist', f).split(path.sep).join('/');
@@ -27,7 +27,8 @@ for (const f of walk('dist')) {
     }
   }
   if (businesses !== 1) fail.notOneBusiness.push(`${rel} (${businesses})`);
-  if (/\$65(?![–-]1[02]0)/.test(h)) fail.still65.push(rel);
+  // "$65–100"/"$65-120" and "$89–$149" are part/service prices, not the diagnostic.
+  if (/\$65(?![–-]1[02]0)|\$89(?![–\-0-9,])/.test(h)) fail.oldDiagPrice.push(rel);
   const md = (h.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
   const text = md.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
   if (text.length > 160) fail.longDesc.push(`${text.length} ${rel}`);

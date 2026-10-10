@@ -1,11 +1,29 @@
 ---
+// Was a "coming soon" stub until 2026-10-10 (and Google rightly left it out of the index).
+// Now the washer hub of the seven county pages, src/data/counties.ts.
 import Layout from '../../../layouts/Layout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { COUNTIES } from '../../../data/counties';
 ---
-<Layout title="LG Washer Repair Service Areas | LA, OC, Ventura" description="LG washer repair service areas across Los Angeles County, Orange County and Ventura County. Same-day service. Call (323) 990-7550."
+<Layout title="Washer Repair Service Areas | 7 Southern California Counties" description="Washer repair across Los Angeles, Orange, Ventura, Santa Barbara, San Bernardino, Riverside and San Diego counties. All major brands. (323) 990-7550."
   hubHeroImg="/images/hubs/washer-areas-hero.webp"
-  hubHeroAlt="LG washer repair technician with a service van in Los Angeles">
-  <div class="container" style="padding: 4rem 2rem; text-align: center;">
-    <h1>LG Washer Repair Service Areas</h1>
-    <p style="color: var(--text-secondary);">Service area pages coming soon.</p>
+  hubHeroAlt="Washer repair technician with a service van in Los Angeles">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Washer', href: '/washer/' }, { label: 'Service Areas' }]} />
+  <div class="maintext county-page">
+    <h1>Washer Repair Service Areas</h1>
+    <p>We repair front-load and top-load washers — LG, Samsung, Whirlpool, Maytag, GE and other major brands — in seven Southern California counties. The $69 diagnostic is waived when you approve the repair. Choose your county:</p>
+    <div class="index-grid">
+      {COUNTIES.map((c) => (
+        <a href={`/washer-repair/${c.slug}/`} class="index-card">
+          <div class="ic-name">{c.name}</div>
+          <div class="county-small">{c.cities.slice(0, 3).map((x) => x.label).join(', ')}</div>
+        </a>
+      ))}
+    </div>
+    <p>Need the dryer looked at too? See <a href="/service-area/">all service areas</a> — one technician can handle both machines in the same visit.</p>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
   </div>
 </Layout>

@@ -1,0 +1,7 @@
+---
+import CountyPage from '../../components/CountyPage.astro';
+import { COUNTIES } from '../../data/counties';
+export const getStaticPaths = () => COUNTIES.map((county) => ({ params: { county: county.slug }, props: { county } }));
+const { county } = Astro.props;
+---
+<CountyPage county={county} appliance="dryer" />

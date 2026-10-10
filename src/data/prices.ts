@@ -5,7 +5,7 @@ export const prices: Record<string, { name: string; intro: string; faqs: { q: st
     faqs: [
       { q: 'What is included in the drum bearing replacement cost?', a: 'Our price includes the OEM drum bearing, shaft seal, labor, and a 90-day warranty on parts and workmanship.' },
       { q: 'Why does drum bearing replacement cost vary?', a: 'Some LG models require more disassembly to access the bearing. If the shaft or rear panel is damaged from a worn bearing, additional parts may be needed.' },
-      { q: 'Is there a diagnostic fee?', a: 'We charge a $89 diagnostic fee which is waived if you proceed with the repair.' },
+      { q: 'Is there a diagnostic fee?', a: 'We charge a $69 diagnostic fee which is waived if you proceed with the repair.' },
     ],
   },
   'lg-dryer-belt-replacement-cost': {
