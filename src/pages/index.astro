@@ -123,10 +123,17 @@ import { COUNTIES } from '../data/counties';
           <li><a href="/areas/lg-dryer-repair-pasadena/">Pasadena</a></li>
         </ul>
         <a href="/areas/" class="home-links-more">All 45+ cities →</a>
-        <h2 style="margin-top:1.2rem">By County</h2>
-        <ul>
-          {COUNTIES.map((c) => <li><a href={`/washer-repair/${c.slug}/`}>Washer repair · {c.name}</a> · <a href={`/dryer-repair/${c.slug}/`}>dryer</a></li>)}
-        </ul>
+      </div>
+    </div>
+    <div class="home-counties">
+      <h2>Washer &amp; dryer repair by county</h2>
+      <div class="home-counties-grid">
+        {COUNTIES.map((c) => (
+          <div class="home-county">
+            <div class="home-county-name">{c.name}</div>
+            <a href={`/washer-repair/${c.slug}/`}>Washer repair</a> · <a href={`/dryer-repair/${c.slug}/`}>Dryer repair</a>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -173,6 +180,12 @@ import { COUNTIES } from '../data/counties';
     margin: 0 auto;
     padding: 48px 24px 0;
   }
+  .home-counties { max-width: 900px; margin: 8px auto 0; padding: 0 24px; position: relative; z-index: 1; }
+  .home-counties h2 { font-size: 1.1rem; color: #fff; margin: 0 0 12px; }
+  .home-counties-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .home-county { background: rgba(17, 27, 39, 0.85); border: 1px solid #1e2a3a; border-radius: 8px; padding: 10px 12px; font-size: 14px; color: #8a96a8; }
+  .home-county-name { color: #ddd; font-weight: 600; margin-bottom: 4px; }
+  .home-county a { color: #6ab0ff; text-decoration: none; }
   .home-links-inner {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
