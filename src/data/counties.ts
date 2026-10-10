@@ -115,7 +115,7 @@ export const COUNTIES: County[] = [
     slug: 'santa-barbara-county',
     name: 'Santa Barbara County',
     short: 'Santa Barbara',
-    sameDay: false,
+    sameDay: true,
     cities: [
       { label: 'Santa Barbara' },
       { label: 'Montecito' },
@@ -129,9 +129,9 @@ export const COUNTIES: County[] = [
       { label: 'Santa Maria' },
     ],
     local:
-      'Santa Barbara County is the far north end of our area. We schedule visits here by arrangement and group calls along the 101 — Carpinteria, Montecito, Santa Barbara and Goleta first, the Santa Ynez Valley and Santa Maria by arrangement. Tell us the model and the symptom on the phone so the technician comes with the likely part and finishes in one trip.',
+      'Santa Barbara County is the north end of our area, and we serve it same-day like the rest. Calls run along the 101 — Carpinteria, Montecito, Santa Barbara and Goleta, and inland to the Santa Ynez Valley and Santa Maria. Tell us the model and the symptom on the phone so the technician comes with the likely part and finishes in one trip.',
     washerNote:
-      'Because a return trip to Santa Barbara costs you another day, we ask for the model number and the error code before the visit and bring the most likely part on the truck.',
+      'To finish in one visit, we ask for the model number and the error code before the visit and bring the most likely part on the truck.',
     dryerNote:
       'Coastal homes in Montecito and Carpinteria see salt air at the vent hood; a seized flap or a corroded vent cap blocks airflow and makes a dryer run hot. We check it on every visit.',
   },
@@ -139,7 +139,7 @@ export const COUNTIES: County[] = [
     slug: 'san-bernardino-county',
     name: 'San Bernardino County',
     short: 'San Bernardino',
-    sameDay: false,
+    sameDay: true,
     cities: [
       { label: 'Rancho Cucamonga' },
       { label: 'Ontario' },
@@ -153,7 +153,7 @@ export const COUNTIES: County[] = [
       { label: 'Montclair' },
     ],
     local:
-      'In San Bernardino County we cover the western Inland Empire — Chino Hills, Chino, Ontario, Upland and Rancho Cucamonga — and east through Fontana and San Bernardino to Redlands. Summers here are hot, and many laundry rooms are in the garage or on an outside wall, which is hard on dryers. We confirm the arrival window when you book.',
+      'In San Bernardino County we cover the western Inland Empire — Chino Hills, Chino, Ontario, Upland and Rancho Cucamonga — and east through Fontana and San Bernardino to Redlands. Summers here are hot, and many laundry rooms are in the garage or on an outside wall, which is hard on dryers. Same-day visits, and we give you the arrival window when you book.',
     washerNote:
       'Hard water in much of the Inland Empire leaves scale in the inlet valve screens; a washer that fills slowly or shows an IE code often needs the screens cleaned before anything is replaced.',
     dryerNote:
@@ -163,7 +163,7 @@ export const COUNTIES: County[] = [
     slug: 'riverside-county',
     name: 'Riverside County',
     short: 'Riverside',
-    sameDay: false,
+    sameDay: true,
     cities: [
       { label: 'Riverside' },
       { label: 'Corona' },
@@ -177,7 +177,7 @@ export const COUNTIES: County[] = [
       { label: 'Lake Elsinore' },
     ],
     local:
-      'In Riverside County our routes run from Corona, Eastvale and Norco through Riverside and Moreno Valley, and south along the 15 to Lake Elsinore, Menifee, Murrieta and Temecula. Most homes are newer tract houses with an indoor laundry room and front-load machines. We confirm the arrival window when you book.',
+      'In Riverside County our routes run from Corona, Eastvale and Norco through Riverside and Moreno Valley, and south along the 15 to Lake Elsinore, Menifee, Murrieta and Temecula. Most homes are newer tract houses with an indoor laundry room and front-load machines. Same-day visits, and we give you the arrival window when you book.',
     washerNote:
       'Newer front-loaders in Temecula and Murrieta homes are often installed on a second floor. Heavy vibration on spin is usually worn shocks or an unbalanced load sensor, and it is worth fixing before it cracks a floor tile.',
     dryerNote:
@@ -187,7 +187,7 @@ export const COUNTIES: County[] = [
     slug: 'san-diego-county',
     name: 'San Diego County',
     short: 'San Diego',
-    sameDay: false,
+    sameDay: true,
     cities: [
       { label: 'San Diego' },
       { label: 'Oceanside' },
@@ -203,7 +203,7 @@ export const COUNTIES: County[] = [
       { label: 'Chula Vista' },
     ],
     local:
-      'San Diego County is the south end of our area. We schedule here by arrangement and group visits along the coast — Oceanside, Carlsbad, Encinitas, Del Mar and La Jolla — and inland through Escondido, San Marcos, Vista and Poway. Tell us the model and the symptom when you book so the technician arrives with the likely part.',
+      'San Diego County is the south end of our area, and we serve it same-day like the rest. Visits run along the coast — Oceanside, Carlsbad, Encinitas, Del Mar and La Jolla — and inland through Escondido, San Marcos, Vista and Poway. Tell us the model and the symptom when you book so the technician arrives with the likely part.',
     washerNote:
       'Coastal San Diego homes with the washer in a garage or a side yard closet see corroded hose fittings and mildew in the door boot sooner than inland. A smell that comes back after cleaning usually means the boot or the drain pump filter needs attention.',
     dryerNote:

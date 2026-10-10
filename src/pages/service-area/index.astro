@@ -4,11 +4,11 @@ import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { COUNTIES } from '../../data/counties';
 ---
-<Layout title="Washer & Dryer Repair Service Area | 7 SoCal Counties" description="Washer and dryer repair in Los Angeles, Orange, Ventura, Santa Barbara, San Bernardino, Riverside and San Diego counties. $89 diagnostic. (323) 990-7550.">
+<Layout title="Washer & Dryer Repair Service Area | 7 SoCal Counties" description="Washer and dryer repair in Los Angeles, Orange, Ventura, Santa Barbara, San Bernardino, Riverside and San Diego counties. $69 diagnostic. (323) 990-7550.">
   <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Service Areas' }]} />
   <div class="maintext county-page">
     <h1>Washer &amp; Dryer Repair Service Area</h1>
-    <p>We repair washers and dryers in seven Southern California counties. Pick your county for the cities we cover, typical prices and how scheduling works there. Los Angeles, Orange and Ventura counties are our core area with same-day visits common; Santa Barbara, San Bernardino, Riverside and San Diego counties are scheduled by arrangement.</p>
+    <p>We repair washers and dryers in seven Southern California counties. Pick your county for the cities we cover, typical prices and how scheduling works there. Same-day service in all seven counties, no trip fee, every brand, 90-day warranty on parts and labor.</p>
     {COUNTIES.map((c) => (
       <section class="county-hub-row">
         <h2>{c.name}</h2>

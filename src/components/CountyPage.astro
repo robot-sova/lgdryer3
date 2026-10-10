@@ -63,9 +63,10 @@ const prices = isWasher
 
 const calls = recentCallsInCounty(county.slug);
 const others = COUNTIES.filter((c) => c.slug !== county.slug);
+// Owner 2026-10-10: same-day in all seven counties, no trip fee anywhere, every brand, 90-day warranty.
 const when = county.sameDay
-  ? 'Same-day visits are common here when you call in the morning.'
-  : 'We visit by arrangement and confirm the day and the arrival window when you book.';
+  ? 'Same-day service, no trip fee, 90-day warranty on parts and labor.'
+  : 'We confirm the day and the arrival window when you book. No trip fee, 90-day warranty on parts and labor.';
 
 // The first three questions are the ones Google shows under "People also ask" for
 // "washer/dryer repair <county>" (Ahrefs SERP, 2026-10-10). Answers use the site's own prices.
@@ -73,7 +74,7 @@ const machine = isWasher ? 'washing machine' : 'dryer';
 const faqs = [
   {
     q: `What is the average cost to repair a ${machine} in ${county.name}?`,
-    a: `Most ${app} repairs we do run $150–480 including parts and labor${isWasher ? ' — a drain pump is $280–360, a door boot seal $250–320, a tub bearing $320–420' : ' — drum rollers are $280–350, a heating element $300–380, an igniter $280–350'}. The diagnostic is $89 and it is waived when you approve the repair, and you get the exact price before any work starts.`,
+    a: `Most ${app} repairs we do run $150–480 including parts and labor${isWasher ? ' — a drain pump is $280–360, a door boot seal $250–320, a tub bearing $320–420' : ' — drum rollers are $280–350, a heating element $300–380, an igniter $280–350'}. The diagnostic is $69 and it is waived when you approve the repair, and you get the exact price before any work starts.`,
   },
   {
     q: `Is it worth repairing a ${machine}?`,
@@ -88,12 +89,20 @@ const faqs = [
   {
     q: `How soon can a technician come in ${county.name}?`,
     a: county.sameDay
-      ? `Usually the same day or the next day, Monday to Saturday, 8am–8pm. Call (323) 990-7550 and we give you the arrival window on the phone.`
-      : `${county.name} is at the edge of our area, so we schedule visits by arrangement, Monday to Saturday. Call (323) 990-7550 or book online and we confirm the day and the window.`,
+      ? `The same day, Monday to Saturday, 8am–8pm, anywhere in ${county.name}. Call (323) 990-7550 and we give you the arrival window on the phone.`
+      : `Call (323) 990-7550 or book online, Monday to Saturday, and we confirm the day and the arrival window.`,
+  },
+  {
+    q: `Is there a trip fee to come out to my home in ${county.name}?`,
+    a: `No. There is no trip or travel fee anywhere in our seven counties. The only charge for the visit is the $69 diagnostic, and it is waived when you approve the repair.`,
   },
   {
     q: `Which ${app} brands do you repair?`,
-    a: `${BRANDS.slice(0, -1).join(', ')} and ${BRANDS.at(-1)}, plus most other residential front-load and top-load ${app}s. LG is where most of our experience is.`,
+    a: `All of them — ${BRANDS.join(', ')} and every other residential front-load, top-load and stacked ${app}.`,
+  },
+  {
+    q: `Is the ${app} repair guaranteed?`,
+    a: `Yes. Every repair carries a 90-day warranty on the parts we install and on the labor. If the same fault comes back within 90 days, we come back and fix it at no charge.`,
   },
   {
     q: `Do you also fix ${other}s in ${county.name}?`,
@@ -108,7 +117,7 @@ const title = isWasher
   ? `Washer Repair ${county.name}, CA — Washing Machine Service`
   : `Dryer Repair ${county.name}, CA — Gas & Electric Dryers`;
 const h1 = isWasher ? `Washer & Washing Machine Repair in ${county.name}` : `Gas & Electric Dryer Repair in ${county.name}`;
-const description = `${App} repair in ${county.name}: ${county.cities.slice(0, 3).map((c) => c.label).join(', ')} and more. All brands, prices from $150, $89 diagnostic waived. (323) 990-7550.`;
+const description = `${App} repair in ${county.name}: ${county.cities.slice(0, 3).map((c) => c.label).join(', ')} and more. All brands, prices from $150, $69 diagnostic waived. (323) 990-7550.`;
 const hero = isWasher
   ? { img: '/images/hubs/washer-index-hero.webp', alt: `Front-load washing machine in a laundry room — washer repair in ${county.name}` }
   : { img: '/images/hubs/repairs-index-hero.webp', alt: `Technician repairing a dryer — dryer repair in ${county.name}` };
@@ -139,7 +148,7 @@ const ld = {
     <p class="county-lead">
       We repair {app}s in homes across {county.name} — {county.cities.slice(0, 5).map((c) => c.label).join(', ')} and the surrounding cities.
       A licensed technician (BHGS #49573) diagnoses the machine at your home and gives you the exact price before any work;
-      the $89 diagnostic is waived when you approve the repair. {when}
+      the $69 diagnostic is waived when you approve the repair. {when}
     </p>
     <div class="cta-buttons">
       <a href="tel:3239907550" class="button-85">📞 Call (323) 990-7550</a>
@@ -192,13 +201,13 @@ const ld = {
     <p>Typical ranges including parts and labor. The technician confirms the exact price after the diagnostic, before any work.</p>
     <table class="county-prices">
       <tbody>
-        <tr><td>Diagnostic visit</td><td>$89, waived with repair</td></tr>
+        <tr><td>Diagnostic visit</td><td>$69, waived with repair</td></tr>
         {prices.map((p) => <tr><td><a href={p.href}>{p.label}</a></td><td>{p.range}</td></tr>)}
       </tbody>
     </table>
 
     <h2>Brands we repair</h2>
-    <p>{BRANDS.join(' · ')} — and most other residential {app}s. Most of our experience is with LG front-load machines.</p>
+    <p>{BRANDS.join(' · ')} — every brand of residential {app}, front-load, top-load and stacked.</p>
 
     <h2>How a visit works</h2>
     <ol>
