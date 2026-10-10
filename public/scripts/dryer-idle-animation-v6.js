@@ -481,7 +481,12 @@
   let tipVisible    = false;
   let tipFadeTimer  = null;
 
+  // Tips are off (owner, 2026-10-10): they are drawn on a fixed full-screen canvas and covered the
+  // homepage links while scrolling. With tipOpacity left at 0 every draw*Tip call draws nothing.
+  const TIPS_ENABLED = false;
+
   function startTips() {
+    if (!TIPS_ENABLED) return;
     tipIndex   = 0;
     showNextTip();
   }
