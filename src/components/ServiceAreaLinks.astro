@@ -1,0 +1,32 @@
+---
+// "Where we work" block for the price, repair and symptom pages (≈130 pages, most of the site's
+// impressions). Until 2026-10-10 those pages linked the county and city pages only through the
+// nav, and a new city page had 2–3 internal links in total. This block gives every county and city
+// page a link from each guide of the same appliance.
+import { COUNTIES } from '../data/counties';
+import { CITY_PAGES } from '../data/cities';
+
+const isWasher = Astro.url.pathname.startsWith('/washer/');
+const app = isWasher ? 'washer' : 'dryer';
+const App = isWasher ? 'Washer' : 'Dryer';
+const cities = CITY_PAGES.filter((c) => c.appliances.includes(app)).map((c) => ({ label: c.city, href: `/${app}-repair/${c.county}/${c.slug}/` }));
+// Dryer city demand also lands on the older LG dryer city pages (Ahrefs 2026-10-10: irvine 150,
+// huntington beach 100, pasadena 90, long beach 50, thousand oaks 50).
+const lgDryer = isWasher ? [] : [
+  { label: 'Los Angeles', href: '/areas/lg-dryer-repair-los-angeles/' },
+  { label: 'Irvine', href: '/areas/lg-dryer-repair-irvine/' },
+  { label: 'Huntington Beach', href: '/areas/lg-dryer-repair-huntington-beach/' },
+  { label: 'Pasadena', href: '/areas/lg-dryer-repair-pasadena/' },
+  { label: 'Long Beach', href: '/areas/lg-dryer-repair-long-beach/' },
+  { label: 'Thousand Oaks', href: '/areas/lg-dryer-repair-thousand-oaks/' },
+];
+const popular = [...cities, ...lgDryer];
+---
+<section class="service-area-links" aria-labelledby="sal-title">
+  <h2 id="sal-title">{App} repair near you</h2>
+  <p>Same-day {app} repair, every brand, no trip fee, $69 diagnostic — in seven Southern California counties:</p>
+  <div class="index-grid">
+    {COUNTIES.map((c) => <a href={`/${app}-repair/${c.slug}/`} class="index-card"><div class="ic-name">{App} repair · {c.name}</div></a>)}
+  </div>
+  <p class="county-small">Popular cities: {popular.map((c, i) => <>{i > 0 && ' · '}<a href={c.href}>{App} repair in {c.label}</a></>)}</p>
+</section>
