@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lgdryer.repair/sitemap-index.xml
+Sitemap: https://washeranddryer.repair/sitemap-index.xml

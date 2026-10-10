@@ -6,7 +6,7 @@
  * Leads go to ЦУП (the dispatch system), exactly like the other brand sites:
  *   POST {CUP_WEBHOOK_URL | https://cup-production-48f8.up.railway.app/webhooks/web-lead}
  *   header x-web-lead-token: env.WEB_LEAD_TOKEN   ← secret in CF Pages settings, never in code
- * ЦУП stores the lead (cup.web_lead, source "lgdryer.repair") and posts the card to the
+ * ЦУП stores the lead (cup.web_lead, source "washeranddryer.repair"; "lgdryer.repair" until 2026-10-10) and posts the card to the
  * dispatch group itself.
  *
  * Until 2026-10-04 this function wrote to Telegram directly and returned { ok: true } no
@@ -26,7 +26,7 @@
  */
 
 const RECEIVER_DEFAULT = 'https://cup-production-48f8.up.railway.app/webhooks/web-lead';
-const SOURCE = 'lgdryer.repair';
+const SOURCE = 'washeranddryer.repair';
 const RATE_LIMIT = 5;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const memRl = new Map();
@@ -85,7 +85,7 @@ const realName = (n) => {
 };
 const realEmail = (e) => {
   const s = clip(e, 100);
-  return /@lgdryer\.repair$/i.test(s) ? '' : s;
+  return /@(lgdryer|washeranddryer)\.repair$/i.test(s) ? '' : s;
 };
 
 /** Map the site payload onto the ЦУП web-lead contract (source/name/phone/email/city/model/message/page). */
@@ -187,10 +187,10 @@ export async function onRequestPost({ request, env }) {
 
   // Job applications are not customer leads: keep them out of ЦУП.
   if (kind === 'careers') {
-    const text = `👷 JOB APPLICATION (lgdryer.repair)\n\n${clip(p.message, 3000)}`;
+    const text = `👷 JOB APPLICATION (washeranddryer.repair)\n\n${clip(p.message, 3000)}`;
     const [tg, mail] = await Promise.all([
       sendTelegram(env, text),
-      sendEmail(env, '👷 New job application — lgdryer.repair', text),
+      sendEmail(env, '👷 New job application — washeranddryer.repair', text),
     ]);
     return tg || mail ? json(200, { ok: true }) : json(502, { ok: false, error: `We could not send your application. ${CALL_US}` });
   }
@@ -209,10 +209,10 @@ export async function onRequestPost({ request, env }) {
   if (cup.ok) return json(200, { ok: true });
 
   // ЦУП did not take it — the lead must still reach a human.
-  const text = `⚠️ ЦУП did not accept this lead (${cup.why}) — reserve copy\n🌐 lgdryer.repair\n\n${leadText(lead)}`;
+  const text = `⚠️ ЦУП did not accept this lead (${cup.why}) — reserve copy\n🌐 washeranddryer.repair\n\n${leadText(lead)}`;
   const [tg, mail] = await Promise.all([
     sendTelegram(env, text),
-    sendEmail(env, '⚠️ New lead (ЦУП did not accept it) — lgdryer.repair', text),
+    sendEmail(env, '⚠️ New lead (ЦУП did not accept it) — washeranddryer.repair', text),
   ]);
   if (tg || mail) return json(200, { ok: true });
   return json(502, { ok: false, error: `We could not send your request. ${CALL_US}` });
