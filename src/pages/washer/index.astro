@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { COUNTIES } from '../../data/counties';
 ---
 <Layout title="LG Washer Repair Los Angeles | $280–400 | Same Day" description="Same-day LG washer repair in LA, Orange & Ventura County. Drain, fill, spin and error-code faults fixed. Most repairs $280–400. (323) 990-7550."
   hubHeroImg="/images/hubs/washer-index-hero.webp"
@@ -57,6 +58,12 @@ import Layout from '../../layouts/Layout.astro';
       <a href="/washer/price-list/lg-washer-door-seal-replacement-cost/" style="display:block;padding:12px 14px;background:#111b27;border:1px solid #1e2a3a;border-radius:8px;color:#c8d0dc;text-decoration:none;">Door seal replacement cost</a>
       <a href="/washer/price-list/lg-washer-control-board-replacement-cost/" style="display:block;padding:12px 14px;background:#111b27;border:1px solid #1e2a3a;border-radius:8px;color:#c8d0dc;text-decoration:none;">Control board replacement cost</a>
       <a href="/washer/price-list/lg-washer-motor-replacement-cost/" style="display:block;padding:12px 14px;background:#111b27;border:1px solid #1e2a3a;border-radius:8px;color:#c8d0dc;text-decoration:none;">Motor replacement cost</a>
+    </div>
+
+    <h2>Washer Repair by County</h2>
+    <p>We repair washers of all major brands in seven Southern California counties:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:16px 0 8px;">
+      {COUNTIES.map((c) => <a href={`/washer-repair/${c.slug}/`} style="display:block;padding:12px 14px;background:#111b27;border:1px solid #1e2a3a;border-radius:8px;color:#c8d0dc;text-decoration:none;">{c.name}</a>)}
     </div>
 
     <p>Need an LG washer fixed today? Call (323) 990-7550, Monday through Saturday 8am–8pm.</p>

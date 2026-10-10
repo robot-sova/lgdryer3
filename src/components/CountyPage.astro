@@ -67,10 +67,23 @@ const when = county.sameDay
   ? 'Same-day visits are common here when you call in the morning.'
   : 'We visit by arrangement and confirm the day and the arrival window when you book.';
 
+// The first three questions are the ones Google shows under "People also ask" for
+// "washer/dryer repair <county>" (Ahrefs SERP, 2026-10-10). Answers use the site's own prices.
+const machine = isWasher ? 'washing machine' : 'dryer';
 const faqs = [
   {
-    q: `How much is a ${app} repair visit in ${county.name}?`,
-    a: `The diagnostic is $89 and it is waived when you approve the repair. You get the exact price before any work starts. Most ${app} repairs run $150–480 including parts and labor.`,
+    q: `What is the average cost to repair a ${machine} in ${county.name}?`,
+    a: `Most ${app} repairs we do run $150–480 including parts and labor${isWasher ? ' — a drain pump is $280–360, a door boot seal $250–320, a tub bearing $320–420' : ' — drum rollers are $280–350, a heating element $300–380, an igniter $280–350'}. The diagnostic is $89 and it is waived when you approve the repair, and you get the exact price before any work starts.`,
+  },
+  {
+    q: `Is it worth repairing a ${machine}?`,
+    a: `Usually yes when the machine is under about 8–10 years old and the repair costs less than half of a comparable new ${app}. Most repairs we do are a single part at $150–480, well under the price of a new machine plus delivery and installation. When the repair is not worth it — an old machine with ${isWasher ? 'a cracked outer tub or a failed bearing on a sealed tub' : 'a cracked drum and a worn motor at the same time'} — the technician tells you so before you pay for anything beyond the diagnostic.`,
+  },
+  {
+    q: `What is the most expensive ${app} repair?`,
+    a: isWasher
+      ? `Tub bearings ($320–420) and control boards ($300–420) are the most expensive common washer repairs. On some front-loaders the bearing is pressed into a sealed tub, and then the whole tub assembly is replaced — that is the case where buying new can make more sense.`
+      : `Drum replacement ($300–550) and motor or control board replacement are the most expensive common dryer repairs. Thermal fuses, belts, rollers and igniters — the most frequent failures — cost much less.`,
   },
   {
     q: `How soon can a technician come in ${county.name}?`,
@@ -88,8 +101,17 @@ const faqs = [
   },
 ];
 
-const title = `${App} Repair in ${county.name}, CA | $89 Diagnostic`;
-const description = `${App} repair in ${county.name}: ${county.cities.slice(0, 3).map((c) => c.label).join(', ')} and more. All major brands, $89 diagnostic waived with repair. (323) 990-7550.`;
+// Searchers type both "washer repair" and "washing machine repair" (Ahrefs: "washing machine repair
+// los angeles" 150/mo, "… san diego" 150/mo), and "dryer repair" with "gas dryer" — so both forms are
+// in the title and the H1.
+const title = isWasher
+  ? `Washer Repair ${county.name}, CA — Washing Machine Service`
+  : `Dryer Repair ${county.name}, CA — Gas & Electric Dryers`;
+const h1 = isWasher ? `Washer & Washing Machine Repair in ${county.name}` : `Gas & Electric Dryer Repair in ${county.name}`;
+const description = `${App} repair in ${county.name}: ${county.cities.slice(0, 3).map((c) => c.label).join(', ')} and more. All brands, prices from $150, $89 diagnostic waived. (323) 990-7550.`;
+const hero = isWasher
+  ? { img: '/images/hubs/washer-index-hero.webp', alt: `Front-load washing machine in a laundry room — washer repair in ${county.name}` }
+  : { img: '/images/hubs/repairs-index-hero.webp', alt: `Technician repairing a dryer — dryer repair in ${county.name}` };
 
 const ld = {
   '@context': 'https://schema.org',
@@ -110,10 +132,10 @@ const ld = {
   ],
 };
 ---
-<Layout title={title} description={description}>
+<Layout title={title} description={description} hubHeroImg={hero.img} hubHeroAlt={hero.alt}>
   <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Service Areas', href: '/service-area/' }, { label: `${App} repair — ${county.name}` }]} />
   <div class="maintext county-page">
-    <h1>{App} Repair in {county.name}</h1>
+    <h1>{h1}</h1>
     <p class="county-lead">
       We repair {app}s in homes across {county.name} — {county.cities.slice(0, 5).map((c) => c.label).join(', ')} and the surrounding cities.
       A licensed technician (BHGS #49573) diagnoses the machine at your home and gives you the exact price before any work;
@@ -123,6 +145,15 @@ const ld = {
       <a href="tel:3239907550" class="button-85">📞 Call (323) 990-7550</a>
       <a href="/book/" class="button-85">📅 Book online</a>
     </div>
+
+    <form class="county-cb" id="countyCallback" data-county={county.name} data-appliance={app}>
+      <label for="countyCbPhone">Can't talk right now? Leave your number and we call you back during business hours.</label>
+      <div class="county-cb-row">
+        <input type="tel" id="countyCbPhone" name="phone" placeholder="Your phone number" autocomplete="tel" required />
+        <button type="submit">Call me back</button>
+      </div>
+      <p class="county-cb-ok" hidden>Got it — we will call you back shortly.</p>
+    </form>
 
     <h2>{App} repair in {county.short}: what we see here</h2>
     <p>{county.local}</p>
@@ -188,4 +219,40 @@ const ld = {
     </div>
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <script>
+    // Same endpoint and rules as the area-page callback (functions/api/contact.js): success only on res.ok.
+    const f = document.getElementById('countyCallback') as HTMLFormElement | null;
+    f?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phone = (document.getElementById('countyCbPhone') as HTMLInputElement).value;
+      const btn = f.querySelector('button') as HTMLButtonElement;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: 'Call Back Request',
+            phone,
+            appliance: f.dataset.appliance,
+            message: `Call back request — ${f.dataset.appliance} repair, ${f.dataset.county} page`,
+          }),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          alert(data.error || 'We could not send your request. Please call (323) 990-7550 directly.');
+          btn.disabled = false;
+          btn.textContent = 'Call me back';
+          return;
+        }
+        (window as any).trackLead?.('county_callback');
+        (f.querySelector('.county-cb-row') as HTMLElement).hidden = true;
+        (f.querySelector('.county-cb-ok') as HTMLElement).hidden = false;
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Call me back';
+      }
+    });
+  </script>
 </Layout>
