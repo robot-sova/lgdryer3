@@ -7,6 +7,9 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import { COUNTIES, type County } from '../data/counties';
 import { recentCallsInCounty, VISIT_TEXT } from '../data/recentCalls';
+import { BRANDS, problemsFor, pricesFor, serviceFaqs } from '../data/service';
+import { cityPagesInCounty } from '../data/cities';
+import CallbackForm from './CallbackForm.astro';
 
 interface Props { county: County; appliance: 'washer' | 'dryer' }
 const { county, appliance } = Astro.props;
@@ -17,49 +20,8 @@ const other = isWasher ? 'dryer' : 'washer';
 const SITE = 'https://washeranddryer.repair';
 const url = `${SITE}/${app}-repair/${county.slug}/`;
 
-const BRANDS = ['LG', 'Samsung', 'Whirlpool', 'Maytag', 'GE', 'Kenmore', 'Electrolux', 'Frigidaire', 'Bosch', 'Speed Queen'];
-
-// Problems link to the guides that already exist on the site (LG guides; the causes are the same
-// on most front-load machines).
-const problems = isWasher
-  ? [
-      { label: 'Won’t drain (OE code)', href: '/washer/symptoms/lg-washer-not-draining/' },
-      { label: 'Won’t spin', href: '/washer/symptoms/lg-washer-not-spinning/' },
-      { label: 'Leaking water', href: '/washer/symptoms/lg-washer-leaking/' },
-      { label: 'Won’t fill (IE code)', href: '/washer/symptoms/lg-washer-not-filling/' },
-      { label: 'Shaking or walking', href: '/washer/symptoms/lg-washer-shaking/' },
-      { label: 'Won’t turn on', href: '/washer/symptoms/lg-washer-wont-turn-on/' },
-      { label: 'Door locked / won’t open', href: '/washer/symptoms/lg-washer-door-wont-open/' },
-      { label: 'Error codes', href: '/washer/' },
-    ]
-  : [
-      { label: 'Not heating', href: '/symptoms/lg-dryer-not-heating/' },
-      { label: 'Takes too long to dry', href: '/symptoms/lg-dryer-not-drying/' },
-      { label: 'Won’t start', href: '/symptoms/lg-dryer-not-starting/' },
-      { label: 'Drum won’t turn', href: '/symptoms/lg-dryer-not-spinning/' },
-      { label: 'Loud noise or squeaking', href: '/symptoms/lg-dryer-making-noise/' },
-      { label: 'Overheating', href: '/symptoms/lg-dryer-overheating/' },
-      { label: 'Door won’t close', href: '/symptoms/lg-dryer-door-wont-close/' },
-      { label: 'Flow Sense / vent warning', href: '/symptoms/lg-dryer-flow-sense-error/' },
-    ];
-
-// Ranges are the ones already published on the site's price pages — change them there first.
-const prices = isWasher
-  ? [
-      { label: 'Drain pump replacement', range: '$280–360', href: '/washer/price-list/lg-washer-drain-pump-replacement-cost/' },
-      { label: 'Door boot seal replacement', range: '$250–320', href: '/washer/price-list/lg-washer-door-seal-replacement-cost/' },
-      { label: 'Control board replacement', range: '$300–420', href: '/washer/price-list/lg-washer-control-board-replacement-cost/' },
-      { label: 'Tub bearing replacement', range: '$320–420', href: '/washer/price-list/lg-washer-bearing-replacement-cost/' },
-      { label: 'Most washer repairs', range: '$150–480', href: '/washer/price-list/lg-washer-repair-cost/' },
-    ]
-  : [
-      { label: 'Drum roller replacement (set of 4)', range: '$280–350', href: '/price-list/lg-dryer-drum-roller-replacement-cost/' },
-      { label: 'Heating element replacement', range: '$300–380', href: '/price-list/lg-dryer-heating-element-replacement-cost/' },
-      { label: 'Thermal fuse replacement', range: '$280–350', href: '/price-list/lg-dryer-thermal-fuse-replacement-cost/' },
-      { label: 'Gas valve coils or assembly', range: '$280–450', href: '/price-list/lg-dryer-gas-valve-replacement-cost/' },
-      { label: 'Igniter replacement (gas dryers)', range: '$280–350', href: '/price-list/lg-dryer-igniter-replacement-cost/' },
-      { label: 'Most dryer repairs', range: '$150–480', href: '/price-list/lg-dryer-repair-cost/' },
-    ];
+const problems = problemsFor(appliance);
+const prices = pricesFor(appliance);
 
 const calls = recentCallsInCounty(county.slug);
 const others = COUNTIES.filter((c) => c.slug !== county.slug);
@@ -68,47 +30,8 @@ const when = county.sameDay
   ? 'Same-day service, no trip fee, 90-day warranty on parts and labor.'
   : 'We confirm the day and the arrival window when you book. No trip fee, 90-day warranty on parts and labor.';
 
-// The first three questions are the ones Google shows under "People also ask" for
-// "washer/dryer repair <county>" (Ahrefs SERP, 2026-10-10). Answers use the site's own prices.
-const machine = isWasher ? 'washing machine' : 'dryer';
-const faqs = [
-  {
-    q: `What is the average cost to repair a ${machine} in ${county.name}?`,
-    a: `Most ${app} repairs we do run $150–480 including parts and labor${isWasher ? ' — a drain pump is $280–360, a door boot seal $250–320, a tub bearing $320–420' : ' — drum rollers are $280–350, a heating element $300–380, an igniter $280–350'}. The diagnostic is $69 and it is waived when you approve the repair, and you get the exact price before any work starts.`,
-  },
-  {
-    q: `Is it worth repairing a ${machine}?`,
-    a: `Usually yes when the machine is under about 8–10 years old and the repair costs less than half of a comparable new ${app}. Most repairs we do are a single part at $150–480, well under the price of a new machine plus delivery and installation. When the repair is not worth it — an old machine with ${isWasher ? 'a cracked outer tub or a failed bearing on a sealed tub' : 'a cracked drum and a worn motor at the same time'} — the technician tells you so before you pay for anything beyond the diagnostic.`,
-  },
-  {
-    q: `What is the most expensive ${app} repair?`,
-    a: isWasher
-      ? `Tub bearings ($320–420) and control boards ($300–420) are the most expensive common washer repairs. On some front-loaders the bearing is pressed into a sealed tub, and then the whole tub assembly is replaced — that is the case where buying new can make more sense.`
-      : `Drum replacement ($300–550) and motor or control board replacement are the most expensive common dryer repairs. Thermal fuses, belts, rollers and igniters — the most frequent failures — cost much less.`,
-  },
-  {
-    q: `How soon can a technician come in ${county.name}?`,
-    a: county.sameDay
-      ? `The same day, Monday to Saturday, 8am–8pm, anywhere in ${county.name}. Call (323) 990-7550 and we give you the arrival window on the phone.`
-      : `Call (323) 990-7550 or book online, Monday to Saturday, and we confirm the day and the arrival window.`,
-  },
-  {
-    q: `Is there a trip fee to come out to my home in ${county.name}?`,
-    a: `No. There is no trip or travel fee anywhere in our seven counties. The only charge for the visit is the $69 diagnostic, and it is waived when you approve the repair.`,
-  },
-  {
-    q: `Which ${app} brands do you repair?`,
-    a: `All of them — ${BRANDS.join(', ')} and every other residential front-load, top-load and stacked ${app}.`,
-  },
-  {
-    q: `Is the ${app} repair guaranteed?`,
-    a: `Yes. Every repair carries a 90-day warranty on the parts we install and on the labor. If the same fault comes back within 90 days, we come back and fix it at no charge.`,
-  },
-  {
-    q: `Do you also fix ${other}s in ${county.name}?`,
-    a: `Yes. The same technician can look at both machines in one visit — tell us when you book.`,
-  },
-];
+const faqs = serviceFaqs(appliance, county.name);
+const cityPages = cityPagesInCounty(county.slug, appliance);
 
 // Searchers type both "washer repair" and "washing machine repair" (Ahrefs: "washing machine repair
 // los angeles" 150/mo, "… san diego" 150/mo), and "dryer repair" with "gas dryer" — so both forms are
@@ -155,14 +78,7 @@ const ld = {
       <a href="/book/" class="button-85">📅 Book online</a>
     </div>
 
-    <form class="county-cb" id="countyCallback" data-county={county.name} data-appliance={app}>
-      <label for="countyCbPhone">Can't talk right now? Leave your number and we call you back during business hours.</label>
-      <div class="county-cb-row">
-        <input type="tel" id="countyCbPhone" name="phone" placeholder="Your phone number" autocomplete="tel" required />
-        <button type="submit">Call me back</button>
-      </div>
-      <p class="county-cb-ok" hidden>Got it — we will call you back shortly.</p>
-    </form>
+    <CallbackForm place={county.name} appliance={appliance} />
 
     <h2>{App} repair in {county.short}: what we see here</h2>
     <p>{county.local}</p>
@@ -170,9 +86,14 @@ const ld = {
 
     <h2>Cities we serve in {county.name}</h2>
     <div class="index-grid">
-      {county.cities.map((c) => c.page
-        ? <a href={`/areas/${c.page}/`} class="index-card"><div class="ic-name">{c.label}</div></a>
-        : <div class="index-card index-card-static"><div class="ic-name">{c.label}</div></div>)}
+      {county.cities.map((c) => {
+        // A city page for this appliance wins over the older LG dryer city page.
+        const cp = cityPages.find((x) => x.city === c.label);
+        if (cp) return <a href={`/${app}-repair/${county.slug}/${cp.slug}/`} class="index-card"><div class="ic-name">{App} repair in {c.label}</div></a>;
+        return c.page
+          ? <a href={`/areas/${c.page}/`} class="index-card"><div class="ic-name">{c.label}</div></a>
+          : <div class="index-card index-card-static"><div class="ic-name">{c.label}</div></div>;
+      })}
     </div>
     <p class="county-small">Not on the list? If you are in {county.name}, call — we most likely cover you.</p>
 
@@ -228,40 +149,4 @@ const ld = {
     </div>
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(ld)} />
-  <script>
-    // Same endpoint and rules as the area-page callback (functions/api/contact.js): success only on res.ok.
-    const f = document.getElementById('countyCallback') as HTMLFormElement | null;
-    f?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const phone = (document.getElementById('countyCbPhone') as HTMLInputElement).value;
-      const btn = f.querySelector('button') as HTMLButtonElement;
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: 'Call Back Request',
-            phone,
-            appliance: f.dataset.appliance,
-            message: `Call back request — ${f.dataset.appliance} repair, ${f.dataset.county} page`,
-          }),
-        });
-        if (!res.ok) {
-          const data = await res.json().catch(() => ({}));
-          alert(data.error || 'We could not send your request. Please call (323) 990-7550 directly.');
-          btn.disabled = false;
-          btn.textContent = 'Call me back';
-          return;
-        }
-        (window as any).trackLead?.('county_callback');
-        (f.querySelector('.county-cb-row') as HTMLElement).hidden = true;
-        (f.querySelector('.county-cb-ok') as HTMLElement).hidden = false;
-      } catch {
-        btn.disabled = false;
-        btn.textContent = 'Call me back';
-      }
-    });
-  </script>
 </Layout>

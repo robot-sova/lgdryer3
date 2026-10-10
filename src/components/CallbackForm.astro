@@ -1,0 +1,51 @@
+---
+// "Call me back" box for county and city pages. Posts to /api/contact like every other form on the
+// site (functions/api/contact.js → ЦУП); shows success only when the server accepted the lead.
+interface Props { place: string; appliance: 'washer' | 'dryer' }
+const { place, appliance } = Astro.props;
+---
+<form class="county-cb" data-callback data-place={place} data-appliance={appliance}>
+  <label>Can't talk right now? Leave your number and we call you back during business hours.
+    <div class="county-cb-row">
+      <input type="tel" name="phone" placeholder="Your phone number" autocomplete="tel" required />
+      <button type="submit">Call me back</button>
+    </div>
+  </label>
+  <p class="county-cb-ok" hidden>Got it — we will call you back shortly.</p>
+</form>
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-callback]').forEach((f) => {
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phone = (f.querySelector('input[name="phone"]') as HTMLInputElement).value;
+      const btn = f.querySelector('button') as HTMLButtonElement;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: 'Call Back Request',
+            phone,
+            appliance: f.dataset.appliance,
+            message: `Call back request — ${f.dataset.appliance} repair, ${f.dataset.place} page`,
+          }),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          alert(data.error || 'We could not send your request. Please call (323) 990-7550 directly.');
+          btn.disabled = false;
+          btn.textContent = 'Call me back';
+          return;
+        }
+        (window as any).trackLead?.('place_callback');
+        (f.querySelector('.county-cb-row') as HTMLElement).hidden = true;
+        (f.querySelector('.county-cb-ok') as HTMLElement).hidden = false;
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Call me back';
+      }
+    });
+  });
+</script>

@@ -1,0 +1,158 @@
+---
+// One city × one appliance: /washer-repair/<county>/<city>/ and /dryer-repair/<county>/<city>/.
+// Data and its rules: src/data/cities.ts. Shared service facts (prices, brands, FAQ): src/data/service.ts.
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CallbackForm from './CallbackForm.astro';
+import { countyBySlug } from '../data/counties';
+import { CITY_PAGES, type CityPage } from '../data/cities';
+import { RECENT_CALLS, VISIT_TEXT } from '../data/recentCalls';
+import { BRANDS, problemsFor, pricesFor, serviceFaqs, type Appliance } from '../data/service';
+
+interface Props { page: CityPage; appliance: Appliance }
+const { page, appliance } = Astro.props;
+const county = countyBySlug(page.county)!;
+const isWasher = appliance === 'washer';
+const App = isWasher ? 'Washer' : 'Dryer';
+const app = appliance;
+const other: Appliance = isWasher ? 'dryer' : 'washer';
+const SITE = 'https://washeranddryer.repair';
+const path = `/${app}-repair/${county.slug}/${page.slug}/`;
+const url = `${SITE}${path}`;
+
+const problems = problemsFor(appliance);
+const prices = pricesFor(appliance);
+const faqs = [
+  ...serviceFaqs(appliance, page.city).slice(0, 5),
+  {
+    q: `Which parts of ${page.city} do you cover?`,
+    a: `All of ${page.city} — ${page.neighborhoods.join(', ')} — ZIP codes ${page.zips.join(', ')}, and the neighboring ${page.nearby.slice(0, 4).join(', ')}.`,
+  },
+  ...serviceFaqs(appliance, page.city).slice(5),
+];
+
+// Real calls whose place is this city or one of its neighbourhoods (recentCalls.ts rules apply).
+const places = [page.city, ...page.neighborhoods].map((x) => x.toLowerCase());
+const calls = RECENT_CALLS.filter((c) => places.includes(c.place.toLowerCase()));
+
+const sameCounty = CITY_PAGES.filter((c) => c.county === page.county && c.slug !== page.slug && c.appliances.includes(appliance));
+const otherAppliancePage = page.appliances.includes(other) ? `/${other}-repair/${county.slug}/${page.slug}/` : null;
+
+const title = isWasher
+  ? `Washer Repair ${page.city}, CA — Washing Machine Service | $69`
+  : `Dryer Repair ${page.city}, CA — Gas & Electric Dryers | $69`;
+const h1 = isWasher ? `Washer & Washing Machine Repair in ${page.city}, CA` : `Dryer Repair in ${page.city}, CA — Gas & Electric`;
+const description = `${App} repair in ${page.city}: same-day, no trip fee, every brand, 90-day warranty. $69 diagnostic waived with repair. Call (323) 990-7550.`;
+const hero = isWasher
+  ? { img: '/images/hubs/washer-index-hero.webp', alt: `Front-load washing machine — washer repair in ${page.city}, CA` }
+  : { img: '/images/hubs/repairs-index-hero.webp', alt: `Technician repairing a dryer — dryer repair in ${page.city}, CA` };
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      '@id': `${url}#service`,
+      serviceType: `${App} repair`,
+      name: `${App} repair in ${page.city}, CA`,
+      provider: { '@id': `${SITE}/#business` },
+      areaServed: { '@type': 'City', name: `${page.city}, CA`, containedInPlace: { '@type': 'AdministrativeArea', name: `${county.name}, CA` } },
+      url,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+};
+---
+<Layout title={title} description={description} hubHeroImg={hero.img} hubHeroAlt={hero.alt}>
+  <Breadcrumbs slot="breadcrumbs" items={[
+    { label: 'Service Areas', href: '/service-area/' },
+    { label: county.name, href: `/${app}-repair/${county.slug}/` },
+    { label: `${App} repair — ${page.city}` },
+  ]} />
+  <div class="maintext county-page">
+    <h1>{h1}</h1>
+    <p class="county-lead">
+      We repair {app}s in homes all over {page.city} — {page.neighborhoods.slice(0, 4).join(', ')} and the rest of the city.
+      Same-day service, no trip fee, every brand. A licensed technician (BHGS #49573) diagnoses the {app} at your home and gives you
+      the exact price before any work; the $69 diagnostic is waived when you approve the repair, and the repair carries a 90-day warranty
+      on parts and labor.
+    </p>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 Call (323) 990-7550</a>
+      <a href="/book/" class="button-85">📅 Book online</a>
+    </div>
+
+    <CallbackForm place={page.city} appliance={appliance} />
+
+    <h2>{App} repair in {page.city}: what we see here</h2>
+    <p>{page.housing}</p>
+    <p>{isWasher ? page.washerNote : page.dryerNote}</p>
+
+    {calls.length > 0 && (
+      <section class="recent-calls" aria-labelledby="city-calls-title">
+        <h2 id="city-calls-title">Recent calls in {page.city}</h2>
+        <p class="recent-calls-note">Real requests we received, with the problem as the customer described it. No names or addresses.</p>
+        <ul class="recent-calls-list">
+          {calls.map((c) => (
+            <li class="recent-call">
+              <div class="rc-head"><span class="rc-month">{c.month}</span><span class="rc-place">{c.place}</span></div>
+              <div class="rc-body"><strong>{c.appliance}</strong> — {c.reported}.</div>
+              <div class="rc-visit">{VISIT_TEXT[c.visit]}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <h2>Neighborhoods and ZIP codes we serve in {page.city}</h2>
+    <p>{page.neighborhoods.join(' · ')}</p>
+    <p class="county-small">ZIP codes: {page.zips.join(', ')}. Also nearby: {page.nearby.join(', ')}.</p>
+
+    <h2>Common {app} problems we fix in {page.city}</h2>
+    <div class="index-grid">
+      {problems.map((p) => <a href={p.href} class="index-card"><div class="ic-name">{p.label}</div></a>)}
+    </div>
+
+    <h2>{App} repair prices in {page.city}</h2>
+    <p>Typical ranges including parts and labor — the same in {page.city} as everywhere we work, with no trip fee. The technician confirms the exact price after the diagnostic, before any work.</p>
+    <table class="county-prices">
+      <tbody>
+        <tr><td>Diagnostic visit</td><td>$69, waived with repair</td></tr>
+        {prices.map((p) => <tr><td><a href={p.href}>{p.label}</a></td><td>{p.range}</td></tr>)}
+      </tbody>
+    </table>
+
+    <h2>Brands we repair</h2>
+    <p>{BRANDS.join(' · ')} — every brand of residential {app}, front-load, top-load and stacked.</p>
+
+    <h2>How a visit works</h2>
+    <ol>
+      <li>Call (323) 990-7550 or <a href="/book/">book online</a> — tell us the brand, the model if you have it, and what the {app} does.</li>
+      <li>We give you the same-day arrival window. Hours: Monday–Saturday, 8am–8pm; online booking is open any time.</li>
+      <li>The technician diagnoses the {app}, gives you the price, and repairs it with your approval — usually in the same visit.</li>
+    </ol>
+
+    <h2>{App} repair questions from {page.city}</h2>
+    {faqs.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+
+    <h2>Also in {page.city}</h2>
+    <ul>
+      {otherAppliancePage && <li><a href={otherAppliancePage}>{isWasher ? 'Dryer' : 'Washer'} repair in {page.city}</a></li>}
+      {!otherAppliancePage && page.lgDryerPage && isWasher && <li><a href={`/areas/${page.lgDryerPage}/`}>LG dryer repair in {page.city}</a></li>}
+      <li><a href={`/${app}-repair/${county.slug}/`}>{App} repair across {county.name}</a></li>
+    </ul>
+
+    {sameCounty.length > 0 && (
+      <>
+        <h2>{App} repair nearby</h2>
+        <div class="index-grid">
+          {sameCounty.map((c) => <a href={`/${app}-repair/${county.slug}/${c.slug}/`} class="index-card"><div class="ic-name">{App} repair in {c.city}</div></a>)}
+        </div>
+      </>
+    )}
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</Layout>

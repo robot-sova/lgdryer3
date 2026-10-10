@@ -1,0 +1,8 @@
+---
+import CityPage from '../../../components/CityPage.astro';
+import { CITY_PAGES } from '../../../data/cities';
+export const getStaticPaths = () =>
+  CITY_PAGES.filter((p) => p.appliances.includes('washer')).map((page) => ({ params: { county: page.county, city: page.slug }, props: { page } }));
+const { page } = Astro.props;
+---
+<CityPage page={page} appliance="washer" />
