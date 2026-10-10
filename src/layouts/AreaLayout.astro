@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import RecentCalls from '../components/RecentCalls.astro';
 import { CITY_PAGES } from '../data/cities';
+import { BRANDS } from '../data/service';
 
 interface Props {
   title: string;
@@ -23,6 +24,23 @@ interface Props {
 }
 
 const { title, description, city, state = 'CA', county, zipCodes = [], heroImg, heroCaption, areaImg, areaImgCaption, neighborhoods = [], featuredNeighborhoods = [], nearbyCities = [], responseTime = '2–4 hours' } = Astro.props;
+
+// 2026-10-10: these pages were "LG Dryer Repair <city>". The business now repairs every brand of
+// washer and dryer (owner decision), so title, H1 and schema say "Dryer Repair <city> — LG & All
+// Brands"; the URLs (lg-dryer-repair-<city>) and the LG-specific text stay — LG is our specialty and
+// the pages already rank for LG searches. The title is built here so all 46 pages change together.
+const pageTitle = `Dryer Repair ${city}, CA — LG & All Brands | Same Day`;
+// Keep under 160 characters (scripts/check-schema.mjs): drop the trailing phone first, then whole
+// sentences from the end — never cut mid-sentence.
+const fitDescription = (d: string, max = 158) => {
+  let s = d.replace(/\s*(?:Call )?\(323\) 990-7550\.?\s*$/, '').trim();
+  while (s.length > max && s.lastIndexOf('. ', s.length - 2) > 0) s = s.slice(0, s.lastIndexOf('. ', s.length - 2) + 1);
+  return s;
+};
+const pageDescription = fitDescription(
+  description.replace(/^LG dryer repair (?:in )?([^.:]+?),?(?: CA)?\./i, 'All-brand dryer repair in $1, LG included.'),
+);
+const countySlug = ({ 'Los Angeles': 'los-angeles-county', Orange: 'orange-county', Ventura: 'ventura-county' } as Record<string, string>)[county ?? ''];
 
 const cityToSlug: Record<string, string> = {
   'Agoura Hills': 'agoura-hills', 'Anaheim': 'anaheim', 'Bel Air': 'bel-air',
@@ -44,7 +62,7 @@ const cityToSlug: Record<string, string> = {
 };
 ---
 
-<Layout title={title} description={description} heroImg={heroImg} ogImage={heroImg}>
+<Layout title={pageTitle} description={pageDescription} heroImg={heroImg} ogImage={heroImg}>
   <Breadcrumbs slot="breadcrumbs" items={[
     { label: "Areas", href: "/areas/" },
     { label: `${city}, CA` }
@@ -55,7 +73,7 @@ const cityToSlug: Record<string, string> = {
     {heroImg && (
       <div>
         <div style="width:100%; height:360px; overflow:hidden; border-radius:12px;">
-          <img src={heroImg} alt={`LG Dryer Repair ${city}`} style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+          <img src={heroImg} alt={`Dryer repair in ${city} — LG and all brands`} style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
         </div>
         {heroCaption && <div class="article-hero-caption">{heroCaption}</div>}
       </div>
@@ -64,7 +82,12 @@ const cityToSlug: Record<string, string> = {
 
   <div class="article-layout">
     <div class="article-body">
-      <h1 class="area-page-h1">LG Dryer Repair in {city}{state ? `, ${state}` : ''}</h1>
+      <h1 class="area-page-h1">Dryer Repair in {city}{state ? `, ${state}` : ''} — LG &amp; All Brands</h1>
+      <p class="area-brands-lead">
+        We repair every dryer brand in {city} — {BRANDS.join(', ')} — gas and electric, same day, no trip fee,
+        $69 diagnostic waived with the repair and a 90-day warranty. LG is our specialty, so this page goes deep on LG models;
+        the same technicians fix the rest.
+      </p>
 
       <!-- ZIP CODES + TRUST BADGES -->
       {zipCodes.length > 0 && (
@@ -111,6 +134,7 @@ const cityToSlug: Record<string, string> = {
         const cp = CITY_PAGES.find((x) => x.city === city && x.appliances.includes('washer'));
         return cp && <p class="area-washer-link"><a href={`/washer-repair/${cp.county}/${cp.slug}/`}>Washer problem instead? Washer repair in {city} →</a></p>;
       })()}
+      {countySlug && <p class="area-washer-link"><a href={`/dryer-repair/${countySlug}/`}>Dryer repair across {county} County — all brands →</a></p>}
 
       <slot />
 
@@ -203,7 +227,7 @@ const cityToSlug: Record<string, string> = {
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "LG Dryer Repair in " + city,
+    "name": "Dryer Repair in " + city,
     "serviceType": "LG dryer repair",
     "provider": { "@id": "https://washeranddryer.repair/#business" },
     "areaServed": { "@type": "City", "name": city + ", " + state }
