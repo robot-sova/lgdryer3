@@ -1,0 +1,191 @@
+---
+// One county × one appliance: /washer-repair/<county>/ and /dryer-repair/<county>/.
+// Data and the rules for it live in src/data/counties.ts — read them before adding text here.
+// What makes two county pages different is the data (cities, local paragraph, county notes, real
+// calls); the shared blocks below are the same service, described once.
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { COUNTIES, type County } from '../data/counties';
+import { recentCallsInCounty, VISIT_TEXT } from '../data/recentCalls';
+
+interface Props { county: County; appliance: 'washer' | 'dryer' }
+const { county, appliance } = Astro.props;
+const isWasher = appliance === 'washer';
+const App = isWasher ? 'Washer' : 'Dryer';
+const app = isWasher ? 'washer' : 'dryer';
+const other = isWasher ? 'dryer' : 'washer';
+const SITE = 'https://washeranddryer.repair';
+const url = `${SITE}/${app}-repair/${county.slug}/`;
+
+const BRANDS = ['LG', 'Samsung', 'Whirlpool', 'Maytag', 'GE', 'Kenmore', 'Electrolux', 'Frigidaire', 'Bosch', 'Speed Queen'];
+
+// Problems link to the guides that already exist on the site (LG guides; the causes are the same
+// on most front-load machines).
+const problems = isWasher
+  ? [
+      { label: 'Won’t drain (OE code)', href: '/washer/symptoms/lg-washer-not-draining/' },
+      { label: 'Won’t spin', href: '/washer/symptoms/lg-washer-not-spinning/' },
+      { label: 'Leaking water', href: '/washer/symptoms/lg-washer-leaking/' },
+      { label: 'Won’t fill (IE code)', href: '/washer/symptoms/lg-washer-not-filling/' },
+      { label: 'Shaking or walking', href: '/washer/symptoms/lg-washer-shaking/' },
+      { label: 'Won’t turn on', href: '/washer/symptoms/lg-washer-wont-turn-on/' },
+      { label: 'Door locked / won’t open', href: '/washer/symptoms/lg-washer-door-wont-open/' },
+      { label: 'Error codes', href: '/washer/' },
+    ]
+  : [
+      { label: 'Not heating', href: '/symptoms/lg-dryer-not-heating/' },
+      { label: 'Takes too long to dry', href: '/symptoms/lg-dryer-not-drying/' },
+      { label: 'Won’t start', href: '/symptoms/lg-dryer-not-starting/' },
+      { label: 'Drum won’t turn', href: '/symptoms/lg-dryer-not-spinning/' },
+      { label: 'Loud noise or squeaking', href: '/symptoms/lg-dryer-making-noise/' },
+      { label: 'Overheating', href: '/symptoms/lg-dryer-overheating/' },
+      { label: 'Door won’t close', href: '/symptoms/lg-dryer-door-wont-close/' },
+      { label: 'Flow Sense / vent warning', href: '/symptoms/lg-dryer-flow-sense-error/' },
+    ];
+
+// Ranges are the ones already published on the site's price pages — change them there first.
+const prices = isWasher
+  ? [
+      { label: 'Drain pump replacement', range: '$280–360', href: '/washer/price-list/lg-washer-drain-pump-replacement-cost/' },
+      { label: 'Door boot seal replacement', range: '$250–320', href: '/washer/price-list/lg-washer-door-seal-replacement-cost/' },
+      { label: 'Control board replacement', range: '$300–420', href: '/washer/price-list/lg-washer-control-board-replacement-cost/' },
+      { label: 'Tub bearing replacement', range: '$320–420', href: '/washer/price-list/lg-washer-bearing-replacement-cost/' },
+      { label: 'Most washer repairs', range: '$150–480', href: '/washer/price-list/lg-washer-repair-cost/' },
+    ]
+  : [
+      { label: 'Drum roller replacement (set of 4)', range: '$280–350', href: '/price-list/lg-dryer-drum-roller-replacement-cost/' },
+      { label: 'Heating element replacement', range: '$300–380', href: '/price-list/lg-dryer-heating-element-replacement-cost/' },
+      { label: 'Thermal fuse replacement', range: '$280–350', href: '/price-list/lg-dryer-thermal-fuse-replacement-cost/' },
+      { label: 'Gas valve coils or assembly', range: '$280–450', href: '/price-list/lg-dryer-gas-valve-replacement-cost/' },
+      { label: 'Igniter replacement (gas dryers)', range: '$280–350', href: '/price-list/lg-dryer-igniter-replacement-cost/' },
+      { label: 'Most dryer repairs', range: '$150–480', href: '/price-list/lg-dryer-repair-cost/' },
+    ];
+
+const calls = recentCallsInCounty(county.slug);
+const others = COUNTIES.filter((c) => c.slug !== county.slug);
+const when = county.sameDay
+  ? 'Same-day visits are common here when you call in the morning.'
+  : 'We visit by arrangement and confirm the day and the arrival window when you book.';
+
+const faqs = [
+  {
+    q: `How much is a ${app} repair visit in ${county.name}?`,
+    a: `The diagnostic is $89 and it is waived when you approve the repair. You get the exact price before any work starts. Most ${app} repairs run $150–480 including parts and labor.`,
+  },
+  {
+    q: `How soon can a technician come in ${county.name}?`,
+    a: county.sameDay
+      ? `Usually the same day or the next day, Monday to Saturday, 8am–8pm. Call (323) 990-7550 and we give you the arrival window on the phone.`
+      : `${county.name} is at the edge of our area, so we schedule visits by arrangement, Monday to Saturday. Call (323) 990-7550 or book online and we confirm the day and the window.`,
+  },
+  {
+    q: `Which ${app} brands do you repair?`,
+    a: `${BRANDS.slice(0, -1).join(', ')} and ${BRANDS.at(-1)}, plus most other residential front-load and top-load ${app}s. LG is where most of our experience is.`,
+  },
+  {
+    q: `Do you also fix ${other}s in ${county.name}?`,
+    a: `Yes. The same technician can look at both machines in one visit — tell us when you book.`,
+  },
+];
+
+const title = `${App} Repair in ${county.name}, CA | $89 Diagnostic`;
+const description = `${App} repair in ${county.name}: ${county.cities.slice(0, 3).map((c) => c.label).join(', ')} and more. All major brands, $89 diagnostic waived with repair. (323) 990-7550.`;
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      '@id': `${url}#service`,
+      serviceType: `${App} repair`,
+      name: `${App} repair in ${county.name}`,
+      provider: { '@id': `${SITE}/#business` },
+      areaServed: { '@type': 'AdministrativeArea', name: `${county.name}, CA` },
+      url,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+};
+---
+<Layout title={title} description={description}>
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Service Areas', href: '/service-area/' }, { label: `${App} repair — ${county.name}` }]} />
+  <div class="maintext county-page">
+    <h1>{App} Repair in {county.name}</h1>
+    <p class="county-lead">
+      We repair {app}s in homes across {county.name} — {county.cities.slice(0, 5).map((c) => c.label).join(', ')} and the surrounding cities.
+      A licensed technician (BHGS #49573) diagnoses the machine at your home and gives you the exact price before any work;
+      the $89 diagnostic is waived when you approve the repair. {when}
+    </p>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 Call (323) 990-7550</a>
+      <a href="/book/" class="button-85">📅 Book online</a>
+    </div>
+
+    <h2>{App} repair in {county.short}: what we see here</h2>
+    <p>{county.local}</p>
+    <p>{isWasher ? county.washerNote : county.dryerNote}</p>
+
+    <h2>Cities we serve in {county.name}</h2>
+    <div class="index-grid">
+      {county.cities.map((c) => c.page
+        ? <a href={`/areas/${c.page}/`} class="index-card"><div class="ic-name">{c.label}</div></a>
+        : <div class="index-card index-card-static"><div class="ic-name">{c.label}</div></div>)}
+    </div>
+    <p class="county-small">Not on the list? If you are in {county.name}, call — we most likely cover you.</p>
+
+    {calls.length > 0 && (
+      <section class="recent-calls" aria-labelledby="county-calls-title">
+        <h2 id="county-calls-title">Recent calls in {county.name}</h2>
+        <p class="recent-calls-note">Real requests we received, with the problem as the customer described it. No names or addresses.</p>
+        <ul class="recent-calls-list">
+          {calls.map((c) => (
+            <li class="recent-call">
+              <div class="rc-head"><span class="rc-month">{c.month}</span><span class="rc-place">{c.place}</span></div>
+              <div class="rc-body"><strong>{c.appliance}</strong> — {c.reported}.</div>
+              <div class="rc-visit">{VISIT_TEXT[c.visit]}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <h2>Common {app} problems we fix</h2>
+    <div class="index-grid">
+      {problems.map((p) => <a href={p.href} class="index-card"><div class="ic-name">{p.label}</div></a>)}
+    </div>
+
+    <h2>{App} repair prices</h2>
+    <p>Typical ranges including parts and labor. The technician confirms the exact price after the diagnostic, before any work.</p>
+    <table class="county-prices">
+      <tbody>
+        <tr><td>Diagnostic visit</td><td>$89, waived with repair</td></tr>
+        {prices.map((p) => <tr><td><a href={p.href}>{p.label}</a></td><td>{p.range}</td></tr>)}
+      </tbody>
+    </table>
+
+    <h2>Brands we repair</h2>
+    <p>{BRANDS.join(' · ')} — and most other residential {app}s. Most of our experience is with LG front-load machines.</p>
+
+    <h2>How a visit works</h2>
+    <ol>
+      <li>Call (323) 990-7550 or <a href="/book/">book online</a> — tell us the brand, the model if you have it, and what the {app} does.</li>
+      <li>We confirm the day and the arrival window. Hours: Monday–Saturday, 8am–8pm; online booking is open any time.</li>
+      <li>The technician diagnoses the {app}, gives you the price, and repairs it with your approval — usually in the same visit.</li>
+    </ol>
+
+    <h2>Questions from {county.name} customers</h2>
+    {faqs.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+
+    <h2>Also in {county.name}</h2>
+    <p><a href={`/${other}-repair/${county.slug}/`}>{other === 'washer' ? 'Washer' : 'Dryer'} repair in {county.name} →</a></p>
+
+    <h2>Other counties we serve</h2>
+    <div class="index-grid">
+      {others.map((c) => <a href={`/${app}-repair/${c.slug}/`} class="index-card"><div class="ic-name">{c.name}</div></a>)}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</Layout>

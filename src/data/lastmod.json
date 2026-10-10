@@ -8,8 +8,8 @@
     "lastmod": "2026-10-10"
   },
   "/areas/": {
-    "hash": "b72065f5056ab2ac",
-    "lastmod": "2026-06-24"
+    "hash": "4ccc49b99b1e58b6",
+    "lastmod": "2026-10-10"
   },
   "/areas/lg-dryer-repair-agoura-hills/": {
     "hash": "fa891ec74a4d0471",
@@ -203,6 +203,34 @@
     "hash": "6fd87cef331131b1",
     "lastmod": "2026-10-10"
   },
+  "/dryer-repair/los-angeles-county/": {
+    "hash": "7b0faadd288c94de",
+    "lastmod": "2026-10-10"
+  },
+  "/dryer-repair/orange-county/": {
+    "hash": "ae112422c7585fdb",
+    "lastmod": "2026-10-10"
+  },
+  "/dryer-repair/riverside-county/": {
+    "hash": "f77f20691f9e2ed9",
+    "lastmod": "2026-10-10"
+  },
+  "/dryer-repair/san-bernardino-county/": {
+    "hash": "338f94df8fdf840f",
+    "lastmod": "2026-10-10"
+  },
+  "/dryer-repair/san-diego-county/": {
+    "hash": "f6b2f5930635e2f7",
+    "lastmod": "2026-10-10"
+  },
+  "/dryer-repair/santa-barbara-county/": {
+    "hash": "3f4ac8e3ececc74b",
+    "lastmod": "2026-10-10"
+  },
+  "/dryer-repair/ventura-county/": {
+    "hash": "88b6de1b53d47a7d",
+    "lastmod": "2026-10-10"
+  },
   "/help/": {
     "hash": "5cde7f5c2e442ab4",
     "lastmod": "2026-10-10"
@@ -351,6 +379,10 @@
     "hash": "a95619b8bbc35941",
     "lastmod": "2026-10-04"
   },
+  "/service-area/": {
+    "hash": "c79c6f5fa4296f1e",
+    "lastmod": "2026-10-10"
+  },
   "/symptoms/": {
     "hash": "e10b183fec6163f9",
     "lastmod": "2026-10-04"
@@ -387,13 +419,41 @@
     "hash": "04ad37301183d6aa",
     "lastmod": "2026-10-10"
   },
+  "/washer-repair/los-angeles-county/": {
+    "hash": "7ed1c073c02eab53",
+    "lastmod": "2026-10-10"
+  },
+  "/washer-repair/orange-county/": {
+    "hash": "c098075da53ab225",
+    "lastmod": "2026-10-10"
+  },
+  "/washer-repair/riverside-county/": {
+    "hash": "e7b5d9195f0c5525",
+    "lastmod": "2026-10-10"
+  },
+  "/washer-repair/san-bernardino-county/": {
+    "hash": "168700a73df6e4d7",
+    "lastmod": "2026-10-10"
+  },
+  "/washer-repair/san-diego-county/": {
+    "hash": "cdace8f76f53af16",
+    "lastmod": "2026-10-10"
+  },
+  "/washer-repair/santa-barbara-county/": {
+    "hash": "48158812ce49adf1",
+    "lastmod": "2026-10-10"
+  },
+  "/washer-repair/ventura-county/": {
+    "hash": "abe71dc29e92de03",
+    "lastmod": "2026-10-10"
+  },
   "/washer/": {
     "hash": "90d5d6c9bdad335b",
     "lastmod": "2026-10-04"
   },
   "/washer/areas/": {
-    "hash": "5d8c9a77bbb4efb0",
-    "lastmod": "2026-06-24"
+    "hash": "05b9a7639bb8bd82",
+    "lastmod": "2026-10-10"
   },
   "/washer/error-codes/": {
     "hash": "1d8103a319909b27",

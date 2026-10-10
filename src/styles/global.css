@@ -1224,3 +1224,16 @@ figure.article-img.article-img--square img {
 .article-body .recent-calls .recent-calls-note { font-size: 13px; line-height: 1.5; margin: 0 0 14px; }
 .article-body .recent-calls ul.recent-calls-list { padding-left: 0; margin: 0; }
 .article-body .recent-calls li.recent-call { margin: 0; font-size: 15px; line-height: 1.5; }
+
+/* County pages (src/components/CountyPage.astro, /service-area/, /washer/areas/) — 2026-10-10 */
+.county-page .county-lead { font-size: 1.05rem; }
+.county-small { font-size: 13px; color: #8a96a8; margin: 4px 0 0; }
+.index-card .county-small { display: block; margin-top: 4px; }
+.index-card:has(.county-small) { flex-direction: column; align-items: flex-start; }
+.index-card-static { cursor: default; }
+.index-card-static:hover { border-color: #1e2a3a; background: #111; }
+.county-prices { width: 100%; border-collapse: collapse; margin: 12px 0 28px; }
+.county-prices td { padding: 10px 12px; border-bottom: 1px solid #1e2a3a; vertical-align: top; }
+.county-prices td:last-child { text-align: right; white-space: nowrap; color: #ddd; }
+.county-hub-row { margin-bottom: 8px; }
+@media (max-width: 600px) { .county-prices td:last-child { white-space: normal; } }

@@ -191,7 +191,7 @@ const venturaCounty = [
           "latitude": 34.1485,
           "longitude": -118.1335
         },
-        "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"],
+        "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA", "Santa Barbara County, CA", "San Bernardino County, CA", "Riverside County, CA", "San Diego County, CA"],
         "knowsAbout": ["washer repair", "dryer repair", "LG dryer repair", "LG washer repair", "appliance repair"],
         "hasCredential": {
           "@type": "EducationalOccupationalCredential",
@@ -329,6 +329,14 @@ const venturaCounty = [
                   {venturaCounty.map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
                 </div>
               </div>
+              <div class="county-section">
+                <div class="county-title">ALL 7 COUNTIES</div>
+                <div class="county-cities">
+                  <a href="/service-area/">Service area map →</a>
+                  <a href="/washer/areas/">Washer repair by county</a>
+                  <a href="/areas/">Dryer repair by county</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -395,6 +403,7 @@ const venturaCounty = [
       <h4>Service Areas</h4>
       {laCounty.slice(0,4).map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
       {orangeCounty.slice(0,2).map(c => <a href={`/areas/${c.slug}/`}>{c.label}</a>)}
+      <a href="/service-area/">All 7 counties →</a>
     </div>
 
     <div class="mobile-section">
@@ -432,8 +441,9 @@ const venturaCounty = [
           <p class="footer-tagline">
             Washer & Dryer Repair (formerly LG Dryer Repair) is a specialized appliance service company
             providing expert repair and installation of washers and dryers
-            across Los Angeles County, Orange County, and Ventura County.
-            Same-day service, OEM parts, 1-year warranty.
+            across Los Angeles, Orange, Ventura, Santa Barbara, San Bernardino,
+            Riverside and San Diego counties.
+            Same-day service in LA, Orange and Ventura counties, OEM parts, 1-year warranty.
           </p>
         </div>
         <div>
@@ -466,7 +476,7 @@ const venturaCounty = [
             <li><a href="/property-managers/">For property managers</a></li>
             <li><a href="/about/">About Us</a></li>
             <li><a href="/careers/">Careers</a></li>
-            <li><a href="/sitemap.xml">Sitemap</a></li>
+            <li><a href="/sitemap-index.xml">Sitemap</a></li>
           </ul>
         </div>
       </div>

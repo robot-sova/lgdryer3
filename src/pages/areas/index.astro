@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { COUNTIES } from '../../data/counties';
 
 const laCounty = [
   { slug: 'lg-dryer-repair-los-angeles', label: 'Los Angeles' },
@@ -36,13 +37,20 @@ const venturaCounty = [
 ];
 ---
 
-<Layout title="LG Dryer Repair Service Areas | LA, OC, Ventura" description="LG dryer repair across Los Angeles, Orange County, and Ventura County. Same-day service in 24+ cities."
+<Layout title="Dryer Repair Service Areas | 7 Southern California Counties" description="Dryer repair across Los Angeles, Orange, Ventura, Santa Barbara, San Bernardino, Riverside and San Diego counties. $89 diagnostic. (323) 990-7550."
   hubHeroImg="/images/hubs/areas-index-hero.webp"
   hubHeroAlt="LG appliance repair technician with a service van in Southern California">
   <Breadcrumbs slot="breadcrumbs" items={[{ label: "Service Areas" }]} />
   <div class="maintext">
-    <h1>LG Dryer Repair Service Areas</h1>
-    <p>We provide same-day LG dryer repair across three counties. Select your city for local service details.</p>
+    <h1>Dryer Repair Service Areas</h1>
+    <p>We repair dryers in seven Southern California counties. Start with your county, or pick a city below for local details.</p>
+
+    <h2>Dryer repair by county</h2>
+    <div class="index-grid">
+      {COUNTIES.map(c => (
+        <a href={`/dryer-repair/${c.slug}/`} class="index-card"><div class="ic-name">{c.name}</div></a>
+      ))}
+    </div>
 
     <h2>Los Angeles County</h2>
     <div class="index-grid">
