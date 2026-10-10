@@ -15,7 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const DRY = process.argv.includes('--dry');
-const BIZ = { '@id': 'https://lgdryer.repair/#business' };
+const BIZ = { '@id': 'https://washeranddryer.repair/#business' };
 const ROOT = new URL('../src/pages/', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>

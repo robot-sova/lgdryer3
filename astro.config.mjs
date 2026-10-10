@@ -10,7 +10,7 @@ const LASTMOD_FILE = new URL('./src/data/lastmod.json', import.meta.url);
 const lastmod = existsSync(LASTMOD_FILE) ? JSON.parse(readFileSync(LASTMOD_FILE, 'utf8')) : {};
 
 export default defineConfig({
-  site: 'https://lgdryer.repair',
+  site: 'https://washeranddryer.repair',
   output: 'static',
   trailingSlash: 'always',
   integrations: [

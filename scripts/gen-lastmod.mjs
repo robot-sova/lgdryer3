@@ -26,7 +26,7 @@ import { join } from 'node:path';
 
 const DIST = 'dist';
 const OUT = 'src/data/lastmod.json';
-const SITE = 'https://lgdryer.repair';
+const SITE = 'https://washeranddryer.repair';
 const CHECK = process.argv.includes('--check');
 const SEED = process.argv.includes('--seed');
 

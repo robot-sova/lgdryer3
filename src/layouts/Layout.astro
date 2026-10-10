@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title = 'LG Dryer Repair Los Angeles | Same Day Service', description = 'Professional LG dryer repair in Los Angeles. Same-day service, certified technicians. Call (323) 990-7550.', heroImg, hubHeroImg, hubHeroAlt, hubHeroCaption, ogImage } = Astro.props;
-const resolvedOgImage = ogImage ? `https://lgdryer.repair${ogImage}` : 'https://lgdryer.repair/images/lg-dryer-hero.webp';
+const resolvedOgImage = ogImage ? `https://washeranddryer.repair${ogImage}` : 'https://washeranddryer.repair/images/lg-dryer-hero.webp';
 
 const repairLinks = [
   { slug: 'lg-dryer-heating-element-replacement', label: 'Heating Element Replacement' },
@@ -120,6 +120,7 @@ const venturaCounty = [
   <title>{title}</title>
   {heroImg && <link rel="preload" as="image" href={heroImg} fetchpriority="high" />}
   <!--
+    Host check: washeranddryer.repair since the domain move (2026-10); lgdryer.repair now 301s here.
     GA4 G-7LZ8CJSZNM — the same property the previous build (lgdryer2) used; the rebuild of
     2026-04-04 dropped the tag, and the site had no analytics at all until 2026-10-04.
     Loaded only on the real domain: preview (*.pages.dev) and local test runs must not send
@@ -130,7 +131,7 @@ const venturaCounty = [
   <script is:inline>
     (function () {
       var ID = 'G-7LZ8CJSZNM';
-      var live = location.hostname === 'lgdryer.repair' || location.hostname === 'www.lgdryer.repair';
+      var live = location.hostname === 'washeranddryer.repair' || location.hostname === 'www.washeranddryer.repair';
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () { if (live) window.dataLayer.push(arguments); };
       window.trackLead = function (form) { window.gtag('event', 'generate_lead', { form_type: form }); };
@@ -148,17 +149,17 @@ const venturaCounty = [
     })();
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="canonical" href={`https://lgdryer.repair${Astro.url.pathname}`} />
+  <link rel="canonical" href={`https://washeranddryer.repair${Astro.url.pathname}`} />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={`https://lgdryer.repair${Astro.url.pathname}`} />
+  <meta property="og:url" content={`https://washeranddryer.repair${Astro.url.pathname}`} />
   <meta property="og:image" content={resolvedOgImage} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content={resolvedOgImage} />
   <!-- The ONE description of the business. Every other JSON-LD block on the site refers to it
-       by "@id": "https://lgdryer.repair/#business" (scripts/fix-schema.mjs, 2026-10-04) — do not
+       by "@id": "https://washeranddryer.repair/#business" (scripts/fix-schema.mjs, 2026-10-04) — do not
        add a second LocalBusiness on a page. geo = the street address below (155 N Lake Ave).
        TODO(Roman): add "sameAs" with real profile URLs (Yelp) once they exist; an empty
        array was removed. -->
@@ -169,12 +170,13 @@ const venturaCounty = [
     "@graph": [
       {
         "@type": "LocalBusiness",
-        "@id": "https://lgdryer.repair/#business",
-        "name": "LG Dryer Repair",
+        "@id": "https://washeranddryer.repair/#business",
+        "name": "Washer & Dryer Repair",
+        "alternateName": "LG Dryer Repair",
         "telephone": "(323) 990-7550",
         "email": "info@lgdryer.repair",
-        "url": "https://lgdryer.repair",
-        "image": "https://lgdryer.repair/images/lg-dryer-hero.webp",
+        "url": "https://washeranddryer.repair",
+        "image": "https://washeranddryer.repair/images/lg-dryer-hero.webp",
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
@@ -190,7 +192,7 @@ const venturaCounty = [
           "longitude": -118.1335
         },
         "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"],
-        "knowsAbout": ["LG dryer repair", "LG washer repair", "appliance repair"],
+        "knowsAbout": ["washer repair", "dryer repair", "LG dryer repair", "LG washer repair", "appliance repair"],
         "hasCredential": {
           "@type": "EducationalOccupationalCredential",
           "credentialCategory": "license",
@@ -209,9 +211,9 @@ const venturaCounty = [
       },
       {
         "@type": "WebSite",
-        "@id": "https://lgdryer.repair/#website",
-        "name": "LG Dryer Repair",
-        "url": "https://lgdryer.repair"
+        "@id": "https://washeranddryer.repair/#website",
+        "name": "Washer & Dryer Repair",
+        "url": "https://washeranddryer.repair"
       }
     ]
   }
@@ -221,7 +223,7 @@ const venturaCounty = [
   <header class="site-header">
   <nav class="navbar">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between">
-      <a href="/" class="nav-logo"><span class="lg-badge">LG</span> lgdryer.repair</a>
+      <a href="/" class="nav-logo">washeranddryer.repair</a>
 
       <div class="nav-links">
         <div class="nav-item">
@@ -428,8 +430,8 @@ const venturaCounty = [
           <p><a href="tel:3239907550">(323) 990-7550</a></p>
           <p><a href="mailto:info@lgdryer.repair">info@lgdryer.repair</a></p>
           <p class="footer-tagline">
-            LG Dryer Repair is a specialized appliance service company
-            providing expert repair and installation of LG dryers and washers
+            Washer & Dryer Repair (formerly LG Dryer Repair) is a specialized appliance service company
+            providing expert repair and installation of washers and dryers
             across Los Angeles County, Orange County, and Ventura County.
             Same-day service, OEM parts, 1-year warranty.
           </p>
@@ -469,7 +471,7 @@ const venturaCounty = [
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} lgdryer.repair — LG Dryer Repair Los Angeles. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} washeranddryer.repair — Washer &amp; Dryer Repair, Southern California. All rights reserved.</p>
       </div>
     </div>
   </footer>
