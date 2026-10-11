@@ -1,0 +1,53 @@
+---
+// Section hub (e.g. /washer/repairs/): every guide of the section from src/data/guides.ts, links to
+// the other hubs of the same appliance and to the county pages. Replaced "coming soon" stubs 2026-10-10.
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { SECTION_HUB, guidesIn, type Section } from '../data/guides';
+import { COUNTIES } from '../data/counties';
+
+interface Props {
+  section: Section;
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  heroImg?: string;
+  heroAlt?: string;
+  crumbs: { label: string; href?: string }[];
+}
+const { section, title, description, h1, intro, heroImg, heroAlt, crumbs } = Astro.props;
+const items = guidesIn(section);
+const appliance = section.startsWith('washer') ? 'washer' : 'dryer';
+const siblings = (Object.keys(SECTION_HUB) as Section[]).filter((s) => s !== section && s.startsWith(appliance));
+---
+<Layout title={title} description={description} hubHeroImg={heroImg} hubHeroAlt={heroAlt}>
+  <Breadcrumbs slot="breadcrumbs" items={crumbs} />
+  <div class="maintext">
+    <h1>{h1}</h1>
+    <p>{intro}</p>
+    <div class="index-grid">
+      {items.map((g) => (
+        <a href={g.path} class="index-card hub-card">
+          <div class="ic-name">{g.label}</div>
+          {g.desc && <div class="county-small">{g.desc}</div>}
+        </a>
+      ))}
+    </div>
+
+    <h2>More {appliance} guides</h2>
+    <div class="index-grid">
+      {siblings.map((s) => <a href={SECTION_HUB[s].href} class="index-card"><div class="ic-name">{SECTION_HUB[s].label}</div></a>)}
+    </div>
+
+    <h2>{appliance === 'washer' ? 'Washer' : 'Dryer'} repair near you</h2>
+    <p>Same day in seven Southern California counties, every brand, no trip fee. The $69 diagnostic is waived when you approve the repair; 90-day warranty on parts and labor.</p>
+    <div class="index-grid">
+      {COUNTIES.map((c) => <a href={`/${appliance}-repair/${c.slug}/`} class="index-card"><div class="ic-name">{c.name}</div></a>)}
+    </div>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 CALL (323) 990-7550</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
+  </div>
+</Layout>

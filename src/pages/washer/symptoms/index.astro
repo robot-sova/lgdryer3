@@ -1,11 +1,13 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+import GuideHub from '../../../components/GuideHub.astro';
 ---
-<Layout title="LG Washer Problems & Symptoms | Los Angeles" description="Common LG washer problems and symptoms. Professional diagnosis in Los Angeles, Orange County and Ventura County. Call (323) 990-7550."
-  hubHeroImg="/images/hubs/washer-symptoms-hero.webp"
-  hubHeroAlt="LG washer with the door open during diagnosis">
-  <div class="container" style="padding: 4rem 2rem; text-align: center;">
-    <h1>LG Washer Symptoms</h1>
-    <p style="color: var(--text-secondary);">Full symptom diagnosis pages coming soon.</p>
-  </div>
-</Layout>
+<GuideHub
+  section="washer-symptoms"
+  title="Washer Problems & Symptoms | Won't Drain, Spin, Fill, Leaking"
+  description="Washing machine won't drain, spin or fill, leaks, shakes or won't turn on? Likely causes, what you can check, and what the repair costs."
+  h1="Washer Problems &amp; Symptoms"
+  intro="Start with what the washer is doing. Each guide covers the likely causes, what you can safely check yourself, and what the repair usually costs."
+  heroImg="/images/hubs/washer-symptoms-hero.webp"
+  heroAlt="Washing machine in a laundry room during diagnosis"
+  crumbs={[{ label: "Washer", href: "/washer/" }, { label: "Symptoms" }]}
+/>

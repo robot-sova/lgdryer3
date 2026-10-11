@@ -3,6 +3,7 @@
 //   - exactly one LocalBusiness per page (the one in Layout.astro);
 //   - no aggregateRating (the site has no reviews to rate);
 //   - no old diagnostic price left: $69 since 2026-10-10 (was $89, before that $65);
+//   - no 1-year warranty left (90 days since 2026-10-10);
 //   - meta description not longer than 160 characters.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -11,7 +12,7 @@ const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>
   e.isDirectory() ? walk(path.join(d, e.name)) : e.name === 'index.html' ? [path.join(d, e.name)] : []);
 
 let pages = 0;
-const fail = { jsonErrors: [], notOneBusiness: [], rating: [], oldDiagPrice: [], longDesc: [] };
+const fail = { jsonErrors: [], notOneBusiness: [], rating: [], oldDiagPrice: [], oldWarranty: [], longDesc: [] };
 for (const f of walk('dist')) {
   pages++;
   const rel = path.relative('dist', f).split(path.sep).join('/');
@@ -29,6 +30,8 @@ for (const f of walk('dist')) {
   if (businesses !== 1) fail.notOneBusiness.push(`${rel} (${businesses})`);
   // "$65–100"/"$65-120" and "$89–$149" are part/service prices, not the diagnostic.
   if (/\$65(?![–-]1[02]0)|\$89(?![–\-0-9,])/.test(h)) fail.oldDiagPrice.push(rel);
+  // Warranty is 90 days (owner, 2026-10-10).
+  if (/(?:1[- ]?yr|1[- ]year|one[- ]year|12[- ]month)\s+(?:parts\s+(?:and|&amp;|&)\s+labor\s+)?warrant/i.test(h)) fail.oldWarranty.push(rel);
   const md = (h.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
   const text = md.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
   if (text.length > 160) fail.longDesc.push(`${text.length} ${rel}`);
