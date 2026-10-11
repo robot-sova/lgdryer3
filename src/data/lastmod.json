@@ -1,10 +1,18 @@
 {
   "/": {
-    "hash": "a76e1055710844b5",
+    "hash": "c1f3d8604c0d2d84",
     "lastmod": "2026-10-10"
   },
   "/about/": {
     "hash": "5016f22b5e00693a",
+    "lastmod": "2026-10-10"
+  },
+  "/amana-dryer-repair/": {
+    "hash": "b22a04425a808d7e",
+    "lastmod": "2026-10-10"
+  },
+  "/amana-washer-repair/": {
+    "hash": "617b3b78d4af3f4b",
     "lastmod": "2026-10-10"
   },
   "/areas/": {
@@ -200,15 +208,15 @@
     "lastmod": "2026-10-10"
   },
   "/bosch-dryer-repair/": {
-    "hash": "2b20f0220c6634e2",
+    "hash": "0be482b9222d3ea1",
     "lastmod": "2026-10-10"
   },
   "/bosch-washer-repair/": {
-    "hash": "9ae360dadecce27e",
+    "hash": "e837f6259ba91453",
     "lastmod": "2026-10-10"
   },
   "/brands/": {
-    "hash": "bbf856b0b5d9c622",
+    "hash": "f918096648b10455",
     "lastmod": "2026-10-10"
   },
   "/careers/": {
@@ -260,19 +268,27 @@
     "lastmod": "2026-10-10"
   },
   "/electrolux-dryer-repair/": {
-    "hash": "7be38ff719359fac",
+    "hash": "94a471bb7af8e130",
     "lastmod": "2026-10-10"
   },
   "/electrolux-washer-repair/": {
-    "hash": "be687e4085d1fefc",
+    "hash": "b967bb430487497b",
+    "lastmod": "2026-10-10"
+  },
+  "/frigidaire-dryer-repair/": {
+    "hash": "b5a2d3ea2f3b5afa",
+    "lastmod": "2026-10-10"
+  },
+  "/frigidaire-washer-repair/": {
+    "hash": "6681a61fc279769d",
     "lastmod": "2026-10-10"
   },
   "/ge-dryer-repair/": {
-    "hash": "822ad59a8bc44549",
+    "hash": "542239c77077fe57",
     "lastmod": "2026-10-10"
   },
   "/ge-washer-repair/": {
-    "hash": "126de760ab588d34",
+    "hash": "6b2afefbd071abc8",
     "lastmod": "2026-10-10"
   },
   "/help/": {
@@ -300,19 +316,39 @@
     "lastmod": "2026-10-10"
   },
   "/kenmore-dryer-repair/": {
-    "hash": "320b6b6042043c48",
+    "hash": "a39da67e7d38eba2",
     "lastmod": "2026-10-10"
   },
   "/kenmore-washer-repair/": {
-    "hash": "14fbfcb6865d861b",
+    "hash": "7cd52c711b3febf9",
+    "lastmod": "2026-10-10"
+  },
+  "/kitchenaid-dryer-repair/": {
+    "hash": "5c7f66bc31be843f",
+    "lastmod": "2026-10-10"
+  },
+  "/kitchenaid-washer-repair/": {
+    "hash": "09c010c1461ae15f",
     "lastmod": "2026-10-10"
   },
   "/maytag-dryer-repair/": {
-    "hash": "437ddc157c392074",
+    "hash": "da0ce436c3d9112e",
+    "lastmod": "2026-10-10"
+  },
+  "/maytag-washer-error-codes/": {
+    "hash": "b3bfa1c4003e6c03",
     "lastmod": "2026-10-10"
   },
   "/maytag-washer-repair/": {
-    "hash": "5ef7977e9e4e5ee3",
+    "hash": "1639adc6c1db73d0",
+    "lastmod": "2026-10-10"
+  },
+  "/miele-dryer-repair/": {
+    "hash": "b5cc44f0f0b809b2",
+    "lastmod": "2026-10-10"
+  },
+  "/miele-washer-repair/": {
+    "hash": "f94bddd2543b0d69",
     "lastmod": "2026-10-10"
   },
   "/price-list/": {
@@ -439,8 +475,12 @@
     "hash": "58c7d417e4121e1c",
     "lastmod": "2026-10-10"
   },
+  "/samsung-dryer-error-codes/": {
+    "hash": "528129519e1f8fc3",
+    "lastmod": "2026-10-10"
+  },
   "/samsung-dryer-repair/": {
-    "hash": "611e528a47f8fba2",
+    "hash": "2a157446c35e633d",
     "lastmod": "2026-10-10"
   },
   "/samsung-washer-error-codes/": {
@@ -448,7 +488,7 @@
     "lastmod": "2026-10-10"
   },
   "/samsung-washer-repair/": {
-    "hash": "ab51702140ca4c10",
+    "hash": "5f96325ec8f80851",
     "lastmod": "2026-10-10"
   },
   "/service-area/": {
@@ -456,11 +496,11 @@
     "lastmod": "2026-10-10"
   },
   "/speed-queen-dryer-repair/": {
-    "hash": "d4e995cb637e03c0",
+    "hash": "2d9ea6cb7db26c65",
     "lastmod": "2026-10-10"
   },
   "/speed-queen-washer-repair/": {
-    "hash": "f7f0b550ad7487f3",
+    "hash": "a304c725c69831c1",
     "lastmod": "2026-10-10"
   },
   "/symptoms/": {
@@ -708,7 +748,7 @@
     "lastmod": "2026-10-10"
   },
   "/whirlpool-dryer-repair/": {
-    "hash": "cb55b16e1a6573e5",
+    "hash": "fff2cba74f824a94",
     "lastmod": "2026-10-10"
   },
   "/whirlpool-washer-error-codes/": {
@@ -716,7 +756,7 @@
     "lastmod": "2026-10-10"
   },
   "/whirlpool-washer-repair/": {
-    "hash": "25e43fa2bbe813f8",
+    "hash": "a0bbf49d792c5f3f",
     "lastmod": "2026-10-10"
   }
 }
