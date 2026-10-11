@@ -1,0 +1,23 @@
+---
+// Real 404. Without this file Cloudflare Pages answered every unknown URL with the homepage and
+// status 200 (a "soft 404" for Google). With dist/404.html Pages returns this page with status 404.
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Page not found | Laundry Medic" description="This page does not exist. Washer and dryer repair across Southern California — call (323) 990-7550.">
+  <div class="maintext county-page">
+    <h1>Page not found</h1>
+    <p class="county-lead">The page you were looking for is not here — it may have moved when the site changed address. Here is where to go instead:</p>
+    <div class="index-grid">
+      <a href="/" class="index-card"><div class="ic-name">Home</div></a>
+      <a href="/service-area/" class="index-card"><div class="ic-name">Service area — 7 counties</div></a>
+      <a href="/brands/" class="index-card"><div class="ic-name">Brands we repair</div></a>
+      <a href="/washer/" class="index-card"><div class="ic-name">Washer repair</div></a>
+      <a href="/repairs/" class="index-card"><div class="ic-name">Dryer repair</div></a>
+      <a href="/price-list/" class="index-card"><div class="ic-name">Prices</div></a>
+    </div>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 Call (323) 990-7550</a>
+      <a href="/book/" class="button-85">📅 Book online</a>
+    </div>
+  </div>
+</Layout>
