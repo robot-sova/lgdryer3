@@ -35,7 +35,7 @@ const more = BRANDS.filter((b) => !withPages.has(b));
     ))}
 
     <h2>And every other brand</h2>
-    <p>{more.join(' · ')} · Fisher &amp; Paykel · Asko · Hotpoint · Haier · Midea — and commercial-grade machines. Call (323) 990-7550 with the brand and model and we tell you on the phone what is likely wrong.</p>
+    <p>{more.length > 0 && <>{more.join(' · ')} · </>}Crosley, Insignia, Danby, Equator and other compact and portable brands — and commercial-grade machines. Call (323) 990-7550 with the brand and model and we tell you on the phone what is likely wrong.</p>
     <div class="cta-buttons">
       <a href="tel:3239907550" class="button-85">📞 CALL US</a>
       <a href="/book/" class="button-85">📅 BOOK ONLINE</a>

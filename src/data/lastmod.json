@@ -1,6 +1,6 @@
 {
   "/": {
-    "hash": "c1f3d8604c0d2d84",
+    "hash": "9327c182f234e75b",
     "lastmod": "2026-10-10"
   },
   "/about/": {
@@ -8,11 +8,11 @@
     "lastmod": "2026-10-10"
   },
   "/amana-dryer-repair/": {
-    "hash": "b22a04425a808d7e",
+    "hash": "6e83835ca24dcd4c",
     "lastmod": "2026-10-10"
   },
   "/amana-washer-repair/": {
-    "hash": "617b3b78d4af3f4b",
+    "hash": "dae97172312b42a9",
     "lastmod": "2026-10-10"
   },
   "/areas/": {
@@ -203,20 +203,44 @@
     "hash": "77947dfdf5aeeade",
     "lastmod": "2026-10-10"
   },
+  "/asko-dryer-repair/": {
+    "hash": "420743667d55e3fa",
+    "lastmod": "2026-10-10"
+  },
+  "/asko-washer-repair/": {
+    "hash": "c869c247e82a5674",
+    "lastmod": "2026-10-10"
+  },
+  "/beko-dryer-repair/": {
+    "hash": "c338159f5f5db8c4",
+    "lastmod": "2026-10-10"
+  },
+  "/beko-washer-repair/": {
+    "hash": "905bfd4a5befbe10",
+    "lastmod": "2026-10-10"
+  },
+  "/blomberg-dryer-repair/": {
+    "hash": "32c6b156211cb26a",
+    "lastmod": "2026-10-10"
+  },
+  "/blomberg-washer-repair/": {
+    "hash": "4347ffdab2bc3dd3",
+    "lastmod": "2026-10-10"
+  },
   "/book/": {
     "hash": "940e727fad4ae9f4",
     "lastmod": "2026-10-10"
   },
   "/bosch-dryer-repair/": {
-    "hash": "0be482b9222d3ea1",
+    "hash": "6a9d1011e81cfff2",
     "lastmod": "2026-10-10"
   },
   "/bosch-washer-repair/": {
-    "hash": "e837f6259ba91453",
+    "hash": "f10c7e99a6a8dfbb",
     "lastmod": "2026-10-10"
   },
   "/brands/": {
-    "hash": "f918096648b10455",
+    "hash": "a287490ca6b767b6",
     "lastmod": "2026-10-10"
   },
   "/careers/": {
@@ -268,27 +292,43 @@
     "lastmod": "2026-10-10"
   },
   "/electrolux-dryer-repair/": {
-    "hash": "94a471bb7af8e130",
+    "hash": "5a5d4b9f02072ce5",
     "lastmod": "2026-10-10"
   },
   "/electrolux-washer-repair/": {
-    "hash": "b967bb430487497b",
+    "hash": "38077e60ac1f1676",
+    "lastmod": "2026-10-10"
+  },
+  "/fisher-paykel-dryer-repair/": {
+    "hash": "8af2ceb2b61c3028",
+    "lastmod": "2026-10-10"
+  },
+  "/fisher-paykel-washer-repair/": {
+    "hash": "d5877d62e000c211",
     "lastmod": "2026-10-10"
   },
   "/frigidaire-dryer-repair/": {
-    "hash": "b5a2d3ea2f3b5afa",
+    "hash": "b34e216f73cfd264",
     "lastmod": "2026-10-10"
   },
   "/frigidaire-washer-repair/": {
-    "hash": "6681a61fc279769d",
+    "hash": "92fb60c080a0fae1",
     "lastmod": "2026-10-10"
   },
   "/ge-dryer-repair/": {
-    "hash": "542239c77077fe57",
+    "hash": "2de546b8b0ca3c1b",
     "lastmod": "2026-10-10"
   },
   "/ge-washer-repair/": {
-    "hash": "6b2afefbd071abc8",
+    "hash": "b96f0a6274351c2f",
+    "lastmod": "2026-10-10"
+  },
+  "/haier-dryer-repair/": {
+    "hash": "0b6379c23272b2c5",
+    "lastmod": "2026-10-10"
+  },
+  "/haier-washer-repair/": {
+    "hash": "53c95283bef58a04",
     "lastmod": "2026-10-10"
   },
   "/help/": {
@@ -311,28 +351,36 @@
     "hash": "51cb663357d4ac9a",
     "lastmod": "2026-10-04"
   },
+  "/hotpoint-dryer-repair/": {
+    "hash": "1871d57df3ab2c82",
+    "lastmod": "2026-10-10"
+  },
+  "/hotpoint-washer-repair/": {
+    "hash": "6e2d25f6e512be40",
+    "lastmod": "2026-10-10"
+  },
   "/how-it-works/": {
     "hash": "af47558808f38006",
     "lastmod": "2026-10-10"
   },
   "/kenmore-dryer-repair/": {
-    "hash": "a39da67e7d38eba2",
+    "hash": "3f219d7512c88172",
     "lastmod": "2026-10-10"
   },
   "/kenmore-washer-repair/": {
-    "hash": "7cd52c711b3febf9",
+    "hash": "c2d977aa5f624d90",
     "lastmod": "2026-10-10"
   },
   "/kitchenaid-dryer-repair/": {
-    "hash": "5c7f66bc31be843f",
+    "hash": "4f33b98dcae7a9a6",
     "lastmod": "2026-10-10"
   },
   "/kitchenaid-washer-repair/": {
-    "hash": "09c010c1461ae15f",
+    "hash": "582e32538d95d328",
     "lastmod": "2026-10-10"
   },
   "/maytag-dryer-repair/": {
-    "hash": "da0ce436c3d9112e",
+    "hash": "95da585ed3be341b",
     "lastmod": "2026-10-10"
   },
   "/maytag-washer-error-codes/": {
@@ -340,15 +388,23 @@
     "lastmod": "2026-10-10"
   },
   "/maytag-washer-repair/": {
-    "hash": "1639adc6c1db73d0",
+    "hash": "b645916aa910ce68",
+    "lastmod": "2026-10-10"
+  },
+  "/midea-dryer-repair/": {
+    "hash": "516de9480befdc46",
+    "lastmod": "2026-10-10"
+  },
+  "/midea-washer-repair/": {
+    "hash": "5c1b7da8557633b6",
     "lastmod": "2026-10-10"
   },
   "/miele-dryer-repair/": {
-    "hash": "b5cc44f0f0b809b2",
+    "hash": "e10886d45142ccec",
     "lastmod": "2026-10-10"
   },
   "/miele-washer-repair/": {
-    "hash": "f94bddd2543b0d69",
+    "hash": "198cc83935427781",
     "lastmod": "2026-10-10"
   },
   "/price-list/": {
@@ -480,7 +536,7 @@
     "lastmod": "2026-10-10"
   },
   "/samsung-dryer-repair/": {
-    "hash": "2a157446c35e633d",
+    "hash": "e009c2bb2fb01b12",
     "lastmod": "2026-10-10"
   },
   "/samsung-washer-error-codes/": {
@@ -488,7 +544,7 @@
     "lastmod": "2026-10-10"
   },
   "/samsung-washer-repair/": {
-    "hash": "5f96325ec8f80851",
+    "hash": "81f7e683341ebeb0",
     "lastmod": "2026-10-10"
   },
   "/service-area/": {
@@ -496,11 +552,11 @@
     "lastmod": "2026-10-10"
   },
   "/speed-queen-dryer-repair/": {
-    "hash": "2d9ea6cb7db26c65",
+    "hash": "a89404f3b03c2d0b",
     "lastmod": "2026-10-10"
   },
   "/speed-queen-washer-repair/": {
-    "hash": "a304c725c69831c1",
+    "hash": "e9859c1e53f5731a",
     "lastmod": "2026-10-10"
   },
   "/symptoms/": {
@@ -748,7 +804,7 @@
     "lastmod": "2026-10-10"
   },
   "/whirlpool-dryer-repair/": {
-    "hash": "fff2cba74f824a94",
+    "hash": "1de5160ef9bc2c69",
     "lastmod": "2026-10-10"
   },
   "/whirlpool-washer-error-codes/": {
@@ -756,7 +812,7 @@
     "lastmod": "2026-10-10"
   },
   "/whirlpool-washer-repair/": {
-    "hash": "a0bbf49d792c5f3f",
+    "hash": "e82d74a010d93341",
     "lastmod": "2026-10-10"
   }
 }

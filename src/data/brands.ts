@@ -503,6 +503,219 @@ export const BRANDS_DATA: Brand[] = [
       codesPage: false,
     },
   },
+  {
+    slug: 'fisher-paykel',
+    name: 'Fisher & Paykel',
+    note: 'Fisher & Paykel is a New Zealand brand owned by Haier; its top-load washers use a direct-drive motor with no belt or transmission.',
+    washer: {
+      intro:
+        'Fisher & Paykel washers are known for their direct-drive motors — no belt, no gearbox — so most repairs are not mechanical wear but the drain pump, the water valves, the motor’s position sensor or the control electronics. Front-loaders add door seals and door locks to the list.',
+      lines: 'Top-load (including the long-running SmartDrive / direct-drive models) and front-load washers.',
+      problems: [
+        { title: 'Won’t drain', causes: 'Drain hose and pump; lint and small items lodged in the pump are common.' },
+        { title: 'Won’t spin or spins weakly', causes: 'Motor position sensor, motor rotor or stator, control board, lid lock.' },
+        { title: 'Won’t fill', causes: 'Water valves, hose screens, inlet valve.' },
+        { title: 'Lid or door won’t lock', causes: 'Lock assembly and wiring.' },
+        { title: 'Leaking', causes: 'Hoses, pump, tub seal; door seal on front-loaders.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Fisher & Paykel dryers — vented and heat-pump models — mostly come to us drying slowly or not heating. We clean the lint path and condenser first, then check the heater, thermostats and sensors.',
+      lines: 'Vented, condensation and heat-pump dryers, including compact models.',
+      problems: [
+        { title: 'Not heating or drying slowly', causes: 'Lint filter and vent or condenser, then the heater, thermostats and sensors.' },
+        { title: 'Noisy', causes: 'Drum rollers, belt, idler.' },
+        { title: 'Won’t start', causes: 'Door switch, control, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'asko',
+    name: 'Asko',
+    note: 'Asko is a Swedish brand of compact 24-inch washers and dryers with stainless steel drums, built for long service lives.',
+    washer: {
+      intro:
+        'Asko washers are compact, heavy, stainless-steel machines that owners keep for many years — so when one stops, it is usually worth fixing. Most calls are drain problems, door locks and leaks; we bring the common parts when you tell us the model on the phone.',
+      lines: '24-inch front-load washers, often stacked with an Asko dryer.',
+      problems: [
+        { title: 'Won’t drain', causes: 'Drain filter, drain hose, drain pump.' },
+        { title: 'Door won’t lock or open', causes: 'Door lock assembly and wiring.' },
+        { title: 'Leaking', causes: 'Door seal, hoses, detergent dispenser, pump.' },
+        { title: 'Won’t fill', causes: 'Water valve, hose screen, inlet valve.' },
+        { title: 'Not spinning', causes: 'Motor, motor control, balance.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Asko dryers — vented, condensation and heat-pump compacts — usually need airflow work before parts: lint filters, the condenser or heat exchanger, then the heater and thermostats.',
+      lines: '24-inch vented, condensation and heat-pump dryers.',
+      problems: [
+        { title: 'Dries slowly', causes: 'Filters, condenser or heat exchanger, then heater and thermostats.' },
+        { title: 'Water container message', causes: 'Container full, blocked pump or drain hose.' },
+        { title: 'Noisy', causes: 'Drum rollers and belt.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'haier',
+    name: 'Haier',
+    note: 'Haier makes compact and portable washers, 24-inch washer-dryer combos and full-size machines; Haier also owns GE Appliances and Fisher & Paykel.',
+    washer: {
+      intro:
+        'Haier washers range from small portable top-loaders to 24-inch front-loaders and all-in-one washer-dryer combos. The usual repairs are drain pumps, door and lid locks, water valves and, on portable units, the drive motor and belt.',
+      lines: 'Portable and compact top-loaders, 24-inch front-loaders, washer-dryer combos and full-size models.',
+      problems: [
+        { title: 'Won’t drain', causes: 'Drain filter and hose, drain pump.' },
+        { title: 'Won’t spin', causes: 'Lid or door lock, belt or motor, control.' },
+        { title: 'Won’t fill', causes: 'Water valve, hose screen, inlet valve.' },
+        { title: 'Combo unit won’t dry', causes: 'Heater, condenser airflow, fan, thermostats.' },
+        { title: 'Leaking', causes: 'Door seal, hoses, pump.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Haier dryers, including compact and ventless models, come to us not heating or drying slowly. Airflow first — lint filter, vent or condenser — then the heater, thermal fuse and thermostats.',
+      lines: 'Compact, ventless and full-size electric dryers.',
+      problems: [
+        { title: 'Not heating', causes: 'Thermal fuse, heater, thermostats.' },
+        { title: 'Dries slowly', causes: 'Lint filter, vent or condenser.' },
+        { title: 'Drum won’t turn', causes: 'Belt, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'midea',
+    name: 'Midea',
+    note: 'Midea makes front-load and top-load washers and dryers under its own name and for several store brands.',
+    washer: {
+      intro:
+        'Midea washers are newer to many US homes, and the repairs we see are the common ones: drain pumps, door and lid locks, water valves, and unbalanced or noisy spin. We repair them like any other front-loader or top-loader, with the model number in hand.',
+      lines: 'Front-load and top-load washers, including stacked units.',
+      problems: [
+        { title: 'Won’t drain', causes: 'Drain filter and hose, drain pump.' },
+        { title: 'Door or lid won’t lock', causes: 'Lock assembly and wiring.' },
+        { title: 'Won’t fill', causes: 'Water valves, hose screens, inlet valve.' },
+        { title: 'Noisy or shaking', causes: 'Leveling, shocks or suspension, bearings.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Midea dryers fail like most dryers: heater or thermal fuse (electric), igniter (gas), rollers, belt — with a restricted vent behind many of the heat problems.',
+      lines: 'Electric and gas dryers.',
+      problems: [
+        { title: 'Not heating', causes: 'Thermal fuse, heater, thermostats; igniter on gas models; vent first.' },
+        { title: 'Noisy', causes: 'Drum rollers, idler pulley.' },
+        { title: 'Drum won’t turn', causes: 'Belt, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'hotpoint',
+    name: 'Hotpoint',
+    note: 'In the US, Hotpoint washers and dryers are built by GE Appliances and share many parts with GE models.',
+    washer: {
+      intro:
+        'Hotpoint washers are simple, budget top-loaders built by GE Appliances. They usually come to us not spinning, not draining or with a lid switch fault, and the parts are the same affordable ones GE uses.',
+      lines: 'Top-load agitator washers.',
+      problems: [
+        { title: 'Not spinning', causes: 'Lid switch, drive belt or coupling, mode shifter, motor.' },
+        { title: 'Won’t drain', causes: 'Drain hose, a sock in the pump inlet, drain pump.' },
+        { title: 'Won’t fill', causes: 'Water valves, hose screens, inlet valve.' },
+        { title: 'Leaking', causes: 'Hoses, pump, tub seal.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Hotpoint dryers are GE-built and among the easiest to repair: thermal fuse, heating element or igniter, drum rollers or slides, idler pulley and belt.',
+      lines: 'Electric and gas dryers.',
+      problems: [
+        { title: 'Not heating', causes: 'Thermal fuse, element, thermostats (electric); igniter and valve coils (gas).' },
+        { title: 'Noisy', causes: 'Drum rollers or slides, idler pulley.' },
+        { title: 'Drum won’t turn', causes: 'Belt, idler pulley, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'beko',
+    name: 'Beko',
+    note: 'Beko (part of Arçelik, like Blomberg) sells compact 24-inch washers and condensation and heat-pump dryers in the US.',
+    washer: {
+      intro:
+        'Beko washers are compact 24-inch front-loaders, often stacked in a closet or apartment. The usual calls are drain problems, door locks, leaks caught in the base and noisy spin — all repairable with the model number in hand.',
+      lines: '24-inch compact front-load washers.',
+      problems: [
+        { title: 'Won’t drain', causes: 'Pump filter, drain hose, drain pump.' },
+        { title: 'Door won’t lock or open', causes: 'Door lock assembly.' },
+        { title: 'Leaking', causes: 'Door seal, hoses, dispenser, pump.' },
+        { title: 'Noisy on spin', causes: 'Foreign object, shocks, bearings.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Beko compact dryers are mostly condensation and heat-pump models: slow drying usually means lint in the filters or the condenser, and we clean the airflow path before replacing parts.',
+      lines: '24-inch condensation and heat-pump dryers.',
+      problems: [
+        { title: 'Dries slowly', causes: 'Filters and condenser, then heater or heat pump.' },
+        { title: 'Water tank message', causes: 'Container full, blocked pump or drain hose.' },
+        { title: 'Noisy', causes: 'Drum rollers and belt.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'blomberg',
+    name: 'Blomberg',
+    note: 'Blomberg (part of Arçelik, like Beko) makes compact 24-inch washers and dryers for small spaces.',
+    washer: {
+      intro:
+        'Blomberg washers are compact 24-inch front-loaders built for closets and small laundry rooms. Like other compacts, they come to us with drain issues, door locks, leaks and noisy spin.',
+      lines: '24-inch compact front-load washers.',
+      problems: [
+        { title: 'Won’t drain', causes: 'Pump filter, drain hose, drain pump.' },
+        { title: 'Door won’t lock', causes: 'Door lock assembly.' },
+        { title: 'Leaking', causes: 'Door seal, hoses, pump.' },
+        { title: 'Noisy on spin', causes: 'Shocks, bearings, foreign object.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Blomberg compact dryers — vented, condensation and heat-pump — need clean filters and a clean condenser to dry well; most slow-drying calls end there, the rest are heaters, thermostats and belts.',
+      lines: '24-inch vented, condensation and heat-pump dryers.',
+      problems: [
+        { title: 'Dries slowly', causes: 'Filters, condenser, then heater and thermostats.' },
+        { title: 'Noisy', causes: 'Drum rollers and belt.' },
+        { title: 'Won’t start', causes: 'Door switch, control, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
 ];
 
 export const brandBySlug = (slug: string) => BRANDS_DATA.find((b) => b.slug === slug);

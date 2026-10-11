@@ -133,7 +133,7 @@ import { BRANDS_DATA, brandPath } from '../data/brands';
         {BRANDS_DATA.map((b) => (
           <div class="home-county"><div class="home-county-name">{b.name}</div>{b.washer && <a href={brandPath(b.slug, 'washer')}>Washer repair</a>}{b.washer && b.dryer && ' · '}{b.dryer && <a href={brandPath(b.slug, 'dryer')}>Dryer repair</a>}</div>
         ))}
-        <div class="home-county"><div class="home-county-name">Every other brand</div><a href="/brands/">Fisher &amp; Paykel, Asko, Haier, Midea… →</a></div>
+        <div class="home-county"><div class="home-county-name">Every other brand</div><a href="/brands/">All 20 brands →</a></div>
       </div>
     </div>
     <div class="home-counties">
