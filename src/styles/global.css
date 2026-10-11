@@ -1252,3 +1252,4 @@ figure.article-img.article-img--square img {
 .related-guides li { margin: 6px 0; color: #8a96a8; font-size: 14px; line-height: 1.45; }
 .related-guides li a { color: #6ab0ff; font-weight: 500; }
 .rg-hub { display: inline-block; margin-top: 6px; font-size: 14px; color: #1a6cf6; }
+.nav-logo img { display: block; border-radius: 6px; }
