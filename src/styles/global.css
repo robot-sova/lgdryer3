@@ -1253,3 +1253,8 @@ figure.article-img.article-img--square img {
 .related-guides li a { color: #6ab0ff; font-weight: 500; }
 .rg-hub { display: inline-block; margin-top: 6px; font-size: 14px; color: #1a6cf6; }
 .nav-logo img { display: block; border-radius: 6px; }
+/* Error-code tables (BrandPage, CodesPage): not a price table — left-aligned, code column fixed. */
+.county-prices.brand-codes td, .county-prices.brand-codes th { text-align: left; white-space: normal; }
+.county-prices.brand-codes td:first-child { white-space: nowrap; width: 1%; padding-right: 16px; }
+.county-prices.brand-codes th { color: #8a96a8; font-weight: 600; font-size: 13px; padding: 8px 12px; border-bottom: 1px solid #1e2a3a; }
+.nav-logo { white-space: nowrap; }
