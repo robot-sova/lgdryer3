@@ -1246,3 +1246,9 @@ figure.article-img.article-img--square img {
 .county-cb-ok { color: #4ade80; margin: 0; }
 .service-area-links { margin: 32px 0 8px; }
 .area-brands-lead { font-size: 15px; color: #c8d0dc; margin: 0 0 14px; }
+.related-guides { margin: 32px 0 8px; }
+.related-guides h3 { font-size: 1rem; margin: 18px 0 8px; color: #ddd; }
+.related-guides ul { margin: 0; padding-left: 18px; }
+.related-guides li { margin: 6px 0; color: #8a96a8; font-size: 14px; line-height: 1.45; }
+.related-guides li a { color: #6ab0ff; font-weight: 500; }
+.rg-hub { display: inline-block; margin-top: 6px; font-size: 14px; color: #1a6cf6; }

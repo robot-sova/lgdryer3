@@ -1,11 +1,13 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+import GuideHub from '../../../components/GuideHub.astro';
 ---
-<Layout title="LG Washer Repair Services | Same Day | Los Angeles" description="Professional LG washer repair services in Los Angeles, Orange County and Ventura County. Same-day service. Call (323) 990-7550."
-  hubHeroImg="/images/hubs/washer-repairs-hero.webp"
-  hubHeroAlt="LG washer with the front panel removed for repair">
-  <div class="container" style="padding: 4rem 2rem; text-align: center;">
-    <h1>LG Washer Repair Services</h1>
-    <p style="color: var(--text-secondary);">Full repair service pages coming soon.</p>
-  </div>
-</Layout>
+<GuideHub
+  section="washer-repairs"
+  title="Washer Repair Services | Drain Pump, Bearing, Seal, Board"
+  description="Washing machine repairs we do: drain pump, drum bearing, door boot seal, motor, control board, lid switch, shocks, inlet valve. Same day, every brand."
+  h1="Washer Repair Services"
+  intro="The washing machine repairs we do most — what each one involves, how long it takes and what it costs. Same day, every brand, 90-day warranty."
+  heroImg="/images/hubs/washer-repairs-hero.webp"
+  heroAlt="Washing machine with the front panel removed for repair"
+  crumbs={[{ label: "Washer", href: "/washer/" }, { label: "Repairs" }]}
+/>

@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AIDiagnosticCTA from '../components/AIDiagnosticCTA.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import ServiceAreaLinks from '../components/ServiceAreaLinks.astro';
+import RelatedGuides from '../components/RelatedGuides.astro';
 
 interface Props {
   title: string;
@@ -136,10 +137,10 @@ const breadcrumbItems = [
     "name": title,
     "description": description,
     "provider": { "@id": "https://washeranddryer.repair/#business" },
-    "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA"]
+    "areaServed": ["Los Angeles County, CA", "Orange County, CA", "Ventura County, CA", "Santa Barbara County, CA", "San Bernardino County, CA", "Riverside County, CA", "San Diego County, CA"]
   })} />
 
-  <div class="container" style="max-width:860px"><ServiceAreaLinks /></div>
+  <div class="container" style="max-width:860px"><RelatedGuides /><ServiceAreaLinks /></div>
 
   <HowItWorks appliance="washer" />
 </Layout>

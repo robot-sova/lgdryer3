@@ -1,11 +1,13 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+import GuideHub from '../../../components/GuideHub.astro';
 ---
-<Layout title="LG Washer Error Codes | OE LE UE CL | Los Angeles" description="LG washer error code explanations and repair solutions. OE, LE, UE, CL and more. Same-day service in Los Angeles. Call (323) 990-7550."
-  hubHeroImg="/images/hubs/washer-errorcodes-hero.webp"
-  hubHeroAlt="Close-up of an LG washer control panel">
-  <div class="container" style="padding: 4rem 2rem; text-align: center;">
-    <h1>LG Washer Error Codes</h1>
-    <p style="color: var(--text-secondary);">Error code guides coming soon.</p>
-  </div>
-</Layout>
+<GuideHub
+  section="washer-error-codes"
+  title="LG Washer Error Codes | OE, IE, UE, LE, dE, PE, tE, CE"
+  description="What each LG washer error code means — OE, IE, UE, LE, dE, FE, PE, tE, CE — the likely cause, the checks you can do, and the repair cost."
+  h1="LG Washer Error Codes"
+  intro="Tap the code on your washer's display for what it means, what to check first, and what a repair costs if it comes to that."
+  heroImg="/images/hubs/washer-errorcodes-hero.webp"
+  heroAlt="LG washer display showing an error code"
+  crumbs={[{ label: "Washer", href: "/washer/" }, { label: "Error Codes" }]}
+/>

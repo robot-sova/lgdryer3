@@ -1,0 +1,48 @@
+---
+// "Related guides" for the price, repair, symptom and error-code pages (src/data/guides.ts).
+// Every guide links: its counterpart (a repair ↔ its price page), the next six guides of its own
+// section (a ring, so each guide also gets six links back), and two from each other section of the
+// same appliance. Before 2026-10-10 most guides were linked only from the nav menu.
+import { GUIDES, SECTION_HUB, guideAt, guidesIn, type Guide } from '../data/guides';
+
+const HELP = [
+  { path: '/help/lg-dryer-tips/', label: 'Dryer maintenance tips', desc: 'What to clean and check to keep a dryer running' },
+  { path: '/help/lg-dryer-fire-hazard/', label: 'Dryer fire safety', desc: 'Lint, vents and the warning signs of an overheating dryer' },
+  { path: '/help/lg-dryer-parts/', label: 'Dryer parts diagram', desc: 'Where each part sits and what it does' },
+] as Guide[];
+const here = guideAt(Astro.url.pathname);
+let groups: { title: string; items: Guide[]; hub?: { href: string; label: string } }[] = [];
+if (here) {
+  const same = guidesIn(here.section);
+  const i = same.findIndex((g) => g.path === here.path);
+  const ring = [...same.slice(i + 1), ...same.slice(0, i)].slice(0, 6);
+  const counterpart = GUIDES.filter((g) => g.appliance === here.appliance && g.key === here.key && g.path !== here.path);
+  const otherSections = [...new Set(GUIDES.filter((g) => g.appliance === here.appliance && g.section !== here.section).map((g) => g.section))];
+  const cross = otherSections.flatMap((s) => {
+    const list = guidesIn(s).filter((g) => !counterpart.includes(g));
+    const start = i % Math.max(list.length, 1);
+    return [...list.slice(start), ...list.slice(0, start)].slice(0, 2);
+  });
+  groups = [
+    { title: 'Same problem, other angle', items: counterpart },
+    { title: `More ${SECTION_HUB[here.section].label.toLowerCase()}`, items: ring, hub: SECTION_HUB[here.section] },
+    { title: `Other ${here.appliance} guides`, items: cross },
+    // The dryer owner guides (/help/) get search clicks but were linked only from the footer.
+    { title: 'Dryer owner guides', items: here.appliance === 'dryer' ? HELP : [], hub: here.appliance === 'dryer' ? { href: '/help/', label: 'Owner guides' } : undefined },
+  ].filter((g) => g.items.length > 0);
+}
+---
+{groups.length > 0 && (
+  <section class="related-guides" aria-labelledby="rg-title">
+    <h2 id="rg-title">Related guides</h2>
+    {groups.map((g) => (
+      <div class="rg-group">
+        <h3>{g.title}</h3>
+        <ul>
+          {g.items.map((x) => <li><a href={x.path}>{x.label}</a>{x.desc && <span> — {x.desc}</span>}</li>)}
+        </ul>
+        {g.hub && <a class="rg-hub" href={g.hub.href}>All {g.hub.label.toLowerCase()} →</a>}
+      </div>
+    ))}
+  </section>
+)}

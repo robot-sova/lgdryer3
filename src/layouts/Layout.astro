@@ -243,6 +243,8 @@ const venturaCounty = [
           <button>Symptoms ▾</button>
           <div class="dropdown">
             {symptomLinks.map(s => <a href={`/symptoms/${s.slug}/`}>{s.label}</a>)}
+            <a href="/symptoms/" class="nav-link-secondary">All dryer symptoms →</a>
+            <a href="/washer/symptoms/" class="nav-link-secondary">Washer symptoms →</a>
           </div>
         </div>
 
@@ -257,6 +259,8 @@ const venturaCounty = [
                 </a>
               ))}
             </div>
+            <a href="/price-list/" class="nav-link-secondary">Full dryer price list →</a>
+            <a href="/washer/price-list/" class="nav-link-secondary">Washer repair prices →</a>
           </div>
         </div>
 
