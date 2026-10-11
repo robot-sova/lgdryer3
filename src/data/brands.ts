@@ -77,7 +77,7 @@ export const BRANDS_DATA: Brand[] = [
         { code: 'bE / bE2', meaning: 'A button is stuck.', check: 'Press each button once; if it stays, the control panel.' },
         { code: 'AE', meaning: 'Communication error between boards.', check: 'Unplug for five minutes; if it returns, a technician should check the boards.' },
       ],
-      codesPage: false,
+      codesPage: true,
     },
   },
   {
@@ -152,10 +152,14 @@ export const BRANDS_DATA: Brand[] = [
         { code: 'F9E1 / F21', meaning: 'Long drain.', check: 'Drain hose, standpipe, pump filter.' },
         { code: 'F5E2 / LO FL', meaning: 'Lid or door will not lock.', check: 'Clear the latch; repeated codes mean the lock.' },
         { code: 'F7E1', meaning: 'Basket will not turn.', check: 'Smaller load; repeated codes need a technician.' },
+        { code: 'F5E1', meaning: 'Lid or door switch fault.', check: 'Needs a switch check.' },
+        { code: 'F5E3', meaning: 'Lid or door will not unlock.', check: 'Unplug for a minute; if it stays locked, the lock assembly.' },
+        { code: 'F3E1', meaning: 'Pressure (water level) sensor fault.', check: 'Needs a sensor and hose check.' },
+        { code: 'F1E1 / F01', meaning: 'Main control board fault.', check: 'Unplug for five minutes; if it returns, the board.' },
         { code: 'uL', meaning: 'Unbalanced load.', check: 'Redistribute and level.' },
         { code: 'Sd / Sud', meaning: 'Too many suds.', check: 'Less HE detergent; run a rinse.' },
       ],
-      codesPage: false,
+      codesPage: true,
     },
     dryer: {
       intro:
@@ -345,6 +349,155 @@ export const BRANDS_DATA: Brand[] = [
         { title: 'Not heating', causes: 'Element or igniter, thermostats, vent.' },
         { title: 'Noisy', causes: 'Drum rollers, belt, idler.' },
         { title: 'Won’t start', causes: 'Door switch, start circuit, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'frigidaire',
+    name: 'Frigidaire',
+    note: 'Frigidaire is part of Electrolux; Frigidaire and Electrolux front-load washers and dryers share platforms, parts and error codes.',
+    washer: {
+      intro:
+        'Frigidaire washers — Gallery and Affinity front-loaders, top-loaders and the stacked laundry centers — come to us with drain and fill codes, door locks that will not engage, and on older front-loaders worn tub bearings. Front-loaders use the same E-codes as Electrolux.',
+      lines: 'Front-load (Gallery, older Affinity), top-load, and Frigidaire laundry centers (washer and dryer in one unit).',
+      problems: [
+        { title: 'Won’t drain (E21)', causes: 'Pump filter on front-loaders, drain hose, drain pump.' },
+        { title: 'Won’t fill (E11)', causes: 'Water valves, hose screens, inlet valve.' },
+        { title: 'Door won’t lock (E41 / E42)', causes: 'Door lock assembly; on older Affinity front-loaders a very common repair.' },
+        { title: 'Loud grinding on spin', causes: 'Tub bearings and seal on front-loaders; suspension on top-loaders.' },
+        { title: 'Laundry center won’t spin or heat', causes: 'Washer: lid switch, belt, motor. Dryer half: element or igniter, thermal fuse, belt.' },
+      ],
+      codes: [
+        { code: 'E11', meaning: 'Water fill takes too long (front-load).', check: 'Water valves and hose screens.' },
+        { code: 'E21', meaning: 'Drain takes too long.', check: 'Clean the pump filter, check the drain hose.' },
+        { code: 'E41 / E42', meaning: 'Door open or door lock fault.', check: 'Close the door firmly; repeated codes mean the lock.' },
+      ],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Frigidaire dryers, including the dryer half of Frigidaire laundry centers, fail in familiar places: heating element and high-limit thermostat, igniter and gas valve coils, drum rollers, front glides, idler pulley and belt.',
+      lines: 'Electric and gas dryers (Gallery and standard), stacked units and laundry centers.',
+      problems: [
+        { title: 'Not heating', causes: 'Element, thermostats, thermal fuse (electric); igniter and valve coils (gas); vent first.' },
+        { title: 'Squeaking or scraping', causes: 'Drum rollers, front drum glides, idler pulley.' },
+        { title: 'Drum won’t turn', causes: 'Belt, idler pulley, motor.' },
+        { title: 'Takes too long', causes: 'Vent and moisture sensor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'amana',
+    name: 'Amana',
+    note: 'Amana laundry is built by Whirlpool, so Amana washers and dryers share parts and error codes with Whirlpool models.',
+    washer: {
+      intro:
+        'Amana washers are mostly simple, budget top-loaders built by Whirlpool. They come to us not spinning, not agitating or not draining; the parts are inexpensive and the repairs are usually quick, which makes them very much worth fixing.',
+      lines: 'Top-load agitator and impeller washers, and a few front-load models.',
+      problems: [
+        { title: 'Not spinning', causes: 'Lid switch, drive belt or motor coupler, shifter, motor.' },
+        { title: 'Agitator not working', causes: 'Agitator dogs or agitator, transmission or shifter.' },
+        { title: 'Won’t drain (F9E1 / F21)', causes: 'Drain hose and standpipe, drain pump.' },
+        { title: 'Won’t fill (LF)', causes: 'Water valves, hose screens, inlet valve.' },
+        { title: 'Unbalanced (uL)', causes: 'Load balance, then the suspension rods.' },
+      ],
+      codes: [
+        { code: 'LF / F8E1', meaning: 'Long fill.', check: 'Water valves, hose screens, water pressure.' },
+        { code: 'F21 / F9E1', meaning: 'Long drain.', check: 'Drain hose and standpipe.' },
+        { code: 'uL', meaning: 'Unbalanced load.', check: 'Redistribute and level the washer.' },
+        { code: 'Sd / Sud', meaning: 'Too many suds.', check: 'Less HE detergent; run a rinse.' },
+      ],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Amana dryers are Whirlpool-built and among the simplest dryers to repair: thermal fuse, heating element or igniter, drum rollers, idler pulley and belt — usually one visit.',
+      lines: 'Electric and gas dryers.',
+      problems: [
+        { title: 'Not heating', causes: 'Thermal fuse, element, cycling thermostat (electric); igniter and valve coils (gas).' },
+        { title: 'Won’t start', causes: 'Thermal fuse (it also stops the motor on many electric models), door switch, start switch.' },
+        { title: 'Noisy', causes: 'Drum rollers, idler pulley.' },
+        { title: 'Drum won’t turn', causes: 'Belt, idler pulley, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'kitchenaid',
+    name: 'KitchenAid',
+    note: 'KitchenAid laundry is built by Whirlpool and shares parts and error codes with Whirlpool washers and dryers.',
+    washer: {
+      intro:
+        'KitchenAid washers are Whirlpool-built premium front-loaders and top-loaders. The F#E# codes are the same as Whirlpool’s, and so are the usual repairs: door or lid locks, drain pumps, long fill, and bearings on older front-loaders.',
+      lines: 'Front-load and top-load washers.',
+      problems: [
+        { title: 'Won’t drain (F9E1)', causes: 'Pump filter, drain hose, drain pump.' },
+        { title: 'Won’t fill (F8E1)', causes: 'Water valves, hose screens, inlet valve.' },
+        { title: 'Door or lid lock (F5E2)', causes: 'Lock assembly and wiring.' },
+        { title: 'Not spinning (F7E1)', causes: 'Motor, motor control unit, belt.' },
+        { title: 'Loud on spin', causes: 'Tub bearings, shocks.' },
+      ],
+      codes: [
+        { code: 'F8E1', meaning: 'Long fill.', check: 'Water valves, hose screens.' },
+        { code: 'F9E1', meaning: 'Long drain.', check: 'Pump filter and drain hose.' },
+        { code: 'F5E2', meaning: 'Door or lid will not lock.', check: 'Clear the latch; repeated codes mean the lock.' },
+        { code: 'F7E1', meaning: 'Basket will not turn.', check: 'Smaller load; then a technician.' },
+      ],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'KitchenAid dryers are Whirlpool-built and share their parts: thermal fuse, heating element or igniter, thermistor, drum rollers, idler pulley and belt.',
+      lines: 'Electric and gas dryers.',
+      problems: [
+        { title: 'Not heating', causes: 'Thermal fuse, element, thermostats (electric); igniter, valve coils (gas).' },
+        { title: 'Takes too long (AF)', causes: 'Lint filter, vent, vent hood, moisture sensor.' },
+        { title: 'Noisy', causes: 'Drum rollers, idler pulley, glides.' },
+        { title: 'Won’t start', causes: 'Thermal fuse, door switch, motor.' },
+      ],
+      codes: [
+        { code: 'AF', meaning: 'Airflow restricted.', check: 'Lint filter, vent run, outside hood.' },
+        { code: 'PF', meaning: 'Power failure.', check: 'Press Start; check the breaker if it repeats.' },
+      ],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'miele',
+    name: 'Miele',
+    note: 'Miele makes premium 24-inch front-load washers and vented and heat-pump dryers, often stacked in a closet; newer models report faults as text messages rather than numeric codes.',
+    washer: {
+      intro:
+        'Miele washers are built to run for twenty years, which is why they are worth repairing. Newer models tell you what is wrong in words — “Check inlet”, “Check drain”, “Waterproof system” — and most calls trace back to a blocked drain pump, a closed or clogged inlet, or water caught by the leak protection in the base.',
+      lines: '24-inch front-load washers (W1 and earlier generations), including TwinDos models.',
+      problems: [
+        { title: '“Check drain”', causes: 'Drain filter behind the front panel and the drain pump, then the drain hose.' },
+        { title: '“Check inlet”', causes: 'Water tap closed, inlet hose screen, the inlet valve.' },
+        { title: '“Waterproof system” (WPS)', causes: 'Water in the base pan — hose, door seal, detergent dispenser or pump; the leak is found and fixed before the next cycle.' },
+        { title: 'Door won’t open', causes: 'Water left in the drum, then the door lock.' },
+        { title: 'Noisy on spin', causes: 'Foreign object between drum and tub, then shocks and bearings.' },
+      ],
+      codes: [
+        { code: 'Check drain', meaning: 'Water is not draining.', check: 'Clean the drain filter behind the front access panel.' },
+        { code: 'Check inlet', meaning: 'Water is not coming in.', check: 'Open the tap; check the inlet hose.' },
+        { code: 'Waterproof system', meaning: 'Leak protection triggered — water in the base.', check: 'Turn off the water and call.' },
+      ],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Miele dryers — vented and heat-pump T1 models — usually come to us drying slowly. On heat-pump dryers that almost always means lint in the filters or the heat exchanger, so we clean the airflow path before anything is replaced.',
+      lines: '24-inch vented and heat-pump dryers (T1 and earlier).',
+      problems: [
+        { title: 'Dries slowly', causes: 'Lint filters and plinth filter, heat exchanger; then the heater or heat pump.' },
+        { title: '“Clean airways” or filter messages', causes: 'Filters and airflow path; a persistent message points to a sensor.' },
+        { title: 'Condensate container message', causes: 'Container full, or a blocked pump or drain hose.' },
+        { title: 'Noisy drum', causes: 'Drum rollers and belt.' },
       ],
       codes: [],
       codesPage: false,
