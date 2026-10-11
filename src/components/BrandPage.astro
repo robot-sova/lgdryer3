@@ -77,14 +77,16 @@ const ld = {
     <h2>Common {brand.name} {appliance} problems we fix</h2>
     {d.problems.map((p) => (<><h3>{p.title}</h3><p>{p.causes}</p></>))}
 
-    <h2>{brand.name} {appliance} error codes</h2>
-    <p>Codes differ between model years — check the sticker inside the door or lid for the exact list. The most common:</p>
-    <table class="county-prices brand-codes">
-      <tbody>
-        {d.codes.slice(0, 6).map((c) => <tr><td><strong>{c.code}</strong></td><td>{c.meaning}</td></tr>)}
-      </tbody>
-    </table>
-    {d.codesPage && <p><a href={codesPath(brand.slug, appliance)}>All {brand.name} {appliance} error codes and what to check →</a></p>}
+    {d.codes.length > 0 && <>
+      <h2>{brand.name} {appliance} error codes</h2>
+      <p>Codes differ between model years — check the sticker inside the door or lid for the exact list. The most common:</p>
+      <table class="county-prices brand-codes">
+        <tbody>
+          {d.codes.slice(0, 6).map((c) => <tr><td><strong>{c.code}</strong></td><td>{c.meaning}</td></tr>)}
+        </tbody>
+      </table>
+      {d.codesPage && <p><a href={codesPath(brand.slug, appliance)}>All {brand.name} {appliance} error codes and what to check →</a></p>}
+    </>}
 
     <h2>{brand.name} {appliance} repair prices</h2>
     <p>Typical ranges including parts and labor; the technician confirms the exact price after the $69 diagnostic, before any work.</p>

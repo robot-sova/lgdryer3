@@ -1,7 +1,8 @@
 // Brand pages: /<brand>-washer-repair/, /<brand>-dryer-repair/ and /<brand>-<appliance>-error-codes/.
 // Owner 2026-10-10: we repair every brand on the market. Rolled out in waves by search demand
 // (Ahrefs US, 2026-10-10): wave 1 Samsung, Whirlpool, Maytag; wave 2 GE, Kenmore; wave 3 Bosch,
-// Electrolux, Speed Queen and the rest.
+// Electrolux, Speed Queen. A brand without one documented code system gets codes: [] and the code
+// block is hidden — better nothing than a guessed meaning.
 //
 // RULES — this text is read by people with a broken machine and by Google:
 //   - Error codes: only the widely documented meaning. Codes differ between model years, so every
@@ -172,6 +173,180 @@ export const BRANDS_DATA: Brand[] = [
         { code: 'F01 / F1E1', meaning: 'Control board fault.', check: 'Unplug five minutes; then the board.' },
         { code: 'F22 / F3E1', meaning: 'Exhaust thermistor fault.', check: 'Thermistor check.' },
       ],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'ge',
+    name: 'GE',
+    note: 'GE Appliances makes GE and GE Profile washers and dryers, top-load and front-load, electric and gas, plus Unitized Spacemaker laundry centers.',
+    washer: {
+      intro:
+        'GE washers — agitator and impeller top-loaders, front-loaders and the Unitized Spacemaker laundry centers — mostly come to us not spinning, not draining or with a lid that will not lock. Many GE models signal faults with blinking lights rather than a code on a display, which is why we diagnose by model and symptom.',
+      lines: 'Top-load (GE and GE Profile, agitator and impeller), front-load, and Unitized Spacemaker washer-dryer combos.',
+      problems: [
+        { title: 'Not spinning or agitating', causes: 'Lid switch or lid lock first, then the drive belt or coupling, the mode shifter on top-loaders, and the motor.' },
+        { title: 'Won’t drain', causes: 'Drain hose and standpipe, a sock in the pump inlet, the drain pump.' },
+        { title: 'Lid locked or won’t lock', causes: 'Lid lock assembly and its wiring.' },
+        { title: 'Leaking', causes: 'Hoses, pump, tub seal on top-loaders; door boot on front-loaders.' },
+        { title: 'Loud on spin', causes: 'Suspension and dampers on top-loaders; tub bearings on front-loaders.' },
+        { title: 'Won’t fill', causes: 'Water valves, hose screens, inlet valve.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'GE dryers are straightforward to repair and fail in the usual places: thermal fuse and heating element (electric), igniter and gas valve coils (gas), drum rollers or drum slides, idler pulley and belt.',
+      lines: 'Electric and gas dryers (GE and GE Profile), stacked units and Unitized Spacemaker laundry centers.',
+      problems: [
+        { title: 'Not heating', causes: 'Thermal fuse, heating element, thermostats (electric); igniter, valve coils, flame sensor (gas). Vent first.' },
+        { title: 'Squeaking or thumping', causes: 'Drum rollers, drum slides (glides), idler pulley.' },
+        { title: 'Drum won’t turn', causes: 'Belt, idler pulley, motor.' },
+        { title: 'Won’t start', causes: 'Door switch, start switch, thermal fuse on some models, motor, control board.' },
+        { title: 'Takes too long', causes: 'Vent run and hood, then the moisture sensor and thermostat.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'kenmore',
+    name: 'Kenmore',
+    note: 'Kenmore never built its own machines: Kenmore washers and dryers were made by Whirlpool, LG, Electrolux/Frigidaire and others. The first three digits of the model number tell who built it — 110 is Whirlpool, 796 is LG, 417 is Electrolux/Frigidaire.',
+    washer: {
+      intro:
+        'With a Kenmore, the first question is who made it. A 110-series washer behaves like a Whirlpool, a 796-series (many Kenmore Elite front-loaders) like an LG, a 417-series like a Frigidaire — same parts, same failures, same codes. Tell us the full model number on the phone and we come with the right parts.',
+      lines: 'Kenmore and Kenmore Elite top-load and front-load washers — 110 (Whirlpool-built), 796 (LG-built), 417 (Electrolux/Frigidaire-built) and other series.',
+      problems: [
+        { title: 'Won’t drain', causes: 'Hose and standpipe, pump filter on front-loaders, drain pump.' },
+        { title: 'Won’t spin', causes: 'Lid or door lock, drive motor or motor control, shifter on Whirlpool-built top-loaders.' },
+        { title: 'Lid or door won’t lock', causes: 'Lock assembly — the part depends on the manufacturer series.' },
+        { title: 'Leaking', causes: 'Door boot, hoses, pump, tub seal.' },
+        { title: 'Shaking or loud', causes: 'Suspension rods or shocks, tub bearings.' },
+      ],
+      codes: [
+        { code: 'F#E# (e.g. F9E1, F5E2)', meaning: '110-series, Whirlpool-built: same codes as Whirlpool washers.', check: 'See our Whirlpool washer error codes.' },
+        { code: 'OE / IE / UE / dE', meaning: '796-series, LG-built: same codes as LG washers (drain, fill, unbalanced, door).', check: 'See our LG washer error codes.' },
+        { code: 'E11 / E21 / E41', meaning: '417-series, Electrolux/Frigidaire-built: fill, drain, door lock.', check: 'See our Electrolux washer page.' },
+      ],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Kenmore dryers follow their maker too: most are Whirlpool-built 110-series machines (thermal fuse, element, rollers, idler, belt), LG-built 796-series models share LG dryer parts and codes, and 417-series dryers are Frigidaire-built.',
+      lines: 'Kenmore and Kenmore Elite electric and gas dryers — 110, 796, 417 and other series.',
+      problems: [
+        { title: 'Not heating', causes: 'Thermal fuse, element, thermostats (electric); igniter and valve coils (gas). Vent first.' },
+        { title: 'Won’t start', causes: 'Thermal fuse (on Whirlpool-built models it also stops the motor), door switch, start switch.' },
+        { title: 'Noisy', causes: 'Drum rollers, idler pulley, glides.' },
+        { title: 'Drum won’t turn', causes: 'Belt, idler pulley, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'bosch',
+    name: 'Bosch',
+    note: 'Bosch makes compact 24-inch front-load washers and condensation and heat-pump dryers that often sit stacked in a closet, plus full-size models.',
+    washer: {
+      intro:
+        'Bosch washers are compact front-loaders, often stacked in a closet. Most calls are drain codes from a clogged pump filter, slow fill, a leak caught by the base sensor, or a door that will not lock. They are worth repairing — the parts are good and the machines last.',
+      lines: '24-inch compact front-load washers (300, 500 and 800 Series; Axxis and Vision on older units) and full-size front-loaders.',
+      problems: [
+        { title: 'Won’t drain (E18 / F18)', causes: 'Pump filter behind the bottom-front cover, drain hose, drain pump.' },
+        { title: 'Slow fill (E17 / F17)', causes: 'Water valve, hose screen, inlet valve.' },
+        { title: 'Leak in the base (E23 / F23)', causes: 'Water in the base pan trips the float switch — door seal, hoses, detergent drawer, pump.' },
+        { title: 'Drum won’t turn (E21 / F21)', causes: 'Something jammed between drum and tub, motor brushes or motor, control.' },
+        { title: 'Door won’t lock or open', causes: 'Door lock and handle mechanism.' },
+      ],
+      codes: [
+        { code: 'E18 / F18', meaning: 'Drain problem — water not pumped out.', check: 'Clean the pump filter behind the bottom-front cover; check the drain hose.' },
+        { code: 'E17 / F17', meaning: 'Water fill too slow.', check: 'Open the water valve, clean the hose screen.' },
+        { code: 'E23 / F23', meaning: 'Water in the base — leak protection triggered.', check: 'Turn off the water and call; the leak has to be found before the next cycle.' },
+        { code: 'E21 / F21', meaning: 'Drum blocked or motor fault.', check: 'Unplug; make sure nothing is jammed in the drum; if it repeats, a technician.' },
+      ],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Bosch dryers are mostly ventless condensation and heat-pump compacts. When they dry slowly, the cause is usually a clogged condenser or lint filter rather than a failed heater, so we clean the airflow path before replacing parts.',
+      lines: '24-inch compact condensation and heat-pump dryers (300, 500 and 800 Series) and vented models.',
+      problems: [
+        { title: 'Dries slowly or not at all', causes: 'Lint filter and condenser clogged, then the heater or the heat-pump system.' },
+        { title: 'Water tank or drain warning', causes: 'Full condensate container, or a blocked condensate pump or drain hose.' },
+        { title: 'Noisy drum', causes: 'Drum rollers and belt.' },
+        { title: 'Won’t start', causes: 'Door switch, control, motor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'electrolux',
+    name: 'Electrolux',
+    note: 'Electrolux also builds Frigidaire laundry; many Electrolux and Frigidaire front-load washers share parts and error codes.',
+    washer: {
+      intro:
+        'Electrolux front-load washers (and their Frigidaire cousins) usually come to us with a drain or fill code, a door that will not lock, or a musty smell from the door seal. The E-codes are consistent across the family.',
+      lines: 'Electrolux front-load washers, including steam and stacked models; many Frigidaire front-loaders share the same platform.',
+      problems: [
+        { title: 'Won’t drain (E21)', causes: 'Pump filter, drain hose, drain pump.' },
+        { title: 'Won’t fill (E11)', causes: 'Water valves, hose screens, inlet valve, pressure sensor.' },
+        { title: 'Door won’t lock (E41 / E42)', causes: 'Door lock assembly and wiring.' },
+        { title: 'Musty smell, mold on the seal', causes: 'Door boot seal and drain path; we clean or replace the seal.' },
+        { title: 'Loud on spin', causes: 'Tub bearings and shocks.' },
+      ],
+      codes: [
+        { code: 'E11', meaning: 'Water fill takes too long.', check: 'Water valves and hose screens.' },
+        { code: 'E21', meaning: 'Drain takes too long.', check: 'Clean the pump filter, check the drain hose.' },
+        { code: 'E41 / E42', meaning: 'Door open or door lock fault.', check: 'Close the door firmly; repeated codes mean the lock.' },
+      ],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Electrolux and Frigidaire dryers share parts too: heating element and high-limit thermostat (electric), igniter and gas valve coils (gas), drum rollers, idler pulley, belt and front glides.',
+      lines: 'Electrolux electric and gas dryers, including steam and stacked models; Frigidaire dryers share the platform.',
+      problems: [
+        { title: 'Not heating', causes: 'Element and thermostats (electric), igniter and valve coils (gas); vent first.' },
+        { title: 'Noisy', causes: 'Drum rollers, idler pulley, front glides.' },
+        { title: 'Drum won’t turn', causes: 'Belt, idler pulley, motor.' },
+        { title: 'Takes too long', causes: 'Vent and moisture sensor.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+  },
+  {
+    slug: 'speed-queen',
+    name: 'Speed Queen',
+    note: 'Speed Queen builds commercial-grade washers and dryers for homes and for laundromats, laundry rooms and businesses.',
+    washer: {
+      intro:
+        'Speed Queen machines are built to last, and owners keep them running for decades — which is exactly why they are worth repairing. We work on residential Speed Queen top-loaders and front-loaders and on the commercial-grade machines in laundry rooms, apartment buildings and small businesses.',
+      lines: 'Top-load (TC and TR series), front-load (FF series) and commercial-grade washers.',
+      problems: [
+        { title: 'Won’t spin or agitate', causes: 'Lid switch or lock, drive belt, transmission or motor.' },
+        { title: 'Won’t drain', causes: 'Drain hose, pump.' },
+        { title: 'Leaking', causes: 'Hoses, pump, tub seal.' },
+        { title: 'Won’t fill', causes: 'Water valves, hose screens, inlet valve.' },
+        { title: 'Coin or card mechanism (commercial)', causes: 'Coin drop or card reader, timer, controls.' },
+      ],
+      codes: [],
+      codesPage: false,
+    },
+    dryer: {
+      intro:
+        'Speed Queen dryers are simple and heavy-duty. They come to us not heating or noisy: igniter or heating element, drum rollers and belt — usually a single visit.',
+      lines: 'Residential and commercial-grade electric and gas dryers.',
+      problems: [
+        { title: 'Not heating', causes: 'Element or igniter, thermostats, vent.' },
+        { title: 'Noisy', causes: 'Drum rollers, belt, idler.' },
+        { title: 'Won’t start', causes: 'Door switch, start circuit, motor.' },
+      ],
+      codes: [],
       codesPage: false,
     },
   },
