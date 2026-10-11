@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { COUNTIES } from '../data/counties';
+import { BRANDS_DATA, brandPath } from '../data/brands';
 ---
 
 <Layout
@@ -123,6 +124,16 @@ import { COUNTIES } from '../data/counties';
           <li><a href="/areas/lg-dryer-repair-pasadena/">Pasadena</a></li>
         </ul>
         <a href="/areas/" class="home-links-more">All 45+ cities →</a>
+      </div>
+    </div>
+    <div class="home-counties">
+      <h2>Brands we repair</h2>
+      <div class="home-counties-grid">
+        <div class="home-county"><div class="home-county-name">LG</div><a href="/washer/">Washer repair</a> · <a href="/repairs/">Dryer repair</a></div>
+        {BRANDS_DATA.map((b) => (
+          <div class="home-county"><div class="home-county-name">{b.name}</div>{b.washer && <a href={brandPath(b.slug, 'washer')}>Washer repair</a>}{b.washer && b.dryer && ' · '}{b.dryer && <a href={brandPath(b.slug, 'dryer')}>Dryer repair</a>}</div>
+        ))}
+        <div class="home-county"><div class="home-county-name">Every other brand</div><a href="/brands/">GE, Kenmore, Bosch, Speed Queen… →</a></div>
       </div>
     </div>
     <div class="home-counties">

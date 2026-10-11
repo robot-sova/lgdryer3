@@ -1,6 +1,6 @@
 {
   "/": {
-    "hash": "e5f6fc747cdcfd79",
+    "hash": "8379385d4852d456",
     "lastmod": "2026-10-10"
   },
   "/about/": {
@@ -199,52 +199,56 @@
     "hash": "940e727fad4ae9f4",
     "lastmod": "2026-10-10"
   },
+  "/brands/": {
+    "hash": "59405e3c479e6935",
+    "lastmod": "2026-10-10"
+  },
   "/careers/": {
     "hash": "8f40d17a682719b1",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/los-angeles-county/": {
-    "hash": "e7394c83a2b6ea84",
+    "hash": "8d578de3e3034595",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/orange-county/": {
-    "hash": "cdbaf7e6eaacdd33",
+    "hash": "3a3f8384bb3bc837",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/riverside-county/": {
-    "hash": "3f9916a9fb1cf315",
+    "hash": "eb489971fb157368",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/riverside-county/riverside/": {
-    "hash": "7ca8bbdb2516bc88",
+    "hash": "3dfbf1a59b7d2689",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/riverside-county/temecula/": {
-    "hash": "d5a6cbf28ac9a966",
+    "hash": "e627c2c55f5861a2",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/san-bernardino-county/": {
-    "hash": "da2024cc9b63747d",
+    "hash": "9694cf740ad87e9e",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/san-bernardino-county/rancho-cucamonga/": {
-    "hash": "469af6d0293cbe19",
+    "hash": "d4d91f1296f75197",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/san-diego-county/": {
-    "hash": "876c6635dcaa207d",
+    "hash": "d2d5b8890681202c",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/san-diego-county/escondido/": {
-    "hash": "353597bf2881b276",
+    "hash": "31a422149855d5cc",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/santa-barbara-county/": {
-    "hash": "6b5bf77bbdef7f00",
+    "hash": "23fb53405478b69a",
     "lastmod": "2026-10-10"
   },
   "/dryer-repair/ventura-county/": {
-    "hash": "59e61ad11ab330ea",
+    "hash": "87c2ab4e3c10cee7",
     "lastmod": "2026-10-10"
   },
   "/help/": {
@@ -269,6 +273,14 @@
   },
   "/how-it-works/": {
     "hash": "af47558808f38006",
+    "lastmod": "2026-10-10"
+  },
+  "/maytag-dryer-repair/": {
+    "hash": "6e65174dcb8b11e0",
+    "lastmod": "2026-10-10"
+  },
+  "/maytag-washer-repair/": {
+    "hash": "df8631069cd29e09",
     "lastmod": "2026-10-10"
   },
   "/price-list/": {
@@ -395,6 +407,18 @@
     "hash": "58c7d417e4121e1c",
     "lastmod": "2026-10-10"
   },
+  "/samsung-dryer-repair/": {
+    "hash": "47def086618d2aad",
+    "lastmod": "2026-10-10"
+  },
+  "/samsung-washer-error-codes/": {
+    "hash": "1d6574204b217261",
+    "lastmod": "2026-10-10"
+  },
+  "/samsung-washer-repair/": {
+    "hash": "7efd936173df7bc8",
+    "lastmod": "2026-10-10"
+  },
   "/service-area/": {
     "hash": "946aeb3241454e2a",
     "lastmod": "2026-10-10"
@@ -436,63 +460,63 @@
     "lastmod": "2026-10-10"
   },
   "/washer-repair/los-angeles-county/": {
-    "hash": "581131cedd82c98a",
+    "hash": "9b59eb4f6b67847b",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/los-angeles-county/long-beach/": {
-    "hash": "0cdcbf7fb1058712",
+    "hash": "a9090e49d89798e9",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/los-angeles-county/pasadena/": {
-    "hash": "39e47d7f4ea3f2f7",
+    "hash": "4f6fa162bb5aaceb",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/orange-county/": {
-    "hash": "905a16d91a92e204",
+    "hash": "35b6e2d137c50f4a",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/orange-county/anaheim/": {
-    "hash": "238908a3311667ca",
+    "hash": "cb5ed6548a1056e7",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/orange-county/irvine/": {
-    "hash": "d3db958f965ac503",
+    "hash": "ac6dea6eca253950",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/riverside-county/": {
-    "hash": "c96ed8efc8cc72d0",
+    "hash": "8bc215a049212ff9",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/riverside-county/riverside/": {
-    "hash": "2a777e53d6364bd3",
+    "hash": "f2ea0bdfd97d6443",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/riverside-county/temecula/": {
-    "hash": "62ff1d608e7dd3af",
+    "hash": "5cd8743d003ca595",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/san-bernardino-county/": {
-    "hash": "e95773c899fdd097",
+    "hash": "7803dd1622251c4a",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/san-bernardino-county/rancho-cucamonga/": {
-    "hash": "09e022626c751072",
+    "hash": "449833bd3823f2e1",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/san-diego-county/": {
-    "hash": "c71ec33fd5d3eff2",
+    "hash": "7a6f106fda38c94a",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/san-diego-county/escondido/": {
-    "hash": "1791a4ff86cdba5f",
+    "hash": "2382e5249f845db3",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/santa-barbara-county/": {
-    "hash": "59c128e1a24f63cd",
+    "hash": "3a6794bf2c445ca7",
     "lastmod": "2026-10-10"
   },
   "/washer-repair/ventura-county/": {
-    "hash": "53238f66bd407f54",
+    "hash": "75372ad8049a76d5",
     "lastmod": "2026-10-10"
   },
   "/washer/": {
@@ -641,6 +665,18 @@
   },
   "/washer/symptoms/lg-washer-wont-turn-on/": {
     "hash": "d0da38a6fd901d70",
+    "lastmod": "2026-10-10"
+  },
+  "/whirlpool-dryer-repair/": {
+    "hash": "be79a6aca362830b",
+    "lastmod": "2026-10-10"
+  },
+  "/whirlpool-washer-error-codes/": {
+    "hash": "5ccae6eeebc0901c",
+    "lastmod": "2026-10-10"
+  },
+  "/whirlpool-washer-repair/": {
+    "hash": "8bf486a92f743cab",
     "lastmod": "2026-10-10"
   }
 }

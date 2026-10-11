@@ -1,0 +1,44 @@
+---
+// Brands hub: every brand page from src/data/brands.ts, plus LG (the original guides) and the
+// brands we repair that do not have their own page yet.
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { BRANDS_DATA, brandPath, codesPath } from '../../data/brands';
+import { BRANDS } from '../../data/service';
+
+const withPages = new Set(['LG', ...BRANDS_DATA.map((b) => b.name)]);
+const more = BRANDS.filter((b) => !withPages.has(b));
+---
+<Layout title="Washer & Dryer Brands We Repair | Laundry Medic" description="We repair every washer and dryer brand: LG, Samsung, Whirlpool, Maytag, GE, Kenmore, Bosch, Electrolux, Speed Queen and more. Same day, $69 diagnostic.">
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Brands' }]} />
+  <div class="maintext county-page">
+    <h1>Washer &amp; Dryer Brands We Repair</h1>
+    <p class="county-lead">We repair every washer and dryer brand sold in the US — front-load, top-load, stacked, electric and gas. Same day across seven Southern California counties, no trip fee, $69 diagnostic waived with the repair, 90-day warranty.</p>
+
+    <h2>LG</h2>
+    <div class="index-grid">
+      <a href="/washer/" class="index-card"><div class="ic-name">LG washer repair</div></a>
+      <a href="/repairs/" class="index-card"><div class="ic-name">LG dryer repair</div></a>
+      <a href="/washer/error-codes/" class="index-card"><div class="ic-name">LG washer error codes</div></a>
+    </div>
+
+    {BRANDS_DATA.map((b) => (
+      <>
+        <h2>{b.name}</h2>
+        <div class="index-grid">
+          {b.washer && <a href={brandPath(b.slug, 'washer')} class="index-card"><div class="ic-name">{b.name} washer repair</div></a>}
+          {b.dryer && <a href={brandPath(b.slug, 'dryer')} class="index-card"><div class="ic-name">{b.name} dryer repair</div></a>}
+          {b.washer?.codesPage && <a href={codesPath(b.slug, 'washer')} class="index-card"><div class="ic-name">{b.name} washer error codes</div></a>}
+          {b.dryer?.codesPage && <a href={codesPath(b.slug, 'dryer')} class="index-card"><div class="ic-name">{b.name} dryer error codes</div></a>}
+        </div>
+      </>
+    ))}
+
+    <h2>And every other brand</h2>
+    <p>{more.join(' · ')} · Amana · KitchenAid · Miele · Fisher &amp; Paykel · Asko · Hotpoint · Haier · Midea — and commercial-grade machines. Call (323) 990-7550 with the brand and model and we tell you on the phone what is likely wrong.</p>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 CALL US</a>
+      <a href="/book/" class="button-85">📅 BOOK ONLINE</a>
+    </div>
+  </div>
+</Layout>

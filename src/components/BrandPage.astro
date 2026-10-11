@@ -1,0 +1,119 @@
+---
+// /<brand>-washer-repair/ and /<brand>-dryer-repair/ — data and rules in src/data/brands.ts.
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CallbackForm from './CallbackForm.astro';
+import { BRANDS_DATA, brandPath, codesPath, type Brand, type Appliance } from '../data/brands';
+import { pricesFor } from '../data/service';
+import { COUNTIES } from '../data/counties';
+import { CITY_PAGES } from '../data/cities';
+
+interface Props { brand: Brand; appliance: Appliance }
+const { brand, appliance } = Astro.props;
+const d = brand[appliance]!;
+const isWasher = appliance === 'washer';
+const App = isWasher ? 'Washer' : 'Dryer';
+const machine = isWasher ? 'washing machine' : 'dryer';
+const other: Appliance = isWasher ? 'dryer' : 'washer';
+const SITE = 'https://washeranddryer.repair';
+const url = SITE + brandPath(brand.slug, appliance);
+const prices = pricesFor(appliance);
+const cities = CITY_PAGES.filter((c) => c.appliances.includes(appliance));
+const sameAppliance = BRANDS_DATA.filter((b) => b.slug !== brand.slug && b[appliance]);
+const lgGuide = isWasher ? { href: '/washer/', label: 'LG washer repair' } : { href: '/repairs/', label: 'LG dryer repair' };
+
+const faqs = [
+  {
+    q: `How much does ${brand.name} ${appliance} repair cost?`,
+    a: `Most ${brand.name} ${appliance} repairs run $150–480 including parts and labor. The diagnostic is $69 and it is waived when you approve the repair; you get the exact price before any work, and there is no trip fee.`,
+  },
+  {
+    q: `Is it worth repairing a ${brand.name} ${machine}?`,
+    a: `Usually, when the ${appliance} is under about 8–10 years old and the repair is less than half the price of a comparable new one. Most fixes are a single part. If it is not worth it, the technician tells you before you pay for anything beyond the diagnostic.`,
+  },
+  {
+    q: `How fast can you come?`,
+    a: `Same day, Monday to Saturday 8am–8pm, in Los Angeles, Orange, Ventura, Santa Barbara, San Bernardino, Riverside and San Diego counties. Call (323) 990-7550.`,
+  },
+  {
+    q: `Is the repair guaranteed?`,
+    a: `Yes — 90 days on parts and labor. If the same fault comes back in that time, we fix it at no charge.`,
+  },
+];
+
+const title = `${brand.name} ${App} Repair — Same Day, $69 Diagnostic | Laundry Medic`;
+const description = `${brand.name} ${appliance} repair in Southern California: same day, no trip fee, 90-day warranty, $69 diagnostic waived with repair. Call (323) 990-7550.`;
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      '@id': `${url}#service`,
+      serviceType: `${brand.name} ${appliance} repair`,
+      name: `${brand.name} ${App} Repair`,
+      brand: { '@type': 'Brand', name: brand.name },
+      provider: { '@id': `${SITE}/#business` },
+      areaServed: COUNTIES.map((c) => `${c.name}, CA`),
+      url,
+    },
+    { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+  ],
+};
+---
+<Layout title={title} description={description}
+  hubHeroImg={isWasher ? '/images/hubs/washer-repairs-hero.webp' : '/images/hubs/repairs-index-hero.webp'}
+  hubHeroAlt={`${brand.name} ${appliance} repair`}>
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Brands', href: '/brands/' }, { label: `${brand.name} ${appliance} repair` }]} />
+  <div class="maintext county-page">
+    <h1>{brand.name} {App} Repair in Southern California</h1>
+    <p class="county-lead">{d.intro}</p>
+    <p>Same day across seven counties, no trip fee, $69 diagnostic waived when you approve the repair, 90-day warranty on parts and labor. Licensed: BHGS #49573. We are an independent repair service, not affiliated with {brand.name}.</p>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 Call (323) 990-7550</a>
+      <a href="/book/" class="button-85">📅 Book online</a>
+    </div>
+    <CallbackForm place={`${brand.name} ${appliance}`} appliance={appliance} />
+
+    <h2>Common {brand.name} {appliance} problems we fix</h2>
+    {d.problems.map((p) => (<><h3>{p.title}</h3><p>{p.causes}</p></>))}
+
+    <h2>{brand.name} {appliance} error codes</h2>
+    <p>Codes differ between model years — check the sticker inside the door or lid for the exact list. The most common:</p>
+    <table class="county-prices brand-codes">
+      <tbody>
+        {d.codes.slice(0, 6).map((c) => <tr><td><strong>{c.code}</strong></td><td>{c.meaning}</td></tr>)}
+      </tbody>
+    </table>
+    {d.codesPage && <p><a href={codesPath(brand.slug, appliance)}>All {brand.name} {appliance} error codes and what to check →</a></p>}
+
+    <h2>{brand.name} {appliance} repair prices</h2>
+    <p>Typical ranges including parts and labor; the technician confirms the exact price after the $69 diagnostic, before any work.</p>
+    <table class="county-prices">
+      <tbody>
+        <tr><td>Diagnostic visit</td><td>$69, waived with repair</td></tr>
+        {prices.map((p) => <tr><td>{p.label}</td><td>{p.range}</td></tr>)}
+      </tbody>
+    </table>
+
+    <h2>{brand.name} models we work on</h2>
+    <p>{d.lines} {brand.note}</p>
+
+    <h2>{brand.name} {appliance} repair near you</h2>
+    <div class="index-grid">
+      {COUNTIES.map((c) => <a href={`/${appliance}-repair/${c.slug}/`} class="index-card"><div class="ic-name">{App} repair · {c.name}</div></a>)}
+    </div>
+    <p class="county-small">Popular cities: {cities.map((c, i) => <>{i > 0 && ' · '}<a href={`/${appliance}-repair/${c.county}/${c.slug}/`}>{c.city}</a></>)}</p>
+
+    <h2>Questions about {brand.name} {appliance} repair</h2>
+    {faqs.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+
+    <h2>Other {appliance} brands we repair</h2>
+    <ul>
+      {brand[other] && <li><a href={brandPath(brand.slug, other)}>{brand.name} {other} repair</a></li>}
+      {sameAppliance.map((b) => <li><a href={brandPath(b.slug, appliance)}>{b.name} {appliance} repair</a></li>)}
+      <li><a href={lgGuide.href}>{lgGuide.label}</a></li>
+      <li><a href="/brands/">All brands →</a></li>
+    </ul>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</Layout>
