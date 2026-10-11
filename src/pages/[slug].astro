@@ -1,0 +1,17 @@
+---
+// Root-level brand pages: /<brand>-washer-repair/, /<brand>-dryer-repair/, /<brand>-<appliance>-error-codes/.
+// One dynamic route for both kinds (two root-level dynamic routes would collide). Data: src/data/brands.ts.
+import BrandPage from '../components/BrandPage.astro';
+import CodesPage from '../components/CodesPage.astro';
+import { BRANDS_DATA, type Appliance } from '../data/brands';
+
+export const getStaticPaths = () =>
+  BRANDS_DATA.flatMap((brand) =>
+    (['washer', 'dryer'] as Appliance[]).filter((a) => brand[a]).flatMap((appliance) => [
+      { params: { slug: `${brand.slug}-${appliance}-repair` }, props: { brand, appliance, kind: 'repair' } },
+      ...(brand[appliance]!.codesPage ? [{ params: { slug: `${brand.slug}-${appliance}-error-codes` }, props: { brand, appliance, kind: 'codes' } }] : []),
+    ]),
+  );
+const { brand, appliance, kind } = Astro.props;
+---
+{kind === 'repair' ? <BrandPage brand={brand} appliance={appliance} /> : <CodesPage brand={brand} appliance={appliance} />}

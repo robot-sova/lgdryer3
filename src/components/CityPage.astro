@@ -4,6 +4,7 @@
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import CallbackForm from './CallbackForm.astro';
+import { brandHref } from '../data/brands';
 import { countyBySlug } from '../data/counties';
 import { CITY_PAGES, type CityPage } from '../data/cities';
 import { RECENT_CALLS, VISIT_TEXT } from '../data/recentCalls';
@@ -126,7 +127,7 @@ const ld = {
     </table>
 
     <h2>Brands we repair</h2>
-    <p>{BRANDS.join(' · ')} — every brand of residential {app}, front-load, top-load and stacked.</p>
+    <p>{BRANDS.map((b, i) => { const h = brandHref(b, appliance); return <>{i > 0 && ' · '}{h ? <a href={h}>{b}</a> : b}</>; })} — every brand of residential {app}, front-load, top-load and stacked. <a href="/brands/">All brands →</a></p>
 
     <h2>How a visit works</h2>
     <ol>

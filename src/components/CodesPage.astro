@@ -1,0 +1,40 @@
+---
+// /<brand>-<appliance>-error-codes/ — full code table; data and rules in src/data/brands.ts.
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { brandPath, type Brand, type Appliance } from '../data/brands';
+
+interface Props { brand: Brand; appliance: Appliance }
+const { brand, appliance } = Astro.props;
+const d = brand[appliance]!;
+const App = appliance === 'washer' ? 'Washer' : 'Dryer';
+const SITE = 'https://washeranddryer.repair';
+const title = `${brand.name} ${App} Error Codes — Meaning & Fixes | Laundry Medic`;
+const description = `What ${brand.name} ${appliance} error codes mean — ${d.codes.slice(0, 4).map((c) => c.code.split(' ')[0]).join(', ')} and more — what you can check yourself, and when to call.`;
+const faqs = d.codes.slice(0, 8).map((c) => ({ q: `What does ${c.code.split(' / ')[0]} mean on a ${brand.name} ${appliance}?`, a: `${c.meaning} ${c.check}` }));
+const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Layout title={title} description={description} hubHeroImg="/images/hubs/washer-errorcodes-hero.webp" hubHeroAlt={`${brand.name} ${appliance} display showing an error code`}>
+  <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Brands', href: '/brands/' }, { label: `${brand.name} ${appliance} repair`, href: brandPath(brand.slug, appliance) }, { label: 'Error codes' }]} />
+  <div class="maintext county-page">
+    <h1>{brand.name} {App} Error Codes</h1>
+    <p class="county-lead">What each code on a {brand.name} {appliance} display means, what you can safely check yourself, and when it needs a technician. Codes differ between model years: the list for your exact model is on the sticker inside the door or lid, or in the manual.</p>
+    <p><strong>First, for any code:</strong> unplug the {appliance} for one minute (or switch off its breaker) and start a short cycle. If the code comes back, use the table below.</p>
+    <table class="county-prices brand-codes">
+      <thead><tr><th>Code</th><th>What it means</th><th>What to check</th></tr></thead>
+      <tbody>
+        {d.codes.map((c) => <tr><td><strong>{c.code}</strong></td><td>{c.meaning}</td><td>{c.check}</td></tr>)}
+      </tbody>
+    </table>
+
+    <h2>When to call a technician</h2>
+    <p>Call when the code comes back after the checks above, when there is water on the floor, a burning smell, or the {appliance} trips the breaker. We repair {brand.name} {appliance}s the same day across seven Southern California counties — $69 diagnostic, waived when you approve the repair; no trip fee; 90-day warranty.</p>
+    <div class="cta-buttons">
+      <a href="tel:3239907550" class="button-85">📞 Call (323) 990-7550</a>
+      <a href="/book/" class="button-85">📅 Book online</a>
+    </div>
+    <p><a href={brandPath(brand.slug, appliance)}>{brand.name} {appliance} repair — common problems and prices →</a></p>
+    <p class="county-small">We are an independent repair service, not affiliated with {brand.name}.</p>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</Layout>
