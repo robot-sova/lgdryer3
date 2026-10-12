@@ -9,7 +9,7 @@ import { BRANDS } from '../../data/service';
 const withPages = new Set(['LG', ...BRANDS_DATA.map((b) => b.name)]);
 const more = BRANDS.filter((b) => !withPages.has(b));
 ---
-<Layout title="Washer & Dryer Brands We Repair | Laundry Medic" description="We repair every washer and dryer brand: LG, Samsung, Whirlpool, Maytag, GE, Kenmore, Bosch, Electrolux, Speed Queen and more. Same day, $69 diagnostic.">
+<Layout hubHeroImg="/images/hubs/washer-index-hero-neutral.webp" hubHeroAlt="Stacked washer and dryer in a laundry room — we repair every brand" title="Washer & Dryer Brands We Repair | Laundry Medic" description="We repair every washer and dryer brand: LG, Samsung, Whirlpool, Maytag, GE, Kenmore, Bosch, Electrolux, Speed Queen and more. Same day, $69 diagnostic.">
   <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Brands' }]} />
   <div class="maintext county-page">
     <h1>Washer &amp; Dryer Brands We Repair</h1>

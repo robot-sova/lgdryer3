@@ -43,8 +43,8 @@ const title = isWasher
 const h1 = isWasher ? `Washer & Washing Machine Repair in ${county.name}` : `Gas & Electric Dryer Repair in ${county.name}`;
 const description = `${App} repair in ${county.name}: ${county.cities.slice(0, 3).map((c) => c.label).join(', ')} and more. All brands, prices from $150, $69 diagnostic waived. (323) 990-7550.`;
 const hero = isWasher
-  ? { img: '/images/hubs/washer-index-hero.webp', alt: `Front-load washing machine in a laundry room — washer repair in ${county.name}` }
-  : { img: '/images/hubs/repairs-index-hero.webp', alt: `Technician repairing a dryer — dryer repair in ${county.name}` };
+  ? { img: '/images/hubs/washer-index-hero-neutral.webp', alt: `Front-load washing machine in a laundry room — washer repair in ${county.name}` }
+  : { img: '/images/hubs/repairs-index-hero-neutral.webp', alt: `Technician repairing a dryer — dryer repair in ${county.name}` };
 
 const ld = {
   '@context': 'https://schema.org',

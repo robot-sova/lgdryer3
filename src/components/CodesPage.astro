@@ -14,7 +14,7 @@ const description = `What ${brand.name} ${appliance} error codes mean — ${d.co
 const faqs = d.codes.slice(0, 8).map((c) => ({ q: `What does ${c.code.split(' / ')[0]} mean on a ${brand.name} ${appliance}?`, a: `${c.meaning} ${c.check}` }));
 const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
-<Layout title={title} description={description} hubHeroImg="/images/hubs/washer-errorcodes-hero.webp" hubHeroAlt={`${brand.name} ${appliance} display showing an error code`}>
+<Layout title={title} description={description} hubHeroImg="/images/hubs/washer-errorcodes-hero-neutral.webp" hubHeroAlt={`${brand.name} ${appliance} display showing an error code`}>
   <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Brands', href: '/brands/' }, { label: `${brand.name} ${appliance} repair`, href: brandPath(brand.slug, appliance) }, { label: 'Error codes' }]} />
   <div class="maintext county-page">
     <h1>{brand.name} {App} Error Codes</h1>
