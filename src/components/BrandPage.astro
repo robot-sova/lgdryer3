@@ -7,6 +7,7 @@ import { BRANDS_DATA, brandPath, codesPath, type Brand, type Appliance } from '.
 import { pricesFor } from '../data/service';
 import { COUNTIES } from '../data/counties';
 import { CITY_PAGES } from '../data/cities';
+import { existsSync } from 'node:fs';
 
 interface Props { brand: Brand; appliance: Appliance }
 const { brand, appliance } = Astro.props;
@@ -20,6 +21,10 @@ const url = SITE + brandPath(brand.slug, appliance);
 const prices = pricesFor(appliance);
 const cities = CITY_PAGES.filter((c) => c.appliances.includes(appliance));
 const sameAppliance = BRANDS_DATA.filter((b) => b.slug !== brand.slug && b[appliance]);
+// Own hero for brands that have one (public/images/brands/<slug>-<appliance>-repair.webp, made by
+// scripts/gen-brand-photos.mjs); the rest share the generic brand-neutral hero.
+const ownHero = `/images/brands/${brand.slug}-${appliance}-repair.webp`;
+const hero = existsSync(`public${ownHero}`) ? ownHero : isWasher ? '/images/hubs/washer-repairs-hero.webp' : '/images/hubs/repairs-index-hero-neutral.webp';
 const lgGuide = isWasher ? { href: '/washer/', label: 'LG washer repair' } : { href: '/repairs/', label: 'LG dryer repair' };
 
 const faqs = [
@@ -61,8 +66,8 @@ const ld = {
 };
 ---
 <Layout title={title} description={description}
-  hubHeroImg={isWasher ? '/images/hubs/washer-repairs-hero.webp' : '/images/hubs/repairs-index-hero-neutral.webp'}
-  hubHeroAlt={`${brand.name} ${appliance} repair`}>
+  hubHeroImg={hero} ogImage={hero}
+  hubHeroAlt={`Technician repairing a ${brand.name} ${machine} in a Southern California home`}>
   <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Brands', href: '/brands/' }, { label: `${brand.name} ${appliance} repair` }]} />
   <div class="maintext county-page">
     <h1>{brand.name} {App} Repair in Southern California</h1>
