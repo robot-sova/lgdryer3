@@ -6,7 +6,7 @@
  * scripts/brand-photo-prompts.json. No logos or readable text on the machines: we are an
  * independent service, a brand mark on the hero would read as an official affiliation.
  *
- *   node scripts/gen-brand-photos.mjs --out <dir> [--only id,id] [--n 2]
+ *   node scripts/gen-brand-photos.mjs --out <dir> [--only id,id] [--n 2] [--prompts scripts/place-photo-prompts.json]
  *
  * Key: secrets/gemini-key.txt here, else ../scooter-repair-site/secrets/gemini-key.txt. Never printed.
  */
@@ -18,7 +18,9 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const keyFile = [resolve(ROOT, 'secrets/gemini-key.txt'), resolve(ROOT, '../scooter-repair-site/secrets/gemini-key.txt')].find(existsSync);
 if (!keyFile) throw new Error('no secrets/gemini-key.txt');
 const key = readFileSync(keyFile, 'utf8').trim();
-const map = JSON.parse(readFileSync(resolve(ROOT, 'scripts/brand-photo-prompts.json'), 'utf8'));
+const argv0 = process.argv.slice(2);
+const promptsFile = argv0.includes('--prompts') ? argv0[argv0.indexOf('--prompts') + 1] : 'scripts/brand-photo-prompts.json';
+const map = JSON.parse(readFileSync(resolve(ROOT, promptsFile), 'utf8'));
 
 const argv = process.argv.slice(2);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : undefined);
