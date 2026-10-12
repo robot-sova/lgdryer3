@@ -4,6 +4,7 @@
 // What makes two county pages different is the data (cities, local paragraph, county notes, real
 // calls); the shared blocks below are the same service, described once.
 import Layout from '../layouts/Layout.astro';
+import { existsSync } from 'node:fs';
 import Breadcrumbs from './Breadcrumbs.astro';
 import { COUNTIES, type County } from '../data/counties';
 import { recentCallsInCounty, VISIT_TEXT } from '../data/recentCalls';
@@ -42,9 +43,15 @@ const title = isWasher
   : `Dryer Repair ${county.name}, CA — Gas & Electric Dryers`;
 const h1 = isWasher ? `Washer & Washing Machine Repair in ${county.name}` : `Gas & Electric Dryer Repair in ${county.name}`;
 const description = `${App} repair in ${county.name}: ${county.cities.slice(0, 3).map((c) => c.label).join(', ')} and more. All brands, prices from $150, $69 diagnostic waived. (323) 990-7550.`;
-const hero = isWasher
+const genericHero = isWasher
   ? { img: '/images/hubs/washer-index-hero-neutral.webp', alt: `Front-load washing machine in a laundry room — washer repair in ${county.name}` }
   : { img: '/images/hubs/repairs-index-hero-neutral.webp', alt: `Technician repairing a dryer — dryer repair in ${county.name}` };
+// Own local photo when there is one (public/images/places/<appliance>-<county>[-<city>].webp,
+// scripts/gen-brand-photos.mjs --prompts scripts/place-photo-prompts.json).
+const placeImg = `/images/places/${`${app}-${county.slug}`}.webp`;
+const hero = existsSync(`public${placeImg}`)
+  ? { img: placeImg, alt: `Technician repairing a ${isWasher ? 'washing machine' : 'dryer'} in a home in ${county.name}` }
+  : genericHero;
 
 const ld = {
   '@context': 'https://schema.org',
@@ -65,7 +72,7 @@ const ld = {
   ],
 };
 ---
-<Layout title={title} description={description} hubHeroImg={hero.img} hubHeroAlt={hero.alt}>
+<Layout title={title} description={description} hubHeroImg={hero.img} ogImage={hero.img} hubHeroAlt={hero.alt}>
   <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Service Areas', href: '/service-area/' }, { label: `${App} repair — ${county.name}` }]} />
   <div class="maintext county-page">
     <h1>{h1}</h1>

@@ -2,6 +2,7 @@
 // One city × one appliance: /washer-repair/<county>/<city>/ and /dryer-repair/<county>/<city>/.
 // Data and its rules: src/data/cities.ts. Shared service facts (prices, brands, FAQ): src/data/service.ts.
 import Layout from '../layouts/Layout.astro';
+import { existsSync } from 'node:fs';
 import Breadcrumbs from './Breadcrumbs.astro';
 import CallbackForm from './CallbackForm.astro';
 import { brandHref } from '../data/brands';
@@ -44,9 +45,15 @@ const title = isWasher
   : `Dryer Repair ${page.city}, CA — Gas & Electric Dryers | $69`;
 const h1 = isWasher ? `Washer & Washing Machine Repair in ${page.city}, CA` : `Dryer Repair in ${page.city}, CA — Gas & Electric`;
 const description = `${App} repair in ${page.city}: same-day, no trip fee, every brand, 90-day warranty. $69 diagnostic waived with repair. Call (323) 990-7550.`;
-const hero = isWasher
+const genericHero = isWasher
   ? { img: '/images/hubs/washer-index-hero-neutral.webp', alt: `Front-load washing machine — washer repair in ${page.city}, CA` }
   : { img: '/images/hubs/repairs-index-hero-neutral.webp', alt: `Technician repairing a dryer — dryer repair in ${page.city}, CA` };
+// Own local photo when there is one (public/images/places/<appliance>-<county>[-<city>].webp,
+// scripts/gen-brand-photos.mjs --prompts scripts/place-photo-prompts.json).
+const placeImg = `/images/places/${`${app}-${county.slug}-${page.slug}`}.webp`;
+const hero = existsSync(`public${placeImg}`)
+  ? { img: placeImg, alt: `Technician repairing a ${isWasher ? 'washing machine' : 'dryer'} in a home in ${`${page.city}, CA`}` }
+  : genericHero;
 
 const ld = {
   '@context': 'https://schema.org',
@@ -67,7 +74,7 @@ const ld = {
   ],
 };
 ---
-<Layout title={title} description={description} hubHeroImg={hero.img} hubHeroAlt={hero.alt}>
+<Layout title={title} description={description} hubHeroImg={hero.img} ogImage={hero.img} hubHeroAlt={hero.alt}>
   <Breadcrumbs slot="breadcrumbs" items={[
     { label: 'Service Areas', href: '/service-area/' },
     { label: county.name, href: `/${app}-repair/${county.slug}/` },
