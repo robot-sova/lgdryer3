@@ -104,6 +104,7 @@ const ld = {
 
     <h2>{brand.name} models we work on</h2>
     <p>{d.lines} {brand.note}</p>
+    {brand.sister && <p>{brand.sister.before}<a href={brand.sister.href}>{brand.sister.anchor}</a>{brand.sister.after}</p>}
 
     <h2>{brand.name} {appliance} repair near you</h2>
     <div class="index-grid">

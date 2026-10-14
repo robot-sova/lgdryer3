@@ -21,13 +21,23 @@ export type BrandAppliance = {
   codes: ErrorCode[]; // the most common ones; the full list lives on the error-code page
   codesPage: boolean; // separate /<brand>-<appliance>-error-codes/ page
 };
-export type Brand = { slug: string; name: string; note: string; washer?: BrandAppliance; dryer?: BrandAppliance };
+// sister: ONE contextual sentence pointing at our own single-brand site for another appliance of
+// this brand. Owner rule: links between our sites live in body text only — never footers or
+// site-wide blocks (risk of Google treating the sites as one network).
+export type Sister = { before: string; anchor: string; href: string; after: string };
+export type Brand = { slug: string; name: string; note: string; sister?: Sister; washer?: BrandAppliance; dryer?: BrandAppliance };
 
 export const BRANDS_DATA: Brand[] = [
   {
     slug: 'samsung',
     name: 'Samsung',
     note: 'Samsung sells front-load and top-load washers and electric and gas dryers, including stacked and FlexWash/FlexDry models.',
+    sister: {
+      before: 'Samsung refrigerator acting up too? Our sister service ',
+      anchor: 'Samsung Refrigerator Repair',
+      href: 'https://samsungrefrigerator.repair/',
+      after: ' handles iced-over freezers, frozen ice makers and 84C and 22E errors in the same seven counties.',
+    },
     washer: {
       intro:
         'Samsung washers tell you a lot through the display: most calls start with a code — 4C, 5C, UB or dC. The fixes are often simpler than the code suggests (a clogged filter, a kinked hose, an unbalanced load), and when a part has failed it is usually the drain pump, the door lock or, on top-loaders, the suspension rods.',
